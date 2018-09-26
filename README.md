@@ -6,3 +6,6 @@ Activity tracker for Comp 2005.
 * Jacob House
 * Nabil Miri
 * Dongliang Xie
+
+### Github link
+https://github.com/htmlboss/comp2005-activity-tracker.git
