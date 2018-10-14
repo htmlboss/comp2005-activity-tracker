@@ -1,42 +1,74 @@
 package com.activitytracker;
 
-import mdlaf.*;
 import mdlaf.animation.*;
 import mdlaf.utils.MaterialColors;
 
 import javax.swing.*;
-import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class MainWindow {
+class MainWindow {
     private JPanel m_rootPanel;
-    private JButton button1;
-    private JProgressBar progressBar1;
-    private JTabbedPane tabbedPane1;
-
+    private JPanel topPanel;
+    private JButton buttonMyActivity;
+    private JButton buttonAddDevice;
+    private JButton buttonMyFriends;
+    private JToolBar toolBar;
+    private JPanel contentPanel;
+    private JLabel toolBarLabel;
+    private JLabel labelProfileIcon;
+    private JPanel panelMyActivity;
+    private JPanel panelAddDevice;
+    private JPanel panelMyFriends;
+    private JCheckBox checkBox1;
+    private JRadioButton radioButton1;
 
     public MainWindow() {
-
-        MaterialUIMovement.add(button1, MaterialColors.GRAY_100);
+        setupUI();
+        setupActionListeners();
     }
 
-    public static void main(final String[] args) {
-        try {
-            UIManager.setLookAndFeel(new MaterialLookAndFeel ());
-        }
-        catch (UnsupportedLookAndFeelException e) {
-            e.printStackTrace ();
-        }
+    private void setupUI() {
 
-        // Get desktop resolution of default monitor (in case of multi-monitor setups)
-        final GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
-
-        final JFrame frame = new JFrame("Activity Tracker");
-        frame.setContentPane(new MainWindow().m_rootPanel);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        // Set window size to be 1/2 of screen dimensions
-        frame.setSize(gd.getDisplayMode().getWidth() / 2, gd.getDisplayMode().getHeight() / 2);
-        frame.setLocationRelativeTo(null); // Center window
-        frame.setVisible(true);
+        // Apply Material-defined hover effect to buttons
+        MaterialUIMovement.add(buttonMyActivity, MaterialColors.GRAY_100);
+        MaterialUIMovement.add(buttonAddDevice, MaterialColors.GRAY_100);
+        MaterialUIMovement.add(buttonMyFriends, MaterialColors.GRAY_100);
     }
+
+    private void setupActionListeners() {
+        // My Activity button
+        buttonMyActivity.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                panelMyActivity.setVisible(true);
+                panelAddDevice.setVisible(false);
+                panelMyFriends.setVisible(false);
+            }
+        });
+        // Add Device button
+        buttonAddDevice.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                panelMyActivity.setVisible(false);
+                panelAddDevice.setVisible(true);
+                panelMyFriends.setVisible(false);
+            }
+        });
+        // My Friends button
+        buttonMyFriends.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                panelMyActivity.setVisible(false);
+                panelAddDevice.setVisible(false);
+                panelMyFriends.setVisible(true);
+            }
+        });
+    }
+
+    public JPanel rootPanel() {
+        return m_rootPanel;
+    }
+
+
 }
