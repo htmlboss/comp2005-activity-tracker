@@ -20,8 +20,9 @@ class MainWindow {
     private JPanel panelMyActivity;
     private JPanel panelAddDevice;
     private JPanel panelMyFriends;
-    private JCheckBox checkBox1;
-    private JRadioButton radioButton1;
+    private JScrollPane scrollPaneMyFriends;
+    private JTable tableAvailableDevices;
+    private JTable tableMyActivity;
 
     public MainWindow() {
         setupUI();
@@ -34,6 +35,10 @@ class MainWindow {
         MaterialUIMovement.add(buttonMyActivity, MaterialColors.GRAY_100);
         MaterialUIMovement.add(buttonAddDevice, MaterialColors.GRAY_100);
         MaterialUIMovement.add(buttonMyFriends, MaterialColors.GRAY_100);
+
+        panelMyActivity.setVisible(true);
+        panelAddDevice.setVisible(false);
+        panelMyFriends.setVisible(false);
     }
 
     private void setupActionListeners() {
