@@ -24,7 +24,7 @@ class MainWindow {
     private JTable tableAvailableDevices;
     private JTable tableMyActivity;
 
-    public MainWindow() {
+    MainWindow() {
         setupUI();
         setupActionListeners();
     }
