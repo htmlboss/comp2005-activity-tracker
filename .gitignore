@@ -28,3 +28,10 @@ hs_err_pid*
 
 # PostScript files
 *.ps
+
+# TeX Junk
+*.aux
+*.syntex.gz
+*.gz
+*.dvi
+*.log
