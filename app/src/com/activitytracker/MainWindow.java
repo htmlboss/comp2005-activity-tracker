@@ -6,6 +6,7 @@ import mdlaf.utils.MaterialColors;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.Image;
 
 class MainWindow {
     private JPanel m_rootPanel;
@@ -35,6 +36,11 @@ class MainWindow {
         MaterialUIMovement.add(buttonMyActivity, MaterialColors.GRAY_100);
         MaterialUIMovement.add(buttonAddDevice, MaterialColors.GRAY_100);
         MaterialUIMovement.add(buttonMyFriends, MaterialColors.GRAY_100);
+
+
+//        ImageIcon imageIcon = new ImageIcon(new ImageIcon("./assets/logo.png").getImage().getScaledInstance(20, 20, Image.SCALE_DEFAULT));
+//        labelProfileIcon.setIcon(imageIcon);
+        labelProfileIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("./assets/logo.png")));
 
         panelMyActivity.setVisible(true);
         panelAddDevice.setVisible(false);
