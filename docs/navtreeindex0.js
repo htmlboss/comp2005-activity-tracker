@@ -1,0 +1,21 @@
+var NAVTREEINDEX0 =
+{
+"_activity_tracker_8java.html":[1,0,0],
+"_activity_tracker_8java_source.html":[1,0,0],
+"_d_b_manager_8java.html":[1,0,1],
+"_d_b_manager_8java_source.html":[1,0,1],
+"_device_8java.html":[1,0,2],
+"_device_8java_source.html":[1,0,2],
+"_main_window_8java.html":[1,0,3],
+"_main_window_8java_source.html":[1,0,3],
+"_user_8java.html":[1,0,4],
+"_user_8java_source.html":[1,0,4],
+"_workout_8java.html":[1,0,5],
+"_workout_8java_source.html":[1,0,5],
+"files.html":[1,0],
+"index.html":[],
+"namespacecom.html":[0,0,0],
+"namespacecom_1_1activitytracker.html":[0,0,0,0],
+"namespaces.html":[0,0],
+"pages.html":[]
+};
