@@ -21,12 +21,17 @@ class ActivityTracker {
         // Get desktop resolution of default monitor (in case of multi-monitor setups)
         final GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
 
-        final JFrame frame = new JFrame("Activity Tracker");
+        final JFrame frame = new JFrame("Activity Logger");
+
+        String logoPath = "./assets/logo.png";
+        ImageIcon imgIcon = new ImageIcon(logoPath);
+        frame.setIconImage(imgIcon.getImage());
+
         frame.setContentPane(new MainWindow().rootPanel());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
-        // Set window size to be 1/2 of screen dimensions
-        frame.setSize(gd.getDisplayMode().getWidth() / 2, gd.getDisplayMode().getHeight() / 2);
+        // Set window size to be 2/3 of screen dimensions
+        frame.setSize(gd.getDisplayMode().getWidth() * 2/3, gd.getDisplayMode().getHeight() * 2/3);
         frame.setLocationRelativeTo(null); // Center window
         frame.setVisible(true);
     }
