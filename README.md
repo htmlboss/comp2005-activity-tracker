@@ -12,6 +12,9 @@
 ### Github link
 https://github.com/htmlboss/comp2005-activity-tracker
 
+### Documentation link
+https://htmlboss.github.io/comp2005-activity-tracker
+
 ### Third-Party Libraries
 * [material-ui-swing](https://github.com/atarw/material-ui-swing)
 * [JFreeChart](http://www.jfree.org/jfreechart/)
