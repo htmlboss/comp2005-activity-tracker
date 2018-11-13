@@ -4,6 +4,7 @@ import mdlaf.animation.*;
 import mdlaf.utils.MaterialColors;
 
 import javax.swing.*;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -35,6 +36,13 @@ class MainWindow {
         MaterialUIMovement.add(buttonMyActivity, MaterialColors.GRAY_100);
         MaterialUIMovement.add(buttonAddDevice, MaterialColors.GRAY_100);
         MaterialUIMovement.add(buttonMyFriends, MaterialColors.GRAY_100);
+
+        // Load and scale logo into UI
+        ImageIcon imageIcon = new ImageIcon(getClass().getResource("./assets/logo.png"));
+        final Image image = imageIcon.getImage(); // transform it
+        final Image newimg = image.getScaledInstance(100, 100, java.awt.Image.SCALE_SMOOTH);
+        imageIcon = new ImageIcon(newimg);  // transform it back
+        labelProfileIcon.setIcon(imageIcon);
 
         panelMyActivity.setVisible(true);
         panelAddDevice.setVisible(false);
