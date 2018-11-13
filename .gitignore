@@ -35,3 +35,6 @@ hs_err_pid*
 *.gz
 *.dvi
 *.log
+
+# IntelliJ files
+app/\.idea/
