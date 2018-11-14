@@ -11,6 +11,13 @@ class ActivityTracker {
 
     // Program entry point
     public static void main(final String[] args) {
+
+        DBManager dbManager = new DBManager();
+        if (!dbManager.init("data.db")) {
+            System.err.println("Failed to initialize DBManager");
+            System.exit(1);
+        }
+
         // Set Look and Feel
         try {
             UIManager.setLookAndFeel(new MaterialLookAndFeel());

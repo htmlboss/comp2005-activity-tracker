@@ -2,17 +2,15 @@ package com.activitytracker;
 
 import java.sql.*;
 
-import java.io.File;
-
 class DBManager {
-    private Connection conn = null;
+    private Connection m_conn = null;
 
     DBManager() {
     }
 
     private boolean executeUpdate(final String sqlQuery) {
         try {
-            Statement stmt = conn.createStatement();
+            Statement stmt = m_conn.createStatement();
             stmt.executeUpdate(sqlQuery);
             stmt.close();
         }
@@ -24,11 +22,30 @@ class DBManager {
         return true;
     }
 
+    // Counts the number of tables in the open database.
+    // If the table count == 0 the database is considered
+    // empty.
+    private boolean isEmpty() {
+
+        try {
+            final DatabaseMetaData dbmd = m_conn.getMetaData();
+            final String[] types = {"TABLE"};
+            final ResultSet rs = dbmd.getTables(null, null, "%", types);
+
+            return !rs.next();
+        }
+        catch(final SQLException e) {
+            System.err.println(e.getMessage());
+            return true;
+        }
+
+    }
+
     // Initialize connection to an sqlite database.
     // Returns true if successful, false otherwise.
     boolean init(final String dbURL) {
         try {
-            conn = DriverManager.getConnection("jdbc:sqlite:" + dbURL);
+            m_conn = DriverManager.getConnection("jdbc:sqlite:" + dbURL);
         }
         catch (final SQLException e) {
             System.err.println(e.getMessage());
@@ -36,10 +53,9 @@ class DBManager {
         }
         System.out.println("Opened database successfully.");
 
-        // Check if database file exists on disk.
-        // If not, create tables in memory.
-        final boolean dbFileExists = new File(dbURL).isFile();
-        if (!dbFileExists) {
+        if (isEmpty()) {
+            System.out.println("Creating tables...");
+
             // Create users table
             String sqlQuery = "CREATE TABLE USERS (" +
                     "    id            INTEGER PRIMARY KEY ASC AUTOINCREMENT NOT NULL," +
