@@ -1,15 +1,18 @@
 package com.activitytracker;
 
 import java.util.Date;
-import java.util.Vector;
+
+enum Sex {
+    MALE,
+    FEMALE
+}
 
 class User {
     private long ID = 0;
     String name;
-    Vector<User> friends;
-    Vector<Long> pendingFriends;
-    Vector<Device> devices;
-    Vector<Workout> workouts;
-    long weight, height;
+    String emailAddress;
     Date dateOfBirth;
+    Sex sex;
+    float height = 0.0f;
+    float weight = 0.0f;
 }
