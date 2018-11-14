@@ -23,8 +23,8 @@ class ActivityTracker {
 
         final JFrame frame = new JFrame("Activity Logger");
 
-        String logoPath = "./assets/logo.png";
-        ImageIcon imgIcon = new ImageIcon(logoPath);
+        final String logoPath = "./assets/logo.png";
+        ImageIcon imgIcon = new ImageIcon(ActivityTracker.class.getResource(logoPath));
         frame.setIconImage(imgIcon.getImage());
 
         frame.setContentPane(new MainWindow().rootPanel());
