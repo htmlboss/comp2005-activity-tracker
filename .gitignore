@@ -12,6 +12,9 @@
 
 app/out/*
 
+# Database files
+*.db
+
 # Package Files #
 *.war
 *.nar
