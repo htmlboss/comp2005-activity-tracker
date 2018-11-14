@@ -8,6 +8,21 @@ class DBManager {
     DBManager() {
     }
 
+    private ResultSet executeQuery(final String sqlQuery) {
+        ResultSet res = null;
+
+        try {
+            Statement stmt = m_conn.createStatement();
+            res = stmt.executeQuery(sqlQuery);
+            stmt.close();
+        }
+        catch(final SQLException e) {
+            System.err.println(e.getMessage());
+        }
+
+        return res;
+    }
+
     private boolean executeUpdate(final String sqlQuery) {
         try {
             Statement stmt = m_conn.createStatement();
