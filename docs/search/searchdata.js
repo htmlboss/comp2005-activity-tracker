@@ -1,21 +1,30 @@
 var indexSectionsWithContent =
 {
-  0: "acdmuw",
-  1: "c",
-  2: "admuw"
+  0: "acdefghimnpstuw",
+  1: "su",
+  2: "c",
+  3: "admsuw",
+  4: "gt",
+  5: "defhimnpsw"
 };
 
 var indexSectionNames =
 {
   0: "all",
-  1: "namespaces",
-  2: "files"
+  1: "classes",
+  2: "namespaces",
+  3: "files",
+  4: "functions",
+  5: "variables"
 };
 
 var indexSectionLabels =
 {
   0: "All",
-  1: "Namespaces",
-  2: "Files"
+  1: "Classes",
+  2: "Namespaces",
+  3: "Files",
+  4: "Functions",
+  5: "Variables"
 };
 
