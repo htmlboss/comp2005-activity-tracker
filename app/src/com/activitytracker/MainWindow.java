@@ -79,7 +79,7 @@ class MainWindow {
         });
     }
 
-    public JPanel rootPanel() {
+    JPanel rootPanel() {
         return m_rootPanel;
     }
 

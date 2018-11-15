@@ -29,7 +29,9 @@ class ActivityTracker {
         final GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
 
         final JFrame frame = new JFrame("Activity Tracker");
-        frame.setContentPane(new MainWindow().rootPanel());
+        frame.setContentPane(new LoginWindow((Void) -> {
+            return;
+        }).rootPanel());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         // Set window size to be 1/2 of screen dimensions
