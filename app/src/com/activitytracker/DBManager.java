@@ -1,7 +1,10 @@
 package com.activitytracker;
 
 import java.sql.*;
-import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.ZonedDateTime;
+import java.util.Calendar;
 
 class DBManager {
     private Connection m_conn = null;
@@ -11,7 +14,7 @@ class DBManager {
 
     // Adds rows to Users table and Passwords table with the new user's attributes
     // If the user exists in the database, raises an exception
-    public void createUser(final String name, final String emailAddress, final Date dateOfBirth,
+    public void createUser(final String name, final String emailAddress, final int DOBYear, final int DOBMonth, final int DOBDay,
                            final User.Sex sex, final float height, final float weight, final SecureString securePassword) {
 
         if (!userExists(emailAddress)) {
@@ -21,23 +24,26 @@ class DBManager {
                     "date_of_birth, " +
                     "sex, " +
                     "height, " +
-                    "weight" +
-                    "password_hash" +
+                    "weight," +
+                    "password_hash," +
                     "created_at" +
                     ") VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
             byte sexByte = sex.equals(User.Sex.MALE) ? (byte) 1 : (byte) 0;
-            Date currentTime = new Date();
+            java.sql.Date currentTime = new java.sql.Date(System.currentTimeMillis());
+            Calendar c = Calendar.getInstance();
+            c.set(DOBYear, DOBMonth, DOBDay);
+            java.sql.Date dateOfBirth = new java.sql.Date(c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH));
 
             try {
                 PreparedStatement stmt = m_conn.prepareStatement(sqlQuery);
                 stmt.setString(1, emailAddress);
                 stmt.setString(2, name);
-                stmt.setDate(3, (java.sql.Date) dateOfBirth);
+                stmt.setDate(3, dateOfBirth);
                 stmt.setByte(4, sexByte);
                 stmt.setFloat(5, height);
                 stmt.setFloat(6, weight);
                 stmt.setString(7, securePassword.toString());
-                stmt.setDate(8, (java.sql.Date) currentTime);
+                stmt.setDate(8, currentTime);
 
                 if (stmt.executeUpdate() != 1) {
                     System.err.println("User not added to database.");
@@ -66,8 +72,8 @@ class DBManager {
             PreparedStatement stmt = m_conn.prepareStatement(sqlQuery);
             stmt.setString(1, emailAddress);
             ResultSet res = stmt.executeQuery();
-            stmt.close();
             exists = res.getInt("count") > 0;
+            stmt.close();
         }
         catch (final SQLException e) {
             System.err.println(e.getMessage());

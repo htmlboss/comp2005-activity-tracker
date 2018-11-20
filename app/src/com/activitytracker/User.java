@@ -1,5 +1,7 @@
 package com.activitytracker;
 
+import org.sqlite.core.DB;
+
 import javax.naming.AuthenticationException;
 import javax.xml.transform.Result;
 import java.util.Date;
@@ -19,9 +21,11 @@ class User {
     private Sex sex;
     private float height;
     private float weight;
-    private DBManager dbManager = new DBManager();
+    private DBManager dbManager = null;
 
-    User(final String emailAddress, final String plaintextPassword) throws AuthenticationException{
+    User(final DBManager dbManager, final String emailAddress, final String plaintextPassword) throws AuthenticationException{
+
+        this.dbManager = dbManager;
 
         if (this.dbManager.userExists(emailAddress)) {
             this.id = (int) dbManager.getUserAttribute(UserAttribute.ID, emailAddress);
@@ -44,30 +48,23 @@ class User {
 
     }
 
-    public User createUser(final String name, final String emailAddress, final Date dateOfBirth,
-                           final User.Sex sex, final float height, final float weight, final String plaintextPassword) {
+    public static void createUser(final DBManager dbManager, final String name, final String emailAddress, final int DOBYear,
+                                  final int DOBMonth, final int DOBDay, final User.Sex sex, final float height,
+                                  final float weight, final String plaintextPassword) {
 
         SecureString securePassword = new SecureString(plaintextPassword);
 
-        this.dbManager.createUser(
+        dbManager.createUser(
                 name,
                 emailAddress,
-                dateOfBirth,
+                DOBYear,
+                DOBMonth,
+                DOBDay,
                 sex,
                 height,
                 weight,
                 securePassword
         );
-
-        try {
-            return new User(emailAddress, plaintextPassword);
-        }
-        catch (final AuthenticationException e) {
-            System.err.print(e.getMessage());
-            System.err.print("Returned null User.");
-            return null;
-        }
-
 
     }
 
