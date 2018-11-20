@@ -30,7 +30,9 @@ class ActivityTracker {
 
         final JFrame frame = new JFrame("Activity Tracker");
         frame.setContentPane(new LoginWindow((Void) -> {
-            return;
+            frame.setContentPane(new MainWindow().rootPanel());
+            frame.validate();
+            frame.repaint();
         }).rootPanel());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
