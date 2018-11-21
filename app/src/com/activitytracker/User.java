@@ -26,28 +26,25 @@ class User {
     User(final DBManager dbManager, final String emailAddress, final String plaintextPassword) throws AuthenticationException{
 
         this.dbManager = dbManager;
-
         if (this.dbManager.userExists(emailAddress)) {
 
             this.id = dbManager.getUserIDByEmail(emailAddress);
 
-            System.out.println("User ID: " + Integer.toString(this.id));
+            String passHash = this.dbManager.getUserPassHash(this.id);
+            byte[] passSalt = this.dbManager.getUserPassSalt(this.id);
 
-            String passHash = (String) this.dbManager.getUserAttribute(UserAttribute.PASSWORD, this.id);
-
-            System.out.println("Existing PassHash: " + passHash);
-
-            SecureString candidatePassword = new SecureString(plaintextPassword);
-            System.out.println("New Passhash:      " + candidatePassword.toString());
+            SecureString candidatePassword = new SecureString(plaintextPassword, passSalt);
 
             if (candidatePassword.equalString(passHash)) {
 
-                this.name = (String) dbManager.getUserAttribute(UserAttribute.NAME, this.id);
-                this.emailAddress = (String) dbManager.getUserAttribute(UserAttribute.EMAIL_ADDRESS, this.id);
-                this.dateOfBirth = (Date) dbManager.getUserAttribute(UserAttribute.DATE_OF_BIRTH, this.id);
-                this.sex = (User.Sex) dbManager.getUserAttribute(UserAttribute.SEX, this.id);
-                this.height = (float) dbManager.getUserAttribute(UserAttribute.HEIGHT, this.id);
-                this.weight = (float) dbManager.getUserAttribute(UserAttribute.WEIGHT, this.id);
+                this.name = this.dbManager.getUserName(this.id);
+                this.emailAddress = this.dbManager.getEmailAddress(this.id);
+                this.dateOfBirth = this.dbManager.getDateOfBirth(this.id);
+                this.sex = this.dbManager.getUserSex(this.id);
+                this.height = this.dbManager.getUserHeight(this.id);
+                this.weight = this.dbManager.getUserWeight(this.id);
+
+                System.out.println("Authentication succeeded for " + this.name);
 
             }
             else {
@@ -69,6 +66,7 @@ class User {
                                   final float weight, final String plaintextPassword) {
 
         SecureString securePassword = new SecureString(plaintextPassword);
+
 
         dbManager.createUser(
                 name,

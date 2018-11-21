@@ -1,5 +1,6 @@
 package com.activitytracker;
 
+import javax.xml.transform.Result;
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
@@ -26,8 +27,9 @@ class DBManager {
                     "height, " +
                     "weight," +
                     "password_hash," +
+                    "password_salt," +
                     "created_at" +
-                    ") VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+                    ") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
             byte sexByte = sex.equals(User.Sex.MALE) ? (byte) 1 : (byte) 0;
             java.sql.Date currentTime = new java.sql.Date(System.currentTimeMillis());
             Calendar c = Calendar.getInstance();
@@ -43,25 +45,22 @@ class DBManager {
                 stmt.setFloat(5, height);
                 stmt.setFloat(6, weight);
                 stmt.setString(7, securePassword.toString());
-                stmt.setDate(8, currentTime);
+                stmt.setBytes(8, securePassword.getSalt());
+                stmt.setDate(9, currentTime);
 
                 if (stmt.executeUpdate() != 1) {
                     System.err.println("User not added to database.");
                 }
 
                 stmt.close();
-
             }
             catch (final SQLException e) {
                 System.err.println(e.getMessage());
             }
-
-
         }
         else {
             throw new AssertionError("User with email address '" + emailAddress + "' already exists.");
         }
-
     }
 
     public  boolean userExists(final String emailAddress) {
@@ -73,6 +72,7 @@ class DBManager {
             stmt.setString(1, emailAddress);
             ResultSet res = stmt.executeQuery();
             exists = res.getInt("count") > 0;
+
             stmt.close();
         }
         catch (final SQLException e) {
@@ -80,108 +80,181 @@ class DBManager {
         }
 
         return exists;
-
     }
 
-    // Overloaded version of below data extraction method
-    // Necessary because we will get things corresponding to an ID but the user
-    // logs in with an email address, not their ID initially
-    public Integer getUserIDByEmail(final String emailAddress) {
-        int id;
+    public int getUserIDByEmail(final String emailAddress) {
+        int id = 0;
         ResultSet res;
         try {
             PreparedStatement stmt = m_conn.prepareStatement("SELECT id FROM Users WHERE `email_address`=?");
             stmt.setString(1, emailAddress);
             res =  stmt.executeQuery();
             id = res.getInt("id");
+
             stmt.close();
         }
         catch (final SQLException e) {
             System.err.println(e.getMessage());
-            return null;
         }
 
         return id;
     }
 
-    // Return a user's attribute given the user ID
-    public Object getUserAttribute(final UserAttribute attribute, final int id) {
+    public String getUserPassHash(final int id) {
+        String passHash;
         ResultSet res;
-        PreparedStatement stmt;
-        String sqlQuery;
-
-        switch (attribute) {
-            case ID:
-                return id;
-            case NAME:
-                sqlQuery = "SELECT name FROM Users WHERE id=?";
-                break;
-            case SEX:
-                sqlQuery = "SELECT sex FROM Users WHERE id=?";
-                break;
-            case HEIGHT:
-                sqlQuery = "SELECT height FROM Users WHERE id=?";
-                break;
-            case WEIGHT:
-                sqlQuery = "SELECT weight FROM Users WHERE id=?";
-                break;
-            case DATE_OF_BIRTH:
-                sqlQuery = "SELECT date_of_birth FROM Users WHERE id=?";
-                break;
-            case EMAIL_ADDRESS:
-                sqlQuery = "SELECT email_address FROM Users WHERE id=?";
-                break;
-            case PASSWORD:
-                sqlQuery = "SELECT password_hash FROM Users WHERE id=?";
-                break;
-            default:
-                return null;
-        }
-
         try {
-            stmt = m_conn.prepareStatement(sqlQuery);
+            PreparedStatement stmt = m_conn.prepareStatement("SELECT password_hash FROM Users WHERE id=?");
             stmt.setInt(1, id);
             res = stmt.executeQuery();
-
-            Object attr = null;
-
-            switch (attribute) {
-                case NAME:
-                    attr = res.getString("name");
-                    break;
-                case SEX:
-                    if (res.getByte("sex") == (byte) 1)
-                        attr = User.Sex.MALE;
-                    else
-                        attr = User.Sex.FEMALE;
-                    break;
-                case HEIGHT:
-                    attr = res.getFloat("height");
-                    break;
-                case WEIGHT:
-                    attr = res.getFloat("weight");
-                    break;
-                case DATE_OF_BIRTH:
-                    attr = res.getDate("date_of_birth");
-                    break;
-                case EMAIL_ADDRESS:
-                    attr = res.getString("email_address");
-                    break;
-                case PASSWORD:
-                    attr = res.getString("password_hash");
-                    break;
-            }
+            passHash = res.getString("password_hash");
 
             stmt.close();
-            return attr;
-
         }
         catch (final SQLException e) {
             System.err.println(e.getMessage());
             return null;
         }
 
+        return passHash;
     }
+
+    public byte[] getUserPassSalt(final int id) {
+        byte[] passSalt;
+        ResultSet res;
+        try {
+            PreparedStatement stmt = m_conn.prepareStatement("SELECT password_salt FROM Users WHERE id=?");
+            stmt.setInt(1, id);
+            res = stmt.executeQuery();
+            passSalt = res.getBytes("password_salt");
+            stmt.close();
+        }
+        catch (final SQLException e) {
+            System.err.println(e.getMessage());
+            return null;
+        }
+        return passSalt;
+    }
+
+    public String getUserName(final int id) {
+        String name;
+        ResultSet res;
+        try {
+            PreparedStatement stmt = m_conn.prepareStatement("SELECT name FROM Users WHERE id=?");
+            stmt.setInt(1, id);
+            res = stmt.executeQuery();
+            name = res.getString("name");
+
+            stmt.close();
+        }
+        catch (final SQLException e) {
+            System.err.println(e.getMessage());
+            return null;
+        }
+
+        return name;
+    }
+
+    public String getEmailAddress(final int id) {
+        String email_address;
+        ResultSet res;
+        try {
+            PreparedStatement stmt = m_conn.prepareStatement("SELECT email_address FROM Users WHERE id=?");
+            stmt.setInt(1, id);
+            res = stmt.executeQuery();
+            email_address = res.getString("email_address");
+
+            stmt.close();
+        }
+        catch (final SQLException e) {
+            System.err.println(e.getMessage());
+            return null;
+        }
+
+        return email_address;
+    }
+
+    public Date getDateOfBirth(final int id) {
+        Date DOB;
+        java.sql.Date DOBResult;
+        ResultSet res;
+        try {
+            PreparedStatement stmt = m_conn.prepareStatement("SELECT date_of_birth FROM Users WHERE id=?");
+            stmt.setInt(1, id);
+            res = stmt.executeQuery();
+            DOBResult = res.getDate("date_of_birth");
+
+            stmt.close();
+        }
+        catch (final SQLException e) {
+            System.err.println(e.getMessage());
+            return null;
+        }
+        DOB = new Date(DOBResult.getYear(), DOBResult.getMonth(), DOBResult.getDay());
+
+        return DOB;
+    }
+
+    public User.Sex getUserSex(final int id) {
+        byte sex;
+        ResultSet res;
+        try {
+            PreparedStatement stmt = m_conn.prepareStatement("SELECT sex FROM Users WHERE id=?");
+            stmt.setInt(1, id);
+            res = stmt.executeQuery();
+            sex = res.getByte("sex");
+
+            stmt.close();
+        }
+        catch (final SQLException e) {
+            System.err.println(e.getMessage());
+            return null;
+        }
+
+        if (sex == (byte) 1)
+            return User.Sex.MALE;
+        else
+            return User.Sex.FEMALE;
+    }
+
+    public float getUserHeight(final int id) {
+        float height;
+        ResultSet res;
+        try {
+            PreparedStatement stmt = m_conn.prepareStatement("SELECT height FROM Users WHERE id=?");
+            stmt.setInt(1, id);
+            res = stmt.executeQuery();
+            height = res.getFloat("height");
+
+            stmt.close();
+        }
+        catch (final SQLException e) {
+            System.err.println(e.getMessage());
+            return 0.0f;
+        }
+
+        return height;
+    }
+
+    public float getUserWeight(final int id) {
+        float weight;
+        ResultSet res;
+        try {
+            PreparedStatement stmt = m_conn.prepareStatement("SELECT weight FROM Users WHERE id=?");
+            stmt.setInt(1, id);
+            res = stmt.executeQuery();
+            weight = res.getFloat("weight");
+            stmt.close();
+        }
+        catch (final SQLException e) {
+            System.err.println(e.getMessage());
+            return 0.0f;
+        }
+
+        return weight;
+    }
+
+
 
     // Updates a user's row in the DB
     // Uses UserAttribute enum to specify column in the DB; pass in Object since different cols are different
