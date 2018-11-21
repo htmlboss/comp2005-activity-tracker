@@ -6,7 +6,7 @@ import java.security.SecureRandom;
 
 public class SecureString {
 
-    String secureString;
+    private String secureString;
 
     // Constructor takes plaintext string
     // Encrypts it and stores the encrypted version
@@ -37,7 +37,7 @@ public class SecureString {
     // Due to the importance of securely storing passwords, a "tried and true" method for encrypting passwords
     // found at https://howtodoinjava.com/security/how-to-generate-secure-password-hash-md5-sha-pbkdf2-bcrypt-examples/
     // has been used
-    private static String generateSecureString(String strToSecure) {
+    private String generateSecureString(String strToSecure) {
         String generatedPassword = null;
         try {
             byte[] salt = getSalt();

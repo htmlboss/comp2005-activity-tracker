@@ -48,7 +48,7 @@ public class Iteration1Test {
             john = new User(dbManager,"jdoe@mac.com", "My Very Secure Password");
         }
         catch (final AuthenticationException e) {
-            System.out.println("User could not be authenticated.");
+            System.out.println("Test failed; user could not be authenticated.");
         }
 
         System.out.println("Testing incorrect password...");

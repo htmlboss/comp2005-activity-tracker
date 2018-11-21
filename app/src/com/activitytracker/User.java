@@ -28,22 +28,38 @@ class User {
         this.dbManager = dbManager;
 
         if (this.dbManager.userExists(emailAddress)) {
-            this.id = (int) dbManager.getUserAttribute(UserAttribute.ID, emailAddress);
+
+            this.id = dbManager.getUserIDByEmail(emailAddress);
+
+            System.out.println("User ID: " + Integer.toString(this.id));
+
             String passHash = (String) this.dbManager.getUserAttribute(UserAttribute.PASSWORD, this.id);
-            if (new SecureString(plaintextPassword).equalString(passHash)) {
+
+            System.out.println("Existing PassHash: " + passHash);
+
+            SecureString candidatePassword = new SecureString(plaintextPassword);
+            System.out.println("New Passhash:      " + candidatePassword.toString());
+
+            if (candidatePassword.equalString(passHash)) {
+
                 this.name = (String) dbManager.getUserAttribute(UserAttribute.NAME, this.id);
                 this.emailAddress = (String) dbManager.getUserAttribute(UserAttribute.EMAIL_ADDRESS, this.id);
                 this.dateOfBirth = (Date) dbManager.getUserAttribute(UserAttribute.DATE_OF_BIRTH, this.id);
                 this.sex = (User.Sex) dbManager.getUserAttribute(UserAttribute.SEX, this.id);
                 this.height = (float) dbManager.getUserAttribute(UserAttribute.HEIGHT, this.id);
                 this.weight = (float) dbManager.getUserAttribute(UserAttribute.WEIGHT, this.id);
+
             }
             else {
+
                 throw new AuthenticationException("Incorrect password.");
+
             }
         }
         else {
+
             throw new NoSuchElementException("No such user exists.");
+
         }
 
     }

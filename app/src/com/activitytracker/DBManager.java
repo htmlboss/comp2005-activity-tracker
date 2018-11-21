@@ -86,13 +86,14 @@ class DBManager {
     // Overloaded version of below data extraction method
     // Necessary because we will get things corresponding to an ID but the user
     // logs in with an email address, not their ID initially
-    public Object getUserAttribute(final UserAttribute attribute, final String emailAddress) {
+    public Integer getUserIDByEmail(final String emailAddress) {
         int id;
         ResultSet res;
         try {
             PreparedStatement stmt = m_conn.prepareStatement("SELECT id FROM Users WHERE `email_address`=?");
             stmt.setString(1, emailAddress);
             res =  stmt.executeQuery();
+            id = res.getInt("id");
             stmt.close();
         }
         catch (final SQLException e) {
@@ -100,25 +101,7 @@ class DBManager {
             return null;
         }
 
-        if (res != null) {
-            return null;
-        }
-
-        try {
-            id = res.getInt("id");
-        }
-        catch (final SQLException e) {
-            System.err.println(e.getMessage());
-            return null;
-        }
-
-        if (attribute == UserAttribute.ID) {
-            return id;
-        }
-        else {
-            return getUserAttribute(attribute, id);
-        }
-
+        return id;
     }
 
     // Return a user's attribute given the user ID
@@ -148,6 +131,9 @@ class DBManager {
             case EMAIL_ADDRESS:
                 sqlQuery = "SELECT email_address FROM Users WHERE id=?";
                 break;
+            case PASSWORD:
+                sqlQuery = "SELECT password_hash FROM Users WHERE id=?";
+                break;
             default:
                 return null;
         }
@@ -156,27 +142,38 @@ class DBManager {
             stmt = m_conn.prepareStatement(sqlQuery);
             stmt.setInt(1, id);
             res = stmt.executeQuery();
-            stmt.close();
+
+            Object attr = null;
 
             switch (attribute) {
                 case NAME:
-                    return res.getString("name");
+                    attr = res.getString("name");
+                    break;
                 case SEX:
                     if (res.getByte("sex") == (byte) 1)
-                        return User.Sex.MALE;
+                        attr = User.Sex.MALE;
                     else
-                        return User.Sex.FEMALE;
+                        attr = User.Sex.FEMALE;
+                    break;
                 case HEIGHT:
-                    return res.getFloat("height");
+                    attr = res.getFloat("height");
+                    break;
                 case WEIGHT:
-                    return res.getFloat("weight");
+                    attr = res.getFloat("weight");
+                    break;
                 case DATE_OF_BIRTH:
-                    return res.getDate("date_of_birth");
+                    attr = res.getDate("date_of_birth");
+                    break;
                 case EMAIL_ADDRESS:
-                    return res.getString("email_address");
-                default:
-                    return null;
+                    attr = res.getString("email_address");
+                    break;
+                case PASSWORD:
+                    attr = res.getString("password_hash");
+                    break;
             }
+
+            stmt.close();
+            return attr;
 
         }
         catch (final SQLException e) {
@@ -329,6 +326,7 @@ class DBManager {
                     "    height        REAL    NOT NULL," +
                     "    weight        REAL    NOT NULL," +
                     "    password_hash STRING  NOT NULL," +
+                    "    password_salt BLOB    NOT NULL," +
                     "    created_at    DATE    NOT NULL" +
                     ")";
             if (!executeUpdate(sqlQuery)) {
