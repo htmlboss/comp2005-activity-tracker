@@ -15,6 +15,20 @@ class DBManager {
 
     // Adds rows to Users table and Passwords table with the new user's attributes
     // If the user exists in the database, raises an exception
+
+    /**
+     * Adds a row for a user to the Users table in the SQLite database for the app.
+     *
+     * @param name - User's name
+     * @param emailAddress - User's email address; used to authenticate
+     * @param DOBYear - The year the user was born
+     * @param DOBMonth - The month the user was born
+     * @param DOBDay - The day of month the user was born
+     * @param sex - User.Sex.MALE or User.Sex.FEMALE
+     * @param height - Floating point number of the user's height in metres
+     * @param weight - Floating point number of the user's weight in kilograms
+     * @param securePassword - A SecureString object containing the user's password, encrypted
+     */
     public void createUser(final String name, final String emailAddress, final int DOBYear, final int DOBMonth, final int DOBDay,
                            final User.Sex sex, final float height, final float weight, final SecureString securePassword) {
 
