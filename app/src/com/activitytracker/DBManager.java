@@ -7,17 +7,39 @@ import java.time.Instant;
 import java.time.ZonedDateTime;
 import java.util.Calendar;
 
+/**
+ * Singleton class for the database. All classes and methods that interact with the database will use a
+ * method in this class.
+ *
+ * Many times we are faced with the "chicken and egg" problem where we wish to create an object that is
+ * populated with information from the database. So the question one faces is, "does the object's constructor
+ * query the database (through the DBManager class, of course) for each attribute of the object that it
+ * wishes to retrieve, or do we directly interact with a DBManager method which will then return a User or
+ * Workout object, for example. We have decided to use the former methodology, with DBManager methods being as
+ * general as possible, and often accepting enum types which then are put into a switch to create the
+ * specific SQL query we wish to execute. This works best when all data returned is of the same data type
+ * (for example, the Workout class will have three float attributes at the time of writing so we use one method
+ * with return type of float for returning Workout attributes). This does not work as well when the object
+ * requires data of multiple types --- for example, the User class. In this case, we have split the DBManager
+ * methods into a single method for each attribute being returned.
+ *
+ * Polymorphism could theoretically be used here to simply have a return type of Object, however this is not
+ * flexible and requires casting ALL returned data to the correct type in the invoking method.
+ */
 class DBManager {
     private Connection m_conn = null;
 
+    /**
+     * Test doc
+     */
     DBManager() {
     }
 
-    // Adds rows to Users table and Passwords table with the new user's attributes
-    // If the user exists in the database, raises an exception
-
     /**
      * Adds a row for a user to the Users table in the SQLite database for the app.
+     *
+     * Requires that the database tables exist and are in the correct format.
+     * If the user exists in the database, raises an exception.
      *
      * @param name - User's name
      * @param emailAddress - User's email address; used to authenticate
@@ -29,8 +51,9 @@ class DBManager {
      * @param weight - Floating point number of the user's weight in kilograms
      * @param securePassword - A SecureString object containing the user's password, encrypted
      */
-    public void createUser(final String name, final String emailAddress, final int DOBYear, final int DOBMonth, final int DOBDay,
-                           final User.Sex sex, final float height, final float weight, final SecureString securePassword) {
+    public void createUser(final String name, final String emailAddress, final int DOBYear,
+                           final int DOBMonth, final int DOBDay, final User.Sex sex, final float height,
+                           final float weight, final SecureString securePassword) {
 
         if (!userExists(emailAddress)) {
             String sqlQuery = "INSERT INTO Users (" +
@@ -48,7 +71,11 @@ class DBManager {
             java.sql.Date currentTime = new java.sql.Date(System.currentTimeMillis());
             Calendar c = Calendar.getInstance();
             c.set(DOBYear, DOBMonth, DOBDay);
-            java.sql.Date dateOfBirth = new java.sql.Date(c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH));
+            java.sql.Date dateOfBirth = new java.sql.Date(
+                    c.get(Calendar.YEAR),
+                    c.get(Calendar.MONTH),
+                    c.get(Calendar.DAY_OF_MONTH)
+            );
 
             try {
                 PreparedStatement stmt = m_conn.prepareStatement(sqlQuery);
@@ -77,6 +104,13 @@ class DBManager {
         }
     }
 
+    /**
+     *
+     *
+     * @param emailAddress - The user's email address for which we are checking existence.
+     *                     We use email address here because this is what the user uses to log in to the app.
+     * @return True if the user exists in the database, false otherwise.
+     */
     public  boolean userExists(final String emailAddress) {
         String sqlQuery = "SELECT COUNT(*) AS count FROM Users WHERE `email_address`=?";
         boolean exists = false;
@@ -99,8 +133,9 @@ class DBManager {
     public int getUserIDByEmail(final String emailAddress) {
         int id = 0;
         ResultSet res;
+        String sqlQuery = "SELECT id FROM Users WHERE `email_address`=?";
         try {
-            PreparedStatement stmt = m_conn.prepareStatement("SELECT id FROM Users WHERE `email_address`=?");
+            PreparedStatement stmt = m_conn.prepareStatement(sqlQuery);
             stmt.setString(1, emailAddress);
             res =  stmt.executeQuery();
             id = res.getInt("id");
@@ -117,8 +152,9 @@ class DBManager {
     public String getUserPassHash(final int id) {
         String passHash;
         ResultSet res;
+        String sqlQuery = "SELECT password_hash FROM Users WHERE id=?";
         try {
-            PreparedStatement stmt = m_conn.prepareStatement("SELECT password_hash FROM Users WHERE id=?");
+            PreparedStatement stmt = m_conn.prepareStatement(sqlQuery);
             stmt.setInt(1, id);
             res = stmt.executeQuery();
             passHash = res.getString("password_hash");
@@ -136,8 +172,9 @@ class DBManager {
     public byte[] getUserPassSalt(final int id) {
         byte[] passSalt;
         ResultSet res;
+        String sqlQuery = "SELECT password_salt FROM Users WHERE id=?";
         try {
-            PreparedStatement stmt = m_conn.prepareStatement("SELECT password_salt FROM Users WHERE id=?");
+            PreparedStatement stmt = m_conn.prepareStatement(sqlQuery);
             stmt.setInt(1, id);
             res = stmt.executeQuery();
             passSalt = res.getBytes("password_salt");
@@ -153,8 +190,9 @@ class DBManager {
     public String getUserName(final int id) {
         String name;
         ResultSet res;
+        String sqlQuery = "SELECT name FROM Users WHERE id=?";
         try {
-            PreparedStatement stmt = m_conn.prepareStatement("SELECT name FROM Users WHERE id=?");
+            PreparedStatement stmt = m_conn.prepareStatement(sqlQuery);
             stmt.setInt(1, id);
             res = stmt.executeQuery();
             name = res.getString("name");
@@ -172,8 +210,9 @@ class DBManager {
     public String getEmailAddress(final int id) {
         String email_address;
         ResultSet res;
+        String sqlQuery = "SELECT email_address FROM Users WHERE id=?";
         try {
-            PreparedStatement stmt = m_conn.prepareStatement("SELECT email_address FROM Users WHERE id=?");
+            PreparedStatement stmt = m_conn.prepareStatement(sqlQuery);
             stmt.setInt(1, id);
             res = stmt.executeQuery();
             email_address = res.getString("email_address");
@@ -192,8 +231,9 @@ class DBManager {
         Date DOB;
         java.sql.Date DOBResult;
         ResultSet res;
+        String sqlQuery = "SELECT date_of_birth FROM Users WHERE id=?";
         try {
-            PreparedStatement stmt = m_conn.prepareStatement("SELECT date_of_birth FROM Users WHERE id=?");
+            PreparedStatement stmt = m_conn.prepareStatement(sqlQuery);
             stmt.setInt(1, id);
             res = stmt.executeQuery();
             DOBResult = res.getDate("date_of_birth");
@@ -212,8 +252,9 @@ class DBManager {
     public User.Sex getUserSex(final int id) {
         byte sex;
         ResultSet res;
+        String sqlQuery = "SELECT sex FROM Users WHERE id=?";
         try {
-            PreparedStatement stmt = m_conn.prepareStatement("SELECT sex FROM Users WHERE id=?");
+            PreparedStatement stmt = m_conn.prepareStatement(sqlQuery);
             stmt.setInt(1, id);
             res = stmt.executeQuery();
             sex = res.getByte("sex");
@@ -234,8 +275,9 @@ class DBManager {
     public float getUserHeight(final int id) {
         float height;
         ResultSet res;
+        String sqlQuery = "SELECT height FROM Users WHERE id=?";
         try {
-            PreparedStatement stmt = m_conn.prepareStatement("SELECT height FROM Users WHERE id=?");
+            PreparedStatement stmt = m_conn.prepareStatement(sqlQuery);
             stmt.setInt(1, id);
             res = stmt.executeQuery();
             height = res.getFloat("height");
@@ -253,8 +295,9 @@ class DBManager {
     public float getUserWeight(final int id) {
         float weight;
         ResultSet res;
+        String sqlQuery = "SELECT weight FROM Users WHERE id=?";
         try {
-            PreparedStatement stmt = m_conn.prepareStatement("SELECT weight FROM Users WHERE id=?");
+            PreparedStatement stmt = m_conn.prepareStatement(sqlQuery);
             stmt.setInt(1, id);
             res = stmt.executeQuery();
             weight = res.getFloat("weight");
@@ -269,25 +312,27 @@ class DBManager {
     }
 
     public int getUserLastWOID(final int id) {
-        int woid = 0;
+        int woID = 0;
         ResultSet res;
+        String sqlQuery = "SELECT last_workout FROM Users WHERE id=?";
         try {
-            PreparedStatement stmt = m_conn.prepareStatement("SELECT last_workout FROM Users WHERE id=?");
+            PreparedStatement stmt = m_conn.prepareStatement(sqlQuery);
             stmt.setInt(1, id);
             res = stmt.executeQuery();
-            woid = res.getInt("last_workout");
+            woID = res.getInt("last_workout");
             stmt.close();
         }
         catch (final SQLException e) {
             System.err.println(e.getMessage());
         }
 
-        return woid;
+        return woID;
     }
 
     public void setUserLastWOID(final int id, final int lastWOID) {
+        String sqlQuery = "UPDATE Users SET last_workout=? WHERE id=?";
         try {
-            PreparedStatement stmt = m_conn.prepareStatement("UPDATE Users SET last_workout=? WHERE id=?");
+            PreparedStatement stmt = m_conn.prepareStatement(sqlQuery);
             stmt.setInt(1, lastWOID);
             stmt.setInt(2, id);
             if (stmt.executeUpdate() != 1) {
@@ -300,20 +345,27 @@ class DBManager {
     }
 
     // Returns workout ID
-    public int addWorkout(final int userID, final int year, final int month, final int day, final float duration,
-                           final float distance, final float altitude) {
+    public int addWorkout(final int userID, final int year, final int month, final int day,
+                          final float duration, final float distance, final float altitude) {
         java.sql.Date WODate = new java.sql.Date(year, month, day);
         int woID = 0;
         ResultSet res;
+        String sqlInsertQuery = "INSERT INTO Workouts (" +
+                "user_id," +
+                "date," +
+                "duration," +
+                "distance," +
+                "altitude" +
+                ") VALUES (?, ?, ?, ?, ?)";
+        String sqlSelectQuery = "SELECT id FROM Workouts WHERE " +
+                "user_id=? AND " +
+                "date=? AND " +
+                "duration=? AND " +
+                "distance=? AND " +
+                "altitude=?";
 
         try {
-            PreparedStatement stmt = m_conn.prepareStatement("INSERT INTO Workouts (" +
-                    "user_id," +
-                    "date," +
-                    "duration," +
-                    "distance," +
-                    "altitude" +
-                    ") VALUES (?, ?, ?, ?, ?)");
+            PreparedStatement stmt = m_conn.prepareStatement(sqlInsertQuery);
             stmt.setInt(1, userID);
             stmt.setDate(2, WODate);
             stmt.setFloat(3, duration);
@@ -326,12 +378,9 @@ class DBManager {
 
             stmt.close();
 
-            stmt = m_conn.prepareStatement("SELECT id FROM Workouts WHERE " +
-                    "user_id=? AND " +
-                    "date=? AND " +
-                    "duration=? AND " +
-                    "distance=? AND " +
-                    "altitude=?");
+            // Pass back in the stuff we just created to get the right row ID
+            // Look at a better way of doing this with OUTPUT clause of INPUT statement
+            stmt = m_conn.prepareStatement(sqlSelectQuery);
             stmt.setInt(1, userID);
             stmt.setDate(2, WODate);
             stmt.setFloat(3, duration);
@@ -349,12 +398,13 @@ class DBManager {
     }
 
     public void updateWorkout(final int WOID, final float duration, final float distance, final float altitude) {
+        String sqlQuery = "UPDATE Workouts SET " +
+                "duration = ?, " +
+                "distance = ?, " +
+                "altitude=? " +
+                "WHERE id=? ";
         try {
-            PreparedStatement stmt = m_conn.prepareStatement("UPDATE Workouts SET " +
-                    "duration = ?, " +
-                    "distance = ?, " +
-                    "altitude=? " +
-                    "WHERE id=? ");
+            PreparedStatement stmt = m_conn.prepareStatement(sqlQuery);
             stmt.setFloat(1, duration);
             stmt.setFloat(2, distance);
             stmt.setFloat(3, altitude);
@@ -414,30 +464,12 @@ class DBManager {
 
     }
 
-//    public int getWOID(final int userID, final int year, final int month, final int day) {
-//        java.sql.Date date = new java.sql.Date(year, month, day);
-//        ResultSet res;
-//        try {
-//            PreparedStatement stmt = m_conn.prepareStatement("SELECT id FROM Workouts WHERE " +
-//                    "user_id=? AND " +
-//                    "date=? ");
-//            stmt.setInt(1, userID);
-//            stmt.setDate(2, date);
-//            res = stmt.executeQuery();
-//            return res.getInt("id");
-//        }
-//        catch (final SQLException e) {
-//            System.err.println(e.getMessage());
-//            return 0;
-//        }
-//    }
-
-
     public boolean workoutExists(final int WOID) {
         ResultSet res;
+        String sqlQuery = "SELECT COUNT(*) as count FROM Workouts WHERE id=?";
         boolean exists = false;
         try {
-            PreparedStatement stmt = m_conn.prepareStatement("SELECT COUNT(*) as count FROM Workouts WHERE id=?");
+            PreparedStatement stmt = m_conn.prepareStatement(sqlQuery);
             stmt.setInt(1, WOID);
             res = stmt.executeQuery();
             switch (res.getInt("count")) {
@@ -449,7 +481,8 @@ class DBManager {
                     break;
                 default:
                     exists = true;
-                    System.err.println("More than one workout for ID " + Integer.toString(WOID) + ". Something isn't right.");
+                    System.err.println("More than one workout for ID " +
+                            Integer.toString(WOID) + ". Something isn't right.");
                     break;
             }
 

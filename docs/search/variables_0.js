@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['date_5fof_5fbirth',['DATE_OF_BIRTH',['../enumcom_1_1activitytracker_1_1_user_attribute.html#af3b77ceae76c5f1c46e6821dc98940ee',1,'com::activitytracker::UserAttribute']]]
+  ['altitude',['ALTITUDE',['../enumcom_1_1activitytracker_1_1_workout_attribute.html#a34377cec33244b70c56aed8a4d3a5ff3',1,'com::activitytracker::WorkoutAttribute']]]
 ];

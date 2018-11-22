@@ -6,6 +6,7 @@ var enumcom_1_1activitytracker_1_1_user_attribute =
     [ "ID", "enumcom_1_1activitytracker_1_1_user_attribute.html#a82c5680d15b629e939afcd98a39abf76", null ],
     [ "NAME", "enumcom_1_1activitytracker_1_1_user_attribute.html#aac51a5dfcaaa9e5304d37d74fc888af4", null ],
     [ "PASSWORD", "enumcom_1_1activitytracker_1_1_user_attribute.html#aa893eac0362a28e73a599ce1ba141d40", null ],
+    [ "SALT", "enumcom_1_1activitytracker_1_1_user_attribute.html#acd286be9d131a84a2be02e1cdac4c848", null ],
     [ "SEX", "enumcom_1_1activitytracker_1_1_user_attribute.html#a53fe928fb805b69c606a351aac257558", null ],
     [ "WEIGHT", "enumcom_1_1activitytracker_1_1_user_attribute.html#a024206b0dc3261031ef586b3f0fd530c", null ]
 ];
