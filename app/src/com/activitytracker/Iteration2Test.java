@@ -9,7 +9,7 @@ public class Iteration2Test {
 
         // Iteration 1 begins here
 
-        User john;
+        User john = null;
 
         DBManager dbManager = new DBManager();
         if (!dbManager.init("data.db")) {
@@ -43,6 +43,14 @@ public class Iteration2Test {
             System.out.println("User was NOT created.");
 
 
+        System.out.println("Testing incorrect password...");
+
+        try {
+            john = new User(dbManager,"jdoe@mac.com", "Some Incorrect Password");
+        }
+        catch (final AuthenticationException e) {
+            System.out.println("Incorrect password used; authentication failed.");
+        }
 
         System.out.println("Authenticating user...");
 
@@ -53,19 +61,22 @@ public class Iteration2Test {
             System.out.println("Test failed; user could not be authenticated.");
         }
 
-        System.out.println("Testing incorrect password...");
-
-        try {
-            john = new User(dbManager,"jdoe@mac.com", "Some Incorrect Password");
-        }
-        catch (final AuthenticationException e) {
-            System.out.println("Incorrect password used; authentication failed.");
-        }
-
         // Iteration 1 ended here
 
         // Iteration 2 begins here
 
+        if (john !=  null) {
+            Date today = new Date();
+            Workout.addNewWorkoutDataPoint(dbManager, john, 0f, today, 0f, 0f);
+            Workout.addNewWorkoutDataPoint(dbManager, john, 30f, today, 100f, 5f);
+            Workout.addNewWorkoutDataPoint(dbManager, john, 60f, today, 210f, 2f);
+            Workout.addNewWorkoutDataPoint(dbManager, john, 90f, today, 330f, -2f);
+        }
+        else {
+            System.out.println("John is null. Cannot execute phase 2.");
+        }
+
+        // Iteration 2 ends here
 
     }
 

@@ -103,6 +103,10 @@ class User {
         return this.dateOfBirth;
     }
 
+    public int getLastWOID() { return this.dbManager.getUserLastWOID(this.id); }
+
+    public void setLastWOID(final int woID) { this.dbManager.setUserLastWOID(this.id, woID); }
+
     public Sex getSex() {
         return this.sex;
     }

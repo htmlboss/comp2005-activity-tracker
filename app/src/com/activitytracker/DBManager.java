@@ -254,7 +254,198 @@ class DBManager {
         return weight;
     }
 
+    public int getUserLastWOID(final int id) {
+        int woid = 0;
+        ResultSet res;
+        try {
+            PreparedStatement stmt = m_conn.prepareStatement("SELECT last_workout FROM Users WHERE id=?");
+            stmt.setInt(1, id);
+            res = stmt.executeQuery();
+            woid = res.getInt("last_workout");
+            stmt.close();
+        }
+        catch (final SQLException e) {
+            System.err.println(e.getMessage());
+        }
 
+        return woid;
+    }
+
+    public void setUserLastWOID(final int id, final int lastWOID) {
+        try {
+            PreparedStatement stmt = m_conn.prepareStatement("UPDATE Users SET last_workout=? WHERE id=?");
+            stmt.setInt(1, lastWOID);
+            stmt.setInt(2, id);
+            if (stmt.executeUpdate() != 1) {
+                System.err.println("User's last workout was not updated correctly.");
+            }
+        }
+        catch (final SQLException e) {
+            System.err.println(e.getMessage());
+        }
+    }
+
+    // Returns workout ID
+    public int addWorkout(final int userID, final int year, final int month, final int day, final float duration,
+                           final float distance, final float altitude) {
+        java.sql.Date WODate = new java.sql.Date(year, month, day);
+        int woID = 0;
+        ResultSet res;
+
+        try {
+            PreparedStatement stmt = m_conn.prepareStatement("INSERT INTO Workouts (" +
+                    "user_id," +
+                    "date," +
+                    "duration," +
+                    "distance," +
+                    "altitude" +
+                    ") VALUES (?, ?, ?, ?, ?)");
+            stmt.setInt(1, userID);
+            stmt.setDate(2, WODate);
+            stmt.setFloat(3, duration);
+            stmt.setFloat(4, distance);
+            stmt.setFloat(5, altitude);
+
+            if (stmt.executeUpdate() != 1) {
+                System.err.println("Workout not added to database.");
+            }
+
+            stmt.close();
+
+            stmt = m_conn.prepareStatement("SELECT id FROM Workouts WHERE " +
+                    "user_id=? AND " +
+                    "date=? AND " +
+                    "duration=? AND " +
+                    "distance=? AND " +
+                    "altitude=?");
+            stmt.setInt(1, userID);
+            stmt.setDate(2, WODate);
+            stmt.setFloat(3, duration);
+            stmt.setFloat(4, distance);
+            stmt.setFloat(5, altitude);
+
+            res = stmt.executeQuery();
+            woID = res.getInt("id");
+        }
+        catch (final SQLException e) {
+            System.err.println(e.getMessage());
+        }
+
+        return woID;
+    }
+
+    public void updateWorkout(final int WOID, final float duration, final float distance, final float altitude) {
+        try {
+            PreparedStatement stmt = m_conn.prepareStatement("UPDATE Workouts SET " +
+                    "duration = ?, " +
+                    "distance = ?, " +
+                    "altitude=? " +
+                    "WHERE id=? ");
+            stmt.setFloat(1, duration);
+            stmt.setFloat(2, distance);
+            stmt.setFloat(3, altitude);
+            stmt.setInt(4, WOID);
+
+            int result = stmt.executeUpdate();
+            System.err.println(Integer.toString(result) + " rows updated in updateWorkout().");
+            if (result != 1) {
+                System.err.println("Workout not updated in database.");
+            }
+
+            stmt.close();
+        }
+        catch (final SQLException e) {
+            System.err.println(e.getMessage());
+        }
+
+    }
+
+    public float getWorkoutAttribute(final WorkoutAttribute attribute, final int WOID) {
+        ResultSet res;
+        PreparedStatement stmt;
+        String sqlQuery, columnLabel;
+        float attrVal = 0.0f;
+        if (workoutExists(WOID)) {
+            try {
+                switch (attribute) {
+                    case DURATION:
+                        sqlQuery = "SELECT duration FROM Workouts WHERE id=?";
+                        columnLabel = "duration";
+                        break;
+                    case DISTANCE:
+                        sqlQuery = "SELECT distance FROM Workouts WHERE id=?";
+                        columnLabel = "distance";
+                        break;
+                    case ALTITUDE:
+                        sqlQuery = "SELECT altitude FROM Workouts WHERE id=?";
+                        columnLabel = "altitude";
+                        break;
+                    default:
+                        return attrVal;
+                }
+                stmt = m_conn.prepareStatement(sqlQuery);
+                stmt.setInt(1, WOID);
+                res = stmt.executeQuery();
+                attrVal = res.getFloat(columnLabel);
+            }
+            catch (final SQLException e) {
+                System.err.println(e.getMessage());
+            }
+        }
+        else {
+            System.err.println("Workout " + Integer.toString(WOID) + " does not exist. Cannot get distance.");
+        }
+
+        return attrVal;
+
+    }
+
+//    public int getWOID(final int userID, final int year, final int month, final int day) {
+//        java.sql.Date date = new java.sql.Date(year, month, day);
+//        ResultSet res;
+//        try {
+//            PreparedStatement stmt = m_conn.prepareStatement("SELECT id FROM Workouts WHERE " +
+//                    "user_id=? AND " +
+//                    "date=? ");
+//            stmt.setInt(1, userID);
+//            stmt.setDate(2, date);
+//            res = stmt.executeQuery();
+//            return res.getInt("id");
+//        }
+//        catch (final SQLException e) {
+//            System.err.println(e.getMessage());
+//            return 0;
+//        }
+//    }
+
+
+    public boolean workoutExists(final int WOID) {
+        ResultSet res;
+        boolean exists = false;
+        try {
+            PreparedStatement stmt = m_conn.prepareStatement("SELECT COUNT(*) as count FROM Workouts WHERE id=?");
+            stmt.setInt(1, WOID);
+            res = stmt.executeQuery();
+            switch (res.getInt("count")) {
+                case 0:
+                    exists = false;
+                    break;
+                case 1:
+                    exists = true;
+                    break;
+                default:
+                    exists = true;
+                    System.err.println("More than one workout for ID " + Integer.toString(WOID) + ". Something isn't right.");
+                    break;
+            }
+
+        }
+        catch (final SQLException e) {
+            System.err.println(e.getMessage());
+        }
+
+        return exists;
+    }
 
     // Updates a user's row in the DB
     // Uses UserAttribute enum to specify column in the DB; pass in Object since different cols are different
@@ -400,6 +591,7 @@ class DBManager {
                     "    weight        REAL    NOT NULL," +
                     "    password_hash STRING  NOT NULL," +
                     "    password_salt BLOB    NOT NULL," +
+                    "    last_workout  INTEGER NOT NULL DEFAULT 0," +
                     "    created_at    DATE    NOT NULL" +
                     ")";
             if (!executeUpdate(sqlQuery)) {
@@ -408,12 +600,12 @@ class DBManager {
 
             // Create workouts table
             sqlQuery = "CREATE TABLE WORKOUTS (" +
-                    "    ID       INTEGER PRIMARY KEY ASC AUTOINCREMENT NOT NULL," +
-                    "    UserID   INTEGER NOT NULL REFERENCES USERS (id)," +
-                    "    WOType   STRING  NOT NULL," +
-                    "    Date     DATE    NOT NULL," +
-                    "    Duration TIME    NOT NULL," +
-                    "    kCal     REAL    NOT NULL" +
+                    "    id        INTEGER PRIMARY KEY ASC AUTOINCREMENT NOT NULL," +
+                    "    user_id   INTEGER NOT NULL REFERENCES USERS (id)," +
+                    "    date      DATE    UNIQUE NOT NULL," +
+                    "    duration  REAL    NOT NULL," + // seconds
+                    "    distance  REAL    NOT NULL," + // metres
+                    "    altitude  REAL    NOT NULL" + // metres
                     ")";
 
             if (!executeUpdate(sqlQuery)) {
@@ -422,11 +614,11 @@ class DBManager {
 
             // Create friends table
             sqlQuery = "CREATE TABLE FRIENDS (" +
-                    "    ID          INTEGER  PRIMARY KEY ASC AUTOINCREMENT NOT NULL," +
-                    "    Sender      INTEGER  NOT NULL REFERENCES USERS (id)," +
-                    "    Receiver    INTEGER  REFERENCES USERS (id)," +
-                    "    SendDate    DATETIME NOT NULL," +
-                    "    ConfirmDate DATETIME DEFAULT NULL" +
+                    "    id            INTEGER  PRIMARY KEY ASC AUTOINCREMENT NOT NULL," +
+                    "    sender        INTEGER  NOT NULL REFERENCES USERS (id)," +
+                    "    receiver      INTEGER  REFERENCES USERS (id)," +
+                    "    send_date     DATETIME NOT NULL," +
+                    "    confirm_date  DATETIME DEFAULT NULL" +
                     ")";
 
             if (!executeUpdate(sqlQuery)) {
