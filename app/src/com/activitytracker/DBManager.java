@@ -1,7 +1,11 @@
 package com.activitytracker;
 
+import javax.xml.transform.Result;
 import java.sql.*;
-import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.ZonedDateTime;
+import java.util.Calendar;
 
 class DBManager {
     private Connection m_conn = null;
@@ -11,7 +15,21 @@ class DBManager {
 
     // Adds rows to Users table and Passwords table with the new user's attributes
     // If the user exists in the database, raises an exception
-    public void createUser(final String name, final String emailAddress, final Date dateOfBirth,
+
+    /**
+     * Adds a row for a user to the Users table in the SQLite database for the app.
+     *
+     * @param name - User's name
+     * @param emailAddress - User's email address; used to authenticate
+     * @param DOBYear - The year the user was born
+     * @param DOBMonth - The month the user was born
+     * @param DOBDay - The day of month the user was born
+     * @param sex - User.Sex.MALE or User.Sex.FEMALE
+     * @param height - Floating point number of the user's height in metres
+     * @param weight - Floating point number of the user's weight in kilograms
+     * @param securePassword - A SecureString object containing the user's password, encrypted
+     */
+    public void createUser(final String name, final String emailAddress, final int DOBYear, final int DOBMonth, final int DOBDay,
                            final User.Sex sex, final float height, final float weight, final SecureString securePassword) {
 
         if (!userExists(emailAddress)) {
@@ -21,41 +39,42 @@ class DBManager {
                     "date_of_birth, " +
                     "sex, " +
                     "height, " +
-                    "weight" +
-                    "password_hash" +
+                    "weight," +
+                    "password_hash," +
+                    "password_salt," +
                     "created_at" +
-                    ") VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+                    ") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
             byte sexByte = sex.equals(User.Sex.MALE) ? (byte) 1 : (byte) 0;
-            Date currentTime = new Date();
+            java.sql.Date currentTime = new java.sql.Date(System.currentTimeMillis());
+            Calendar c = Calendar.getInstance();
+            c.set(DOBYear, DOBMonth, DOBDay);
+            java.sql.Date dateOfBirth = new java.sql.Date(c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH));
 
             try {
                 PreparedStatement stmt = m_conn.prepareStatement(sqlQuery);
                 stmt.setString(1, emailAddress);
                 stmt.setString(2, name);
-                stmt.setDate(3, (java.sql.Date) dateOfBirth);
+                stmt.setDate(3, dateOfBirth);
                 stmt.setByte(4, sexByte);
                 stmt.setFloat(5, height);
                 stmt.setFloat(6, weight);
                 stmt.setString(7, securePassword.toString());
-                stmt.setDate(8, (java.sql.Date) currentTime);
+                stmt.setBytes(8, securePassword.getSalt());
+                stmt.setDate(9, currentTime);
 
                 if (stmt.executeUpdate() != 1) {
                     System.err.println("User not added to database.");
                 }
 
                 stmt.close();
-
             }
             catch (final SQLException e) {
                 System.err.println(e.getMessage());
             }
-
-
         }
         else {
             throw new AssertionError("User with email address '" + emailAddress + "' already exists.");
         }
-
     }
 
     public  boolean userExists(final String emailAddress) {
@@ -66,27 +85,44 @@ class DBManager {
             PreparedStatement stmt = m_conn.prepareStatement(sqlQuery);
             stmt.setString(1, emailAddress);
             ResultSet res = stmt.executeQuery();
-            stmt.close();
             exists = res.getInt("count") > 0;
+
+            stmt.close();
         }
         catch (final SQLException e) {
             System.err.println(e.getMessage());
         }
 
         return exists;
-
     }
 
-    // Overloaded version of below data extraction method
-    // Necessary because we will get things corresponding to an ID but the user
-    // logs in with an email address, not their ID initially
-    public Object getUserAttribute(final UserAttribute attribute, final String emailAddress) {
-        int id;
+    public int getUserIDByEmail(final String emailAddress) {
+        int id = 0;
         ResultSet res;
         try {
             PreparedStatement stmt = m_conn.prepareStatement("SELECT id FROM Users WHERE `email_address`=?");
             stmt.setString(1, emailAddress);
             res =  stmt.executeQuery();
+            id = res.getInt("id");
+
+            stmt.close();
+        }
+        catch (final SQLException e) {
+            System.err.println(e.getMessage());
+        }
+
+        return id;
+    }
+
+    public String getUserPassHash(final int id) {
+        String passHash;
+        ResultSet res;
+        try {
+            PreparedStatement stmt = m_conn.prepareStatement("SELECT password_hash FROM Users WHERE id=?");
+            stmt.setInt(1, id);
+            res = stmt.executeQuery();
+            passHash = res.getString("password_hash");
+
             stmt.close();
         }
         catch (final SQLException e) {
@@ -94,90 +130,335 @@ class DBManager {
             return null;
         }
 
-        if (res != null) {
+        return passHash;
+    }
+
+    public byte[] getUserPassSalt(final int id) {
+        byte[] passSalt;
+        ResultSet res;
+        try {
+            PreparedStatement stmt = m_conn.prepareStatement("SELECT password_salt FROM Users WHERE id=?");
+            stmt.setInt(1, id);
+            res = stmt.executeQuery();
+            passSalt = res.getBytes("password_salt");
+            stmt.close();
+        }
+        catch (final SQLException e) {
+            System.err.println(e.getMessage());
             return null;
         }
+        return passSalt;
+    }
 
+    public String getUserName(final int id) {
+        String name;
+        ResultSet res;
         try {
-            id = res.getInt("id");
+            PreparedStatement stmt = m_conn.prepareStatement("SELECT name FROM Users WHERE id=?");
+            stmt.setInt(1, id);
+            res = stmt.executeQuery();
+            name = res.getString("name");
+
+            stmt.close();
         }
         catch (final SQLException e) {
             System.err.println(e.getMessage());
             return null;
         }
 
-        if (attribute == UserAttribute.ID) {
-            return id;
+        return name;
+    }
+
+    public String getEmailAddress(final int id) {
+        String email_address;
+        ResultSet res;
+        try {
+            PreparedStatement stmt = m_conn.prepareStatement("SELECT email_address FROM Users WHERE id=?");
+            stmt.setInt(1, id);
+            res = stmt.executeQuery();
+            email_address = res.getString("email_address");
+
+            stmt.close();
         }
-        else {
-            return getUserAttribute(attribute, id);
+        catch (final SQLException e) {
+            System.err.println(e.getMessage());
+            return null;
+        }
+
+        return email_address;
+    }
+
+    public Date getDateOfBirth(final int id) {
+        Date DOB;
+        java.sql.Date DOBResult;
+        ResultSet res;
+        try {
+            PreparedStatement stmt = m_conn.prepareStatement("SELECT date_of_birth FROM Users WHERE id=?");
+            stmt.setInt(1, id);
+            res = stmt.executeQuery();
+            DOBResult = res.getDate("date_of_birth");
+
+            stmt.close();
+        }
+        catch (final SQLException e) {
+            System.err.println(e.getMessage());
+            return null;
+        }
+        DOB = new Date(DOBResult.getYear(), DOBResult.getMonth(), DOBResult.getDay());
+
+        return DOB;
+    }
+
+    public User.Sex getUserSex(final int id) {
+        byte sex;
+        ResultSet res;
+        try {
+            PreparedStatement stmt = m_conn.prepareStatement("SELECT sex FROM Users WHERE id=?");
+            stmt.setInt(1, id);
+            res = stmt.executeQuery();
+            sex = res.getByte("sex");
+
+            stmt.close();
+        }
+        catch (final SQLException e) {
+            System.err.println(e.getMessage());
+            return null;
+        }
+
+        if (sex == (byte) 1)
+            return User.Sex.MALE;
+        else
+            return User.Sex.FEMALE;
+    }
+
+    public float getUserHeight(final int id) {
+        float height;
+        ResultSet res;
+        try {
+            PreparedStatement stmt = m_conn.prepareStatement("SELECT height FROM Users WHERE id=?");
+            stmt.setInt(1, id);
+            res = stmt.executeQuery();
+            height = res.getFloat("height");
+
+            stmt.close();
+        }
+        catch (final SQLException e) {
+            System.err.println(e.getMessage());
+            return 0.0f;
+        }
+
+        return height;
+    }
+
+    public float getUserWeight(final int id) {
+        float weight;
+        ResultSet res;
+        try {
+            PreparedStatement stmt = m_conn.prepareStatement("SELECT weight FROM Users WHERE id=?");
+            stmt.setInt(1, id);
+            res = stmt.executeQuery();
+            weight = res.getFloat("weight");
+            stmt.close();
+        }
+        catch (final SQLException e) {
+            System.err.println(e.getMessage());
+            return 0.0f;
+        }
+
+        return weight;
+    }
+
+    public int getUserLastWOID(final int id) {
+        int woid = 0;
+        ResultSet res;
+        try {
+            PreparedStatement stmt = m_conn.prepareStatement("SELECT last_workout FROM Users WHERE id=?");
+            stmt.setInt(1, id);
+            res = stmt.executeQuery();
+            woid = res.getInt("last_workout");
+            stmt.close();
+        }
+        catch (final SQLException e) {
+            System.err.println(e.getMessage());
+        }
+
+        return woid;
+    }
+
+    public void setUserLastWOID(final int id, final int lastWOID) {
+        try {
+            PreparedStatement stmt = m_conn.prepareStatement("UPDATE Users SET last_workout=? WHERE id=?");
+            stmt.setInt(1, lastWOID);
+            stmt.setInt(2, id);
+            if (stmt.executeUpdate() != 1) {
+                System.err.println("User's last workout was not updated correctly.");
+            }
+        }
+        catch (final SQLException e) {
+            System.err.println(e.getMessage());
+        }
+    }
+
+    // Returns workout ID
+    public int addWorkout(final int userID, final int year, final int month, final int day, final float duration,
+                           final float distance, final float altitude) {
+        java.sql.Date WODate = new java.sql.Date(year, month, day);
+        int woID = 0;
+        ResultSet res;
+
+        try {
+            PreparedStatement stmt = m_conn.prepareStatement("INSERT INTO Workouts (" +
+                    "user_id," +
+                    "date," +
+                    "duration," +
+                    "distance," +
+                    "altitude" +
+                    ") VALUES (?, ?, ?, ?, ?)");
+            stmt.setInt(1, userID);
+            stmt.setDate(2, WODate);
+            stmt.setFloat(3, duration);
+            stmt.setFloat(4, distance);
+            stmt.setFloat(5, altitude);
+
+            if (stmt.executeUpdate() != 1) {
+                System.err.println("Workout not added to database.");
+            }
+
+            stmt.close();
+
+            stmt = m_conn.prepareStatement("SELECT id FROM Workouts WHERE " +
+                    "user_id=? AND " +
+                    "date=? AND " +
+                    "duration=? AND " +
+                    "distance=? AND " +
+                    "altitude=?");
+            stmt.setInt(1, userID);
+            stmt.setDate(2, WODate);
+            stmt.setFloat(3, duration);
+            stmt.setFloat(4, distance);
+            stmt.setFloat(5, altitude);
+
+            res = stmt.executeQuery();
+            woID = res.getInt("id");
+        }
+        catch (final SQLException e) {
+            System.err.println(e.getMessage());
+        }
+
+        return woID;
+    }
+
+    public void updateWorkout(final int WOID, final float duration, final float distance, final float altitude) {
+        try {
+            PreparedStatement stmt = m_conn.prepareStatement("UPDATE Workouts SET " +
+                    "duration = ?, " +
+                    "distance = ?, " +
+                    "altitude=? " +
+                    "WHERE id=? ");
+            stmt.setFloat(1, duration);
+            stmt.setFloat(2, distance);
+            stmt.setFloat(3, altitude);
+            stmt.setInt(4, WOID);
+
+            int result = stmt.executeUpdate();
+            System.err.println(Integer.toString(result) + " rows updated in updateWorkout().");
+            if (result != 1) {
+                System.err.println("Workout not updated in database.");
+            }
+
+            stmt.close();
+        }
+        catch (final SQLException e) {
+            System.err.println(e.getMessage());
         }
 
     }
 
-    // Return a user's attribute given the user ID
-    public Object getUserAttribute(final UserAttribute attribute, final int id) {
+    public float getWorkoutAttribute(final WorkoutAttribute attribute, final int WOID) {
         ResultSet res;
         PreparedStatement stmt;
-        String sqlQuery;
-
-        switch (attribute) {
-            case ID:
-                return id;
-            case NAME:
-                sqlQuery = "SELECT name FROM Users WHERE id=?";
-                break;
-            case SEX:
-                sqlQuery = "SELECT sex FROM Users WHERE id=?";
-                break;
-            case HEIGHT:
-                sqlQuery = "SELECT height FROM Users WHERE id=?";
-                break;
-            case WEIGHT:
-                sqlQuery = "SELECT weight FROM Users WHERE id=?";
-                break;
-            case DATE_OF_BIRTH:
-                sqlQuery = "SELECT date_of_birth FROM Users WHERE id=?";
-                break;
-            case EMAIL_ADDRESS:
-                sqlQuery = "SELECT email_address FROM Users WHERE id=?";
-                break;
-            default:
-                return null;
+        String sqlQuery, columnLabel;
+        float attrVal = 0.0f;
+        if (workoutExists(WOID)) {
+            try {
+                switch (attribute) {
+                    case DURATION:
+                        sqlQuery = "SELECT duration FROM Workouts WHERE id=?";
+                        columnLabel = "duration";
+                        break;
+                    case DISTANCE:
+                        sqlQuery = "SELECT distance FROM Workouts WHERE id=?";
+                        columnLabel = "distance";
+                        break;
+                    case ALTITUDE:
+                        sqlQuery = "SELECT altitude FROM Workouts WHERE id=?";
+                        columnLabel = "altitude";
+                        break;
+                    default:
+                        return attrVal;
+                }
+                stmt = m_conn.prepareStatement(sqlQuery);
+                stmt.setInt(1, WOID);
+                res = stmt.executeQuery();
+                attrVal = res.getFloat(columnLabel);
+            }
+            catch (final SQLException e) {
+                System.err.println(e.getMessage());
+            }
+        }
+        else {
+            System.err.println("Workout " + Integer.toString(WOID) + " does not exist. Cannot get distance.");
         }
 
-        try {
-            stmt = m_conn.prepareStatement(sqlQuery);
-            stmt.setInt(1, id);
-            res = stmt.executeQuery();
-            stmt.close();
+        return attrVal;
 
-            switch (attribute) {
-                case NAME:
-                    return res.getString("name");
-                case SEX:
-                    if (res.getByte("sex") == (byte) 1)
-                        return User.Sex.MALE;
-                    else
-                        return User.Sex.FEMALE;
-                case HEIGHT:
-                    return res.getFloat("height");
-                case WEIGHT:
-                    return res.getFloat("weight");
-                case DATE_OF_BIRTH:
-                    return res.getDate("date_of_birth");
-                case EMAIL_ADDRESS:
-                    return res.getString("email_address");
+    }
+
+//    public int getWOID(final int userID, final int year, final int month, final int day) {
+//        java.sql.Date date = new java.sql.Date(year, month, day);
+//        ResultSet res;
+//        try {
+//            PreparedStatement stmt = m_conn.prepareStatement("SELECT id FROM Workouts WHERE " +
+//                    "user_id=? AND " +
+//                    "date=? ");
+//            stmt.setInt(1, userID);
+//            stmt.setDate(2, date);
+//            res = stmt.executeQuery();
+//            return res.getInt("id");
+//        }
+//        catch (final SQLException e) {
+//            System.err.println(e.getMessage());
+//            return 0;
+//        }
+//    }
+
+
+    public boolean workoutExists(final int WOID) {
+        ResultSet res;
+        boolean exists = false;
+        try {
+            PreparedStatement stmt = m_conn.prepareStatement("SELECT COUNT(*) as count FROM Workouts WHERE id=?");
+            stmt.setInt(1, WOID);
+            res = stmt.executeQuery();
+            switch (res.getInt("count")) {
+                case 0:
+                    exists = false;
+                    break;
+                case 1:
+                    exists = true;
+                    break;
                 default:
-                    return null;
+                    exists = true;
+                    System.err.println("More than one workout for ID " + Integer.toString(WOID) + ". Something isn't right.");
+                    break;
             }
 
         }
         catch (final SQLException e) {
             System.err.println(e.getMessage());
-            return null;
         }
 
+        return exists;
     }
 
     // Updates a user's row in the DB
@@ -323,6 +604,8 @@ class DBManager {
                     "    height        REAL    NOT NULL," +
                     "    weight        REAL    NOT NULL," +
                     "    password_hash STRING  NOT NULL," +
+                    "    password_salt BLOB    NOT NULL," +
+                    "    last_workout  INTEGER NOT NULL DEFAULT 0," +
                     "    created_at    DATE    NOT NULL" +
                     ")";
             if (!executeUpdate(sqlQuery)) {
@@ -331,12 +614,12 @@ class DBManager {
 
             // Create workouts table
             sqlQuery = "CREATE TABLE WORKOUTS (" +
-                    "    ID       INTEGER PRIMARY KEY ASC AUTOINCREMENT NOT NULL," +
-                    "    UserID   INTEGER NOT NULL REFERENCES USERS (id)," +
-                    "    WOType   STRING  NOT NULL," +
-                    "    Date     DATE    NOT NULL," +
-                    "    Duration TIME    NOT NULL," +
-                    "    kCal     REAL    NOT NULL" +
+                    "    id        INTEGER PRIMARY KEY ASC AUTOINCREMENT NOT NULL," +
+                    "    user_id   INTEGER NOT NULL REFERENCES USERS (id)," +
+                    "    date      DATE    UNIQUE NOT NULL," +
+                    "    duration  REAL    NOT NULL," + // seconds
+                    "    distance  REAL    NOT NULL," + // metres
+                    "    altitude  REAL    NOT NULL" + // metres
                     ")";
 
             if (!executeUpdate(sqlQuery)) {
@@ -345,11 +628,11 @@ class DBManager {
 
             // Create friends table
             sqlQuery = "CREATE TABLE FRIENDS (" +
-                    "    ID          INTEGER  PRIMARY KEY ASC AUTOINCREMENT NOT NULL," +
-                    "    Sender      INTEGER  NOT NULL REFERENCES USERS (id)," +
-                    "    Receiver    INTEGER  REFERENCES USERS (id)," +
-                    "    SendDate    DATETIME NOT NULL," +
-                    "    ConfirmDate DATETIME DEFAULT NULL" +
+                    "    id            INTEGER  PRIMARY KEY ASC AUTOINCREMENT NOT NULL," +
+                    "    sender        INTEGER  NOT NULL REFERENCES USERS (id)," +
+                    "    receiver      INTEGER  REFERENCES USERS (id)," +
+                    "    send_date     DATETIME NOT NULL," +
+                    "    confirm_date  DATETIME DEFAULT NULL" +
                     ")";
 
             if (!executeUpdate(sqlQuery)) {

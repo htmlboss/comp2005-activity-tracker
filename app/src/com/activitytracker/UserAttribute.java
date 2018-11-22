@@ -8,5 +8,6 @@ public enum UserAttribute {
     SEX,
     WEIGHT,
     HEIGHT,
-    PASSWORD
+    PASSWORD,
+    SALT
 }
