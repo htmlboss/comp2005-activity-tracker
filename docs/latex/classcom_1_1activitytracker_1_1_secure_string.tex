@@ -1,0 +1,210 @@
+\hypertarget{classcom_1_1activitytracker_1_1_secure_string}{}\section{com.\+activitytracker.\+Secure\+String Class Reference}
+\label{classcom_1_1activitytracker_1_1_secure_string}\index{com.\+activitytracker.\+Secure\+String@{com.\+activitytracker.\+Secure\+String}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+boolean \mbox{\hyperlink{classcom_1_1activitytracker_1_1_secure_string_a8b5c3cac74b22ff0eb3c43a7ebd980f5}{equal\+String}} (final String other)
+\item 
+byte \mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classcom_1_1activitytracker_1_1_secure_string_ab5369653852da122aba874f35cbda9a5}{get\+Salt}} ()
+\item 
+String \mbox{\hyperlink{classcom_1_1activitytracker_1_1_secure_string_aef531e12618c5c147adc52fda0d4add8}{to\+String}} ()
+\end{DoxyCompactItemize}
+\subsection*{Package Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1activitytracker_1_1_secure_string_a889fcbf0c1f771962ac81886f49e389e}{Secure\+String}} (final String plaintext)
+\item 
+\mbox{\hyperlink{classcom_1_1activitytracker_1_1_secure_string_a04c2f0677ecd9af147428976a11c85e2}{Secure\+String}} (final String plaintext, final byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classcom_1_1activitytracker_1_1_secure_string_a8549ead1f186ff0c2520818b03d1cc21}{salt}})
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+String \mbox{\hyperlink{classcom_1_1activitytracker_1_1_secure_string_aa2521591ab15fb4c5a2461c04b08320f}{generate\+Secure\+String}} (final String str\+To\+Secure, final byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classcom_1_1activitytracker_1_1_secure_string_a8549ead1f186ff0c2520818b03d1cc21}{salt}})
+\end{DoxyCompactItemize}
+\subsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static byte \mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classcom_1_1activitytracker_1_1_secure_string_a1907ad109bb5e64291fabd3ff459ef49}{generate\+Salt}} ()  throws No\+Such\+Algorithm\+Exception 
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+String \mbox{\hyperlink{classcom_1_1activitytracker_1_1_secure_string_a1448f7b8865c6c57cc7218662ee7f1ee}{secure\+String}}
+\item 
+byte \mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classcom_1_1activitytracker_1_1_secure_string_a8549ead1f186ff0c2520818b03d1cc21}{salt}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class is used to securely store sensitive string-\/like information such as user passwords. 
+
+Definition at line 10 of file Secure\+String.\+java.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcom_1_1activitytracker_1_1_secure_string_a889fcbf0c1f771962ac81886f49e389e}\label{classcom_1_1activitytracker_1_1_secure_string_a889fcbf0c1f771962ac81886f49e389e}} 
+\index{com\+::activitytracker\+::\+Secure\+String@{com\+::activitytracker\+::\+Secure\+String}!Secure\+String@{Secure\+String}}
+\index{Secure\+String@{Secure\+String}!com\+::activitytracker\+::\+Secure\+String@{com\+::activitytracker\+::\+Secure\+String}}
+\subsubsection{\texorpdfstring{Secure\+String()}{SecureString()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily com.\+activitytracker.\+Secure\+String.\+Secure\+String (\begin{DoxyParamCaption}\item[{final String}]{plaintext }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [package]}}
+
+The \mbox{\hyperlink{classcom_1_1activitytracker_1_1_secure_string_a889fcbf0c1f771962ac81886f49e389e}{Secure\+String()}} constructor takes as an argument a plain text string, encrypts it, and stores the encrypted string in the variable \mbox{\hyperlink{classcom_1_1activitytracker_1_1_secure_string_a1448f7b8865c6c57cc7218662ee7f1ee}{Secure\+String\+::secure\+String}}.
+
+Salt is generated using \mbox{\hyperlink{classcom_1_1activitytracker_1_1_secure_string_a1907ad109bb5e64291fabd3ff459ef49}{Secure\+String\+::generate\+Salt()}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em plaintext} & The string to be encrypted. May contain sensitive information. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 29 of file Secure\+String.\+java.
+
+\mbox{\Hypertarget{classcom_1_1activitytracker_1_1_secure_string_a04c2f0677ecd9af147428976a11c85e2}\label{classcom_1_1activitytracker_1_1_secure_string_a04c2f0677ecd9af147428976a11c85e2}} 
+\index{com\+::activitytracker\+::\+Secure\+String@{com\+::activitytracker\+::\+Secure\+String}!Secure\+String@{Secure\+String}}
+\index{Secure\+String@{Secure\+String}!com\+::activitytracker\+::\+Secure\+String@{com\+::activitytracker\+::\+Secure\+String}}
+\subsubsection{\texorpdfstring{Secure\+String()}{SecureString()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily com.\+activitytracker.\+Secure\+String.\+Secure\+String (\begin{DoxyParamCaption}\item[{final String}]{plaintext,  }\item[{final byte \mbox{[}$\,$\mbox{]}}]{salt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [package]}}
+
+The \mbox{\hyperlink{classcom_1_1activitytracker_1_1_secure_string_a889fcbf0c1f771962ac81886f49e389e}{Secure\+String()}} constructor takes as an argument a plain text string and a previously-\/generated salt, encrypts the plain text string with the provided salt, and stores the encrypted string in the variable \mbox{\hyperlink{classcom_1_1activitytracker_1_1_secure_string_a1448f7b8865c6c57cc7218662ee7f1ee}{Secure\+String\+::secure\+String}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em plaintext} & The string to be encrypted. May contain sensitive information. \\
+\hline
+{\em salt} & Salt that is used to encrypt {\itshape plaintext}. This parameter is used whenever we wish to encrypt using a previously-\/generated salt for the purpose of encrypted string comparison. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 50 of file Secure\+String.\+java.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classcom_1_1activitytracker_1_1_secure_string_a8b5c3cac74b22ff0eb3c43a7ebd980f5}\label{classcom_1_1activitytracker_1_1_secure_string_a8b5c3cac74b22ff0eb3c43a7ebd980f5}} 
+\index{com\+::activitytracker\+::\+Secure\+String@{com\+::activitytracker\+::\+Secure\+String}!equal\+String@{equal\+String}}
+\index{equal\+String@{equal\+String}!com\+::activitytracker\+::\+Secure\+String@{com\+::activitytracker\+::\+Secure\+String}}
+\subsubsection{\texorpdfstring{equal\+String()}{equalString()}}
+{\footnotesize\ttfamily boolean com.\+activitytracker.\+Secure\+String.\+equal\+String (\begin{DoxyParamCaption}\item[{final String}]{other }\end{DoxyParamCaption})}
+
+Compares the secure string to the {\itshape other} parameter for equality.
+
+This method will likely be used to authenticate a user from a password hash existing in the database.
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & A (previously encrypted) string with with we compare \mbox{\hyperlink{classcom_1_1activitytracker_1_1_secure_string_a1448f7b8865c6c57cc7218662ee7f1ee}{Secure\+String\+::secure\+String}}.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+This method returns True if the hashes of both strings are the same, and False otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 66 of file Secure\+String.\+java.
+
+\mbox{\Hypertarget{classcom_1_1activitytracker_1_1_secure_string_a1907ad109bb5e64291fabd3ff459ef49}\label{classcom_1_1activitytracker_1_1_secure_string_a1907ad109bb5e64291fabd3ff459ef49}} 
+\index{com\+::activitytracker\+::\+Secure\+String@{com\+::activitytracker\+::\+Secure\+String}!generate\+Salt@{generate\+Salt}}
+\index{generate\+Salt@{generate\+Salt}!com\+::activitytracker\+::\+Secure\+String@{com\+::activitytracker\+::\+Secure\+String}}
+\subsubsection{\texorpdfstring{generate\+Salt()}{generateSalt()}}
+{\footnotesize\ttfamily static byte \mbox{[}$\,$\mbox{]} com.\+activitytracker.\+Secure\+String.\+generate\+Salt (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws No\+Such\+Algorithm\+Exception\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+This method generates salt for encryption of a plain text string.
+
+\begin{DoxyReturn}{Returns}
+Returns a byte array of length sixteen (16) containing the encryption salt.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em No\+Such\+Algorithm\+Exception} & Required as {\itshape Secure\+Random.\+get\+Instace()} may throw this exception and we would like the invoking method to decide how to handle it rather than catching and dismissing it here. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 83 of file Secure\+String.\+java.
+
+\mbox{\Hypertarget{classcom_1_1activitytracker_1_1_secure_string_aa2521591ab15fb4c5a2461c04b08320f}\label{classcom_1_1activitytracker_1_1_secure_string_aa2521591ab15fb4c5a2461c04b08320f}} 
+\index{com\+::activitytracker\+::\+Secure\+String@{com\+::activitytracker\+::\+Secure\+String}!generate\+Secure\+String@{generate\+Secure\+String}}
+\index{generate\+Secure\+String@{generate\+Secure\+String}!com\+::activitytracker\+::\+Secure\+String@{com\+::activitytracker\+::\+Secure\+String}}
+\subsubsection{\texorpdfstring{generate\+Secure\+String()}{generateSecureString()}}
+{\footnotesize\ttfamily String com.\+activitytracker.\+Secure\+String.\+generate\+Secure\+String (\begin{DoxyParamCaption}\item[{final String}]{str\+To\+Secure,  }\item[{final byte \mbox{[}$\,$\mbox{]}}]{salt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Encrypt string and return secure version.
+
+Due to the importance of securely storing passwords, a \char`\"{}tried and true\char`\"{} method for encrypting passwords found at \href{https://howtodoinjava.com/security/how-to-generate-secure-password-hash-md5-sha-pbkdf2-bcrypt-examples/}{\tt this link} has been used.
+
+
+\begin{DoxyParams}{Parameters}
+{\em str\+To\+Secure} & The plain text string we wish to encrypt. \\
+\hline
+{\em salt} & The salt with which we will encrypt {\itshape str\+To\+Secure}.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+This private method returns the encrypted string to the \mbox{\hyperlink{classcom_1_1activitytracker_1_1_secure_string_a889fcbf0c1f771962ac81886f49e389e}{Secure\+String()}} constructor. 
+\end{DoxyReturn}
+
+
+Definition at line 102 of file Secure\+String.\+java.
+
+\mbox{\Hypertarget{classcom_1_1activitytracker_1_1_secure_string_ab5369653852da122aba874f35cbda9a5}\label{classcom_1_1activitytracker_1_1_secure_string_ab5369653852da122aba874f35cbda9a5}} 
+\index{com\+::activitytracker\+::\+Secure\+String@{com\+::activitytracker\+::\+Secure\+String}!get\+Salt@{get\+Salt}}
+\index{get\+Salt@{get\+Salt}!com\+::activitytracker\+::\+Secure\+String@{com\+::activitytracker\+::\+Secure\+String}}
+\subsubsection{\texorpdfstring{get\+Salt()}{getSalt()}}
+{\footnotesize\ttfamily byte \mbox{[}$\,$\mbox{]} com.\+activitytracker.\+Secure\+String.\+get\+Salt (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+Returns the byte array-\/type salt used to encrypt the text given to the object\textquotesingle{}s constructor. 
+\end{DoxyReturn}
+
+
+Definition at line 123 of file Secure\+String.\+java.
+
+\mbox{\Hypertarget{classcom_1_1activitytracker_1_1_secure_string_aef531e12618c5c147adc52fda0d4add8}\label{classcom_1_1activitytracker_1_1_secure_string_aef531e12618c5c147adc52fda0d4add8}} 
+\index{com\+::activitytracker\+::\+Secure\+String@{com\+::activitytracker\+::\+Secure\+String}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!com\+::activitytracker\+::\+Secure\+String@{com\+::activitytracker\+::\+Secure\+String}}
+\subsubsection{\texorpdfstring{to\+String()}{toString()}}
+{\footnotesize\ttfamily String com.\+activitytracker.\+Secure\+String.\+to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Overrided method to return the object as a Java String.
+
+The encrypted string will be returned, though it should be noted for completeness that this is not a full representation of the object since the salt is crucial in arriving at \mbox{\hyperlink{classcom_1_1activitytracker_1_1_secure_string_a1448f7b8865c6c57cc7218662ee7f1ee}{Secure\+String\+::secure\+String}} being returned.
+
+\begin{DoxyReturn}{Returns}
+Returns the encrypted string. 
+\end{DoxyReturn}
+
+
+Definition at line 136 of file Secure\+String.\+java.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classcom_1_1activitytracker_1_1_secure_string_a8549ead1f186ff0c2520818b03d1cc21}\label{classcom_1_1activitytracker_1_1_secure_string_a8549ead1f186ff0c2520818b03d1cc21}} 
+\index{com\+::activitytracker\+::\+Secure\+String@{com\+::activitytracker\+::\+Secure\+String}!salt@{salt}}
+\index{salt@{salt}!com\+::activitytracker\+::\+Secure\+String@{com\+::activitytracker\+::\+Secure\+String}}
+\subsubsection{\texorpdfstring{salt}{salt}}
+{\footnotesize\ttfamily byte \mbox{[}$\,$\mbox{]} com.\+activitytracker.\+Secure\+String.\+salt\hspace{0.3cm}{\ttfamily [private]}}
+
+The salt that was used to encrypt the plain text string. 
+
+Definition at line 19 of file Secure\+String.\+java.
+
+\mbox{\Hypertarget{classcom_1_1activitytracker_1_1_secure_string_a1448f7b8865c6c57cc7218662ee7f1ee}\label{classcom_1_1activitytracker_1_1_secure_string_a1448f7b8865c6c57cc7218662ee7f1ee}} 
+\index{com\+::activitytracker\+::\+Secure\+String@{com\+::activitytracker\+::\+Secure\+String}!secure\+String@{secure\+String}}
+\index{secure\+String@{secure\+String}!com\+::activitytracker\+::\+Secure\+String@{com\+::activitytracker\+::\+Secure\+String}}
+\subsubsection{\texorpdfstring{secure\+String}{secureString}}
+{\footnotesize\ttfamily String com.\+activitytracker.\+Secure\+String.\+secure\+String\hspace{0.3cm}{\ttfamily [private]}}
+
+The encrypted string. 
+
+Definition at line 15 of file Secure\+String.\+java.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+app/src/com/activitytracker/\mbox{\hyperlink{_secure_string_8java}{Secure\+String.\+java}}\end{DoxyCompactItemize}
