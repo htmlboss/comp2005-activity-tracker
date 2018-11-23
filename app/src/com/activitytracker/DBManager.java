@@ -783,7 +783,7 @@ class DBManager {
                     "    weight        REAL    NOT NULL," +
                     "    password_hash STRING  NOT NULL," +
                     "    password_salt BLOB    NOT NULL," +
-                    "    last_workout  INTEGER NOT NULL DEFAULT 0," +
+                    "    last_run  INTEGER NOT NULL DEFAULT 0," +
                     "    created_at    DATE    NOT NULL" +
                     ")";
 
@@ -795,7 +795,7 @@ class DBManager {
             sqlQuery = "CREATE TABLE RUNS (" +
                     "    id                  INTEGER PRIMARY KEY ASC AUTOINCREMENT NOT NULL," +
                     "    user_id             INTEGER NOT NULL REFERENCES USERS (id)," +
-                    "    date                DATE    UNIQUE NOT NULL," +
+                    "    date                DATE    NOT NULL," +
                     "    duration            REAL    NOT NULL," + // seconds
                     "    distance            REAL    NOT NULL," + // metres
                     "    altitude_ascended   REAL    NOT NULL," + // metres
