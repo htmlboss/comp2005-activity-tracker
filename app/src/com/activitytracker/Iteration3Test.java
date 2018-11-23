@@ -3,7 +3,7 @@ package com.activitytracker;
 import javax.naming.AuthenticationException;
 import java.util.Date;
 
-public class Iteration2Test {
+public class Iteration3Test {
 
     public static void main(String[] args) {
 
