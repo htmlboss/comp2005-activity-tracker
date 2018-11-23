@@ -47,10 +47,10 @@ class Run {
      */
     Run (final DBManager dbManager, final int rID) {
         this.dbManager = dbManager;
-        this.duration = this.dbManager.getRunFloatAttribute(WorkoutAttribute.DURATION, rID);
-        this.distance = this.dbManager.getRunFloatAttribute(WorkoutAttribute.DISTANCE, rID);
-        this.altitude_ascended = this.dbManager.getRunFloatAttribute(WorkoutAttribute.ALTITUDE_ASCENDED, rID);
-        this.altitude_descended = this.dbManager.getRunFloatAttribute(WorkoutAttribute.ALTITUDE_DESCENDED, rID);
+        this.duration = this.dbManager.getRunFloatAttribute(RunAttribute.DURATION, rID);
+        this.distance = this.dbManager.getRunFloatAttribute(RunAttribute.DISTANCE, rID);
+        this.altitude_ascended = this.dbManager.getRunFloatAttribute(RunAttribute.ALTITUDE_ASCENDED, rID);
+        this.altitude_descended = this.dbManager.getRunFloatAttribute(RunAttribute.ALTITUDE_DESCENDED, rID);
     }
 
 
@@ -65,7 +65,7 @@ class Run {
         if (duration == 0f && distance == 0f && altitude == 0f) {
             altitude_ascended = 0f;
             altitude_descended = 0f;
-            rID = dbManager.newWorkout(
+            rID = dbManager.newRun(
                     userID,
                     date.getYear(),
                     date.getMonth(),
@@ -79,9 +79,9 @@ class Run {
             System.err.println("Run " + Integer.toString(rID) + " added to database.");
         } else {
             rID = user.getLastRID();
-            if (dbManager.workoutExists(rID)) {
-                altitude_ascended = dbManager.getWorkoutFloatAttribute(WorkoutAttribute.ALTITUDE_ASCENDED, rID);
-                altitude_descended = dbManager.getWorkoutFloatAttribute(WorkoutAttribute.ALTITUDE_DESCENDED, rID);
+            if (dbManager.runExists(rID)) {
+                altitude_ascended = dbManager.getRunFloatAttribute(RunAttribute.ALTITUDE_ASCENDED, rID);
+                altitude_descended = dbManager.getRunFloatAttribute(RunAttribute.ALTITUDE_DESCENDED, rID);
 
                 if (altitude < 0)
                     altitude_descended += -1*altitude;
@@ -101,7 +101,7 @@ class Run {
     public static Run[] getRuns(final DBManager dbManager, final Date startDate, final Date endDate) {
         Run[] runs = null;
 
-        return workouts;
+        return runs;
     }
 
 

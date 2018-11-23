@@ -421,7 +421,7 @@ class DBManager {
      * See getUserLastRID() for more information on the user of the \em last_run field in the database.
      *
      * @param id Unique ID used to associate information in the database to this user.
-     * @param lastWOID Integer corresponding to the last row in the Workouts table that the user with ID \em id created.
+     * @param lastRID Integer corresponding to the last row in the Workouts table that the user with ID \em id created.
      */
     public void setUserLastRID(final int id, final int lastRID) {
         String sqlQuery = "UPDATE Users SET last_run=? WHERE id=?";
@@ -510,7 +510,7 @@ class DBManager {
             System.err.println(e.getMessage());
         }
 
-        return woID;
+        return rID;
     }
 
     /**
@@ -577,7 +577,7 @@ class DBManager {
      *      - When \em attribute is RunAttribute.ALTITUDE_DESCENDED, the run's cumulative altitude descended is
      *        returned in metres
      *   \endparblock
-     * @param WOID Unique ID corresponding to the row in the Runs table that we wish to query. If such an ID does
+     * @param rID Unique ID corresponding to the row in the Runs table that we wish to query. If such an ID does
      *             not exist, \em 0.0f will be returned.
      *
      * @return This method returns a float containing run attribute as specified by the \em attribute parameter.
@@ -607,7 +607,7 @@ class DBManager {
             default:
                 return attrVal;
         }
-        if (workoutExists(WOID)) {
+        if (runExists(rID)) {
             try {
                 stmt = m_conn.prepareStatement(sqlQuery);
                 stmt.setInt(1, rID);
@@ -619,7 +619,7 @@ class DBManager {
             }
         }
         else {
-            System.err.println("Run " + Integer.toString(WOID) + " does not exist. Cannot get " + columnLabel + ".");
+            System.err.println("Run " + Integer.toString(rID) + " does not exist. Cannot get " + columnLabel + ".");
         }
 
         return attrVal;
@@ -651,7 +651,7 @@ class DBManager {
                 default:
                     exists = true;
                     System.err.println("More than one run for ID " +
-                            Integer.toString(WOID) + ". Something isn't right.");
+                            Integer.toString(rID) + ". Something isn't right.");
                     break;
             }
 
