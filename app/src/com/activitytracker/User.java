@@ -112,9 +112,9 @@ class User {
         return this.dateOfBirth;
     }
 
-    public int getLastWOID() { return this.dbManager.getUserLastWOID(this.id); }
+    public int getLastRID() { return this.dbManager.getUserLastRID(this.id); }
 
-    public void setLastWOID(final int woID) { this.dbManager.setUserLastWOID(this.id, woID); }
+    public void setLastRID(final int rID) { this.dbManager.setUserLastRID(this.id, rID); }
 
     public Sex getSex() {
         return this.sex;

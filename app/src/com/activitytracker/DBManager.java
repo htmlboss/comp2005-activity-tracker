@@ -392,44 +392,45 @@ class DBManager {
      * @param id Unique ID used to associate information in the database to this user.
      * @return An integer corresponding to the last row in the Workouts table that the user created.
      */
-    public int getUserLastWOID(final int id) {
-        int woID = 0;
+    public int getUserLastRID(final int id) {
+        int rID = 0;
         ResultSet res;
-        String sqlQuery = "SELECT last_workout FROM Users WHERE id=?";
+        String columnLabel = "last_run";
+        String sqlQuery = "SELECT " + columnLabel + " FROM Users WHERE id=?";
         try {
             PreparedStatement stmt = m_conn.prepareStatement(sqlQuery);
             stmt.setInt(1, id);
             res = stmt.executeQuery();
-            woID = res.getInt("last_workout");
+            rID = res.getInt(columnLabel);
             stmt.close();
         }
         catch (final SQLException e) {
             System.err.println(e.getMessage());
         }
 
-        return woID;
+        return rID;
     }
 
     /**
-     * Updates a user's last workout ID in the database.
+     * Updates a user's last run ID in the database.
      *
-     * This method will be used to update the workout that a particular user last created. This is used when creating
-     * new workout as the format of the input file requires that we maintain a record of what workout we must update
+     * This method will be used to update the run that a particular user last created. This is used when creating
+     * new run as the format of the input file requires that we maintain a record of what run we must update
      * if the next line in the file is \em not (0, 0, 0).
      *
-     * See getUserLastWorkoutID() for more information on the user of the \em last_workout field in the database.
+     * See getUserLastRID() for more information on the user of the \em last_run field in the database.
      *
      * @param id Unique ID used to associate information in the database to this user.
      * @param lastWOID Integer corresponding to the last row in the Workouts table that the user with ID \em id created.
      */
-    public void setUserLastWOID(final int id, final int lastWOID) {
-        String sqlQuery = "UPDATE Users SET last_workout=? WHERE id=?";
+    public void setUserLastRID(final int id, final int lastRID) {
+        String sqlQuery = "UPDATE Users SET last_run=? WHERE id=?";
         try {
             PreparedStatement stmt = m_conn.prepareStatement(sqlQuery);
-            stmt.setInt(1, lastWOID);
+            stmt.setInt(1, lastRID);
             stmt.setInt(2, id);
             if (stmt.executeUpdate() != 1) {
-                System.err.println("User's last workout was not updated correctly.");
+                System.err.println("User's last run was not updated correctly.");
             }
         }
         catch (final SQLException e) {
@@ -438,16 +439,16 @@ class DBManager {
     }
 
     /**
-     * Creates a new row in the Workouts table with the attributes provided as parameters.
+     * Creates a new row in the Runs table with the attributes provided as parameters.
      *
-     * In particular, this method will be called when Workout#newWorkoutDataPoint() receives (0, 0, 0) for
+     * In particular, this method will be called when Run#newRunDataPoint() receives (0, 0, 0) for
      * (\em duration, \em distance, \em altitude).
      *
      * @param userID Unique ID used to associate information in the database to this user.
-     * @param year Year that the workout was completed.
-     * @param month Month that the workout was completed (1-12).
-     * @param day Day that the workout was completed (1-31).
-     * @param duration Duration of the workout in seconds.
+     * @param year Year that the run was completed.
+     * @param month Month that the run was completed (1-12).
+     * @param day Day that the run was completed (1-31).
+     * @param duration Duration of the run in seconds.
      * @param distance Distance ran in metres.
      * @param altitude_ascended Cumulative altitude climbed in metres.
      * @param altitude_descended Cumulative altitude descended in metres.
@@ -455,13 +456,13 @@ class DBManager {
      * @return Returns a unique integer corresponding to the new row in the SQLite Workouts table by which the new
      *         entry can be identified.
      */
-    public int newWorkout(final int userID, final int year, final int month, final int day,
+    public int newRun(final int userID, final int year, final int month, final int day,
                           final float duration, final float distance, final float altitude_ascended,
                           final float altitude_descended) {
-        java.sql.Date WODate = new java.sql.Date(year, month, day);
-        int woID = 0;
+        java.sql.Date RDate = new java.sql.Date(year, month, day);
+        int rID = 0;
         ResultSet res;
-        String sqlInsertQuery = "INSERT INTO Workouts (" +
+        String sqlInsertQuery = "INSERT INTO Runs (" +
                 "user_id," +
                 "date," +
                 "duration," +
@@ -469,7 +470,7 @@ class DBManager {
                 "altitude_ascended," +
                 "altitude_descended" +
                 ") VALUES (?, ?, ?, ?, ?, ?)";
-        String sqlSelectQuery = "SELECT id FROM Workouts WHERE " +
+        String sqlSelectQuery = "SELECT id FROM Runs WHERE " +
                 "user_id=? AND " +
                 "date=? AND " +
                 "duration=? AND " +
@@ -480,14 +481,14 @@ class DBManager {
         try {
             PreparedStatement stmt = m_conn.prepareStatement(sqlInsertQuery);
             stmt.setInt(1, userID);
-            stmt.setDate(2, WODate);
+            stmt.setDate(2, RDate);
             stmt.setFloat(3, duration);
             stmt.setFloat(4, distance);
             stmt.setFloat(5, altitude_ascended);
             stmt.setFloat(6, altitude_descended);
 
             if (stmt.executeUpdate() != 1) {
-                System.err.println("Workout not added to database.");
+                System.err.println("Run not added to database.");
             }
 
             stmt.close();
@@ -496,14 +497,14 @@ class DBManager {
             // Look at a better way of doing this with OUTPUT clause of INPUT statement
             stmt = m_conn.prepareStatement(sqlSelectQuery);
             stmt.setInt(1, userID);
-            stmt.setDate(2, WODate);
+            stmt.setDate(2, RDate);
             stmt.setFloat(3, duration);
             stmt.setFloat(4, distance);
             stmt.setFloat(5, altitude_ascended);
             stmt.setFloat(6, altitude_descended);
 
             res = stmt.executeQuery();
-            woID = res.getInt("id");
+            rID = res.getInt("id");
         }
         catch (final SQLException e) {
             System.err.println(e.getMessage());
@@ -513,25 +514,25 @@ class DBManager {
     }
 
     /**
-     * Updates a workout entry in the database as new information becomes available from the input file.
+     * Updates a run entry in the database as new information becomes available from the input file.
      *
-     * In particular, this method is called when Workout#newWorkoutDataPoint() receives non-(0, 0, 0) input for
+     * In particular, this method is called when Run#newRunDataPoint() receives non-(0, 0, 0) input for
      * (\em duration, \em distance, \em altitude).
      *
      * This method will not be called directly by the application, rather it is called from
-     * Workout#newWorkoutDataPoint(). Hence that method will take care of adding/subtracting to/from the current stored
+     * Run#newRunDataPoint(). Hence that method will take care of adding/subtracting to/from the current stored
      * values for \em duration, \em distance, and \em altitude --- here we just take the input and put it in the
      * database.
      *
-     * @param WOID Unique ID used to identify a workout in the database.
+     * @param rID Unique ID used to identify a run in the database.
      * @param duration The number of seconds the user's run lasted.
      * @param distance The cumulative number of metres the user ran.
      * @param altitude_ascended The cumulative number of metres the user climbed.
      * @param altitude_descended The cumulative number of metres the user descended.
      */
-    public void setWorkout(final int WOID, final float duration, final float distance,
+    public void setRun(final int rID, final float duration, final float distance,
                               final float altitude_ascended, final float altitude_descended) {
-        String sqlQuery = "UPDATE Workouts SET " +
+        String sqlQuery = "UPDATE Runs SET " +
                 "duration = ?, " +
                 "distance = ?, " +
                 "altitude_ascended=?, " +
@@ -543,12 +544,12 @@ class DBManager {
             stmt.setFloat(2, distance);
             stmt.setFloat(3, altitude_ascended);
             stmt.setFloat(4, altitude_descended);
-            stmt.setInt(5, WOID);
+            stmt.setInt(5, rID);
 
             int result = stmt.executeUpdate();
-            System.err.println(Integer.toString(result) + " rows updated in updateWorkout().");
+            System.err.println(Integer.toString(result) + " rows updated in setRun().");
             if (result != 1) {
-                System.err.println("Workout not updated in database.");
+                System.err.println("Run not updated in database.");
             }
 
             stmt.close();
@@ -560,56 +561,56 @@ class DBManager {
     }
 
     /**
-     * Retrieves a workout's attribute as a floating point number, where applicable, from the database.
+     * Retrieves a run's attribute as a floating point number, where applicable, from the database.
      *
-     * This method accepts a WorkoutAttribute enumeration type to specify what attribute it is returning from the
+     * This method accepts a RunAttribute enumeration type to specify what attribute it is returning from the
      * database. Only certain attributes are accepted by this method, namely those that are stored as real values.
      * Attributes stored as other data types should use the appropriate accessor method.
      *
      * @param attribute \parblock
      *    The attribute that the method is supposed to query the DB for and return the value of. Note that only certain
-     *    WorkoutAttribute types are supported in this method.
-     *      - When \em attribute is WorkoutAttribute.DURATION, the workout's duration is returned.
-     *      - When \em attribute is WorkoutAttribute.DISTANCE, the workout's cumulative distance is returned in metres.
-     *      - When \em attribute is WorkoutAttribute.ALTITUDE_ASCENDED, the workout's cumulative altitude climbed is
+     *    RunAttribute types are supported in this method.
+     *      - When \em attribute is RunAttribute.DURATION, the run's duration is returned.
+     *      - When \em attribute is RunAttribute.DISTANCE, the run's cumulative distance is returned in metres.
+     *      - When \em attribute is RunAttribute.ALTITUDE_ASCENDED, the run's cumulative altitude climbed is
      *        returned in metres
-     *      - When \em attribute is WorkoutAttribute.ALTITUDE_DESCENDED, the workout's cumulative altitude descended is
+     *      - When \em attribute is RunAttribute.ALTITUDE_DESCENDED, the run's cumulative altitude descended is
      *        returned in metres
      *   \endparblock
-     * @param WOID Unique ID corresponding to the row in the Workouts table that we wish to query. If such an ID does
+     * @param WOID Unique ID corresponding to the row in the Runs table that we wish to query. If such an ID does
      *             not exist, \em 0.0f will be returned.
      *
-     * @return This method returns a float containing workout attribute as specified by the \em attribute parameter.
+     * @return This method returns a float containing run attribute as specified by the \em attribute parameter.
      */
-    public float getWorkoutFloatAttribute(final WorkoutAttribute attribute, final int WOID) {
+    public float getRunFloatAttribute(final RunAttribute attribute, final int rID) {
         ResultSet res;
         PreparedStatement stmt;
         String sqlQuery, columnLabel;
         float attrVal = 0.0f;
+        switch (attribute) {
+            case DURATION:
+                columnLabel = "duration";
+                sqlQuery = "SELECT " + columnLabel + " FROM Runs WHERE id=?";
+                break;
+            case DISTANCE:
+                columnLabel = "distance";
+                sqlQuery = "SELECT " + columnLabel + " FROM Runs WHERE id=?";
+                break;
+            case ALTITUDE_ASCENDED:
+                columnLabel = "altitude_ascended";
+                sqlQuery = "SELECT " + columnLabel + " FROM Runs WHERE id=?";
+                break;
+            case ALTITUDE_DESCENDED:
+                columnLabel = "altitude_descended";
+                sqlQuery = "SELECT " + columnLabel + " FROM Runs WHERE id=?";
+                break;
+            default:
+                return attrVal;
+        }
         if (workoutExists(WOID)) {
             try {
-                switch (attribute) {
-                    case DURATION:
-                        columnLabel = "duration";
-                        sqlQuery = "SELECT " + columnLabel + " FROM Workouts WHERE id=?";
-                        break;
-                    case DISTANCE:
-                        columnLabel = "distance";
-                        sqlQuery = "SELECT " + columnLabel + " FROM Workouts WHERE id=?";
-                        break;
-                    case ALTITUDE_ASCENDED:
-                        columnLabel = "altitude_ascended";
-                        sqlQuery = "SELECT " + columnLabel + " FROM Workouts WHERE id=?";
-                        break;
-                    case ALTITUDE_DESCENDED:
-                        columnLabel = "altitude_descended";
-                        sqlQuery = "SELECT " + columnLabel + " FROM Workouts WHERE id=?";
-                        break;
-                    default:
-                        return attrVal;
-                }
                 stmt = m_conn.prepareStatement(sqlQuery);
-                stmt.setInt(1, WOID);
+                stmt.setInt(1, rID);
                 res = stmt.executeQuery();
                 attrVal = res.getFloat(columnLabel);
             }
@@ -618,7 +619,7 @@ class DBManager {
             }
         }
         else {
-            System.err.println("Workout " + Integer.toString(WOID) + " does not exist. Cannot get distance.");
+            System.err.println("Run " + Integer.toString(WOID) + " does not exist. Cannot get " + columnLabel + ".");
         }
 
         return attrVal;
@@ -626,19 +627,19 @@ class DBManager {
     }
 
     /**
-     * Determines if a given workout ID exists in the database.
+     * Determines if a given run ID exists in the database.
      *
-     * @param WOID Unique ID corresponding to the row in the Workouts table that we wish to check exists.
+     * @param rID Unique ID corresponding to the row in the Runs table that we wish to check exists.
      *
-     * @return This method returns True if the workout row with ID \em WOID exists in the database, or False otherwise.
+     * @return This method returns True if the run row with ID \em WOID exists in the database, or False otherwise.
      */
-    public boolean workoutExists(final int WOID) {
+    public boolean runExists(final int rID) {
         ResultSet res;
-        String sqlQuery = "SELECT COUNT(*) as count FROM Workouts WHERE id=?";
+        String sqlQuery = "SELECT COUNT(*) as count FROM Runs WHERE id=?";
         boolean exists = false;
         try {
             PreparedStatement stmt = m_conn.prepareStatement(sqlQuery);
-            stmt.setInt(1, WOID);
+            stmt.setInt(1, rID);
             res = stmt.executeQuery();
             switch (res.getInt("count")) {
                 case 0:
@@ -649,7 +650,7 @@ class DBManager {
                     break;
                 default:
                     exists = true;
-                    System.err.println("More than one workout for ID " +
+                    System.err.println("More than one run for ID " +
                             Integer.toString(WOID) + ". Something isn't right.");
                     break;
             }
@@ -791,7 +792,7 @@ class DBManager {
             }
 
             // Create workouts table
-            sqlQuery = "CREATE TABLE WORKOUTS (" +
+            sqlQuery = "CREATE TABLE RUNS (" +
                     "    id                  INTEGER PRIMARY KEY ASC AUTOINCREMENT NOT NULL," +
                     "    user_id             INTEGER NOT NULL REFERENCES USERS (id)," +
                     "    date                DATE    UNIQUE NOT NULL," +
