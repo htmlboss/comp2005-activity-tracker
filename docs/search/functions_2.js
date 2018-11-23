@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['setupactionlisteners',['setupActionListeners',['../classcom_1_1activitytracker_1_1_create_user_window.html#a174a05a389ca6f3b7979ac9c5028a3ae',1,'com.activitytracker.CreateUserWindow.setupActionListeners()'],['../classcom_1_1activitytracker_1_1_login_window.html#af1ff236b841c51bfb49e143344a3c3ac',1,'com.activitytracker.LoginWindow.setupActionListeners()']]],
-  ['setupcreateuserdialog',['setupCreateUserDialog',['../classcom_1_1activitytracker_1_1_login_window.html#a567db7b15448fe9d9c76addbcee4092b',1,'com::activitytracker::LoginWindow']]],
-  ['setupui',['setupUI',['../classcom_1_1activitytracker_1_1_create_user_window.html#a41715d85194c6bb84cf6969f771940dc',1,'com.activitytracker.CreateUserWindow.setupUI()'],['../classcom_1_1activitytracker_1_1_login_window.html#a7af9edf52b3028437e2159f0be9893a9',1,'com.activitytracker.LoginWindow.setupUI()']]]
+  ['equalstring',['equalString',['../classcom_1_1activitytracker_1_1_secure_string.html#a8b5c3cac74b22ff0eb3c43a7ebd980f5',1,'com::activitytracker::SecureString']]],
+  ['executequery',['executeQuery',['../classcom_1_1activitytracker_1_1_d_b_manager.html#adef71a18dc05536d80e83311841e1953',1,'com::activitytracker::DBManager']]],
+  ['executeupdate',['executeUpdate',['../classcom_1_1activitytracker_1_1_d_b_manager.html#a382397e2bdf309901d1c80ff66be69b7',1,'com::activitytracker::DBManager']]]
 ];

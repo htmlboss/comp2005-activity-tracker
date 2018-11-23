@@ -1,4 +1,22 @@
 var searchData=
 [
-  ['tostring',['toString',['../classcom_1_1activitytracker_1_1_secure_string.html#aef531e12618c5c147adc52fda0d4add8',1,'com::activitytracker::SecureString']]]
+  ['generatesalt',['generateSalt',['../classcom_1_1activitytracker_1_1_secure_string.html#a1907ad109bb5e64291fabd3ff459ef49',1,'com::activitytracker::SecureString']]],
+  ['generatesecurestring',['generateSecureString',['../classcom_1_1activitytracker_1_1_secure_string.html#aa2521591ab15fb4c5a2461c04b08320f',1,'com::activitytracker::SecureString']]],
+  ['getdateofbirth',['getDateOfBirth',['../classcom_1_1activitytracker_1_1_d_b_manager.html#a0576baf67b45c7d2d0ba369052e4404e',1,'com.activitytracker.DBManager.getDateOfBirth()'],['../classcom_1_1activitytracker_1_1_user.html#a40da04454cea10bb5c6e6125a7a9cf64',1,'com.activitytracker.User.getDateOfBirth()']]],
+  ['getemailaddress',['getEmailAddress',['../classcom_1_1activitytracker_1_1_user.html#a79d69ca90216e0552ac4cae9778ea40d',1,'com::activitytracker::User']]],
+  ['getheight',['getHeight',['../classcom_1_1activitytracker_1_1_user.html#a2a80ab659d02a07176b1793354131c00',1,'com::activitytracker::User']]],
+  ['getid',['getID',['../classcom_1_1activitytracker_1_1_user.html#a967ae64a7818e9e532ad6d361650d8e6',1,'com::activitytracker::User']]],
+  ['getlastwoid',['getLastWOID',['../classcom_1_1activitytracker_1_1_user.html#a6180e6d835c4b1613f976ed04d68e50e',1,'com::activitytracker::User']]],
+  ['getname',['getName',['../classcom_1_1activitytracker_1_1_user.html#a6b39e49a1e49279035fd61a667d14f64',1,'com::activitytracker::User']]],
+  ['getsalt',['getSalt',['../classcom_1_1activitytracker_1_1_secure_string.html#ab5369653852da122aba874f35cbda9a5',1,'com::activitytracker::SecureString']]],
+  ['getsex',['getSex',['../classcom_1_1activitytracker_1_1_user.html#ac184fdb794730df3fedf3b147283a5fd',1,'com::activitytracker::User']]],
+  ['getuserfloatattribute',['getUserFloatAttribute',['../classcom_1_1activitytracker_1_1_d_b_manager.html#a98df66254bec4d74b29cfe468a9fc794',1,'com::activitytracker::DBManager']]],
+  ['getuseridbyemail',['getUserIDByEmail',['../classcom_1_1activitytracker_1_1_d_b_manager.html#a195dcdeabdd00facb19d720976dd3f53',1,'com::activitytracker::DBManager']]],
+  ['getuserlastwoid',['getUserLastWOID',['../classcom_1_1activitytracker_1_1_d_b_manager.html#a9a3f626218a0b97e26c21388c3780e81',1,'com::activitytracker::DBManager']]],
+  ['getuserpasssalt',['getUserPassSalt',['../classcom_1_1activitytracker_1_1_d_b_manager.html#aeab864b072cc08c0521e80ae1f459ca7',1,'com::activitytracker::DBManager']]],
+  ['getusersex',['getUserSex',['../classcom_1_1activitytracker_1_1_d_b_manager.html#a4e695c111b877cfd1d918602551f65a1',1,'com::activitytracker::DBManager']]],
+  ['getuserstringattribute',['getUserStringAttribute',['../classcom_1_1activitytracker_1_1_d_b_manager.html#a20f726c054d6c8a6fc3ce629d87f1114',1,'com::activitytracker::DBManager']]],
+  ['getweight',['getWeight',['../classcom_1_1activitytracker_1_1_user.html#ad15d7b4f96adb6d1a14054bf3eb7e4e0',1,'com::activitytracker::User']]],
+  ['getworkoutfloatattribute',['getWorkoutFloatAttribute',['../classcom_1_1activitytracker_1_1_d_b_manager.html#a6bda377e79678d0e898c4240d24eb391',1,'com::activitytracker::DBManager']]],
+  ['getworkouts',['getWorkouts',['../classcom_1_1activitytracker_1_1_workout.html#a822ea171fb097e7ffaebe436ae503e80',1,'com::activitytracker::Workout']]]
 ];

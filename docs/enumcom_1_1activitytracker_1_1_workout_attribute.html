@@ -28,10 +28,12 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo-med.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Activity Tracker
    &#160;<span id="projectnumber">1.0</span>
    </div>
+   <div id="projectbrief">Activity Tracker for MUN COMP-2005</div>
   </td>
  </tr>
  </tbody>
@@ -100,26 +102,49 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a9df78b53c3bb12809b5f6eff60b88c71"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a26bf4a418622c817101083d0152b1cce"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="enumcom_1_1activitytracker_1_1_workout_attribute.html#a26bf4a418622c817101083d0152b1cce">DURATION</a></td></tr>
 <tr class="separator:a26bf4a418622c817101083d0152b1cce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a34377cec33244b70c56aed8a4d3a5ff3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="enumcom_1_1activitytracker_1_1_workout_attribute.html#a34377cec33244b70c56aed8a4d3a5ff3">ALTITUDE</a></td></tr>
-<tr class="separator:a34377cec33244b70c56aed8a4d3a5ff3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b40f235f8d0a5b9d751db7c8375dfe1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="enumcom_1_1activitytracker_1_1_workout_attribute.html#a6b40f235f8d0a5b9d751db7c8375dfe1">ALTITUDE_ASCENDED</a></td></tr>
+<tr class="separator:a6b40f235f8d0a5b9d751db7c8375dfe1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1aec2c32feb3bab1e6501d3b80079b88"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="enumcom_1_1activitytracker_1_1_workout_attribute.html#a1aec2c32feb3bab1e6501d3b80079b88">ALTITUDE_DESCENDED</a></td></tr>
+<tr class="separator:a1aec2c32feb3bab1e6501d3b80079b88"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_workout_attribute_8java_source.html#l00003">3</a> of file <a class="el" href="_workout_attribute_8java_source.html">WorkoutAttribute.java</a>.</p>
+<div class="textblock"><p>This enumeration type is used to specify the behaviour of generalized methods, particularly in the <a class="el" href="classcom_1_1activitytracker_1_1_d_b_manager.html">DBManager</a> class. </p>
+
+<p class="definition">Definition at line <a class="el" href="_workout_attribute_8java_source.html#l00006">6</a> of file <a class="el" href="_workout_attribute_8java_source.html">WorkoutAttribute.java</a>.</p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
-<a id="a34377cec33244b70c56aed8a4d3a5ff3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a34377cec33244b70c56aed8a4d3a5ff3">&#9670;&nbsp;</a></span>ALTITUDE</h2>
+<a id="a6b40f235f8d0a5b9d751db7c8375dfe1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b40f235f8d0a5b9d751db7c8375dfe1">&#9670;&nbsp;</a></span>ALTITUDE_ASCENDED</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">com.activitytracker.WorkoutAttribute.ALTITUDE</td>
+          <td class="memname">com.activitytracker.WorkoutAttribute.ALTITUDE_ASCENDED</td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>The cumulative altitude (in metres) that the user has climbed throughout their run.</p>
+<p>Used in <a class="el" href="classcom_1_1activitytracker_1_1_d_b_manager.html#a6bda377e79678d0e898c4240d24eb391">DBManager::getWorkoutFloatAttribute</a> to specify that ascended altitude should be returned. </p>
 
-<p class="definition">Definition at line <a class="el" href="_workout_attribute_8java_source.html#l00006">6</a> of file <a class="el" href="_workout_attribute_8java_source.html">WorkoutAttribute.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_workout_attribute_8java_source.html#l00024">24</a> of file <a class="el" href="_workout_attribute_8java_source.html">WorkoutAttribute.java</a>.</p>
+
+</div>
+</div>
+<a id="a1aec2c32feb3bab1e6501d3b80079b88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1aec2c32feb3bab1e6501d3b80079b88">&#9670;&nbsp;</a></span>ALTITUDE_DESCENDED</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">com.activitytracker.WorkoutAttribute.ALTITUDE_DESCENDED</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The cumulative altitude (in metres) that the user has descended throughout their run.</p>
+<p>Used in <a class="el" href="classcom_1_1activitytracker_1_1_d_b_manager.html#a6bda377e79678d0e898c4240d24eb391">DBManager::getWorkoutFloatAttribute</a> to specify that descended altitude should be returned. </p>
+
+<p class="definition">Definition at line <a class="el" href="_workout_attribute_8java_source.html#l00030">30</a> of file <a class="el" href="_workout_attribute_8java_source.html">WorkoutAttribute.java</a>.</p>
 
 </div>
 </div>
@@ -134,8 +159,10 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>The cumulative distance the user has run (in metres).</p>
+<p>Used in <a class="el" href="classcom_1_1activitytracker_1_1_d_b_manager.html#a6bda377e79678d0e898c4240d24eb391">DBManager::getWorkoutFloatAttribute</a> to specify that distance should be returned. </p>
 
-<p class="definition">Definition at line <a class="el" href="_workout_attribute_8java_source.html#l00004">4</a> of file <a class="el" href="_workout_attribute_8java_source.html">WorkoutAttribute.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_workout_attribute_8java_source.html#l00012">12</a> of file <a class="el" href="_workout_attribute_8java_source.html">WorkoutAttribute.java</a>.</p>
 
 </div>
 </div>
@@ -150,8 +177,10 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>The duration of the user's run (in seconds).</p>
+<p>Used in <a class="el" href="classcom_1_1activitytracker_1_1_d_b_manager.html#a6bda377e79678d0e898c4240d24eb391">DBManager::getWorkoutFloatAttribute</a> to specify that duration should be returned. </p>
 
-<p class="definition">Definition at line <a class="el" href="_workout_attribute_8java_source.html#l00005">5</a> of file <a class="el" href="_workout_attribute_8java_source.html">WorkoutAttribute.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_workout_attribute_8java_source.html#l00018">18</a> of file <a class="el" href="_workout_attribute_8java_source.html">WorkoutAttribute.java</a>.</p>
 
 </div>
 </div>

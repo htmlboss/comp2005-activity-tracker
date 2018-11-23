@@ -7,11 +7,17 @@ import javax.swing.*;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 
+/**
+ * The main program class.
+ */
 class ActivityTracker {
 
-    // Program entry point
+    /**
+     * The main program entry point.
+     */
     public static void main(final String[] args) {
 
+        // Create singleton instance of DBManager
         DBManager dbManager = new DBManager();
         if (!dbManager.init("data.db")) {
             System.err.println("Failed to initialize DBManager");
@@ -28,6 +34,7 @@ class ActivityTracker {
         // Get desktop resolution of default monitor (in case of multi-monitor setups)
         final GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
 
+        // Create and populate the app window
         final JFrame frame = new JFrame("Activity Tracker");
         frame.setContentPane(new LoginWindow((Void) -> {
             frame.setContentPane(new MainWindow().rootPanel());
@@ -36,6 +43,7 @@ class ActivityTracker {
         }).rootPanel());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
+
         // Set window size to be 1/2 of screen dimensions
         frame.setSize(gd.getDisplayMode().getWidth() / 2, gd.getDisplayMode().getHeight() / 2);
         frame.setLocationRelativeTo(null); // Center window

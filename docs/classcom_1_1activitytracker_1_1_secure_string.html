@@ -28,10 +28,12 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo-med.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Activity Tracker
    &#160;<span id="projectnumber">1.0</span>
    </div>
+   <div id="projectbrief">Activity Tracker for MUN COMP-2005</div>
   </td>
  </tr>
  </tbody>
@@ -88,6 +90,7 @@ $(document).ready(function(){initNavTree('classcom_1_1activitytracker_1_1_secure
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pac-methods">Package Functions</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-static-methods">Static Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
@@ -99,10 +102,19 @@ $(document).ready(function(){initNavTree('classcom_1_1activitytracker_1_1_secure
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a8b5c3cac74b22ff0eb3c43a7ebd980f5"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1activitytracker_1_1_secure_string.html#a8b5c3cac74b22ff0eb3c43a7ebd980f5">equalString</a> (final String other)</td></tr>
+<tr class="separator:a8b5c3cac74b22ff0eb3c43a7ebd980f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab5369653852da122aba874f35cbda9a5"><td class="memItemLeft" align="right" valign="top">byte []&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1activitytracker_1_1_secure_string.html#ab5369653852da122aba874f35cbda9a5">getSalt</a> ()</td></tr>
 <tr class="separator:ab5369653852da122aba874f35cbda9a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aef531e12618c5c147adc52fda0d4add8"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1activitytracker_1_1_secure_string.html#aef531e12618c5c147adc52fda0d4add8">toString</a> ()</td></tr>
 <tr class="separator:aef531e12618c5c147adc52fda0d4add8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pac-methods"></a>
+Package Functions</h2></td></tr>
+<tr class="memitem:a889fcbf0c1f771962ac81886f49e389e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1activitytracker_1_1_secure_string.html#a889fcbf0c1f771962ac81886f49e389e">SecureString</a> (final String plaintext)</td></tr>
+<tr class="separator:a889fcbf0c1f771962ac81886f49e389e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04c2f0677ecd9af147428976a11c85e2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1activitytracker_1_1_secure_string.html#a04c2f0677ecd9af147428976a11c85e2">SecureString</a> (final String plaintext, final byte[] <a class="el" href="classcom_1_1activitytracker_1_1_secure_string.html#a8549ead1f186ff0c2520818b03d1cc21">salt</a>)</td></tr>
+<tr class="separator:a04c2f0677ecd9af147428976a11c85e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -122,9 +134,122 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a8549ead1f186ff0c2520818b03d1cc21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_secure_string_8java_source.html#l00007">7</a> of file <a class="el" href="_secure_string_8java_source.html">SecureString.java</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+<div class="textblock"><p>This class is used to securely store sensitive string-like information such as user passwords. </p>
+
+<p class="definition">Definition at line <a class="el" href="_secure_string_8java_source.html#l00010">10</a> of file <a class="el" href="_secure_string_8java_source.html">SecureString.java</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a889fcbf0c1f771962ac81886f49e389e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a889fcbf0c1f771962ac81886f49e389e">&#9670;&nbsp;</a></span>SecureString() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">com.activitytracker.SecureString.SecureString </td>
+          <td>(</td>
+          <td class="paramtype">final String&#160;</td>
+          <td class="paramname"><em>plaintext</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">package</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The <a class="el" href="classcom_1_1activitytracker_1_1_secure_string.html#a889fcbf0c1f771962ac81886f49e389e">SecureString()</a> constructor takes as an argument a plain text string, encrypts it, and stores the encrypted string in the variable <a class="el" href="classcom_1_1activitytracker_1_1_secure_string.html#a1448f7b8865c6c57cc7218662ee7f1ee">SecureString::secureString</a>.</p>
+<p>Salt is generated using <a class="el" href="classcom_1_1activitytracker_1_1_secure_string.html#a1907ad109bb5e64291fabd3ff459ef49">SecureString::generateSalt()</a>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">plaintext</td><td>The string to be encrypted. May contain sensitive information. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_secure_string_8java_source.html#l00029">29</a> of file <a class="el" href="_secure_string_8java_source.html">SecureString.java</a>.</p>
+
+</div>
+</div>
+<a id="a04c2f0677ecd9af147428976a11c85e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04c2f0677ecd9af147428976a11c85e2">&#9670;&nbsp;</a></span>SecureString() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">com.activitytracker.SecureString.SecureString </td>
+          <td>(</td>
+          <td class="paramtype">final String&#160;</td>
+          <td class="paramname"><em>plaintext</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">final byte []&#160;</td>
+          <td class="paramname"><em>salt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">package</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The <a class="el" href="classcom_1_1activitytracker_1_1_secure_string.html#a889fcbf0c1f771962ac81886f49e389e">SecureString()</a> constructor takes as an argument a plain text string and a previously-generated salt, encrypts the plain text string with the provided salt, and stores the encrypted string in the variable <a class="el" href="classcom_1_1activitytracker_1_1_secure_string.html#a1448f7b8865c6c57cc7218662ee7f1ee">SecureString::secureString</a>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">plaintext</td><td>The string to be encrypted. May contain sensitive information. </td></tr>
+    <tr><td class="paramname">salt</td><td>Salt that is used to encrypt <em>plaintext</em>. This parameter is used whenever we wish to encrypt using a previously-generated salt for the purpose of encrypted string comparison. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_secure_string_8java_source.html#l00050">50</a> of file <a class="el" href="_secure_string_8java_source.html">SecureString.java</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a8b5c3cac74b22ff0eb3c43a7ebd980f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b5c3cac74b22ff0eb3c43a7ebd980f5">&#9670;&nbsp;</a></span>equalString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">boolean com.activitytracker.SecureString.equalString </td>
+          <td>(</td>
+          <td class="paramtype">final String&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Compares the secure string to the <em>other</em> parameter for equality.</p>
+<p>This method will likely be used to authenticate a user from a password hash existing in the database.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>A (previously encrypted) string with with we compare <a class="el" href="classcom_1_1activitytracker_1_1_secure_string.html#a1448f7b8865c6c57cc7218662ee7f1ee">SecureString::secureString</a>.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>This method returns True if the hashes of both strings are the same, and False otherwise. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_secure_string_8java_source.html#l00066">66</a> of file <a class="el" href="_secure_string_8java_source.html">SecureString.java</a>.</p>
+
+</div>
+</div>
 <a id="a1907ad109bb5e64291fabd3ff459ef49"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1907ad109bb5e64291fabd3ff459ef49">&#9670;&nbsp;</a></span>generateSalt()</h2>
 
@@ -147,8 +272,16 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>This method generates salt for encryption of a plain text string.</p>
+<dl class="section return"><dt>Returns</dt><dd>Returns a byte array of length sixteen (16) containing the encryption salt.</dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">NoSuchAlgorithmException</td><td>Required as <em>SecureRandom.getInstace()</em> may throw this exception and we would like the invoking method to decide how to handle it rather than catching and dismissing it here. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="_secure_string_8java_source.html#l00041">41</a> of file <a class="el" href="_secure_string_8java_source.html">SecureString.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_secure_string_8java_source.html#l00083">83</a> of file <a class="el" href="_secure_string_8java_source.html">SecureString.java</a>.</p>
 
 </div>
 </div>
@@ -185,8 +318,18 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Encrypt string and return secure version.</p>
+<p>Due to the importance of securely storing passwords, a "tried and true" method for encrypting passwords found at <a href="https://howtodoinjava.com/security/how-to-generate-secure-password-hash-md5-sha-pbkdf2-bcrypt-examples/">this link</a> has been used.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">strToSecure</td><td>The plain text string we wish to encrypt. </td></tr>
+    <tr><td class="paramname">salt</td><td>The salt with which we will encrypt <em>strToSecure</em>.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>This private method returns the encrypted string to the <a class="el" href="classcom_1_1activitytracker_1_1_secure_string.html#a889fcbf0c1f771962ac81886f49e389e">SecureString()</a> constructor. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_secure_string_8java_source.html#l00053">53</a> of file <a class="el" href="_secure_string_8java_source.html">SecureString.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_secure_string_8java_source.html#l00102">102</a> of file <a class="el" href="_secure_string_8java_source.html">SecureString.java</a>.</p>
 
 </div>
 </div>
@@ -204,8 +347,9 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>Returns the byte array-type salt used to encrypt the text given to the object's constructor. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_secure_string_8java_source.html#l00071">71</a> of file <a class="el" href="_secure_string_8java_source.html">SecureString.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_secure_string_8java_source.html#l00123">123</a> of file <a class="el" href="_secure_string_8java_source.html">SecureString.java</a>.</p>
 
 </div>
 </div>
@@ -223,8 +367,11 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Overrided method to return the object as a Java String.</p>
+<p>The encrypted string will be returned, though it should be noted for completeness that this is not a full representation of the object since the salt is crucial in arriving at <a class="el" href="classcom_1_1activitytracker_1_1_secure_string.html#a1448f7b8865c6c57cc7218662ee7f1ee">SecureString::secureString</a> being returned.</p>
+<dl class="section return"><dt>Returns</dt><dd>Returns the encrypted string. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_secure_string_8java_source.html#l00077">77</a> of file <a class="el" href="_secure_string_8java_source.html">SecureString.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_secure_string_8java_source.html#l00136">136</a> of file <a class="el" href="_secure_string_8java_source.html">SecureString.java</a>.</p>
 
 </div>
 </div>
@@ -248,8 +395,9 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>The salt that was used to encrypt the plain text string. </p>
 
-<p class="definition">Definition at line <a class="el" href="_secure_string_8java_source.html#l00010">10</a> of file <a class="el" href="_secure_string_8java_source.html">SecureString.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_secure_string_8java_source.html#l00019">19</a> of file <a class="el" href="_secure_string_8java_source.html">SecureString.java</a>.</p>
 
 </div>
 </div>
@@ -272,8 +420,9 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>The encrypted string. </p>
 
-<p class="definition">Definition at line <a class="el" href="_secure_string_8java_source.html#l00009">9</a> of file <a class="el" href="_secure_string_8java_source.html">SecureString.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_secure_string_8java_source.html#l00015">15</a> of file <a class="el" href="_secure_string_8java_source.html">SecureString.java</a>.</p>
 
 </div>
 </div>

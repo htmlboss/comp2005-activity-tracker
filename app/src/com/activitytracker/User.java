@@ -1,16 +1,28 @@
 package com.activitytracker;
 
-import org.sqlite.core.DB;
-
 import javax.naming.AuthenticationException;
-import javax.xml.transform.Result;
 import java.util.Date;
 import java.util.NoSuchElementException;
 
 
 class User {
+    /**
+     * Used to represent whether the user is male or female.
+     */
     public enum Sex {
+        /**
+         * Used to represent that the user is male.
+         *
+         * Recall from the source code included in DBManager#init() that sex is stored in the database using a data
+         * type of BIT(1). If the user is female, we store this in the database by populating this field with a \em 1.
+         */
         MALE,
+        /**
+         * Used to represent that the user is female.
+         *
+         * Recall from the source code included in DBManager#init() that sex is stored in the database using a data
+         * type of BIT(1). If the user is female, we store this in the database by populating this field with a \em 0.
+         */
         FEMALE
     }
 
@@ -30,19 +42,21 @@ class User {
 
             this.id = dbManager.getUserIDByEmail(emailAddress);
 
-            String passHash = this.dbManager.getUserPassHash(this.id);
+            String passHash = this.dbManager.getUserStringAttribute(UserAttribute.PASSWORD, this.id);
             byte[] passSalt = this.dbManager.getUserPassSalt(this.id);
 
             SecureString candidatePassword = new SecureString(plaintextPassword, passSalt);
 
             if (candidatePassword.equalString(passHash)) {
 
-                this.name = this.dbManager.getUserName(this.id);
-                this.emailAddress = this.dbManager.getEmailAddress(this.id);
+
+                this.name = this.dbManager.getUserStringAttribute(UserAttribute.NAME, this.id);
+//                this.emailAddress = this.dbManager.getEmailAddress(this.id);
+                this.emailAddress = emailAddress;
                 this.dateOfBirth = this.dbManager.getDateOfBirth(this.id);
                 this.sex = this.dbManager.getUserSex(this.id);
-                this.height = this.dbManager.getUserHeight(this.id);
-                this.weight = this.dbManager.getUserWeight(this.id);
+                this.height = this.dbManager.getUserFloatAttribute(UserAttribute.HEIGHT, this.id);
+                this.weight = this.dbManager.getUserFloatAttribute(UserAttribute.WEIGHT, this.id);
 
                 System.out.println("Authentication succeeded for " + this.name);
 
@@ -92,11 +106,6 @@ class User {
 
     public String getEmailAddress() {
         return this.emailAddress;
-    }
-
-    public void setEmailAddress(final String newEmailAddress) {
-        if (!this.dbManager.setUserAttribute(UserAttribute.EMAIL_ADDRESS, this.id, newEmailAddress))
-            System.err.println("User email address update failed.");
     }
 
     public Date getDateOfBirth() {

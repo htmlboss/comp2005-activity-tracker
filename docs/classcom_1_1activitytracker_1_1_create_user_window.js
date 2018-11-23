@@ -1,5 +1,7 @@
 var classcom_1_1activitytracker_1_1_create_user_window =
 [
+    [ "CreateUserWindow", "classcom_1_1activitytracker_1_1_create_user_window.html#a46b8b719c490fe8f658fa7a1f27d0be7", null ],
+    [ "rootPanel", "classcom_1_1activitytracker_1_1_create_user_window.html#a862f018ae96eb5df7529ff1beb312ff1", null ],
     [ "setupActionListeners", "classcom_1_1activitytracker_1_1_create_user_window.html#a174a05a389ca6f3b7979ac9c5028a3ae", null ],
     [ "setupUI", "classcom_1_1activitytracker_1_1_create_user_window.html#a41715d85194c6bb84cf6969f771940dc", null ],
     [ "buttonCancel", "classcom_1_1activitytracker_1_1_create_user_window.html#a975a5cc35d145a3efa4d9e340776ca63", null ],

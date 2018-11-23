@@ -1,5 +1,7 @@
 var classcom_1_1activitytracker_1_1_login_window =
 [
+    [ "LoginWindow", "classcom_1_1activitytracker_1_1_login_window.html#a137cce127ffa1660c70d3fddbc0e2a74", null ],
+    [ "rootPanel", "classcom_1_1activitytracker_1_1_login_window.html#ab1ea45e86bbb79bccd06531279f1e443", null ],
     [ "setupActionListeners", "classcom_1_1activitytracker_1_1_login_window.html#af1ff236b841c51bfb49e143344a3c3ac", null ],
     [ "setupCreateUserDialog", "classcom_1_1activitytracker_1_1_login_window.html#a567db7b15448fe9d9c76addbcee4092b", null ],
     [ "setupUI", "classcom_1_1activitytracker_1_1_login_window.html#a7af9edf52b3028437e2159f0be9893a9", null ],

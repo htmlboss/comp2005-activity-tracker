@@ -67,10 +67,10 @@ public class Iteration2Test {
 
         if (john !=  null) {
             Date today = new Date();
-            Workout.addNewWorkoutDataPoint(dbManager, john, 0f, today, 0f, 0f);
-            Workout.addNewWorkoutDataPoint(dbManager, john, 30f, today, 100f, 5f);
-            Workout.addNewWorkoutDataPoint(dbManager, john, 60f, today, 210f, 2f);
-            Workout.addNewWorkoutDataPoint(dbManager, john, 90f, today, 330f, -2f);
+            Workout.newWorkoutDataPoint(dbManager, john, 0f, today, 0f, 0f);
+            Workout.newWorkoutDataPoint(dbManager, john, 30f, today, 100f, 5f);
+            Workout.newWorkoutDataPoint(dbManager, john, 60f, today, 210f, 2f);
+            Workout.newWorkoutDataPoint(dbManager, john, 90f, today, 330f, -2f);
         }
         else {
             System.out.println("John is null. Cannot execute phase 2.");

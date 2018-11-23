@@ -28,10 +28,12 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo-med.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Activity Tracker
    &#160;<span id="projectnumber">1.0</span>
    </div>
+   <div id="projectbrief">Activity Tracker for MUN COMP-2005</div>
   </td>
  </tr>
  </tbody>
@@ -116,8 +118,9 @@ Public Attributes</h2></td></tr>
 <tr class="separator:acd286be9d131a84a2be02e1cdac4c848"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_user_attribute_8java_source.html#l00003">3</a> of file <a class="el" href="_user_attribute_8java_source.html">UserAttribute.java</a>.</p>
+<div class="textblock"><p>This enumeration type is used to specify the behaviour of generalized methods, particularly in the <a class="el" href="classcom_1_1activitytracker_1_1_d_b_manager.html">DBManager</a> class. </p>
+
+<p class="definition">Definition at line <a class="el" href="_user_attribute_8java_source.html#l00006">6</a> of file <a class="el" href="_user_attribute_8java_source.html">UserAttribute.java</a>.</p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="af3b77ceae76c5f1c46e6821dc98940ee"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af3b77ceae76c5f1c46e6821dc98940ee">&#9670;&nbsp;</a></span>DATE_OF_BIRTH</h2>
@@ -130,8 +133,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Currently not used as no generalized method retrieves the user's DOB. </p>
 
-<p class="definition">Definition at line <a class="el" href="_user_attribute_8java_source.html#l00007">7</a> of file <a class="el" href="_user_attribute_8java_source.html">UserAttribute.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_user_attribute_8java_source.html#l00026">26</a> of file <a class="el" href="_user_attribute_8java_source.html">UserAttribute.java</a>.</p>
 
 </div>
 </div>
@@ -146,8 +150,10 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>The user's email address.</p>
+<p>Used in <a class="el" href="classcom_1_1activitytracker_1_1_d_b_manager.html#a20f726c054d6c8a6fc3ce629d87f1114">DBManager::getUserStringAttribute</a> to specify that the user's email address should be returned. </p>
 
-<p class="definition">Definition at line <a class="el" href="_user_attribute_8java_source.html#l00006">6</a> of file <a class="el" href="_user_attribute_8java_source.html">UserAttribute.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_user_attribute_8java_source.html#l00022">22</a> of file <a class="el" href="_user_attribute_8java_source.html">UserAttribute.java</a>.</p>
 
 </div>
 </div>
@@ -162,8 +168,10 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>The user's height (in metres).</p>
+<p>Used in <a class="el" href="classcom_1_1activitytracker_1_1_d_b_manager.html#a98df66254bec4d74b29cfe468a9fc794">DBManager::getUserFloatAttribute</a> to specify that the user's email height should be returned. </p>
 
-<p class="definition">Definition at line <a class="el" href="_user_attribute_8java_source.html#l00010">10</a> of file <a class="el" href="_user_attribute_8java_source.html">UserAttribute.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_user_attribute_8java_source.html#l00042">42</a> of file <a class="el" href="_user_attribute_8java_source.html">UserAttribute.java</a>.</p>
 
 </div>
 </div>
@@ -178,8 +186,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Currently not used as no generalized method retrieves the user's ID. </p>
 
-<p class="definition">Definition at line <a class="el" href="_user_attribute_8java_source.html#l00004">4</a> of file <a class="el" href="_user_attribute_8java_source.html">UserAttribute.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_user_attribute_8java_source.html#l00010">10</a> of file <a class="el" href="_user_attribute_8java_source.html">UserAttribute.java</a>.</p>
 
 </div>
 </div>
@@ -194,8 +203,10 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>The user's full name.</p>
+<p>Used in <a class="el" href="classcom_1_1activitytracker_1_1_d_b_manager.html#a20f726c054d6c8a6fc3ce629d87f1114">DBManager::getUserStringAttribute</a> to specify that the user's name should be returned. </p>
 
-<p class="definition">Definition at line <a class="el" href="_user_attribute_8java_source.html#l00005">5</a> of file <a class="el" href="_user_attribute_8java_source.html">UserAttribute.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_user_attribute_8java_source.html#l00016">16</a> of file <a class="el" href="_user_attribute_8java_source.html">UserAttribute.java</a>.</p>
 
 </div>
 </div>
@@ -210,8 +221,10 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>The user's encrypted password hash.</p>
+<p>Used in <a class="el" href="classcom_1_1activitytracker_1_1_d_b_manager.html#a20f726c054d6c8a6fc3ce629d87f1114">DBManager::getUserStringAttribute</a> to specify that the user's password hash should be returned. </p>
 
-<p class="definition">Definition at line <a class="el" href="_user_attribute_8java_source.html#l00011">11</a> of file <a class="el" href="_user_attribute_8java_source.html">UserAttribute.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_user_attribute_8java_source.html#l00048">48</a> of file <a class="el" href="_user_attribute_8java_source.html">UserAttribute.java</a>.</p>
 
 </div>
 </div>
@@ -226,8 +239,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Currently not used as no generalized method retrieves the user's password encryption salt. </p>
 
-<p class="definition">Definition at line <a class="el" href="_user_attribute_8java_source.html#l00012">12</a> of file <a class="el" href="_user_attribute_8java_source.html">UserAttribute.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_user_attribute_8java_source.html#l00052">52</a> of file <a class="el" href="_user_attribute_8java_source.html">UserAttribute.java</a>.</p>
 
 </div>
 </div>
@@ -242,8 +256,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Currently not used as no generalized method retrieves the user's sex. </p>
 
-<p class="definition">Definition at line <a class="el" href="_user_attribute_8java_source.html#l00008">8</a> of file <a class="el" href="_user_attribute_8java_source.html">UserAttribute.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_user_attribute_8java_source.html#l00030">30</a> of file <a class="el" href="_user_attribute_8java_source.html">UserAttribute.java</a>.</p>
 
 </div>
 </div>
@@ -258,8 +273,10 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>The user's weight (in kilograms).</p>
+<p>Used in <a class="el" href="classcom_1_1activitytracker_1_1_d_b_manager.html#a98df66254bec4d74b29cfe468a9fc794">DBManager::getUserFloatAttribute</a> to specify that the user's email weight should be returned. </p>
 
-<p class="definition">Definition at line <a class="el" href="_user_attribute_8java_source.html#l00009">9</a> of file <a class="el" href="_user_attribute_8java_source.html">UserAttribute.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_user_attribute_8java_source.html#l00036">36</a> of file <a class="el" href="_user_attribute_8java_source.html">UserAttribute.java</a>.</p>
 
 </div>
 </div>
