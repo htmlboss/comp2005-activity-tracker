@@ -1,0 +1,173 @@
+\hypertarget{classcom_1_1activitytracker_1_1_run}{}\section{com.\+activitytracker.\+Run Class Reference}
+\label{classcom_1_1activitytracker_1_1_run}\index{com.\+activitytracker.\+Run@{com.\+activitytracker.\+Run}}
+
+
+Collaboration diagram for com.\+activitytracker.\+Run\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=290pt]{classcom_1_1activitytracker_1_1_run__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a5dea6f1860431103d553ce770382afe0}{new\+Run\+Data\+Point}} (final \mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager}{D\+B\+Manager}} \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_ab90e32eda9f4c671ae3575f971edca6b}{db\+Manager}}, final \mbox{\hyperlink{classcom_1_1activitytracker_1_1_user}{User}} user, final float \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a5e38d293d29d4b65c9290ff4bee82e03}{duration}}, final Date \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a66934b1f4fe6bc74a4e98574a2892764}{date}}, final float \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a7b4ca8c4ecea4da1653f03b8c8fc16a8}{distance}}, final float altitude)
+\item 
+static \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run}{Run}} \mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a238cc6c056460ead34475961a7c9a00c}{get\+Runs}} (final \mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager}{D\+B\+Manager}} \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_ab90e32eda9f4c671ae3575f971edca6b}{db\+Manager}}, final Date start\+Date, final Date end\+Date)
+\end{DoxyCompactItemize}
+\subsection*{Package Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a5568c1c514835056d2abc22cfba222c5}{Run}} (final \mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager}{D\+B\+Manager}} \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_ab90e32eda9f4c671ae3575f971edca6b}{db\+Manager}}, final int r\+ID)
+\end{DoxyCompactItemize}
+\subsection*{Package Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Date \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a66934b1f4fe6bc74a4e98574a2892764}{date}}
+\item 
+\mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager}{D\+B\+Manager}} \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_ab90e32eda9f4c671ae3575f971edca6b}{db\+Manager}}
+\item 
+float \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a5e38d293d29d4b65c9290ff4bee82e03}{duration}}
+\item 
+float \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a7b4ca8c4ecea4da1653f03b8c8fc16a8}{distance}}
+\item 
+float \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a247fe29ef5dceeb25750fc7c2701f5c8}{altitude\+\_\+ascended}}
+\item 
+float \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a26cd078680ee374482ce848b90308dda}{altitude\+\_\+descended}}
+\item 
+long \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_aa4c73467653a47d3b14ff6653bbab853}{calories\+Burned}} = 0
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Used to logically instantiate a run. 
+
+Definition at line 9 of file Run.\+java.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcom_1_1activitytracker_1_1_run_a5568c1c514835056d2abc22cfba222c5}\label{classcom_1_1activitytracker_1_1_run_a5568c1c514835056d2abc22cfba222c5}} 
+\index{com\+::activitytracker\+::\+Run@{com\+::activitytracker\+::\+Run}!Run@{Run}}
+\index{Run@{Run}!com\+::activitytracker\+::\+Run@{com\+::activitytracker\+::\+Run}}
+\subsubsection{\texorpdfstring{Run()}{Run()}}
+{\footnotesize\ttfamily com.\+activitytracker.\+Run.\+Run (\begin{DoxyParamCaption}\item[{final \mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager}{D\+B\+Manager}}}]{db\+Manager,  }\item[{final int}]{r\+ID }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [package]}}
+
+The \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a5568c1c514835056d2abc22cfba222c5}{Run()}} constructor is used to retrieve workout information from the database and instantiate each row of the Runs table in a logical format.
+
+
+\begin{DoxyParams}{Parameters}
+{\em db\+Manager} & The connection to the database. \\
+\hline
+{\em r\+ID} & The run ID used to retrieve information from the database. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 48 of file Run.\+java.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classcom_1_1activitytracker_1_1_run_a238cc6c056460ead34475961a7c9a00c}\label{classcom_1_1activitytracker_1_1_run_a238cc6c056460ead34475961a7c9a00c}} 
+\index{com\+::activitytracker\+::\+Run@{com\+::activitytracker\+::\+Run}!get\+Runs@{get\+Runs}}
+\index{get\+Runs@{get\+Runs}!com\+::activitytracker\+::\+Run@{com\+::activitytracker\+::\+Run}}
+\subsubsection{\texorpdfstring{get\+Runs()}{getRuns()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run}{Run}} \mbox{[}$\,$\mbox{]} com.\+activitytracker.\+Run.\+get\+Runs (\begin{DoxyParamCaption}\item[{final \mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager}{D\+B\+Manager}}}]{db\+Manager,  }\item[{final Date}]{start\+Date,  }\item[{final Date}]{end\+Date }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 101 of file Run.\+java.
+
+\mbox{\Hypertarget{classcom_1_1activitytracker_1_1_run_a5dea6f1860431103d553ce770382afe0}\label{classcom_1_1activitytracker_1_1_run_a5dea6f1860431103d553ce770382afe0}} 
+\index{com\+::activitytracker\+::\+Run@{com\+::activitytracker\+::\+Run}!new\+Run\+Data\+Point@{new\+Run\+Data\+Point}}
+\index{new\+Run\+Data\+Point@{new\+Run\+Data\+Point}!com\+::activitytracker\+::\+Run@{com\+::activitytracker\+::\+Run}}
+\subsubsection{\texorpdfstring{new\+Run\+Data\+Point()}{newRunDataPoint()}}
+{\footnotesize\ttfamily static void com.\+activitytracker.\+Run.\+new\+Run\+Data\+Point (\begin{DoxyParamCaption}\item[{final \mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager}{D\+B\+Manager}}}]{db\+Manager,  }\item[{final \mbox{\hyperlink{classcom_1_1activitytracker_1_1_user}{User}}}]{user,  }\item[{final float}]{duration,  }\item[{final Date}]{date,  }\item[{final float}]{distance,  }\item[{final float}]{altitude }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 58 of file Run.\+java.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classcom_1_1activitytracker_1_1_run_a247fe29ef5dceeb25750fc7c2701f5c8}\label{classcom_1_1activitytracker_1_1_run_a247fe29ef5dceeb25750fc7c2701f5c8}} 
+\index{com\+::activitytracker\+::\+Run@{com\+::activitytracker\+::\+Run}!altitude\+\_\+ascended@{altitude\+\_\+ascended}}
+\index{altitude\+\_\+ascended@{altitude\+\_\+ascended}!com\+::activitytracker\+::\+Run@{com\+::activitytracker\+::\+Run}}
+\subsubsection{\texorpdfstring{altitude\+\_\+ascended}{altitude\_ascended}}
+{\footnotesize\ttfamily float com.\+activitytracker.\+Run.\+altitude\+\_\+ascended\hspace{0.3cm}{\ttfamily [package]}}
+
+The altitude (in metres) that the user climed throughout the run. 
+
+Definition at line 29 of file Run.\+java.
+
+\mbox{\Hypertarget{classcom_1_1activitytracker_1_1_run_a26cd078680ee374482ce848b90308dda}\label{classcom_1_1activitytracker_1_1_run_a26cd078680ee374482ce848b90308dda}} 
+\index{com\+::activitytracker\+::\+Run@{com\+::activitytracker\+::\+Run}!altitude\+\_\+descended@{altitude\+\_\+descended}}
+\index{altitude\+\_\+descended@{altitude\+\_\+descended}!com\+::activitytracker\+::\+Run@{com\+::activitytracker\+::\+Run}}
+\subsubsection{\texorpdfstring{altitude\+\_\+descended}{altitude\_descended}}
+{\footnotesize\ttfamily float com.\+activitytracker.\+Run.\+altitude\+\_\+descended\hspace{0.3cm}{\ttfamily [package]}}
+
+The altitude (in metres) that the user descended throughout their run. 
+
+Definition at line 33 of file Run.\+java.
+
+\mbox{\Hypertarget{classcom_1_1activitytracker_1_1_run_aa4c73467653a47d3b14ff6653bbab853}\label{classcom_1_1activitytracker_1_1_run_aa4c73467653a47d3b14ff6653bbab853}} 
+\index{com\+::activitytracker\+::\+Run@{com\+::activitytracker\+::\+Run}!calories\+Burned@{calories\+Burned}}
+\index{calories\+Burned@{calories\+Burned}!com\+::activitytracker\+::\+Run@{com\+::activitytracker\+::\+Run}}
+\subsubsection{\texorpdfstring{calories\+Burned}{caloriesBurned}}
+{\footnotesize\ttfamily long com.\+activitytracker.\+Run.\+calories\+Burned = 0\hspace{0.3cm}{\ttfamily [package]}}
+
+The number of calories that the user burned throughout their run.
+
+Currently this is not being used; it is for future features. 
+
+Definition at line 39 of file Run.\+java.
+
+\mbox{\Hypertarget{classcom_1_1activitytracker_1_1_run_a66934b1f4fe6bc74a4e98574a2892764}\label{classcom_1_1activitytracker_1_1_run_a66934b1f4fe6bc74a4e98574a2892764}} 
+\index{com\+::activitytracker\+::\+Run@{com\+::activitytracker\+::\+Run}!date@{date}}
+\index{date@{date}!com\+::activitytracker\+::\+Run@{com\+::activitytracker\+::\+Run}}
+\subsubsection{\texorpdfstring{date}{date}}
+{\footnotesize\ttfamily Date com.\+activitytracker.\+Run.\+date\hspace{0.3cm}{\ttfamily [package]}}
+
+The date the run occurred. 
+
+Definition at line 13 of file Run.\+java.
+
+\mbox{\Hypertarget{classcom_1_1activitytracker_1_1_run_ab90e32eda9f4c671ae3575f971edca6b}\label{classcom_1_1activitytracker_1_1_run_ab90e32eda9f4c671ae3575f971edca6b}} 
+\index{com\+::activitytracker\+::\+Run@{com\+::activitytracker\+::\+Run}!db\+Manager@{db\+Manager}}
+\index{db\+Manager@{db\+Manager}!com\+::activitytracker\+::\+Run@{com\+::activitytracker\+::\+Run}}
+\subsubsection{\texorpdfstring{db\+Manager}{dbManager}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager}{D\+B\+Manager}} com.\+activitytracker.\+Run.\+db\+Manager\hspace{0.3cm}{\ttfamily [package]}}
+
+The run\textquotesingle{}s connection to the database. This is used to add data points and retrieve workout metadata. 
+
+Definition at line 17 of file Run.\+java.
+
+\mbox{\Hypertarget{classcom_1_1activitytracker_1_1_run_a7b4ca8c4ecea4da1653f03b8c8fc16a8}\label{classcom_1_1activitytracker_1_1_run_a7b4ca8c4ecea4da1653f03b8c8fc16a8}} 
+\index{com\+::activitytracker\+::\+Run@{com\+::activitytracker\+::\+Run}!distance@{distance}}
+\index{distance@{distance}!com\+::activitytracker\+::\+Run@{com\+::activitytracker\+::\+Run}}
+\subsubsection{\texorpdfstring{distance}{distance}}
+{\footnotesize\ttfamily float com.\+activitytracker.\+Run.\+distance\hspace{0.3cm}{\ttfamily [package]}}
+
+The distance (in metres) that the user ran. 
+
+Definition at line 25 of file Run.\+java.
+
+\mbox{\Hypertarget{classcom_1_1activitytracker_1_1_run_a5e38d293d29d4b65c9290ff4bee82e03}\label{classcom_1_1activitytracker_1_1_run_a5e38d293d29d4b65c9290ff4bee82e03}} 
+\index{com\+::activitytracker\+::\+Run@{com\+::activitytracker\+::\+Run}!duration@{duration}}
+\index{duration@{duration}!com\+::activitytracker\+::\+Run@{com\+::activitytracker\+::\+Run}}
+\subsubsection{\texorpdfstring{duration}{duration}}
+{\footnotesize\ttfamily float com.\+activitytracker.\+Run.\+duration\hspace{0.3cm}{\ttfamily [package]}}
+
+The length of the run in seconds. 
+
+Definition at line 21 of file Run.\+java.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+app/src/com/activitytracker/\mbox{\hyperlink{_run_8java}{Run.\+java}}\end{DoxyCompactItemize}

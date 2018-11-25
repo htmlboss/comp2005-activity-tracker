@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['newworkout',['newWorkout',['../classcom_1_1activitytracker_1_1_d_b_manager.html#a54aafd30a4e9f62cbfd0d3c61a887405',1,'com::activitytracker::DBManager']]],
-  ['newworkoutdatapoint',['newWorkoutDataPoint',['../classcom_1_1activitytracker_1_1_workout.html#aa595f618a20c8e98bb96c221c5158e9a',1,'com::activitytracker::Workout']]]
+  ['newrun',['newRun',['../classcom_1_1activitytracker_1_1_d_b_manager.html#a05b742f583167f6ce00eb8415c43fc1c',1,'com::activitytracker::DBManager']]],
+  ['newrundatapoint',['newRunDataPoint',['../classcom_1_1activitytracker_1_1_run.html#a5dea6f1860431103d553ce770382afe0',1,'com::activitytracker::Run']]]
 ];

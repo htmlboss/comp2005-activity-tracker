@@ -18,6 +18,12 @@ var dir_89dce2c1f63da84696e0a2967c89d455 =
     [ "MainWindow.java", "_main_window_8java.html", [
       [ "MainWindow", "classcom_1_1activitytracker_1_1_main_window.html", "classcom_1_1activitytracker_1_1_main_window" ]
     ] ],
+    [ "Run.java", "_run_8java.html", [
+      [ "Run", "classcom_1_1activitytracker_1_1_run.html", "classcom_1_1activitytracker_1_1_run" ]
+    ] ],
+    [ "RunAttribute.java", "_run_attribute_8java.html", [
+      [ "RunAttribute", "enumcom_1_1activitytracker_1_1_run_attribute.html", "enumcom_1_1activitytracker_1_1_run_attribute" ]
+    ] ],
     [ "SecureString.java", "_secure_string_8java.html", [
       [ "SecureString", "classcom_1_1activitytracker_1_1_secure_string.html", "classcom_1_1activitytracker_1_1_secure_string" ]
     ] ],
@@ -27,11 +33,5 @@ var dir_89dce2c1f63da84696e0a2967c89d455 =
     ] ],
     [ "UserAttribute.java", "_user_attribute_8java.html", [
       [ "UserAttribute", "enumcom_1_1activitytracker_1_1_user_attribute.html", "enumcom_1_1activitytracker_1_1_user_attribute" ]
-    ] ],
-    [ "Workout.java", "_workout_8java.html", [
-      [ "Workout", "classcom_1_1activitytracker_1_1_workout.html", "classcom_1_1activitytracker_1_1_workout" ]
-    ] ],
-    [ "WorkoutAttribute.java", "_workout_attribute_8java.html", [
-      [ "WorkoutAttribute", "enumcom_1_1activitytracker_1_1_workout_attribute.html", "enumcom_1_1activitytracker_1_1_workout_attribute" ]
     ] ]
 ];

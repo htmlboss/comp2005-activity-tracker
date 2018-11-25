@@ -2,6 +2,6 @@ var searchData=
 [
   ['activitytracker',['ActivityTracker',['../classcom_1_1activitytracker_1_1_activity_tracker.html',1,'com::activitytracker']]],
   ['activitytracker_2ejava',['ActivityTracker.java',['../_activity_tracker_8java.html',1,'']]],
-  ['altitude_5fascended',['altitude_ascended',['../classcom_1_1activitytracker_1_1_workout.html#a7ab77a8e27a53469c6bbd1e1497e0dcd',1,'com.activitytracker.Workout.altitude_ascended()'],['../enumcom_1_1activitytracker_1_1_workout_attribute.html#a6b40f235f8d0a5b9d751db7c8375dfe1',1,'com.activitytracker.WorkoutAttribute.ALTITUDE_ASCENDED()']]],
-  ['altitude_5fdescended',['altitude_descended',['../classcom_1_1activitytracker_1_1_workout.html#a37158d4e44440e9f3e3d8106d92cf36c',1,'com.activitytracker.Workout.altitude_descended()'],['../enumcom_1_1activitytracker_1_1_workout_attribute.html#a1aec2c32feb3bab1e6501d3b80079b88',1,'com.activitytracker.WorkoutAttribute.ALTITUDE_DESCENDED()']]]
+  ['altitude_5fascended',['altitude_ascended',['../classcom_1_1activitytracker_1_1_run.html#a247fe29ef5dceeb25750fc7c2701f5c8',1,'com.activitytracker.Run.altitude_ascended()'],['../enumcom_1_1activitytracker_1_1_run_attribute.html#abcfe85bf48187d67842a0525c1bcc0af',1,'com.activitytracker.RunAttribute.ALTITUDE_ASCENDED()']]],
+  ['altitude_5fdescended',['altitude_descended',['../classcom_1_1activitytracker_1_1_run.html#a26cd078680ee374482ce848b90308dda',1,'com.activitytracker.Run.altitude_descended()'],['../enumcom_1_1activitytracker_1_1_run_attribute.html#a337a68867cfdb8ec7a17c318ad8b216b',1,'com.activitytracker.RunAttribute.ALTITUDE_DESCENDED()']]]
 ];

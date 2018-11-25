@@ -16,7 +16,5 @@ var classcom_1_1activitytracker_1_1_main_window =
     [ "scrollPaneMyFriends", "classcom_1_1activitytracker_1_1_main_window.html#a4ef571b624e78e91f3ccad9234c0b5d3", null ],
     [ "tableAvailableDevices", "classcom_1_1activitytracker_1_1_main_window.html#a50012386053e035e7ae0fb993153b225", null ],
     [ "tableMyActivity", "classcom_1_1activitytracker_1_1_main_window.html#a0ad6d3ca1298275eba15a9ea189d4d9b", null ],
-    [ "toolBar", "classcom_1_1activitytracker_1_1_main_window.html#a2bfeba161ab34eb7d74679e174935995", null ],
-    [ "toolBarLabel", "classcom_1_1activitytracker_1_1_main_window.html#a67ae18d9e07bc8b7058c1363e0f12e30", null ],
     [ "topPanel", "classcom_1_1activitytracker_1_1_main_window.html#a6baf76b2b8ede1ba82fc6d096ddb580b", null ]
 ];

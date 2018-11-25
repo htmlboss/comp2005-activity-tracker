@@ -7,7 +7,5 @@ var searchData=
   ['textfieldname',['textFieldName',['../classcom_1_1activitytracker_1_1_create_user_window.html#aa2b8cf1781a8a1534dbf5c5b98332c05',1,'com::activitytracker::CreateUserWindow']]],
   ['textfieldusername',['textFieldUsername',['../classcom_1_1activitytracker_1_1_login_window.html#aba181dcec114c349a67304406bcce92a',1,'com::activitytracker::LoginWindow']]],
   ['textfieldweight',['textFieldWeight',['../classcom_1_1activitytracker_1_1_create_user_window.html#ae84b4d977150419bfabc11fbd009392c',1,'com::activitytracker::CreateUserWindow']]],
-  ['toolbar',['toolBar',['../classcom_1_1activitytracker_1_1_main_window.html#a2bfeba161ab34eb7d74679e174935995',1,'com::activitytracker::MainWindow']]],
-  ['toolbarlabel',['toolBarLabel',['../classcom_1_1activitytracker_1_1_main_window.html#a67ae18d9e07bc8b7058c1363e0f12e30',1,'com::activitytracker::MainWindow']]],
   ['toppanel',['topPanel',['../classcom_1_1activitytracker_1_1_main_window.html#a6baf76b2b8ede1ba82fc6d096ddb580b',1,'com::activitytracker::MainWindow']]]
 ];
