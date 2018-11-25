@@ -82,6 +82,16 @@ Definition at line 11 of file Login\+Window.\+java.
 Definition at line 26 of file Login\+Window.\+java.
 
 
+\begin{DoxyCode}
+26                                                                 \{
+27         \mbox{\hyperlink{classcom_1_1activitytracker_1_1_login_window_aab28a8e6372499a8690d524dedeaf9e1}{m\_loginHandler}} = loginHandler;
+28 
+29         \mbox{\hyperlink{classcom_1_1activitytracker_1_1_login_window_a7af9edf52b3028437e2159f0be9893a9}{setupUI}}();
+30         \mbox{\hyperlink{classcom_1_1activitytracker_1_1_login_window_a567db7b15448fe9d9c76addbcee4092b}{setupCreateUserDialog}}();
+31         \mbox{\hyperlink{classcom_1_1activitytracker_1_1_login_window_af1ff236b841c51bfb49e143344a3c3ac}{setupActionListeners}}();
+32     \}
+\end{DoxyCode}
+
 
 \subsection{Member Function Documentation}
 \mbox{\Hypertarget{classcom_1_1activitytracker_1_1_login_window_ab1ea45e86bbb79bccd06531279f1e443}\label{classcom_1_1activitytracker_1_1_login_window_ab1ea45e86bbb79bccd06531279f1e443}} 
@@ -94,6 +104,12 @@ Definition at line 26 of file Login\+Window.\+java.
 
 Definition at line 85 of file Login\+Window.\+java.
 
+
+\begin{DoxyCode}
+85                        \{
+86         \textcolor{keywordflow}{return} \mbox{\hyperlink{classcom_1_1activitytracker_1_1_login_window_aa62049382baddb801cb25201814efc57}{m\_rootPanel}};
+87     \}
+\end{DoxyCode}
 \mbox{\Hypertarget{classcom_1_1activitytracker_1_1_login_window_af1ff236b841c51bfb49e143344a3c3ac}\label{classcom_1_1activitytracker_1_1_login_window_af1ff236b841c51bfb49e143344a3c3ac}} 
 \index{com\+::activitytracker\+::\+Login\+Window@{com\+::activitytracker\+::\+Login\+Window}!setup\+Action\+Listeners@{setup\+Action\+Listeners}}
 \index{setup\+Action\+Listeners@{setup\+Action\+Listeners}!com\+::activitytracker\+::\+Login\+Window@{com\+::activitytracker\+::\+Login\+Window}}
@@ -104,6 +120,40 @@ Definition at line 85 of file Login\+Window.\+java.
 
 Definition at line 54 of file Login\+Window.\+java.
 
+
+\begin{DoxyCode}
+54                                         \{
+55 
+56         \textcolor{comment}{// Login button}
+57         \mbox{\hyperlink{classcom_1_1activitytracker_1_1_login_window_ac77d9f8f3a6c697a9847ecd130ac2ef6}{buttonLogin}}.addActionListener(\textcolor{keyword}{new} ActionListener() \{
+58             @Override
+59             \textcolor{keyword}{public} \textcolor{keywordtype}{void} actionPerformed(ActionEvent e) \{
+60 
+61                 \textcolor{comment}{// Do nothing if login fields are empty}
+62                 \textcolor{keywordflow}{if} (\mbox{\hyperlink{classcom_1_1activitytracker_1_1_login_window_aba181dcec114c349a67304406bcce92a}{textFieldUsername}}.getText().isEmpty() || 
+      \mbox{\hyperlink{classcom_1_1activitytracker_1_1_login_window_ae53353ceea197fe7b93f1b7156112d08}{passwordField}}.getPassword().length == 0) \{
+63                     \textcolor{keywordflow}{return};
+64                 \}
+65 
+66                 \textcolor{comment}{// Change to verifyLogin()}
+67                 \textcolor{keywordflow}{if} (\textcolor{keyword}{true}) \{
+68                     \mbox{\hyperlink{classcom_1_1activitytracker_1_1_login_window_aab28a8e6372499a8690d524dedeaf9e1}{m\_loginHandler}}.accept(null);
+69                     \textcolor{keywordflow}{return};
+70                 \}
+71 
+72                 \textcolor{comment}{// Display error message}
+73             \}
+74         \});
+75 
+76         \textcolor{comment}{// Create user button}
+77         \mbox{\hyperlink{classcom_1_1activitytracker_1_1_login_window_a1ff77d6846d01d4a8540371ede091371}{buttonCreateUser}}.addActionListener(\textcolor{keyword}{new} ActionListener() \{
+78             @Override
+79             \textcolor{keyword}{public} \textcolor{keywordtype}{void} actionPerformed(ActionEvent e) \{
+80                 \mbox{\hyperlink{classcom_1_1activitytracker_1_1_login_window_a49ff7093e29ce7bd22c42ac8099d5d34}{m\_createUserDialog}}.setVisible(\textcolor{keyword}{true});
+81             \}
+82         \});
+83     \}
+\end{DoxyCode}
 \mbox{\Hypertarget{classcom_1_1activitytracker_1_1_login_window_a567db7b15448fe9d9c76addbcee4092b}\label{classcom_1_1activitytracker_1_1_login_window_a567db7b15448fe9d9c76addbcee4092b}} 
 \index{com\+::activitytracker\+::\+Login\+Window@{com\+::activitytracker\+::\+Login\+Window}!setup\+Create\+User\+Dialog@{setup\+Create\+User\+Dialog}}
 \index{setup\+Create\+User\+Dialog@{setup\+Create\+User\+Dialog}!com\+::activitytracker\+::\+Login\+Window@{com\+::activitytracker\+::\+Login\+Window}}
@@ -114,6 +164,24 @@ Definition at line 54 of file Login\+Window.\+java.
 
 Definition at line 41 of file Login\+Window.\+java.
 
+
+\begin{DoxyCode}
+41                                          \{
+42 
+43         \textcolor{comment}{// Get desktop resolution of default monitor (in case of multi-monitor setups)}
+44         \textcolor{keyword}{final} GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice(
+      );
+45 
+46         \mbox{\hyperlink{classcom_1_1activitytracker_1_1_login_window_a49ff7093e29ce7bd22c42ac8099d5d34}{m\_createUserDialog}} = \textcolor{keyword}{new} JDialog(\textcolor{keyword}{this}, \textcolor{stringliteral}{"Activity Logger | Create User"}, \textcolor{keyword}{true});
+47         \mbox{\hyperlink{classcom_1_1activitytracker_1_1_login_window_a49ff7093e29ce7bd22c42ac8099d5d34}{m\_createUserDialog}}.setContentPane(\textcolor{keyword}{new} CreateUserWindow().
+      \mbox{\hyperlink{classcom_1_1activitytracker_1_1_login_window_ab1ea45e86bbb79bccd06531279f1e443}{rootPanel}}());
+48         \mbox{\hyperlink{classcom_1_1activitytracker_1_1_login_window_a49ff7093e29ce7bd22c42ac8099d5d34}{m\_createUserDialog}}.pack();
+49         \textcolor{comment}{// Set window size to be 1/2 of screen dimensions}
+50         \mbox{\hyperlink{classcom_1_1activitytracker_1_1_login_window_a49ff7093e29ce7bd22c42ac8099d5d34}{m\_createUserDialog}}.setSize(gd.getDisplayMode().getWidth() / 2, gd.getDisplayMode(
+      ).getHeight() / 2);
+51         \mbox{\hyperlink{classcom_1_1activitytracker_1_1_login_window_a49ff7093e29ce7bd22c42ac8099d5d34}{m\_createUserDialog}}.setLocationRelativeTo(\textcolor{keyword}{this}); \textcolor{comment}{// Center window}
+52     \}
+\end{DoxyCode}
 \mbox{\Hypertarget{classcom_1_1activitytracker_1_1_login_window_a7af9edf52b3028437e2159f0be9893a9}\label{classcom_1_1activitytracker_1_1_login_window_a7af9edf52b3028437e2159f0be9893a9}} 
 \index{com\+::activitytracker\+::\+Login\+Window@{com\+::activitytracker\+::\+Login\+Window}!setup\+UI@{setup\+UI}}
 \index{setup\+UI@{setup\+UI}!com\+::activitytracker\+::\+Login\+Window@{com\+::activitytracker\+::\+Login\+Window}}
@@ -124,6 +192,15 @@ Definition at line 41 of file Login\+Window.\+java.
 
 Definition at line 34 of file Login\+Window.\+java.
 
+
+\begin{DoxyCode}
+34                            \{
+35         MaterialUIMovement.add(\mbox{\hyperlink{classcom_1_1activitytracker_1_1_login_window_ac77d9f8f3a6c697a9847ecd130ac2ef6}{buttonLogin}}, MaterialColors.GRAY\_100);
+36         MaterialUIMovement.add(\mbox{\hyperlink{classcom_1_1activitytracker_1_1_login_window_a1ff77d6846d01d4a8540371ede091371}{buttonCreateUser}}, MaterialColors.GRAY\_100);
+37 
+38         \mbox{\hyperlink{classcom_1_1activitytracker_1_1_login_window_a567ae49b39c07840b39eec92fdf92c22}{labelLoginMsg}}.setVisible(\textcolor{keyword}{false});
+39     \}
+\end{DoxyCode}
 
 
 \subsection{Member Data Documentation}

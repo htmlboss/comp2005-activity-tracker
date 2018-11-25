@@ -62,6 +62,21 @@ Salt is generated using \mbox{\hyperlink{classcom_1_1activitytracker_1_1_secure_
 
 Definition at line 29 of file Secure\+String.\+java.
 
+
+\begin{DoxyCode}
+29                                          \{
+30 
+31         \textcolor{keywordflow}{try} \{
+32             this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_secure_string_a8549ead1f186ff0c2520818b03d1cc21}{salt}} = \mbox{\hyperlink{classcom_1_1activitytracker_1_1_secure_string_a1907ad109bb5e64291fabd3ff459ef49}{generateSalt}}();
+33         \}
+34         \textcolor{keywordflow}{catch} (\textcolor{keyword}{final} NoSuchAlgorithmException e) \{
+35             System.err.println(e.getMessage());
+36         \}
+37         this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_secure_string_a1448f7b8865c6c57cc7218662ee7f1ee}{secureString}} = \mbox{\hyperlink{classcom_1_1activitytracker_1_1_secure_string_aa2521591ab15fb4c5a2461c04b08320f}{generateSecureString}}(plaintext, this.
+      \mbox{\hyperlink{classcom_1_1activitytracker_1_1_secure_string_a8549ead1f186ff0c2520818b03d1cc21}{salt}});
+38 
+39     \}
+\end{DoxyCode}
 \mbox{\Hypertarget{classcom_1_1activitytracker_1_1_secure_string_a04c2f0677ecd9af147428976a11c85e2}\label{classcom_1_1activitytracker_1_1_secure_string_a04c2f0677ecd9af147428976a11c85e2}} 
 \index{com\+::activitytracker\+::\+Secure\+String@{com\+::activitytracker\+::\+Secure\+String}!Secure\+String@{Secure\+String}}
 \index{Secure\+String@{Secure\+String}!com\+::activitytracker\+::\+Secure\+String@{com\+::activitytracker\+::\+Secure\+String}}
@@ -81,6 +96,16 @@ The \mbox{\hyperlink{classcom_1_1activitytracker_1_1_secure_string_a889fcbf0c1f7
 
 Definition at line 50 of file Secure\+String.\+java.
 
+
+\begin{DoxyCode}
+50                                                             \{
+51 
+52         this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_secure_string_a8549ead1f186ff0c2520818b03d1cc21}{salt}} = \mbox{\hyperlink{classcom_1_1activitytracker_1_1_secure_string_a8549ead1f186ff0c2520818b03d1cc21}{salt}};
+53         this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_secure_string_a1448f7b8865c6c57cc7218662ee7f1ee}{secureString}} = \mbox{\hyperlink{classcom_1_1activitytracker_1_1_secure_string_aa2521591ab15fb4c5a2461c04b08320f}{generateSecureString}}(plaintext, 
+      \mbox{\hyperlink{classcom_1_1activitytracker_1_1_secure_string_a8549ead1f186ff0c2520818b03d1cc21}{salt}});
+54 
+55     \}
+\end{DoxyCode}
 
 
 \subsection{Member Function Documentation}
@@ -106,6 +131,14 @@ This method returns True if the hashes of both strings are the same, and False o
 
 Definition at line 66 of file Secure\+String.\+java.
 
+
+\begin{DoxyCode}
+66                                                    \{
+67 
+68         \textcolor{keywordflow}{return} this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_secure_string_a1448f7b8865c6c57cc7218662ee7f1ee}{secureString}}.equals(other);
+69 
+70     \}
+\end{DoxyCode}
 \mbox{\Hypertarget{classcom_1_1activitytracker_1_1_secure_string_a1907ad109bb5e64291fabd3ff459ef49}\label{classcom_1_1activitytracker_1_1_secure_string_a1907ad109bb5e64291fabd3ff459ef49}} 
 \index{com\+::activitytracker\+::\+Secure\+String@{com\+::activitytracker\+::\+Secure\+String}!generate\+Salt@{generate\+Salt}}
 \index{generate\+Salt@{generate\+Salt}!com\+::activitytracker\+::\+Secure\+String@{com\+::activitytracker\+::\+Secure\+String}}
@@ -126,6 +159,15 @@ Returns a byte array of length sixteen (16) containing the encryption salt.
 
 Definition at line 83 of file Secure\+String.\+java.
 
+
+\begin{DoxyCode}
+83                                                                          \{
+84         SecureRandom sr = SecureRandom.getInstance(\textcolor{stringliteral}{"SHA1PRNG"});
+85         byte[] \mbox{\hyperlink{classcom_1_1activitytracker_1_1_secure_string_a8549ead1f186ff0c2520818b03d1cc21}{salt}} = \textcolor{keyword}{new} byte[16];
+86         sr.nextBytes(\mbox{\hyperlink{classcom_1_1activitytracker_1_1_secure_string_a8549ead1f186ff0c2520818b03d1cc21}{salt}});
+87         \textcolor{keywordflow}{return} \mbox{\hyperlink{classcom_1_1activitytracker_1_1_secure_string_a8549ead1f186ff0c2520818b03d1cc21}{salt}};
+88     \}
+\end{DoxyCode}
 \mbox{\Hypertarget{classcom_1_1activitytracker_1_1_secure_string_aa2521591ab15fb4c5a2461c04b08320f}\label{classcom_1_1activitytracker_1_1_secure_string_aa2521591ab15fb4c5a2461c04b08320f}} 
 \index{com\+::activitytracker\+::\+Secure\+String@{com\+::activitytracker\+::\+Secure\+String}!generate\+Secure\+String@{generate\+Secure\+String}}
 \index{generate\+Secure\+String@{generate\+Secure\+String}!com\+::activitytracker\+::\+Secure\+String@{com\+::activitytracker\+::\+Secure\+String}}
@@ -150,6 +192,26 @@ This private method returns the encrypted string to the \mbox{\hyperlink{classco
 
 Definition at line 102 of file Secure\+String.\+java.
 
+
+\begin{DoxyCode}
+102                                                                                      \{
+103         String generatedPassword = null;
+104         \textcolor{keywordflow}{try} \{
+105             MessageDigest md = MessageDigest.getInstance(\textcolor{stringliteral}{"SHA-512"});
+106             md.update(\mbox{\hyperlink{classcom_1_1activitytracker_1_1_secure_string_a8549ead1f186ff0c2520818b03d1cc21}{salt}});
+107             byte[] strBytes = md.digest(strToSecure.getBytes());
+108             StringBuilder sb = \textcolor{keyword}{new} StringBuilder();
+109             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < strBytes.length; i++) \{
+110                 sb.append(Integer.toString((strBytes[i] & 0xff) + 0x100, 16).substring(1));
+111             \}
+112             generatedPassword = sb.toString();
+113         \}
+114         \textcolor{keywordflow}{catch} (\textcolor{keyword}{final} NoSuchAlgorithmException e) \{
+115             System.err.println(e.getMessage());
+116         \}
+117         \textcolor{keywordflow}{return} generatedPassword;
+118     \}
+\end{DoxyCode}
 \mbox{\Hypertarget{classcom_1_1activitytracker_1_1_secure_string_ab5369653852da122aba874f35cbda9a5}\label{classcom_1_1activitytracker_1_1_secure_string_ab5369653852da122aba874f35cbda9a5}} 
 \index{com\+::activitytracker\+::\+Secure\+String@{com\+::activitytracker\+::\+Secure\+String}!get\+Salt@{get\+Salt}}
 \index{get\+Salt@{get\+Salt}!com\+::activitytracker\+::\+Secure\+String@{com\+::activitytracker\+::\+Secure\+String}}
@@ -163,6 +225,12 @@ Returns the byte array-\/type salt used to encrypt the text given to the object\
 
 Definition at line 123 of file Secure\+String.\+java.
 
+
+\begin{DoxyCode}
+123                             \{
+124         \textcolor{keywordflow}{return} this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_secure_string_a8549ead1f186ff0c2520818b03d1cc21}{salt}};
+125     \}
+\end{DoxyCode}
 \mbox{\Hypertarget{classcom_1_1activitytracker_1_1_secure_string_aef531e12618c5c147adc52fda0d4add8}\label{classcom_1_1activitytracker_1_1_secure_string_aef531e12618c5c147adc52fda0d4add8}} 
 \index{com\+::activitytracker\+::\+Secure\+String@{com\+::activitytracker\+::\+Secure\+String}!to\+String@{to\+String}}
 \index{to\+String@{to\+String}!com\+::activitytracker\+::\+Secure\+String@{com\+::activitytracker\+::\+Secure\+String}}
@@ -180,6 +248,12 @@ Returns the encrypted string.
 
 Definition at line 136 of file Secure\+String.\+java.
 
+
+\begin{DoxyCode}
+136                              \{
+137         \textcolor{keywordflow}{return} this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_secure_string_a1448f7b8865c6c57cc7218662ee7f1ee}{secureString}};
+138     \}
+\end{DoxyCode}
 
 
 \subsection{Member Data Documentation}

@@ -26,6 +26,83 @@ Definition at line 6 of file Iteration3\+Test.\+java.
 Definition at line 8 of file Iteration3\+Test.\+java.
 
 
+\begin{DoxyCode}
+8                                            \{
+9 
+10         \textcolor{comment}{// Iteration 1 begins here}
+11 
+12         User john = null;
+13 
+14         DBManager dbManager = \textcolor{keyword}{new} DBManager();
+15         \textcolor{keywordflow}{if} (!dbManager.init(\textcolor{stringliteral}{"data.db"})) \{
+16             System.err.println(\textcolor{stringliteral}{"Failed to initialize DBManager"});
+17             System.exit(1);
+18         \}
+19 
+20         System.out.println(\textcolor{stringliteral}{"Attempting to create user..."});
+21 
+22         \textcolor{keywordflow}{if} (!dbManager.userExists(\textcolor{stringliteral}{"jdoe@mac.com"}))
+23             User.createUser(
+24                     dbManager,
+25                     \textcolor{stringliteral}{"John Doe"},
+26                     \textcolor{stringliteral}{"jdoe@mac.com"},
+27                     1997,
+28                     12,
+29                     12,
+30                     User.Sex.MALE,
+31                     1.6764f,
+32                     54.4310844f,
+33                     \textcolor{stringliteral}{"My Very Secure Password"}
+34             );
+35         \textcolor{keywordflow}{else}
+36             System.out.println(\textcolor{stringliteral}{"User already exists."});
+37 
+38 
+39 
+40         \textcolor{keywordflow}{if} (dbManager.userExists(\textcolor{stringliteral}{"jdoe@mac.com"}))
+41             System.out.println(\textcolor{stringliteral}{"John Doe was created!"});
+42         \textcolor{keywordflow}{else}
+43             System.out.println(\textcolor{stringliteral}{"User was NOT created."});
+44 
+45 
+46         System.out.println(\textcolor{stringliteral}{"Testing incorrect password..."});
+47 
+48         \textcolor{keywordflow}{try} \{
+49             john = \textcolor{keyword}{new} User(dbManager,\textcolor{stringliteral}{"jdoe@mac.com"}, \textcolor{stringliteral}{"Some Incorrect Password"});
+50         \}
+51         \textcolor{keywordflow}{catch} (\textcolor{keyword}{final} AuthenticationException e) \{
+52             System.out.println(\textcolor{stringliteral}{"Incorrect password used; authentication failed."});
+53         \}
+54 
+55         System.out.println(\textcolor{stringliteral}{"Authenticating user..."});
+56 
+57         \textcolor{keywordflow}{try} \{
+58             john = \textcolor{keyword}{new} User(dbManager,\textcolor{stringliteral}{"jdoe@mac.com"}, \textcolor{stringliteral}{"My Very Secure Password"});
+59         \}
+60         \textcolor{keywordflow}{catch} (\textcolor{keyword}{final} AuthenticationException e) \{
+61             System.out.println(\textcolor{stringliteral}{"Test failed; user could not be authenticated."});
+62         \}
+63 
+64         \textcolor{comment}{// Iteration 1 ended here}
+65 
+66         \textcolor{comment}{// Iteration 2 begins here}
+67 
+68         \textcolor{keywordflow}{if} (john !=  null) \{
+69             Date today = \textcolor{keyword}{new} Date();
+70             Run.newRunDataPoint(dbManager, john, 0f, today, 0f, 0f);
+71             Run.newRunDataPoint(dbManager, john, 30f, today, 100f, 5f);
+72             Run.newRunDataPoint(dbManager, john, 60f, today, 210f, 2f);
+73             Run.newRunDataPoint(dbManager, john, 90f, today, 330f, -2f);
+74         \}
+75         \textcolor{keywordflow}{else} \{
+76             System.out.println(\textcolor{stringliteral}{"John is null. Cannot execute phase 2."});
+77         \}
+78 
+79         \textcolor{comment}{// Iteration 2 ends here}
+80 
+81     \}
+\end{DoxyCode}
+
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

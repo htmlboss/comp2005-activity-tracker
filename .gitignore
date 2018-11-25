@@ -41,7 +41,7 @@ hs_err_pid*
 *.idx
 *.bbl
 *.toc
-*.ing
+*.ind
 *.ilg
 
 # IntelliJ files

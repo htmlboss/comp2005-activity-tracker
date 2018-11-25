@@ -11,7 +11,7 @@ import java.util.Calendar;
  * populated with information from the database. So the question one faces is, "does the object's constructor
  * query the database (through the DBManager class, of course) for each attribute of the object that it
  * wishes to retrieve, or do we directly interact with a DBManager method which will then return a User or
- * Workout object, for example?" We have decided to use the former methodology, with DBManager methods being as
+ * Run object, for example?" We have decided to use the former methodology, with DBManager methods being as
  * general as possible, and often accepting enum types which then are put into a switch to create the
  * specific SQL query we wish to execute. This works best when all data returned is of the same data type
  * (for example, the Workout class will have three float attributes at the time of writing so we use one method

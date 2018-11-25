@@ -69,6 +69,20 @@ The \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a5568c1c514835056d2abc2
 Definition at line 48 of file Run.\+java.
 
 
+\begin{DoxyCode}
+48                                                    \{
+49         this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_ab90e32eda9f4c671ae3575f971edca6b}{dbManager}} = \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_ab90e32eda9f4c671ae3575f971edca6b}{dbManager}};
+50         this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a5e38d293d29d4b65c9290ff4bee82e03}{duration}} = this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_ab90e32eda9f4c671ae3575f971edca6b}{dbManager}}.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager_a666452f1e5862f90c06b0beb9a9fcfdd}{getRunFloatAttribute}}(
+      RunAttribute.DURATION, rID);
+51         this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a7b4ca8c4ecea4da1653f03b8c8fc16a8}{distance}} = this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_ab90e32eda9f4c671ae3575f971edca6b}{dbManager}}.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager_a666452f1e5862f90c06b0beb9a9fcfdd}{getRunFloatAttribute}}(
+      RunAttribute.DISTANCE, rID);
+52         this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a247fe29ef5dceeb25750fc7c2701f5c8}{altitude\_ascended}} = this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_ab90e32eda9f4c671ae3575f971edca6b}{dbManager}}.
+      \mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager_a666452f1e5862f90c06b0beb9a9fcfdd}{getRunFloatAttribute}}(RunAttribute.ALTITUDE\_ASCENDED, rID);
+53         this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a26cd078680ee374482ce848b90308dda}{altitude\_descended}} = this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_ab90e32eda9f4c671ae3575f971edca6b}{dbManager}}.
+      \mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager_a666452f1e5862f90c06b0beb9a9fcfdd}{getRunFloatAttribute}}(RunAttribute.ALTITUDE\_DESCENDED, rID);
+54     \}
+\end{DoxyCode}
+
 
 \subsection{Member Function Documentation}
 \mbox{\Hypertarget{classcom_1_1activitytracker_1_1_run_a1aa1fb01eabff586e16d88f19f7df743}\label{classcom_1_1activitytracker_1_1_run_a1aa1fb01eabff586e16d88f19f7df743}} 
@@ -97,6 +111,15 @@ A vector containing instances of \mbox{\hyperlink{classcom_1_1activitytracker_1_
 
 Definition at line 135 of file Run.\+java.
 
+
+\begin{DoxyCode}
+135                                                                                                            
+                       \{
+136         Vector<Run> runs = null;
+137 
+138         \textcolor{keywordflow}{return} runs;
+139     \}
+\end{DoxyCode}
 \mbox{\Hypertarget{classcom_1_1activitytracker_1_1_run_a5dea6f1860431103d553ce770382afe0}\label{classcom_1_1activitytracker_1_1_run_a5dea6f1860431103d553ce770382afe0}} 
 \index{com\+::activitytracker\+::\+Run@{com\+::activitytracker\+::\+Run}!new\+Run\+Data\+Point@{new\+Run\+Data\+Point}}
 \index{new\+Run\+Data\+Point@{new\+Run\+Data\+Point}!com\+::activitytracker\+::\+Run@{com\+::activitytracker\+::\+Run}}
@@ -131,6 +154,52 @@ If ({\itshape duration}, {\itshape distance}, {\itshape altitude}) passed to thi
 
 Definition at line 80 of file Run.\+java.
 
+
+\begin{DoxyCode}
+81                                                                                                \{
+82         \textcolor{keywordtype}{int} userID = user.getID();
+83         \textcolor{keywordtype}{int} rID;
+84         \textcolor{keywordtype}{float} \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a247fe29ef5dceeb25750fc7c2701f5c8}{altitude\_ascended}};
+85         \textcolor{keywordtype}{float} \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a26cd078680ee374482ce848b90308dda}{altitude\_descended}};
+86 
+87         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a5e38d293d29d4b65c9290ff4bee82e03}{duration}} == 0f && \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a7b4ca8c4ecea4da1653f03b8c8fc16a8}{distance}} == 0f && altitude == 0f) \{
+88             \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a247fe29ef5dceeb25750fc7c2701f5c8}{altitude\_ascended}} = 0f;
+89             \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a26cd078680ee374482ce848b90308dda}{altitude\_descended}} = 0f;
+90             rID = \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_ab90e32eda9f4c671ae3575f971edca6b}{dbManager}}.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager_a05b742f583167f6ce00eb8415c43fc1c}{newRun}}(
+91                     userID,
+92                     \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a66934b1f4fe6bc74a4e98574a2892764}{date}}.getYear(),
+93                     \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a66934b1f4fe6bc74a4e98574a2892764}{date}}.getMonth(),
+94                     \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a66934b1f4fe6bc74a4e98574a2892764}{date}}.getDay(),
+95                     \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a5e38d293d29d4b65c9290ff4bee82e03}{duration}},
+96                     \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a7b4ca8c4ecea4da1653f03b8c8fc16a8}{distance}},
+97                     \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a247fe29ef5dceeb25750fc7c2701f5c8}{altitude\_ascended}},
+98                     \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a26cd078680ee374482ce848b90308dda}{altitude\_descended}}
+99             );
+100             user.setLastRID(rID);
+101             System.err.println(\textcolor{stringliteral}{"Run "} + Integer.toString(rID) + \textcolor{stringliteral}{" added to database."});
+102         \} \textcolor{keywordflow}{else} \{
+103             rID = user.getLastRID();
+104             \textcolor{keywordflow}{if} (\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_ab90e32eda9f4c671ae3575f971edca6b}{dbManager}}.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager_a723ac1c573bacdd0b62894357bd65a9b}{runExists}}(rID)) \{
+105                 \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a247fe29ef5dceeb25750fc7c2701f5c8}{altitude\_ascended}} = \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_ab90e32eda9f4c671ae3575f971edca6b}{dbManager}}.
+      \mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager_a666452f1e5862f90c06b0beb9a9fcfdd}{getRunFloatAttribute}}(RunAttribute.ALTITUDE\_ASCENDED, rID);
+106                 \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a26cd078680ee374482ce848b90308dda}{altitude\_descended}} = \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_ab90e32eda9f4c671ae3575f971edca6b}{dbManager}}.
+      \mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager_a666452f1e5862f90c06b0beb9a9fcfdd}{getRunFloatAttribute}}(RunAttribute.ALTITUDE\_DESCENDED, rID);
+107 
+108                 \textcolor{keywordflow}{if} (altitude < 0)
+109                     \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a26cd078680ee374482ce848b90308dda}{altitude\_descended}} += -1*altitude;
+110                 \textcolor{keywordflow}{else}
+111                     \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a247fe29ef5dceeb25750fc7c2701f5c8}{altitude\_ascended}} += altitude;
+112 
+113                 \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_ab90e32eda9f4c671ae3575f971edca6b}{dbManager}}.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager_a72282377a552ce4ce371abff02e312f2}{setRun}}(rID, \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a5e38d293d29d4b65c9290ff4bee82e03}{duration}}, \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a7b4ca8c4ecea4da1653f03b8c8fc16a8}{distance}}, 
+      \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a247fe29ef5dceeb25750fc7c2701f5c8}{altitude\_ascended}}, \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a26cd078680ee374482ce848b90308dda}{altitude\_descended}});
+114                 System.err.println(\textcolor{stringliteral}{"Run "} + Integer.toString(rID) + \textcolor{stringliteral}{" exists in the database; updating..."})
+      ;
+115             \} \textcolor{keywordflow}{else} \{
+116                 System.err.println(\textcolor{stringliteral}{"Run table and User table are inconsistent. No changes made."});
+117             \}
+118         \}
+119     \}
+\end{DoxyCode}
 
 
 \subsection{Member Data Documentation}
