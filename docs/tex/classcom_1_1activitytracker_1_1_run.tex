@@ -15,7 +15,7 @@ Collaboration diagram for com.\+activitytracker.\+Run\+:
 \item 
 static void \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a5dea6f1860431103d553ce770382afe0}{new\+Run\+Data\+Point}} (final \mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager}{D\+B\+Manager}} \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_ab90e32eda9f4c671ae3575f971edca6b}{db\+Manager}}, final \mbox{\hyperlink{classcom_1_1activitytracker_1_1_user}{User}} user, final float \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a5e38d293d29d4b65c9290ff4bee82e03}{duration}}, final Date \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a66934b1f4fe6bc74a4e98574a2892764}{date}}, final float \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a7b4ca8c4ecea4da1653f03b8c8fc16a8}{distance}}, final float altitude)
 \item 
-static \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run}{Run}} \mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a238cc6c056460ead34475961a7c9a00c}{get\+Runs}} (final \mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager}{D\+B\+Manager}} \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_ab90e32eda9f4c671ae3575f971edca6b}{db\+Manager}}, final Date start\+Date, final Date end\+Date)
+static Vector$<$ \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run}{Run}} $>$ \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a1aa1fb01eabff586e16d88f19f7df743}{get\+Runs}} (final \mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager}{D\+B\+Manager}} \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_ab90e32eda9f4c671ae3575f971edca6b}{db\+Manager}}, final \mbox{\hyperlink{classcom_1_1activitytracker_1_1_user}{User}} user, final Date start\+Date, final Date end\+Date)
 \end{DoxyCompactItemize}
 \subsection*{Package Functions}
 \begin{DoxyCompactItemize}
@@ -71,15 +71,31 @@ Definition at line 48 of file Run.\+java.
 
 
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{classcom_1_1activitytracker_1_1_run_a238cc6c056460ead34475961a7c9a00c}\label{classcom_1_1activitytracker_1_1_run_a238cc6c056460ead34475961a7c9a00c}} 
+\mbox{\Hypertarget{classcom_1_1activitytracker_1_1_run_a1aa1fb01eabff586e16d88f19f7df743}\label{classcom_1_1activitytracker_1_1_run_a1aa1fb01eabff586e16d88f19f7df743}} 
 \index{com\+::activitytracker\+::\+Run@{com\+::activitytracker\+::\+Run}!get\+Runs@{get\+Runs}}
 \index{get\+Runs@{get\+Runs}!com\+::activitytracker\+::\+Run@{com\+::activitytracker\+::\+Run}}
 \subsubsection{\texorpdfstring{get\+Runs()}{getRuns()}}
-{\footnotesize\ttfamily static \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run}{Run}} \mbox{[}$\,$\mbox{]} com.\+activitytracker.\+Run.\+get\+Runs (\begin{DoxyParamCaption}\item[{final \mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager}{D\+B\+Manager}}}]{db\+Manager,  }\item[{final Date}]{start\+Date,  }\item[{final Date}]{end\+Date }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily static Vector$<$\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run}{Run}}$>$ com.\+activitytracker.\+Run.\+get\+Runs (\begin{DoxyParamCaption}\item[{final \mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager}{D\+B\+Manager}}}]{db\+Manager,  }\item[{final \mbox{\hyperlink{classcom_1_1activitytracker_1_1_user}{User}}}]{user,  }\item[{final Date}]{start\+Date,  }\item[{final Date}]{end\+Date }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Retrieves a set of runs from the database. Returns the result as a vector of \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run}{Run}} objects.
 
 
+\begin{DoxyParams}{Parameters}
+{\em db\+Manager} & Database connection with with the method interacts. \\
+\hline
+{\em user} & A \mbox{\hyperlink{classcom_1_1activitytracker_1_1_user}{User}} object corresponding to the use whose run(s) is/are being retrieved from the database. \\
+\hline
+{\em start\+Date} & The beginning of the interval for which we are retrieving workouts. \\
+\hline
+{\em end\+Date} & The end of the interval for which we are retrieving workouts.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector containing instances of \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run}{Run}} corresponding to all entered workouts between the start and end dates specified. 
+\end{DoxyReturn}
 
-Definition at line 101 of file Run.\+java.
+
+Definition at line 135 of file Run.\+java.
 
 \mbox{\Hypertarget{classcom_1_1activitytracker_1_1_run_a5dea6f1860431103d553ce770382afe0}\label{classcom_1_1activitytracker_1_1_run_a5dea6f1860431103d553ce770382afe0}} 
 \index{com\+::activitytracker\+::\+Run@{com\+::activitytracker\+::\+Run}!new\+Run\+Data\+Point@{new\+Run\+Data\+Point}}
@@ -87,9 +103,33 @@ Definition at line 101 of file Run.\+java.
 \subsubsection{\texorpdfstring{new\+Run\+Data\+Point()}{newRunDataPoint()}}
 {\footnotesize\ttfamily static void com.\+activitytracker.\+Run.\+new\+Run\+Data\+Point (\begin{DoxyParamCaption}\item[{final \mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager}{D\+B\+Manager}}}]{db\+Manager,  }\item[{final \mbox{\hyperlink{classcom_1_1activitytracker_1_1_user}{User}}}]{user,  }\item[{final float}]{duration,  }\item[{final Date}]{date,  }\item[{final float}]{distance,  }\item[{final float}]{altitude }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
+Adds a new workout to the database or updates an existing workout with new information that the user imported from the log file.
+
+If ({\itshape duration}, {\itshape distance}, {\itshape altitude}) passed to this method is (0, 0, 0) then the intended assumption is that this is the beginning of a new workout. As such, this input will cause a new row to be added to the Runs table in the database and the user\textquotesingle{}s last run ID attribute will be updated accordingly. If the input is non-\/(0, 0, 0), then three things take place\+:
+\begin{DoxyEnumerate}
+\item The {\itshape duration} in the database is overwritten by the {\itshape duration} provided as input;
+\item The {\itshape distance} in the database is overwritten by the {\itshape distance} provided as input; and
+\item Existing values for {\itshape altitude\+\_\+ascended} and {\itshape altitude\+\_\+descended} are retrieved from the database, their difference is compared to the current relative altitude, and depending whether this difference is positive or negative, the appropriate field in the database is updated to reflect the change.
+\end{DoxyEnumerate}
 
 
-Definition at line 58 of file Run.\+java.
+\begin{DoxyParams}{Parameters}
+{\em db\+Manager} & Database connection with with the method interacts. \\
+\hline
+{\em user} & A \mbox{\hyperlink{classcom_1_1activitytracker_1_1_user}{User}} object corresponding to the use whose run is being added to the database. \\
+\hline
+{\em duration} & The length of time in seconds that the user\textquotesingle{}s run lasted. \\
+\hline
+{\em date} & The date the run occurred. \\
+\hline
+{\em distance} & The cumulative distance (in metres) that the user ran as of the current time passed to the method. \\
+\hline
+{\em altitude} & The relative current altitude (in metres) of the user at the time point being entered. Used to compute cumulative altitude ascended and descended throughout the run. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 80 of file Run.\+java.
 
 
 

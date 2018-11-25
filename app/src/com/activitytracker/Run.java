@@ -1,7 +1,7 @@
 package com.activitytracker;
 
 import java.util.Date;
-import java.time.LocalTime;
+import java.util.Vector;
 
 /**
  * Used to logically instantiate a run.
@@ -54,7 +54,29 @@ class Run {
     }
 
 
-    // Add workout to database
+    /**
+     * Adds a new workout to the database or updates an existing workout with new information that the user imported
+     * from the log file.
+     *
+     * If (\em duration, \em distance, \em altitude) passed to this method is (0, 0, 0) then the intended assumption
+     * is that this is the beginning of a new workout. As such, this input will cause a new row to be added to the
+     * Runs table in the database and the user's last run ID attribute will be updated accordingly. If the input is
+     * non-(0, 0, 0), then three things take place:
+     *  -# The \em duration in the database is overwritten by the \em duration provided as input;
+     *  -# The \em distance in the database is overwritten by the \em distance provided as input; and
+     *  -# Existing values for \em altitude_ascended and \em altitude_descended are retrieved from the database,
+     *     their difference is compared to the current relative altitude, and depending whether this difference is
+     *     positive or negative, the appropriate field in the database is updated to reflect the change.
+     *
+     * @param dbManager Database connection with with the method interacts.
+     * @param user A User object corresponding to the use whose run is being added to the database.
+     * @param duration The length of time in seconds that the user's run lasted.
+     * @param date The date the run occurred.
+     * @param distance The cumulative distance (in metres) that the user ran as of the current time passed to the
+     *                 method.
+     * @param altitude The relative current altitude (in metres) of the user at the time point being entered.
+     *                 Used to compute cumulative altitude ascended and descended throughout the run.
+     */
     public static void newRunDataPoint(final DBManager dbManager, final User user, final float duration,
                                   final Date date, final float distance, final float altitude) {
         int userID = user.getID();
@@ -98,8 +120,20 @@ class Run {
 
 
     // Returns array of Workouts
-    public static Run[] getRuns(final DBManager dbManager, final Date startDate, final Date endDate) {
-        Run[] runs = null;
+
+    /**
+     * Retrieves a set of runs from the database. Returns the result as a vector of Run objects.
+     *
+     * @param dbManager Database connection with with the method interacts.
+     * @param user A User object corresponding to the use whose run(s) is/are being retrieved from the database.
+     * @param startDate The beginning of the interval for which we are retrieving workouts.
+     * @param endDate The end of the interval for which we are retrieving workouts.
+     *
+     * @return A vector containing instances of Run corresponding to all entered workouts between the start and end
+     *         dates specified.
+     */
+    public static Vector<Run> getRuns(final DBManager dbManager, final User user, final Date startDate, final Date endDate) {
+        Vector<Run> runs = null;
 
         return runs;
     }

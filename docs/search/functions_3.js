@@ -9,7 +9,7 @@ var searchData=
   ['getlastrid',['getLastRID',['../classcom_1_1activitytracker_1_1_user.html#a7040d0d696d79f9592eec6ac507de3c7',1,'com::activitytracker::User']]],
   ['getname',['getName',['../classcom_1_1activitytracker_1_1_user.html#a6b39e49a1e49279035fd61a667d14f64',1,'com::activitytracker::User']]],
   ['getrunfloatattribute',['getRunFloatAttribute',['../classcom_1_1activitytracker_1_1_d_b_manager.html#a666452f1e5862f90c06b0beb9a9fcfdd',1,'com::activitytracker::DBManager']]],
-  ['getruns',['getRuns',['../classcom_1_1activitytracker_1_1_run.html#a238cc6c056460ead34475961a7c9a00c',1,'com::activitytracker::Run']]],
+  ['getruns',['getRuns',['../classcom_1_1activitytracker_1_1_run.html#a1aa1fb01eabff586e16d88f19f7df743',1,'com::activitytracker::Run']]],
   ['getsalt',['getSalt',['../classcom_1_1activitytracker_1_1_secure_string.html#ab5369653852da122aba874f35cbda9a5',1,'com::activitytracker::SecureString']]],
   ['getsex',['getSex',['../classcom_1_1activitytracker_1_1_user.html#ac184fdb794730df3fedf3b147283a5fd',1,'com::activitytracker::User']]],
   ['getuserfloatattribute',['getUserFloatAttribute',['../classcom_1_1activitytracker_1_1_d_b_manager.html#a98df66254bec4d74b29cfe468a9fc794',1,'com::activitytracker::DBManager']]],

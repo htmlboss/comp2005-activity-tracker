@@ -110,8 +110,8 @@ Collaboration diagram for com.activitytracker.Run:</div>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a5dea6f1860431103d553ce770382afe0"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1activitytracker_1_1_run.html#a5dea6f1860431103d553ce770382afe0">newRunDataPoint</a> (final <a class="el" href="classcom_1_1activitytracker_1_1_d_b_manager.html">DBManager</a> <a class="el" href="classcom_1_1activitytracker_1_1_run.html#ab90e32eda9f4c671ae3575f971edca6b">dbManager</a>, final <a class="el" href="classcom_1_1activitytracker_1_1_user.html">User</a> user, final float <a class="el" href="classcom_1_1activitytracker_1_1_run.html#a5e38d293d29d4b65c9290ff4bee82e03">duration</a>, final Date <a class="el" href="classcom_1_1activitytracker_1_1_run.html#a66934b1f4fe6bc74a4e98574a2892764">date</a>, final float <a class="el" href="classcom_1_1activitytracker_1_1_run.html#a7b4ca8c4ecea4da1653f03b8c8fc16a8">distance</a>, final float altitude)</td></tr>
 <tr class="separator:a5dea6f1860431103d553ce770382afe0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a238cc6c056460ead34475961a7c9a00c"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classcom_1_1activitytracker_1_1_run.html">Run</a> []&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1activitytracker_1_1_run.html#a238cc6c056460ead34475961a7c9a00c">getRuns</a> (final <a class="el" href="classcom_1_1activitytracker_1_1_d_b_manager.html">DBManager</a> <a class="el" href="classcom_1_1activitytracker_1_1_run.html#ab90e32eda9f4c671ae3575f971edca6b">dbManager</a>, final Date startDate, final Date endDate)</td></tr>
-<tr class="separator:a238cc6c056460ead34475961a7c9a00c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1aa1fb01eabff586e16d88f19f7df743"><td class="memItemLeft" align="right" valign="top">static Vector&lt; <a class="el" href="classcom_1_1activitytracker_1_1_run.html">Run</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1activitytracker_1_1_run.html#a1aa1fb01eabff586e16d88f19f7df743">getRuns</a> (final <a class="el" href="classcom_1_1activitytracker_1_1_d_b_manager.html">DBManager</a> <a class="el" href="classcom_1_1activitytracker_1_1_run.html#ab90e32eda9f4c671ae3575f971edca6b">dbManager</a>, final <a class="el" href="classcom_1_1activitytracker_1_1_user.html">User</a> user, final Date startDate, final Date endDate)</td></tr>
+<tr class="separator:a1aa1fb01eabff586e16d88f19f7df743"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pac-methods"></a>
 Package Functions</h2></td></tr>
@@ -187,8 +187,8 @@ Package Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a238cc6c056460ead34475961a7c9a00c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a238cc6c056460ead34475961a7c9a00c">&#9670;&nbsp;</a></span>getRuns()</h2>
+<a id="a1aa1fb01eabff586e16d88f19f7df743"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1aa1fb01eabff586e16d88f19f7df743">&#9670;&nbsp;</a></span>getRuns()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -197,10 +197,16 @@ Package Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="classcom_1_1activitytracker_1_1_run.html">Run</a> [] com.activitytracker.Run.getRuns </td>
+          <td class="memname">static Vector&lt;<a class="el" href="classcom_1_1activitytracker_1_1_run.html">Run</a>&gt; com.activitytracker.Run.getRuns </td>
           <td>(</td>
           <td class="paramtype">final <a class="el" href="classcom_1_1activitytracker_1_1_d_b_manager.html">DBManager</a>&#160;</td>
           <td class="paramname"><em>dbManager</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">final <a class="el" href="classcom_1_1activitytracker_1_1_user.html">User</a>&#160;</td>
+          <td class="paramname"><em>user</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -226,8 +232,19 @@ Package Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Retrieves a set of runs from the database. Returns the result as a vector of <a class="el" href="classcom_1_1activitytracker_1_1_run.html">Run</a> objects.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dbManager</td><td>Database connection with with the method interacts. </td></tr>
+    <tr><td class="paramname">user</td><td>A <a class="el" href="classcom_1_1activitytracker_1_1_user.html">User</a> object corresponding to the use whose run(s) is/are being retrieved from the database. </td></tr>
+    <tr><td class="paramname">startDate</td><td>The beginning of the interval for which we are retrieving workouts. </td></tr>
+    <tr><td class="paramname">endDate</td><td>The end of the interval for which we are retrieving workouts.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A vector containing instances of <a class="el" href="classcom_1_1activitytracker_1_1_run.html">Run</a> corresponding to all entered workouts between the start and end dates specified. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_run_8java_source.html#l00101">101</a> of file <a class="el" href="_run_8java_source.html">Run.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_run_8java_source.html#l00135">135</a> of file <a class="el" href="_run_8java_source.html">Run.java</a>.</p>
 
 </div>
 </div>
@@ -288,8 +305,25 @@ Package Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Adds a new workout to the database or updates an existing workout with new information that the user imported from the log file.</p>
+<p>If (<em>duration</em>, <em>distance</em>, <em>altitude</em>) passed to this method is (0, 0, 0) then the intended assumption is that this is the beginning of a new workout. As such, this input will cause a new row to be added to the Runs table in the database and the user's last run ID attribute will be updated accordingly. If the input is non-(0, 0, 0), then three things take place:</p><ol type="1">
+<li>The <em>duration</em> in the database is overwritten by the <em>duration</em> provided as input;</li>
+<li>The <em>distance</em> in the database is overwritten by the <em>distance</em> provided as input; and</li>
+<li>Existing values for <em>altitude_ascended</em> and <em>altitude_descended</em> are retrieved from the database, their difference is compared to the current relative altitude, and depending whether this difference is positive or negative, the appropriate field in the database is updated to reflect the change.</li>
+</ol>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dbManager</td><td>Database connection with with the method interacts. </td></tr>
+    <tr><td class="paramname">user</td><td>A <a class="el" href="classcom_1_1activitytracker_1_1_user.html">User</a> object corresponding to the use whose run is being added to the database. </td></tr>
+    <tr><td class="paramname">duration</td><td>The length of time in seconds that the user's run lasted. </td></tr>
+    <tr><td class="paramname">date</td><td>The date the run occurred. </td></tr>
+    <tr><td class="paramname">distance</td><td>The cumulative distance (in metres) that the user ran as of the current time passed to the method. </td></tr>
+    <tr><td class="paramname">altitude</td><td>The relative current altitude (in metres) of the user at the time point being entered. Used to compute cumulative altitude ascended and descended throughout the run. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="_run_8java_source.html#l00058">58</a> of file <a class="el" href="_run_8java_source.html">Run.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_run_8java_source.html#l00080">80</a> of file <a class="el" href="_run_8java_source.html">Run.java</a>.</p>
 
 </div>
 </div>

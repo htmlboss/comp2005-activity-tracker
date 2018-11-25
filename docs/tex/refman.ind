@@ -151,8 +151,8 @@
     \subitem {db\+Manager}, \hyperpage{41}
     \subitem {distance}, \hyperpage{41}
     \subitem {duration}, \hyperpage{41}
-    \subitem {get\+Runs}, \hyperpage{40}
-    \subitem {new\+Run\+Data\+Point}, \hyperpage{40}
+    \subitem {get\+Runs}, \hyperpage{39}
+    \subitem {new\+Run\+Data\+Point}, \hyperpage{39}
     \subitem {Run}, \hyperpage{38}
   \item {com\+::activitytracker\+::\+Run\+Attribute}
     \subitem {A\+L\+T\+I\+T\+U\+D\+E\+\_\+\+A\+S\+C\+E\+N\+D\+ED}, 
@@ -289,7 +289,7 @@
     \subitem {com\+::activitytracker\+::\+D\+B\+Manager}, 
 		\hyperpage{21}
   \item {get\+Runs}
-    \subitem {com\+::activitytracker\+::\+Run}, \hyperpage{40}
+    \subitem {com\+::activitytracker\+::\+Run}, \hyperpage{39}
   \item {get\+Salt}
     \subitem {com\+::activitytracker\+::\+Secure\+String}, 
 		\hyperpage{47}
@@ -397,7 +397,7 @@
     \subitem {com\+::activitytracker\+::\+D\+B\+Manager}, 
 		\hyperpage{25}
   \item {new\+Run\+Data\+Point}
-    \subitem {com\+::activitytracker\+::\+Run}, \hyperpage{40}
+    \subitem {com\+::activitytracker\+::\+Run}, \hyperpage{39}
 
   \indexspace
 
