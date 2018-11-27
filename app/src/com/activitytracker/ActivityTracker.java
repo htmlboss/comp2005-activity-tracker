@@ -49,8 +49,11 @@ class ActivityTracker {
         // Get desktop resolution of default monitor (in case of multi-monitor setups)
         final GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
 
-        // Create and populate the app window
         final JFrame frame = new JFrame("Activity Logger");
+
+        final String logoPath = "./assets/logo.png";
+        ImageIcon imgIcon = new ImageIcon(ActivityTracker.class.getResource(logoPath));
+        frame.setIconImage(imgIcon.getImage());
         frame.setContentPane(new LoginWindow((Void) -> {
             frame.setContentPane(new MainWindow().rootPanel());
             frame.validate();

@@ -6,7 +6,6 @@ import mdlaf.utils.MaterialColors;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
 
 public class CreateUserWindow extends JDialog {
     private JPanel m_rootPanel;
@@ -34,6 +33,12 @@ public class CreateUserWindow extends JDialog {
             @Override
             public void actionPerformed(ActionEvent e) {
 
+                if (textFieldName.getText().isEmpty() ||
+                    textFieldEmail.getText().isEmpty() ||
+                    passwordField.getPassword().length == 0) {
+
+                    return;
+                }
             }
         });
 
