@@ -1,5 +1,9 @@
 package com.activitytracker;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Date;
 import java.util.Vector;
 
@@ -142,13 +146,15 @@ class Run {
     // Opens and iterates through a file
 
     /**
-     * Opens and iterates through a file. the newRunDataPoint() method is called for each line.
+     * Opens and iterates through a file. The Run#newRunDataPoint() method is called for each line.
      *
      * @param filePath The file to be iterated through
      *
+     * @throws FileNotFoundException Thrown if the file path given does not exist.
+     * @throws IOException Thrown if there is an error reading or opening the file.
      */
-    public static void bulkImport(final String filePath){
-        BufferedReader br = new BufferedReader(new FileReader(file));  
+    public static void bulkImport(final DBManager dbManager, final User user, final String filePath) throws FileNotFoundException, IOException {
+        BufferedReader br = new BufferedReader(new FileReader(filePath));
         String line = null;  
         while ((line = br.readLine()) != null)  
         {
@@ -156,7 +162,11 @@ class Run {
             String buffTime = attributes[0];
             String buffDistance = attributes[1];
             String buffAltitude = attributes[2];
-            String buffDate = attributes[3];
+            String[] buffDate = attributes[3].split("-");
+            String buffMonth = buffDate[1];
+            String buffDay = buffDate[0];
+            String buffYear = buffDate[2];
+            Date runDate = new Date(Integer.parseInt(buffDay), Integer.parseInt(buffMonth), Integer.parseInt(buffYear));
 
             // Convert strings to floats
             // ToDo: String date to Date date
@@ -164,7 +174,7 @@ class Run {
             float fDist = Float.parseFloat(buffDistance);
             float fAlt = Float.parseFloat(buffAltitude);
 
-            newRunDataPoint(dbmanager, user, fDur, buffDate, fDist, fAlt);  
+            newRunDataPoint(dbManager, user, fDur, runDate, fDist, fAlt);
         } 
     }
 

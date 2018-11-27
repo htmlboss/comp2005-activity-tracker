@@ -50,7 +50,7 @@ class ActivityTracker {
         final GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
 
         // Create and populate the app window
-        final JFrame frame = new JFrame("Activity Tracker");
+        final JFrame frame = new JFrame("Activity Logger");
         frame.setContentPane(new LoginWindow((Void) -> {
             frame.setContentPane(new MainWindow().rootPanel());
             frame.validate();

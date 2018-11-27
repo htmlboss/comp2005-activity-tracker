@@ -1,6 +1,8 @@
 package com.activitytracker;
 
 import javax.naming.AuthenticationException;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Date;
 
 public class Iteration3Test {
@@ -67,10 +69,12 @@ public class Iteration3Test {
 
         if (john !=  null) {
             Date today = new Date();
-            Run.newRunDataPoint(dbManager, john, 0f, today, 0f, 0f);
-            Run.newRunDataPoint(dbManager, john, 30f, today, 100f, 5f);
-            Run.newRunDataPoint(dbManager, john, 60f, today, 210f, 2f);
-            Run.newRunDataPoint(dbManager, john, 90f, today, 330f, -2f);
+            try {
+                Run.bulkImport(dbManager, john, "/Users/jacobhouse/Google Drive File Stream/My Drive/Documents/Courses/Computer Science/COMP-2005 Software Engineering/Final Project/comp2005-activity-tracker/app/InputWO.csv");
+            }
+            catch (final IOException e) {
+                System.err.println(e.getMessage());
+            }
         }
         else {
             System.out.println("John is null. Cannot execute phase 2.");
