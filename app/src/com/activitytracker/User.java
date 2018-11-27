@@ -1,14 +1,28 @@
 package com.activitytracker;
 
 import javax.naming.AuthenticationException;
-import javax.xml.transform.Result;
 import java.util.Date;
 import java.util.NoSuchElementException;
 
 
 class User {
+    /**
+     * Used to represent whether the user is male or female.
+     */
     public enum Sex {
+        /**
+         * Used to represent that the user is male.
+         *
+         * Recall from the source code included in DBManager#init() that sex is stored in the database using a data
+         * type of BIT(1). If the user is female, we store this in the database by populating this field with a \em 1.
+         */
         MALE,
+        /**
+         * Used to represent that the user is female.
+         *
+         * Recall from the source code included in DBManager#init() that sex is stored in the database using a data
+         * type of BIT(1). If the user is female, we store this in the database by populating this field with a \em 0.
+         */
         FEMALE
     }
 
@@ -19,55 +33,66 @@ class User {
     private Sex sex;
     private float height;
     private float weight;
-    private DBManager dbManager = new DBManager();
+    private DBManager dbManager = null;
 
-    User(final String emailAddress, final String plaintextPassword) throws AuthenticationException{
+    User(final DBManager dbManager, final String emailAddress, final String plaintextPassword) throws AuthenticationException{
 
+        this.dbManager = dbManager;
         if (this.dbManager.userExists(emailAddress)) {
-            this.id = (int) dbManager.getUserAttribute(UserAttribute.ID, emailAddress);
-            String passHash = (String) this.dbManager.getUserAttribute(UserAttribute.PASSWORD, this.id);
-            if (new SecureString(plaintextPassword).equalString(passHash)) {
-                this.name = (String) dbManager.getUserAttribute(UserAttribute.NAME, this.id);
-                this.emailAddress = (String) dbManager.getUserAttribute(UserAttribute.EMAIL_ADDRESS, this.id);
-                this.dateOfBirth = (Date) dbManager.getUserAttribute(UserAttribute.DATE_OF_BIRTH, this.id);
-                this.sex = (User.Sex) dbManager.getUserAttribute(UserAttribute.SEX, this.id);
-                this.height = (float) dbManager.getUserAttribute(UserAttribute.HEIGHT, this.id);
-                this.weight = (float) dbManager.getUserAttribute(UserAttribute.WEIGHT, this.id);
+
+            this.id = dbManager.getUserIDByEmail(emailAddress);
+
+            String passHash = this.dbManager.getUserStringAttribute(UserAttribute.PASSWORD, this.id);
+            byte[] passSalt = this.dbManager.getUserPassSalt(this.id);
+
+            SecureString candidatePassword = new SecureString(plaintextPassword, passSalt);
+
+            if (candidatePassword.equalString(passHash)) {
+
+
+                this.name = this.dbManager.getUserStringAttribute(UserAttribute.NAME, this.id);
+//                this.emailAddress = this.dbManager.getEmailAddress(this.id);
+                this.emailAddress = emailAddress;
+                this.dateOfBirth = this.dbManager.getDateOfBirth(this.id);
+                this.sex = this.dbManager.getUserSex(this.id);
+                this.height = this.dbManager.getUserFloatAttribute(UserAttribute.HEIGHT, this.id);
+                this.weight = this.dbManager.getUserFloatAttribute(UserAttribute.WEIGHT, this.id);
+
+                System.out.println("Authentication succeeded for " + this.name);
+
             }
             else {
+
                 throw new AuthenticationException("Incorrect password.");
+
             }
         }
         else {
+
             throw new NoSuchElementException("No such user exists.");
+
         }
 
     }
 
-    public User createUser(final String name, final String emailAddress, final Date dateOfBirth,
-                           final User.Sex sex, final float height, final float weight, final String plaintextPassword) {
+    public static void createUser(final DBManager dbManager, final String name, final String emailAddress, final int DOBYear,
+                                  final int DOBMonth, final int DOBDay, final User.Sex sex, final float height,
+                                  final float weight, final String plaintextPassword) {
 
         SecureString securePassword = new SecureString(plaintextPassword);
 
-        this.dbManager.createUser(
+
+        dbManager.createUser(
                 name,
                 emailAddress,
-                dateOfBirth,
+                DOBYear,
+                DOBMonth,
+                DOBDay,
                 sex,
                 height,
                 weight,
                 securePassword
         );
-
-        try {
-            return new User(emailAddress, plaintextPassword);
-        }
-        catch (final AuthenticationException e) {
-            System.err.print(e.getMessage());
-            System.err.print("Returned null User.");
-            return null;
-        }
-
 
     }
 
@@ -83,14 +108,13 @@ class User {
         return this.emailAddress;
     }
 
-    public void setEmailAddress(final String newEmailAddress) {
-        if (!this.dbManager.setUserAttribute(UserAttribute.EMAIL_ADDRESS, this.id, newEmailAddress))
-            System.err.println("User email address update failed.");
-    }
-
     public Date getDateOfBirth() {
         return this.dateOfBirth;
     }
+
+    public int getLastRID() { return this.dbManager.getUserLastRID(this.id); }
+
+    public void setLastRID(final int rID) { this.dbManager.setUserLastRID(this.id, rID); }
 
     public Sex getSex() {
         return this.sex;

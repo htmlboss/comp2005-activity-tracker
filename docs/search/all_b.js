@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['securestring',['SecureString',['../classcom_1_1activitytracker_1_1_secure_string.html',1,'com::activitytracker']]],
-  ['securestring_2ejava',['SecureString.java',['../_secure_string_8java.html',1,'']]],
-  ['sex',['Sex',['../enumcom_1_1activitytracker_1_1_user_1_1_sex.html',1,'com.activitytracker.User.Sex'],['../enumcom_1_1activitytracker_1_1_user_attribute.html#a53fe928fb805b69c606a351aac257558',1,'com.activitytracker.UserAttribute.SEX()']]]
+  ['name',['name',['../classcom_1_1activitytracker_1_1_user.html#a49bfb4c8ebf8b7a377df01b5f0b2d7bc',1,'com.activitytracker.User.name()'],['../enumcom_1_1activitytracker_1_1_user_attribute.html#aac51a5dfcaaa9e5304d37d74fc888af4',1,'com.activitytracker.UserAttribute.NAME()']]],
+  ['newrun',['newRun',['../classcom_1_1activitytracker_1_1_d_b_manager.html#a05b742f583167f6ce00eb8415c43fc1c',1,'com::activitytracker::DBManager']]],
+  ['newrundatapoint',['newRunDataPoint',['../classcom_1_1activitytracker_1_1_run.html#a5dea6f1860431103d553ce770382afe0',1,'com::activitytracker::Run']]]
 ];
