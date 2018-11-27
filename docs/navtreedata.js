@@ -23,7 +23,7 @@ for the JavaScript code in this file
 */
 var NAVTREE =
 [
-  [ "Activity Tracker", "index.html", [
+  [ "Activity Logger", "index.html", [
     [ "COMP-2005 Activity Tracker Documentation", "index.html", null ],
     [ "Packages", "namespaces.html", [
       [ "Packages", "namespaces.html", "namespaces_dup" ]

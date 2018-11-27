@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['bulkimport',['bulkImport',['../classcom_1_1activitytracker_1_1_run.html#a8e2b13e0096b87614d5333ec15213300',1,'com::activitytracker::Run']]],
   ['buttonadddevice',['buttonAddDevice',['../classcom_1_1activitytracker_1_1_main_window.html#af241d0ee8023ed099caa204419d74ccb',1,'com::activitytracker::MainWindow']]],
   ['buttoncancel',['buttonCancel',['../classcom_1_1activitytracker_1_1_create_user_window.html#a975a5cc35d145a3efa4d9e340776ca63',1,'com::activitytracker::CreateUserWindow']]],
   ['buttoncreateuser',['buttonCreateUser',['../classcom_1_1activitytracker_1_1_login_window.html#a1ff77d6846d01d4a8540371ede091371',1,'com::activitytracker::LoginWindow']]],

@@ -148,6 +148,8 @@ class Run {
     /**
      * Opens and iterates through a file. The Run#newRunDataPoint() method is called for each line.
      *
+     * @param dbManager Database connection with with the method interacts.
+     * @param user A User object corresponding to the use whose run(s) is/are being retrieved from the database.
      * @param filePath The file to be iterated through
      *
      * @throws FileNotFoundException Thrown if the file path given does not exist.

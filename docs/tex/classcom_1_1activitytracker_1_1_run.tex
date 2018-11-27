@@ -16,6 +16,8 @@ Collaboration diagram for com.\+activitytracker.\+Run\+:
 static void \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a5dea6f1860431103d553ce770382afe0}{new\+Run\+Data\+Point}} (final \mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager}{D\+B\+Manager}} \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_ab90e32eda9f4c671ae3575f971edca6b}{db\+Manager}}, final \mbox{\hyperlink{classcom_1_1activitytracker_1_1_user}{User}} user, final float \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a5e38d293d29d4b65c9290ff4bee82e03}{duration}}, final Date \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a66934b1f4fe6bc74a4e98574a2892764}{date}}, final float \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a7b4ca8c4ecea4da1653f03b8c8fc16a8}{distance}}, final float altitude)
 \item 
 static Vector$<$ \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run}{Run}} $>$ \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a1aa1fb01eabff586e16d88f19f7df743}{get\+Runs}} (final \mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager}{D\+B\+Manager}} \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_ab90e32eda9f4c671ae3575f971edca6b}{db\+Manager}}, final \mbox{\hyperlink{classcom_1_1activitytracker_1_1_user}{User}} user, final Date start\+Date, final Date end\+Date)
+\item 
+static void \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a8e2b13e0096b87614d5333ec15213300}{bulk\+Import}} (final \mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager}{D\+B\+Manager}} \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_ab90e32eda9f4c671ae3575f971edca6b}{db\+Manager}}, final \mbox{\hyperlink{classcom_1_1activitytracker_1_1_user}{User}} user, final String file\+Path)  throws File\+Not\+Found\+Exception, I\+O\+Exception 
 \end{DoxyCompactItemize}
 \subsection*{Package Functions}
 \begin{DoxyCompactItemize}
@@ -44,7 +46,7 @@ long \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_aa4c73467653a47d3b14ff
 \subsection{Detailed Description}
 Used to logically instantiate a run. 
 
-Definition at line 9 of file Run.\+java.
+Definition at line 13 of file Run.\+java.
 
 
 
@@ -66,25 +68,82 @@ The \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a5568c1c514835056d2abc2
 \end{DoxyParams}
 
 
-Definition at line 48 of file Run.\+java.
+Definition at line 52 of file Run.\+java.
 
 
 \begin{DoxyCode}
-48                                                    \{
-49         this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_ab90e32eda9f4c671ae3575f971edca6b}{dbManager}} = \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_ab90e32eda9f4c671ae3575f971edca6b}{dbManager}};
-50         this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a5e38d293d29d4b65c9290ff4bee82e03}{duration}} = this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_ab90e32eda9f4c671ae3575f971edca6b}{dbManager}}.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager_a666452f1e5862f90c06b0beb9a9fcfdd}{getRunFloatAttribute}}(
+52                                                    \{
+53         this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_ab90e32eda9f4c671ae3575f971edca6b}{dbManager}} = \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_ab90e32eda9f4c671ae3575f971edca6b}{dbManager}};
+54         this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a5e38d293d29d4b65c9290ff4bee82e03}{duration}} = this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_ab90e32eda9f4c671ae3575f971edca6b}{dbManager}}.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager_a666452f1e5862f90c06b0beb9a9fcfdd}{getRunFloatAttribute}}(
       RunAttribute.DURATION, rID);
-51         this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a7b4ca8c4ecea4da1653f03b8c8fc16a8}{distance}} = this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_ab90e32eda9f4c671ae3575f971edca6b}{dbManager}}.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager_a666452f1e5862f90c06b0beb9a9fcfdd}{getRunFloatAttribute}}(
+55         this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a7b4ca8c4ecea4da1653f03b8c8fc16a8}{distance}} = this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_ab90e32eda9f4c671ae3575f971edca6b}{dbManager}}.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager_a666452f1e5862f90c06b0beb9a9fcfdd}{getRunFloatAttribute}}(
       RunAttribute.DISTANCE, rID);
-52         this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a247fe29ef5dceeb25750fc7c2701f5c8}{altitude\_ascended}} = this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_ab90e32eda9f4c671ae3575f971edca6b}{dbManager}}.
+56         this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a247fe29ef5dceeb25750fc7c2701f5c8}{altitude\_ascended}} = this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_ab90e32eda9f4c671ae3575f971edca6b}{dbManager}}.
       \mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager_a666452f1e5862f90c06b0beb9a9fcfdd}{getRunFloatAttribute}}(RunAttribute.ALTITUDE\_ASCENDED, rID);
-53         this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a26cd078680ee374482ce848b90308dda}{altitude\_descended}} = this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_ab90e32eda9f4c671ae3575f971edca6b}{dbManager}}.
+57         this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a26cd078680ee374482ce848b90308dda}{altitude\_descended}} = this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_ab90e32eda9f4c671ae3575f971edca6b}{dbManager}}.
       \mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager_a666452f1e5862f90c06b0beb9a9fcfdd}{getRunFloatAttribute}}(RunAttribute.ALTITUDE\_DESCENDED, rID);
-54     \}
+58     \}
 \end{DoxyCode}
 
 
 \subsection{Member Function Documentation}
+\mbox{\Hypertarget{classcom_1_1activitytracker_1_1_run_a8e2b13e0096b87614d5333ec15213300}\label{classcom_1_1activitytracker_1_1_run_a8e2b13e0096b87614d5333ec15213300}} 
+\index{com\+::activitytracker\+::\+Run@{com\+::activitytracker\+::\+Run}!bulk\+Import@{bulk\+Import}}
+\index{bulk\+Import@{bulk\+Import}!com\+::activitytracker\+::\+Run@{com\+::activitytracker\+::\+Run}}
+\subsubsection{\texorpdfstring{bulk\+Import()}{bulkImport()}}
+{\footnotesize\ttfamily static void com.\+activitytracker.\+Run.\+bulk\+Import (\begin{DoxyParamCaption}\item[{final \mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager}{D\+B\+Manager}}}]{db\+Manager,  }\item[{final \mbox{\hyperlink{classcom_1_1activitytracker_1_1_user}{User}}}]{user,  }\item[{final String}]{file\+Path }\end{DoxyParamCaption}) throws File\+Not\+Found\+Exception, I\+O\+Exception\hspace{0.3cm}{\ttfamily [static]}}
+
+Opens and iterates through a file. The \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a5dea6f1860431103d553ce770382afe0}{Run\+::new\+Run\+Data\+Point()}} method is called for each line.
+
+
+\begin{DoxyParams}{Parameters}
+{\em db\+Manager} & Database connection with with the method interacts. \\
+\hline
+{\em user} & A \mbox{\hyperlink{classcom_1_1activitytracker_1_1_user}{User}} object corresponding to the use whose run(s) is/are being retrieved from the database. \\
+\hline
+{\em file\+Path} & The file to be iterated through\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em File\+Not\+Found\+Exception} & Thrown if the file path given does not exist. \\
+\hline
+{\em I\+O\+Exception} & Thrown if there is an error reading or opening the file. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 158 of file Run.\+java.
+
+
+\begin{DoxyCode}
+158                                                                                                            
+                                          \{
+159         BufferedReader br = \textcolor{keyword}{new} BufferedReader(\textcolor{keyword}{new} FileReader(filePath));
+160         String line = null;  
+161         \textcolor{keywordflow}{while} ((line = br.readLine()) != null)  
+162         \{
+163             String[] attributes = line.split(\textcolor{stringliteral}{","});
+164             String buffTime = attributes[0];
+165             String buffDistance = attributes[1];
+166             String buffAltitude = attributes[2];
+167             String[] buffDate = attributes[3].split(\textcolor{stringliteral}{"-"});
+168             String buffMonth = buffDate[1];
+169             String buffDay = buffDate[0];
+170             String buffYear = buffDate[2];
+171             Date runDate = \textcolor{keyword}{new} Date(Integer.parseInt(buffDay), Integer.parseInt(buffMonth), Integer.
+      parseInt(buffYear));
+172 
+173             \textcolor{comment}{// Convert strings to floats}
+174             \textcolor{comment}{// ToDo: String date to Date date}
+175             \textcolor{keywordtype}{float} fDur = Float.parseFloat(buffTime);
+176             \textcolor{keywordtype}{float} fDist = Float.parseFloat(buffDistance);
+177             \textcolor{keywordtype}{float} fAlt = Float.parseFloat(buffAltitude);
+178 
+179             \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a5dea6f1860431103d553ce770382afe0}{newRunDataPoint}}(\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_ab90e32eda9f4c671ae3575f971edca6b}{dbManager}}, user, fDur, runDate, fDist, fAlt);
+180         \} 
+181     \}
+\end{DoxyCode}
 \mbox{\Hypertarget{classcom_1_1activitytracker_1_1_run_a1aa1fb01eabff586e16d88f19f7df743}\label{classcom_1_1activitytracker_1_1_run_a1aa1fb01eabff586e16d88f19f7df743}} 
 \index{com\+::activitytracker\+::\+Run@{com\+::activitytracker\+::\+Run}!get\+Runs@{get\+Runs}}
 \index{get\+Runs@{get\+Runs}!com\+::activitytracker\+::\+Run@{com\+::activitytracker\+::\+Run}}
@@ -109,16 +168,16 @@ A vector containing instances of \mbox{\hyperlink{classcom_1_1activitytracker_1_
 \end{DoxyReturn}
 
 
-Definition at line 135 of file Run.\+java.
+Definition at line 139 of file Run.\+java.
 
 
 \begin{DoxyCode}
-135                                                                                                            
+139                                                                                                            
                        \{
-136         Vector<Run> runs = null;
-137 
-138         \textcolor{keywordflow}{return} runs;
-139     \}
+140         Vector<Run> runs = null;
+141 
+142         \textcolor{keywordflow}{return} runs;
+143     \}
 \end{DoxyCode}
 \mbox{\Hypertarget{classcom_1_1activitytracker_1_1_run_a5dea6f1860431103d553ce770382afe0}\label{classcom_1_1activitytracker_1_1_run_a5dea6f1860431103d553ce770382afe0}} 
 \index{com\+::activitytracker\+::\+Run@{com\+::activitytracker\+::\+Run}!new\+Run\+Data\+Point@{new\+Run\+Data\+Point}}
@@ -152,53 +211,53 @@ If ({\itshape duration}, {\itshape distance}, {\itshape altitude}) passed to thi
 \end{DoxyParams}
 
 
-Definition at line 80 of file Run.\+java.
+Definition at line 84 of file Run.\+java.
 
 
 \begin{DoxyCode}
-81                                                                                                \{
-82         \textcolor{keywordtype}{int} userID = user.getID();
-83         \textcolor{keywordtype}{int} rID;
-84         \textcolor{keywordtype}{float} \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a247fe29ef5dceeb25750fc7c2701f5c8}{altitude\_ascended}};
-85         \textcolor{keywordtype}{float} \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a26cd078680ee374482ce848b90308dda}{altitude\_descended}};
-86 
-87         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a5e38d293d29d4b65c9290ff4bee82e03}{duration}} == 0f && \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a7b4ca8c4ecea4da1653f03b8c8fc16a8}{distance}} == 0f && altitude == 0f) \{
-88             \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a247fe29ef5dceeb25750fc7c2701f5c8}{altitude\_ascended}} = 0f;
-89             \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a26cd078680ee374482ce848b90308dda}{altitude\_descended}} = 0f;
-90             rID = \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_ab90e32eda9f4c671ae3575f971edca6b}{dbManager}}.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager_a05b742f583167f6ce00eb8415c43fc1c}{newRun}}(
-91                     userID,
-92                     \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a66934b1f4fe6bc74a4e98574a2892764}{date}}.getYear(),
-93                     \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a66934b1f4fe6bc74a4e98574a2892764}{date}}.getMonth(),
-94                     \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a66934b1f4fe6bc74a4e98574a2892764}{date}}.getDay(),
-95                     \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a5e38d293d29d4b65c9290ff4bee82e03}{duration}},
-96                     \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a7b4ca8c4ecea4da1653f03b8c8fc16a8}{distance}},
-97                     \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a247fe29ef5dceeb25750fc7c2701f5c8}{altitude\_ascended}},
-98                     \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a26cd078680ee374482ce848b90308dda}{altitude\_descended}}
-99             );
-100             user.setLastRID(rID);
-101             System.err.println(\textcolor{stringliteral}{"Run "} + Integer.toString(rID) + \textcolor{stringliteral}{" added to database."});
-102         \} \textcolor{keywordflow}{else} \{
-103             rID = user.getLastRID();
-104             \textcolor{keywordflow}{if} (\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_ab90e32eda9f4c671ae3575f971edca6b}{dbManager}}.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager_a723ac1c573bacdd0b62894357bd65a9b}{runExists}}(rID)) \{
-105                 \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a247fe29ef5dceeb25750fc7c2701f5c8}{altitude\_ascended}} = \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_ab90e32eda9f4c671ae3575f971edca6b}{dbManager}}.
+85                                                                                                \{
+86         \textcolor{keywordtype}{int} userID = user.getID();
+87         \textcolor{keywordtype}{int} rID;
+88         \textcolor{keywordtype}{float} \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a247fe29ef5dceeb25750fc7c2701f5c8}{altitude\_ascended}};
+89         \textcolor{keywordtype}{float} \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a26cd078680ee374482ce848b90308dda}{altitude\_descended}};
+90 
+91         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a5e38d293d29d4b65c9290ff4bee82e03}{duration}} == 0f && \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a7b4ca8c4ecea4da1653f03b8c8fc16a8}{distance}} == 0f && altitude == 0f) \{
+92             \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a247fe29ef5dceeb25750fc7c2701f5c8}{altitude\_ascended}} = 0f;
+93             \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a26cd078680ee374482ce848b90308dda}{altitude\_descended}} = 0f;
+94             rID = \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_ab90e32eda9f4c671ae3575f971edca6b}{dbManager}}.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager_a05b742f583167f6ce00eb8415c43fc1c}{newRun}}(
+95                     userID,
+96                     \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a66934b1f4fe6bc74a4e98574a2892764}{date}}.getYear(),
+97                     \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a66934b1f4fe6bc74a4e98574a2892764}{date}}.getMonth(),
+98                     \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a66934b1f4fe6bc74a4e98574a2892764}{date}}.getDay(),
+99                     \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a5e38d293d29d4b65c9290ff4bee82e03}{duration}},
+100                     \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a7b4ca8c4ecea4da1653f03b8c8fc16a8}{distance}},
+101                     \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a247fe29ef5dceeb25750fc7c2701f5c8}{altitude\_ascended}},
+102                     \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a26cd078680ee374482ce848b90308dda}{altitude\_descended}}
+103             );
+104             user.setLastRID(rID);
+105             System.err.println(\textcolor{stringliteral}{"Run "} + Integer.toString(rID) + \textcolor{stringliteral}{" added to database."});
+106         \} \textcolor{keywordflow}{else} \{
+107             rID = user.getLastRID();
+108             \textcolor{keywordflow}{if} (\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_ab90e32eda9f4c671ae3575f971edca6b}{dbManager}}.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager_a723ac1c573bacdd0b62894357bd65a9b}{runExists}}(rID)) \{
+109                 \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a247fe29ef5dceeb25750fc7c2701f5c8}{altitude\_ascended}} = \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_ab90e32eda9f4c671ae3575f971edca6b}{dbManager}}.
       \mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager_a666452f1e5862f90c06b0beb9a9fcfdd}{getRunFloatAttribute}}(RunAttribute.ALTITUDE\_ASCENDED, rID);
-106                 \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a26cd078680ee374482ce848b90308dda}{altitude\_descended}} = \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_ab90e32eda9f4c671ae3575f971edca6b}{dbManager}}.
+110                 \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a26cd078680ee374482ce848b90308dda}{altitude\_descended}} = \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_ab90e32eda9f4c671ae3575f971edca6b}{dbManager}}.
       \mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager_a666452f1e5862f90c06b0beb9a9fcfdd}{getRunFloatAttribute}}(RunAttribute.ALTITUDE\_DESCENDED, rID);
-107 
-108                 \textcolor{keywordflow}{if} (altitude < 0)
-109                     \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a26cd078680ee374482ce848b90308dda}{altitude\_descended}} += -1*altitude;
-110                 \textcolor{keywordflow}{else}
-111                     \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a247fe29ef5dceeb25750fc7c2701f5c8}{altitude\_ascended}} += altitude;
-112 
-113                 \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_ab90e32eda9f4c671ae3575f971edca6b}{dbManager}}.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager_a72282377a552ce4ce371abff02e312f2}{setRun}}(rID, \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a5e38d293d29d4b65c9290ff4bee82e03}{duration}}, \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a7b4ca8c4ecea4da1653f03b8c8fc16a8}{distance}}, 
+111 
+112                 \textcolor{keywordflow}{if} (altitude < 0)
+113                     \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a26cd078680ee374482ce848b90308dda}{altitude\_descended}} += -1*altitude;
+114                 \textcolor{keywordflow}{else}
+115                     \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a247fe29ef5dceeb25750fc7c2701f5c8}{altitude\_ascended}} += altitude;
+116 
+117                 \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_ab90e32eda9f4c671ae3575f971edca6b}{dbManager}}.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager_a72282377a552ce4ce371abff02e312f2}{setRun}}(rID, \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a5e38d293d29d4b65c9290ff4bee82e03}{duration}}, \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a7b4ca8c4ecea4da1653f03b8c8fc16a8}{distance}}, 
       \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a247fe29ef5dceeb25750fc7c2701f5c8}{altitude\_ascended}}, \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a26cd078680ee374482ce848b90308dda}{altitude\_descended}});
-114                 System.err.println(\textcolor{stringliteral}{"Run "} + Integer.toString(rID) + \textcolor{stringliteral}{" exists in the database; updating..."})
+118                 System.err.println(\textcolor{stringliteral}{"Run "} + Integer.toString(rID) + \textcolor{stringliteral}{" exists in the database; updating..."})
       ;
-115             \} \textcolor{keywordflow}{else} \{
-116                 System.err.println(\textcolor{stringliteral}{"Run table and User table are inconsistent. No changes made."});
-117             \}
-118         \}
-119     \}
+119             \} \textcolor{keywordflow}{else} \{
+120                 System.err.println(\textcolor{stringliteral}{"Run table and User table are inconsistent. No changes made."});
+121             \}
+122         \}
+123     \}
 \end{DoxyCode}
 
 
@@ -211,7 +270,7 @@ Definition at line 80 of file Run.\+java.
 
 The altitude (in metres) that the user climed throughout the run. 
 
-Definition at line 29 of file Run.\+java.
+Definition at line 33 of file Run.\+java.
 
 \mbox{\Hypertarget{classcom_1_1activitytracker_1_1_run_a26cd078680ee374482ce848b90308dda}\label{classcom_1_1activitytracker_1_1_run_a26cd078680ee374482ce848b90308dda}} 
 \index{com\+::activitytracker\+::\+Run@{com\+::activitytracker\+::\+Run}!altitude\+\_\+descended@{altitude\+\_\+descended}}
@@ -221,7 +280,7 @@ Definition at line 29 of file Run.\+java.
 
 The altitude (in metres) that the user descended throughout their run. 
 
-Definition at line 33 of file Run.\+java.
+Definition at line 37 of file Run.\+java.
 
 \mbox{\Hypertarget{classcom_1_1activitytracker_1_1_run_aa4c73467653a47d3b14ff6653bbab853}\label{classcom_1_1activitytracker_1_1_run_aa4c73467653a47d3b14ff6653bbab853}} 
 \index{com\+::activitytracker\+::\+Run@{com\+::activitytracker\+::\+Run}!calories\+Burned@{calories\+Burned}}
@@ -233,7 +292,7 @@ The number of calories that the user burned throughout their run.
 
 Currently this is not being used; it is for future features. 
 
-Definition at line 39 of file Run.\+java.
+Definition at line 43 of file Run.\+java.
 
 \mbox{\Hypertarget{classcom_1_1activitytracker_1_1_run_a66934b1f4fe6bc74a4e98574a2892764}\label{classcom_1_1activitytracker_1_1_run_a66934b1f4fe6bc74a4e98574a2892764}} 
 \index{com\+::activitytracker\+::\+Run@{com\+::activitytracker\+::\+Run}!date@{date}}
@@ -243,7 +302,7 @@ Definition at line 39 of file Run.\+java.
 
 The date the run occurred. 
 
-Definition at line 13 of file Run.\+java.
+Definition at line 17 of file Run.\+java.
 
 \mbox{\Hypertarget{classcom_1_1activitytracker_1_1_run_ab90e32eda9f4c671ae3575f971edca6b}\label{classcom_1_1activitytracker_1_1_run_ab90e32eda9f4c671ae3575f971edca6b}} 
 \index{com\+::activitytracker\+::\+Run@{com\+::activitytracker\+::\+Run}!db\+Manager@{db\+Manager}}
@@ -253,7 +312,7 @@ Definition at line 13 of file Run.\+java.
 
 The run\textquotesingle{}s connection to the database. This is used to add data points and retrieve workout metadata. 
 
-Definition at line 17 of file Run.\+java.
+Definition at line 21 of file Run.\+java.
 
 \mbox{\Hypertarget{classcom_1_1activitytracker_1_1_run_a7b4ca8c4ecea4da1653f03b8c8fc16a8}\label{classcom_1_1activitytracker_1_1_run_a7b4ca8c4ecea4da1653f03b8c8fc16a8}} 
 \index{com\+::activitytracker\+::\+Run@{com\+::activitytracker\+::\+Run}!distance@{distance}}
@@ -263,7 +322,7 @@ Definition at line 17 of file Run.\+java.
 
 The distance (in metres) that the user ran. 
 
-Definition at line 25 of file Run.\+java.
+Definition at line 29 of file Run.\+java.
 
 \mbox{\Hypertarget{classcom_1_1activitytracker_1_1_run_a5e38d293d29d4b65c9290ff4bee82e03}\label{classcom_1_1activitytracker_1_1_run_a5e38d293d29d4b65c9290ff4bee82e03}} 
 \index{com\+::activitytracker\+::\+Run@{com\+::activitytracker\+::\+Run}!duration@{duration}}
@@ -273,7 +332,7 @@ Definition at line 25 of file Run.\+java.
 
 The length of the run in seconds. 
 
-Definition at line 21 of file Run.\+java.
+Definition at line 25 of file Run.\+java.
 
 
 

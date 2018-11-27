@@ -1,6 +1,7 @@
 var classcom_1_1activitytracker_1_1_run =
 [
     [ "Run", "classcom_1_1activitytracker_1_1_run.html#a5568c1c514835056d2abc22cfba222c5", null ],
+    [ "bulkImport", "classcom_1_1activitytracker_1_1_run.html#a8e2b13e0096b87614d5333ec15213300", null ],
     [ "getRuns", "classcom_1_1activitytracker_1_1_run.html#a1aa1fb01eabff586e16d88f19f7df743", null ],
     [ "newRunDataPoint", "classcom_1_1activitytracker_1_1_run.html#a5dea6f1860431103d553ce770382afe0", null ],
     [ "altitude_ascended", "classcom_1_1activitytracker_1_1_run.html#a247fe29ef5dceeb25750fc7c2701f5c8", null ],
