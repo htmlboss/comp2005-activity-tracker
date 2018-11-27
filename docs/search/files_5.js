@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['workout_2ejava',['Workout.java',['../_workout_8java.html',1,'']]]
+  ['mainwindow_2ejava',['MainWindow.java',['../_main_window_8java.html',1,'']]]
 ];

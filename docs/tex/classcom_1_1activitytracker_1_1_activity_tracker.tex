@@ -1,0 +1,70 @@
+\hypertarget{classcom_1_1activitytracker_1_1_activity_tracker}{}\section{com.\+activitytracker.\+Activity\+Tracker Class Reference}
+\label{classcom_1_1activitytracker_1_1_activity_tracker}\index{com.\+activitytracker.\+Activity\+Tracker@{com.\+activitytracker.\+Activity\+Tracker}}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classcom_1_1activitytracker_1_1_activity_tracker_a29cfd2975a07afe34e2a3112cbf32dc8}{main}} (final String\mbox{[}$\,$\mbox{]} args)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The main program class. 
+
+Definition at line 28 of file Activity\+Tracker.\+java.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classcom_1_1activitytracker_1_1_activity_tracker_a29cfd2975a07afe34e2a3112cbf32dc8}\label{classcom_1_1activitytracker_1_1_activity_tracker_a29cfd2975a07afe34e2a3112cbf32dc8}} 
+\index{com\+::activitytracker\+::\+Activity\+Tracker@{com\+::activitytracker\+::\+Activity\+Tracker}!main@{main}}
+\index{main@{main}!com\+::activitytracker\+::\+Activity\+Tracker@{com\+::activitytracker\+::\+Activity\+Tracker}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily static void com.\+activitytracker.\+Activity\+Tracker.\+main (\begin{DoxyParamCaption}\item[{final String \mbox{[}$\,$\mbox{]}}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+The main program entry point. 
+
+Definition at line 33 of file Activity\+Tracker.\+java.
+
+
+\begin{DoxyCode}
+33                                                  \{
+34 
+35         \textcolor{comment}{// Create singleton instance of DBManager}
+36         DBManager dbManager = \textcolor{keyword}{new} DBManager();
+37         \textcolor{keywordflow}{if} (!dbManager.init(\textcolor{stringliteral}{"data.db"})) \{
+38             System.err.println(\textcolor{stringliteral}{"Failed to initialize DBManager"});
+39             System.exit(1);
+40         \}
+41 
+42         \textcolor{comment}{// Set Look and Feel}
+43         \textcolor{keywordflow}{try} \{
+44             UIManager.setLookAndFeel(\textcolor{keyword}{new} MaterialLookAndFeel());
+45         \}
+46         \textcolor{keywordflow}{catch} (\textcolor{keyword}{final} UnsupportedLookAndFeelException e) \{
+47             e.printStackTrace();
+48         \}
+49         \textcolor{comment}{// Get desktop resolution of default monitor (in case of multi-monitor setups)}
+50         \textcolor{keyword}{final} GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice(
+      );
+51 
+52         \textcolor{comment}{// Create and populate the app window}
+53         \textcolor{keyword}{final} JFrame frame = \textcolor{keyword}{new} JFrame(\textcolor{stringliteral}{"Activity Tracker"});
+54         frame.setContentPane(\textcolor{keyword}{new} LoginWindow((Void) -> \{
+55             frame.setContentPane(\textcolor{keyword}{new} MainWindow().rootPanel());
+56             frame.validate();
+57             frame.repaint();
+58         \}).rootPanel());
+59         frame.setDefaultCloseOperation(JFrame.EXIT\_ON\_CLOSE);
+60         frame.pack();
+61 
+62         \textcolor{comment}{// Set window size to be 1/2 of screen dimensions}
+63         frame.setSize(gd.getDisplayMode().getWidth() / 2, gd.getDisplayMode().getHeight() / 2);
+64         frame.setLocationRelativeTo(null); \textcolor{comment}{// Center window}
+65         frame.setVisible(\textcolor{keyword}{true});
+66     \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+app/src/com/activitytracker/\mbox{\hyperlink{_activity_tracker_8java}{Activity\+Tracker.\+java}}\end{DoxyCompactItemize}
