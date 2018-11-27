@@ -139,6 +139,34 @@ class Run {
     }
 
 
+    // Opens and iterates through a file
+
+    /**
+     * Opens and iterates through a file. the newRunDataPoint() method is called for each line.
+     *
+     * @param filePath The file to be iterated through
+     *
+     */
+    public static void bulkImport(final String filePath){
+        BufferedReader br = new BufferedReader(new FileReader(file));  
+        String line = null;  
+        while ((line = br.readLine()) != null)  
+        {
+            String[] attributes = line.split(",");
+            String buffTime = attributes[0];
+            String buffDistance = attributes[1];
+            String buffAltitude = attributes[2];
+            String buffDate = attributes[3];
+
+            // Convert strings to floats
+            // ToDo: String date to Date date
+            float fDur = Float.parseFloat(buffTime);
+            float fDist = Float.parseFloat(buffDistance);
+            float fAlt = Float.parseFloat(buffAltitude);
+
+            newRunDataPoint(dbmanager, user, fDur, buffDate, fDist, fAlt);  
+        } 
+    }
 
 
 }
