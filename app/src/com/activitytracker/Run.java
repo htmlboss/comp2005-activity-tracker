@@ -36,13 +36,21 @@ class Run {
      */
     float distance;
     /**
+     * The average speed (in metres per second) that the user ran.
+     */
+    float speed;
+    /**
      * The altitude (in metres) that the user climed throughout the run.
      */
-    float altitude_ascended;
+    float altitudeAscended;
     /**
      * The altitude (in metres) that the user descended throughout their run.
      */
-    float altitude_descended;
+    float altitudeDescended;
+    /**
+     * The date the run took place.
+     */
+    Date runDate;
     /**
      * The number of calories that the user burned throughout their run.
      *
@@ -60,10 +68,12 @@ class Run {
     Run (final DBManager dbManager, final int rID) {
         this.id = rID;
         this.dbManager = dbManager;
+        this.runDate = this.dbManager.getRunDate(rID);
         this.duration = this.dbManager.getRunFloatAttribute(RunAttribute.DURATION, rID);
         this.distance = this.dbManager.getRunFloatAttribute(RunAttribute.DISTANCE, rID);
-        this.altitude_ascended = this.dbManager.getRunFloatAttribute(RunAttribute.ALTITUDE_ASCENDED, rID);
-        this.altitude_descended = this.dbManager.getRunFloatAttribute(RunAttribute.ALTITUDE_DESCENDED, rID);
+        this.speed = this.distance / this.duration;
+        this.altitudeAscended = this.dbManager.getRunFloatAttribute(RunAttribute.ALTITUDE_ASCENDED, rID);
+        this.altitudeDescended = this.dbManager.getRunFloatAttribute(RunAttribute.ALTITUDE_DESCENDED, rID);
     }
 
 
@@ -128,9 +138,6 @@ class Run {
             }
         }
     }
-
-
-    // Returns array of Workouts
 
     /**
      * Retrieves a set of runs from the database. Returns the result as a vector of Run objects.
@@ -203,10 +210,66 @@ class Run {
         } 
     }
 
-
+    /**
+     * Retrieves a Run object's ID.
+     *
+     * @return The Run's ID as defined in the database.
+     */
     public int getID() {
         return this.id;
     }
 
+    /**
+     * Retrieves a Run object's duration (in seconds).
+     *
+     * @return The Run's duration as defined in the database.
+     */
+    public float getDuration() {
+        return duration;
+    }
 
+    /**
+     * Retrieves a Run object's distance (in metres).
+     *
+     * @return The Run's distance as defined in the database.
+     */
+    public float getDistance() {
+        return distance;
+    }
+
+    /**
+     * Retrieves a Run object's average speed (in metres per second).
+     *
+     * @return The Run's average speed as computed in the Run() constructor.
+     */
+    public float getSpeed() {
+        return speed;
+    }
+
+    /**
+     * Retrieves a Run object's altitude ascended (in metres).
+     *
+     * @return The Run's altitude ascended as defined in the database.
+     */
+    public float getAltitudeAscended() {
+        return altitudeAscended;
+    }
+
+    /**
+     * Retrieves a Run object's altitude descended (in metres).
+     *
+     * @return The Run's altitude descended as defined in the database.
+     */
+    public float getAltitudeDescended() {
+        return altitudeDescended;
+    }
+
+    /**
+     * Retrieves a Run object's date.
+     *
+     * @return The Run's date.
+     */
+    public Date getRunDate() {
+        return runDate;
+    }
 }

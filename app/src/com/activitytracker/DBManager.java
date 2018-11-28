@@ -1,5 +1,6 @@
 package com.activitytracker;
 
+import javax.xml.transform.Result;
 import java.sql.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -52,19 +53,17 @@ class DBManager {
      * Requires that the database tables exist and are in the correct format.
      * If the user exists in the database this method raises an AssertionError exception.
      *
-     * @param name %User's name
-     * @param emailAddress %User's email address; used to authenticate
-     * @param DOBYear The year the user was born
-     * @param DOBMonth The month the user was born
-     * @param DOBDay The day of month the user was born
-     * @param sex The user's sex; is either User.Sex.MALE or User.Sex.FEMALE
-     * @param height Floating point number of the user's height in metres
-     * @param weight Floating point number of the user's weight in kilograms
-     * @param securePassword A SecureString object containing the user's password, encrypted
+     * @param name %User's name.
+     * @param emailAddress %User's email address; used to authenticate.
+     * @param dateofBirth The date the user was born.
+     * @param sex The user's sex; is either User.Sex.MALE or User.Sex.FEMALE.
+     * @param height Floating point number of the user's height in metres.
+     * @param weight Floating point number of the user's weight in kilograms.
+     * @param securePassword A SecureString object containing the user's password, encrypted.
      */
-    public void createUser(final String name, final String emailAddress, final int DOBYear,
-                           final int DOBMonth, final int DOBDay, final User.Sex sex, final float height,
-                           final float weight, final SecureString securePassword) throws AssertionError {
+    public void createUser(final String name, final String emailAddress, final java.util.Date dateofBirth,
+                           final User.Sex sex, final float height, final float weight,
+                           final SecureString securePassword) throws AssertionError {
 
         if (!userExists(emailAddress)) {
             String sqlQuery = "INSERT INTO Users (" +
@@ -80,19 +79,12 @@ class DBManager {
                     ") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
             byte sexByte = sex.equals(User.Sex.MALE) ? (byte) 1 : (byte) 0;
             java.sql.Date currentTime = new java.sql.Date(System.currentTimeMillis());
-            Calendar c = Calendar.getInstance();
-            c.set(DOBYear, DOBMonth, DOBDay);
-            java.sql.Date dateOfBirth = new java.sql.Date(
-                    c.get(Calendar.YEAR),
-                    c.get(Calendar.MONTH),
-                    c.get(Calendar.DAY_OF_MONTH)
-            );
 
             try {
                 PreparedStatement stmt = m_conn.prepareStatement(sqlQuery);
                 stmt.setString(1, emailAddress);
                 stmt.setString(2, name);
-                stmt.setDate(3, dateOfBirth);
+                stmt.setLong(3, dateofBirth.getTime());
                 stmt.setByte(4, sexByte);
                 stmt.setFloat(5, height);
                 stmt.setFloat(6, weight);
@@ -452,16 +444,14 @@ class DBManager {
      * @param date Date that the run was completed.
      * @param duration Duration of the run in seconds.
      * @param distance Distance ran in metres.
-     * @param altitude_ascended Cumulative altitude climbed in metres.
-     * @param altitude_descended Cumulative altitude descended in metres.
+     * @param altitudeAscended Cumulative altitude climbed in metres.
+     * @param altitudeDescended Cumulative altitude descended in metres.
      *
      * @return Returns a unique integer corresponding to the new row in the SQLite Workouts table by which the new
      *         entry can be identified.
      */
     public int newRun(final int userID, final java.util.Date date, final float duration, final float distance,
-                      final float altitude_ascended, final float altitude_descended) {
-
-        java.sql.Date date1 = new java.sql.Date(date.getYear(), date.getMonth(), date.getDay());
+                      final float altitudeAscended, final float altitudeDescended) {
 
         int rID = 0;
         ResultSet res;
@@ -484,11 +474,11 @@ class DBManager {
         try {
             PreparedStatement stmt = m_conn.prepareStatement(sqlInsertQuery);
             stmt.setInt(1, userID);
-            stmt.setDate(2, date1);
+            stmt.setLong(2, date.getTime());
             stmt.setFloat(3, duration);
             stmt.setFloat(4, distance);
-            stmt.setFloat(5, altitude_ascended);
-            stmt.setFloat(6, altitude_descended);
+            stmt.setFloat(5, altitudeAscended);
+            stmt.setFloat(6, altitudeDescended);
 
             if (stmt.executeUpdate() != 1) {
                 System.err.println("Run not added to database.");
@@ -500,11 +490,11 @@ class DBManager {
             // Look at a better way of doing this with OUTPUT clause of INPUT statement
             stmt = m_conn.prepareStatement(sqlSelectQuery);
             stmt.setInt(1, userID);
-            stmt.setDate(2, date1);
+            stmt.setLong(2, date.getTime());
             stmt.setFloat(3, duration);
             stmt.setFloat(4, distance);
-            stmt.setFloat(5, altitude_ascended);
-            stmt.setFloat(6, altitude_descended);
+            stmt.setFloat(5, altitudeAscended);
+            stmt.setFloat(6, altitudeDescended);
 
             res = stmt.executeQuery();
             rID = res.getInt("id");
@@ -530,11 +520,11 @@ class DBManager {
      * @param rID Unique ID used to identify a run in the database.
      * @param duration The number of seconds the user's run lasted.
      * @param distance The cumulative number of metres the user ran.
-     * @param altitude_ascended The cumulative number of metres the user climbed.
-     * @param altitude_descended The cumulative number of metres the user descended.
+     * @param altitudeAscended The cumulative number of metres the user climbed.
+     * @param altitudeDescended The cumulative number of metres the user descended.
      */
     public void setRun(final int rID, final float duration, final float distance,
-                              final float altitude_ascended, final float altitude_descended) {
+                              final float altitudeAscended, final float altitudeDescended) {
         String sqlQuery = "UPDATE Runs SET " +
                 "duration = ?, " +
                 "distance = ?, " +
@@ -545,8 +535,8 @@ class DBManager {
             PreparedStatement stmt = m_conn.prepareStatement(sqlQuery);
             stmt.setFloat(1, duration);
             stmt.setFloat(2, distance);
-            stmt.setFloat(3, altitude_ascended);
-            stmt.setFloat(4, altitude_descended);
+            stmt.setFloat(3, altitudeAscended);
+            stmt.setFloat(4, altitudeDescended);
             stmt.setInt(5, rID);
 
             int result = stmt.executeUpdate();
@@ -627,6 +617,29 @@ class DBManager {
 
         return attrVal;
 
+    }
+
+    /**
+     * Retrieves a run's date from the database using its unique ID
+     *
+     * @param runID Unique ID corresponding to the row in the Runs table that we wish to query.
+     */
+    public java.util.Date getRunDate(final int runID) {
+        ResultSet res;
+        long fromEpoch;
+        java.util.Date date = null;
+        try {
+            PreparedStatement stmt = m_conn.prepareStatement("SELECT date FROM Runs WHERE id=?");
+            stmt.setInt(1, runID);
+            res = stmt.executeQuery();
+            fromEpoch = res.getLong("date");
+            date = new java.util.Date(fromEpoch);
+        }
+        catch (final SQLException e) {
+            System.err.println(e.getMessage());
+        }
+
+        return date;
     }
 
     /**
@@ -839,19 +852,6 @@ class DBManager {
                     "    distance            REAL    NOT NULL," + // metres
                     "    altitude_ascended   REAL    NOT NULL," + // metres
                     "    altitude_descended  REAL    NOT NULL" + // metres
-                    ")";
-
-            if (!executeUpdate(sqlQuery)) {
-                return false;
-            }
-
-            // Create friends table
-            sqlQuery = "CREATE TABLE FRIENDS (" +
-                    "    id            INTEGER  PRIMARY KEY ASC AUTOINCREMENT NOT NULL," +
-                    "    sender        INTEGER  NOT NULL REFERENCES USERS (id)," +
-                    "    receiver      INTEGER  REFERENCES USERS (id)," +
-                    "    send_date     DATETIME NOT NULL," +
-                    "    confirm_date  DATETIME DEFAULT NULL" +
                     ")";
 
             if (!executeUpdate(sqlQuery)) {

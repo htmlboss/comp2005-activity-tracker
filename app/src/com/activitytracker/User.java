@@ -26,13 +26,39 @@ class User {
         FEMALE
     }
 
+    /**
+     * The user's ID, used by the database to associate workouts with a user.
+     */
     private int id;
+    /**
+     * The user's full name (\em e.g., Johnathan Doe).
+     */
     private String name;
+    /**
+     * The email address (\em e.g., jondoe@mac.com) that the user entered when registering for the app. This is used
+     * to authenticate the user at login.
+     */
     private String emailAddress;
+    /**
+     * The user's date of birth (\em e.g., 12-12-1998).
+     */
     private Date dateOfBirth;
+    /**
+     * The user's sex. Can be one of User.Sex.MALE or User.Sex.FEMALE.
+     */
     private Sex sex;
+    /**
+     * The user's height in metres.
+     */
     private float height;
+    /**
+     * The user's weight in kilograms.
+     */
     private float weight;
+    /**
+     * An instance of DBManager with which we perform any DB accesses required to retrieve or set user
+     * attributes in the database.
+     */
     private DBManager dbManager = null;
 
     User(final DBManager dbManager, final String emailAddress, final String plaintextPassword) throws AuthenticationException{
@@ -75,8 +101,21 @@ class User {
 
     }
 
-    public static void createUser(final DBManager dbManager, final String name, final String emailAddress, final int DOBYear,
-                                  final int DOBMonth, final int DOBDay, final User.Sex sex, final float height,
+    /**
+     * Generates a SecureString for the plain text password provided by the user and passes this, along
+     * with the rest of the user's information, to DBManager for entry in the database.
+     *
+     * @param dbManager An instance of DBManager with which we access the database to store the new user.
+     * @param name The new user's full name (\em e.g., Johnathan Doe).
+     * @param emailAddress The new user's email address (\em e.g., jondoe@mac.com) used to register.
+     * @param dateOfBirth
+     * @param sex
+     * @param height
+     * @param weight
+     * @param plaintextPassword
+     */
+    public static void createUser(final DBManager dbManager, final String name, final String emailAddress,
+                                  final Date dateOfBirth, final User.Sex sex, final float height,
                                   final float weight, final String plaintextPassword) {
 
         SecureString securePassword = new SecureString(plaintextPassword);
@@ -85,9 +124,7 @@ class User {
         dbManager.createUser(
                 name,
                 emailAddress,
-                DOBYear,
-                DOBMonth,
-                DOBDay,
+                dateOfBirth,
                 sex,
                 height,
                 weight,
