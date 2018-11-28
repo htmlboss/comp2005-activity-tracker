@@ -1,13 +1,12 @@
-# Comp 2005 Activity Tracker
+# COMP-2005 Activity Logger
 
 ### Description 
-  We have been contracted to design an Activity Tracker application that lets users measure and track their runs, walks, and other exercises (e.g. aerobics, cross-country skiing, hiking, biking). Users of the application will be able to import their activities from smart watches/devices (e.g. Apple Watch, Fitbit, Garmin). The Activity Tracker application will provide the user with diverse statistics (e.g. calories used, heart rate, average speed, pace, dehydration, cumulative distance). The user (with permission) will be able to see activities of their friends. 
+We have been contracted to design an Activity Tracker application that lets users measure and track runs. Users of the application will be able to import their activities from smart watches/devices (emulated by importing from a file for the project). The Activity Tracker will provide the user with diverse statistics (e.g. calories used, average speed, cumulative distance). 
 
-### Group members
-* Mitchell Billard
-* Jacob House
-* Nabil Miri
-* Dongliang Xie
+### Point distribution
+* [12pts] Mitchell Billard - Project management (design goals, iteration plans), assist with code development
+* [13pts] Jacob House - Backend architecture, data storage and logic, GUI design 
+* [15pts] Nabil Miri - GUI implementation, GUI-backend linkage
 
 ### Github link
 https://github.com/htmlboss/comp2005-activity-tracker

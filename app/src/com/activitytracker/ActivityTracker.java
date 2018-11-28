@@ -1,14 +1,14 @@
 package com.activitytracker;
 /**
- * \mainpage COMP-2005 Activity Tracker Documentation
+ * \mainpage COMP-2005 Activity Logger Documentation
  *
- * This website contains documentation for all source code contained in the <em>Activity Tracker</em> application.
+ * This website contains documentation for all source code contained in the <em>Activity Logger</em> application.
  * Class and method documentation may be accessed in HTML format using the left-hand side navigation bar, or the
  * search box at the top right-hand side of the page.
  *
  * For offline viewing, a precompiled PDF of this documentation has been made available
- * <a href="https://htmlboss.github.io/comp2005-activity-tracker/tex/manual.pdf">here</a> Note, however, that this document does \em not contain the full source code
- * which is included in formatted HTML on this website.
+ * <a href="https://htmlboss.github.io/comp2005-activity-tracker/tex/manual.pdf">here</a> Note, however, that
+ * this document does \em not contain the full source code which is included in formatted HTML on this website.
  *
  * More detailed information about contributions, repository branches, and commit history is available by browsing
  * the <a href="https://github.com/htmlboss/comp2005-activity-tracker">GitHub repository</a> for this project.
