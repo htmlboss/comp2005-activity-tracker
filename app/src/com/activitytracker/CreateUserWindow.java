@@ -7,6 +7,7 @@ import org.jfree.ui.IntegerDocument;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Date;
 
 public class CreateUserWindow extends JDialog {
     private JPanel m_rootPanel;
@@ -62,9 +63,7 @@ public class CreateUserWindow extends JDialog {
                     User.createUser(m_dbmanager,
                             textFieldName.getText(),
                             textFieldEmail.getText(),
-                            Integer.parseInt(textFieldBirthYear.getText()),
-                            comboBoxBirthMonth.getSelectedIndex(),
-                            comboBoxBirthDay.getSelectedIndex() + 1,
+                            new Date(Integer.parseInt(textFieldBirthYear.getText()), comboBoxBirthMonth.getSelectedIndex() + 1, comboBoxBirthDay.getSelectedIndex() + 1),
                             (comboBoxSex.getSelectedIndex() == 0 ? User.Sex.MALE : User.Sex.FEMALE),
                             Float.parseFloat(textFieldHeight.getText()),
                             Float.parseFloat(textFieldWeight.getText()),
