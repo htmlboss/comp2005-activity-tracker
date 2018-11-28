@@ -13,39 +13,39 @@ public class RunStats {
     /**
      * The runs for which the statistics in the RunStats object pertain.
      */
-    Vector<Run> runs;
+    private Vector<Run> runs;
     /**
      * The average speed for all runs in RunStats#runs.
      */
-    float meanSpeed;
+    private float meanSpeed;
     /**
      * Cumulative distance ran for all runs in RunStats#runs.
      */
-    float totalDistance;
+    private float totalDistance;
     /**
      * Mean distance per run, computed using the runs in RunStats#runs.
      */
-    float meanDistance;
+    private float meanDistance;
     /**
      * Cumulative altitude climbed for all runs in RunStats#runs.
      */
-    float totalAltitudeAscended;
+    private float totalAltitudeAscended;
     /**
      * Mean altitude climbed per run, computed using the runs in RunStats#runs.
      */
-    float meanAltitudeAscended;
+    private float meanAltitudeAscended;
     /**
      * Cumulative altitude descended for all runs in RunStats#runs.
      */
-    float totalAltitudeDescended;
+    private float totalAltitudeDescended;
     /**
      * Mean altitude descended per run, computed using the runs in RunStats#runs.
      */
-    float meanAltitudeDescended;
+    private float meanAltitudeDescended;
     /**
      * Mean duration per run, computed using the runs in RunStats#runs.
      */
-    float meanDuration;
+    private float meanDuration;
 
     /**
      * Stores the \em runs parameter in RunStats#runs and computes all statistics based on the

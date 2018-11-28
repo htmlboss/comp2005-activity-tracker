@@ -18,45 +18,41 @@ class Run {
     /**
      * The run's unique ID.
      */
-    int id;
-    /**
-     * The date the run occurred.
-     */
-    Date date;
+    private int id;
     /**
      * The run's connection to the database. This is used to add data points and retrieve workout metadata.
      */
-    DBManager dbManager;
+    private DBManager dbManager;
     /**
      * The length of the run in seconds.
      */
-    float duration;
+    private float duration;
     /**
      * The distance (in metres) that the user ran.
      */
-    float distance;
+    private float distance;
     /**
      * The average speed (in metres per second) that the user ran.
      */
-    float speed;
+    private float speed;
     /**
      * The altitude (in metres) that the user climed throughout the run.
      */
-    float altitudeAscended;
+    private float altitudeAscended;
     /**
      * The altitude (in metres) that the user descended throughout their run.
      */
-    float altitudeDescended;
+    private float altitudeDescended;
     /**
      * The date the run took place.
      */
-    Date runDate;
+    private Date runDate;
     /**
      * The number of calories that the user burned throughout their run.
      *
      * Currently this is not being used; it is for future features.
      */
-    long caloriesBurned = 0;
+    private long caloriesBurned;
 
     /**
      * The Run() constructor is used to retrieve workout information from the database and instantiate each
@@ -74,6 +70,7 @@ class Run {
         this.speed = this.distance / this.duration;
         this.altitudeAscended = this.dbManager.getRunFloatAttribute(RunAttribute.ALTITUDE_ASCENDED, rID);
         this.altitudeDescended = this.dbManager.getRunFloatAttribute(RunAttribute.ALTITUDE_DESCENDED, rID);
+        this.caloriesBurned = 0;
     }
 
 
