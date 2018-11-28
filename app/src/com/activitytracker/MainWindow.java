@@ -18,7 +18,11 @@ class MainWindow {
     private JPanel panelMyActivity;
     private JTable tableMyActivity;
 
-    MainWindow() {
+    private DBManager m_dbManager = null;
+
+    MainWindow(DBManager dbmanager) {
+        m_dbManager = dbmanager;
+
         setupUI();
         setupActionListeners();
     }

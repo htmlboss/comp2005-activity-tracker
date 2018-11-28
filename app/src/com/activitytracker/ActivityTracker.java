@@ -55,10 +55,10 @@ class ActivityTracker {
         ImageIcon imgIcon = new ImageIcon(ActivityTracker.class.getResource(logoPath));
         frame.setIconImage(imgIcon.getImage());
         frame.setContentPane(new LoginWindow((Void) -> {
-            frame.setContentPane(new MainWindow().rootPanel());
+            frame.setContentPane(new MainWindow(dbManager).rootPanel());
             frame.validate();
             frame.repaint();
-        }).rootPanel());
+        }, dbManager).rootPanel());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
 

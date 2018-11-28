@@ -21,9 +21,11 @@ public class LoginWindow extends JFrame {
 
     private JDialog m_createUserDialog = null;
 
+    private DBManager m_dbmanager = null;
+
     private java.util.function.Consumer<Void> m_loginHandler;
 
-    LoginWindow(java.util.function.Consumer<Void> loginHandler) {
+    LoginWindow(java.util.function.Consumer<Void> loginHandler, DBManager dbmanager) {
         m_loginHandler = loginHandler;
 
         setupUI();
@@ -44,7 +46,7 @@ public class LoginWindow extends JFrame {
         final GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
 
         m_createUserDialog = new JDialog(this, "Activity Logger | Create User", true);
-        m_createUserDialog.setContentPane(new CreateUserWindow().rootPanel());
+        m_createUserDialog.setContentPane(new CreateUserWindow(m_dbmanager).rootPanel());
         m_createUserDialog.pack();
         // Set window size to be 1/2 of screen dimensions
         m_createUserDialog.setSize(gd.getDisplayMode().getWidth() / 2, gd.getDisplayMode().getHeight() / 2);
