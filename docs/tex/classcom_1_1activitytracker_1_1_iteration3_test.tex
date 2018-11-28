@@ -20,7 +20,7 @@ static void \mbox{\hyperlink{classcom_1_1activitytracker_1_1_iteration3_test_a54
 \subsection{Detailed Description}
 
 
-Definition at line 8 of file Iteration3\+Test.\+java.
+Definition at line 12 of file Iteration3\+Test.\+java.
 
 
 
@@ -33,88 +33,113 @@ Definition at line 8 of file Iteration3\+Test.\+java.
 
 
 
-Definition at line 10 of file Iteration3\+Test.\+java.
+Definition at line 14 of file Iteration3\+Test.\+java.
 
 
 \begin{DoxyCode}
-10                                            \{
-11 
-12         \textcolor{comment}{// Iteration 1 begins here}
-13 
-14         User john = null;
+14                                            \{
 15 
-16         DBManager dbManager = \textcolor{keyword}{new} DBManager();
-17         \textcolor{keywordflow}{if} (!dbManager.init(\textcolor{stringliteral}{"data.db"})) \{
-18             System.err.println(\textcolor{stringliteral}{"Failed to initialize DBManager"});
-19             System.exit(1);
-20         \}
-21 
-22         System.out.println(\textcolor{stringliteral}{"Attempting to create user..."});
-23 
-24         \textcolor{keywordflow}{if} (!dbManager.userExists(\textcolor{stringliteral}{"jdoe@mac.com"}))
-25             User.createUser(
-26                     dbManager,
-27                     \textcolor{stringliteral}{"John Doe"},
-28                     \textcolor{stringliteral}{"jdoe@mac.com"},
-29                     1997,
-30                     12,
-31                     12,
-32                     User.Sex.MALE,
-33                     1.6764f,
-34                     54.4310844f,
-35                     \textcolor{stringliteral}{"My Very Secure Password"}
-36             );
-37         \textcolor{keywordflow}{else}
-38             System.out.println(\textcolor{stringliteral}{"User already exists."});
-39 
-40 
-41 
-42         \textcolor{keywordflow}{if} (dbManager.userExists(\textcolor{stringliteral}{"jdoe@mac.com"}))
-43             System.out.println(\textcolor{stringliteral}{"John Doe was created!"});
-44         \textcolor{keywordflow}{else}
-45             System.out.println(\textcolor{stringliteral}{"User was NOT created."});
-46 
-47 
-48         System.out.println(\textcolor{stringliteral}{"Testing incorrect password..."});
-49 
-50         \textcolor{keywordflow}{try} \{
-51             john = \textcolor{keyword}{new} User(dbManager,\textcolor{stringliteral}{"jdoe@mac.com"}, \textcolor{stringliteral}{"Some Incorrect Password"});
-52         \}
-53         \textcolor{keywordflow}{catch} (\textcolor{keyword}{final} AuthenticationException e) \{
-54             System.out.println(\textcolor{stringliteral}{"Incorrect password used; authentication failed."});
-55         \}
-56 
-57         System.out.println(\textcolor{stringliteral}{"Authenticating user..."});
-58 
-59         \textcolor{keywordflow}{try} \{
-60             john = \textcolor{keyword}{new} User(dbManager,\textcolor{stringliteral}{"jdoe@mac.com"}, \textcolor{stringliteral}{"My Very Secure Password"});
-61         \}
-62         \textcolor{keywordflow}{catch} (\textcolor{keyword}{final} AuthenticationException e) \{
-63             System.out.println(\textcolor{stringliteral}{"Test failed; user could not be authenticated."});
-64         \}
-65 
-66         \textcolor{comment}{// Iteration 1 ended here}
-67 
-68         \textcolor{comment}{// Iteration 2 begins here}
+16         \textcolor{comment}{// Iteration 1 begins here}
+17 
+18         User john = null;
+19 
+20         DBManager dbManager = \textcolor{keyword}{new} DBManager();
+21         \textcolor{keywordflow}{if} (!dbManager.init(\textcolor{stringliteral}{"data.db"})) \{
+22             System.err.println(\textcolor{stringliteral}{"Failed to initialize DBManager"});
+23             System.exit(1);
+24         \}
+25 
+26         System.out.println(\textcolor{stringliteral}{"Attempting to create user..."});
+27 
+28         \textcolor{keywordflow}{if} (!dbManager.userExists(\textcolor{stringliteral}{"jdoe@mac.com"}))
+29             User.createUser(
+30                     dbManager,
+31                     \textcolor{stringliteral}{"John Doe"},
+32                     \textcolor{stringliteral}{"jdoe@mac.com"},
+33                     1997,
+34                     12,
+35                     12,
+36                     User.Sex.MALE,
+37                     1.6764f,
+38                     54.4310844f,
+39                     \textcolor{stringliteral}{"My Very Secure Password"}
+40             );
+41         \textcolor{keywordflow}{else}
+42             System.out.println(\textcolor{stringliteral}{"User already exists."});
+43 
+44 
+45 
+46         \textcolor{keywordflow}{if} (dbManager.userExists(\textcolor{stringliteral}{"jdoe@mac.com"}))
+47             System.out.println(\textcolor{stringliteral}{"John Doe was created!"});
+48         \textcolor{keywordflow}{else}
+49             System.out.println(\textcolor{stringliteral}{"User was NOT created."});
+50 
+51 
+52         System.out.println(\textcolor{stringliteral}{"Testing incorrect password..."});
+53 
+54         \textcolor{keywordflow}{try} \{
+55             john = \textcolor{keyword}{new} User(dbManager,\textcolor{stringliteral}{"jdoe@mac.com"}, \textcolor{stringliteral}{"Some Incorrect Password"});
+56         \}
+57         \textcolor{keywordflow}{catch} (\textcolor{keyword}{final} AuthenticationException e) \{
+58             System.out.println(\textcolor{stringliteral}{"Incorrect password used; authentication failed."});
+59         \}
+60 
+61         System.out.println(\textcolor{stringliteral}{"Authenticating user..."});
+62 
+63         \textcolor{keywordflow}{try} \{
+64             john = \textcolor{keyword}{new} User(dbManager,\textcolor{stringliteral}{"jdoe@mac.com"}, \textcolor{stringliteral}{"My Very Secure Password"});
+65         \}
+66         \textcolor{keywordflow}{catch} (\textcolor{keyword}{final} AuthenticationException e) \{
+67             System.out.println(\textcolor{stringliteral}{"Test failed; user could not be authenticated."});
+68         \}
 69 
-70         \textcolor{keywordflow}{if} (john !=  null) \{
-71             Date today = \textcolor{keyword}{new} Date();
-72             \textcolor{keywordflow}{try} \{
-73                 Run.bulkImport(dbManager, john, \textcolor{stringliteral}{"/Users/jacobhouse/Google Drive File Stream/My
+70         \textcolor{comment}{// Iteration 1 ended here}
+71 
+72         \textcolor{comment}{// Iteration 2 begins here}
+73 
+74         \textcolor{keywordflow}{if} (john !=  null) \{
+75             Date today = \textcolor{keyword}{new} Date();
+76             \textcolor{keywordflow}{try} \{
+77                 Run.bulkImport(dbManager, john, \textcolor{stringliteral}{"/Users/jacobhouse/Google Drive File Stream/My
        Drive/Documents/Courses/Computer Science/COMP-2005 Software Engineering/Final
        Project/comp2005-activity-tracker/app/InputWO.csv"});
-74             \}
-75             \textcolor{keywordflow}{catch} (\textcolor{keyword}{final} IOException e) \{
-76                 System.err.println(e.getMessage());
-77             \}
-78         \}
-79         \textcolor{keywordflow}{else} \{
-80             System.out.println(\textcolor{stringliteral}{"John is null. Cannot execute phase 2."});
-81         \}
-82 
-83         \textcolor{comment}{// Iteration 2 ends here}
-84 
-85     \}
+78             \}
+79             \textcolor{keywordflow}{catch} (\textcolor{keyword}{final} IOException e) \{
+80                 System.err.println(e.getMessage());
+81             \}
+82         \}
+83         \textcolor{keywordflow}{else} \{
+84             System.out.println(\textcolor{stringliteral}{"John is null. Cannot execute phase 2."});
+85         \}
+86 
+87         \textcolor{comment}{// Iteration 2 ends here}
+88         \textcolor{comment}{// Iteration 3 begins here}
+89 
+90         Date date = null;
+91         DateFormat sourceFormat = \textcolor{keyword}{new} SimpleDateFormat(\textcolor{stringliteral}{"dd-MM-yyyy"});
+92 
+93         \textcolor{keywordflow}{try} \{
+94             date = sourceFormat.parse(\textcolor{stringliteral}{"01-01-2018"});
+95         \}
+96         \textcolor{keywordflow}{catch} (\textcolor{keyword}{final} ParseException e) \{
+97             System.err.println(e.getMessage());
+98         \}
+99 
+100         Vector<Run> runs = Run.getRuns(dbManager, john, date, \textcolor{keyword}{new} Date());
+101 
+102         \textcolor{keywordflow}{if} (runs == null) \{
+103             System.out.println(\textcolor{stringliteral}{"Runs is null."});
+104         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (runs.size() == 0)
+105             System.err.println(\textcolor{stringliteral}{"No runs in vector."});
+106         \textcolor{keywordflow}{else}
+107             \textcolor{keywordflow}{for} (Run run : runs) \{
+108                 System.out.println(\textcolor{stringliteral}{"Retrieved run with ID "} + Integer.toString(run.getID()));
+109             \}
+110 
+111 
+112         \textcolor{comment}{// Iteration 3 ends here}
+113 
+114     \}
 \end{DoxyCode}
 
 
