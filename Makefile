@@ -19,7 +19,7 @@ pdf: docs
 	@sed -i -e 's/\\usepackage\[scaled=\.90\]{helvet}/\\usepackage{mathptmx}/g' docs/tex/refman.tex
 	@sed -i -e 's/\\usepackage{courier}/\\usepackage{sourcecodepro}/g' docs/tex/refman.tex
 	@sed -i -e 's/\\renewcommand{\\familydefault}{\\sfdefault}/%\\renewcommand{\\familydefault}{\\sfdefault}/g' docs/tex/refman.tex
-	@sed -i -e 's/Large Activity Logger/includegraphics[width=3in]{logo}\\par\\vskip 1cm\\Huge Activity Tracker/g' docs/tex/refman.tex
+	@sed -i -e 's/Large Activity Logger/includegraphics[width=3in]{logo}\\par\\vskip 1cm\\Huge Activity Logger/g' docs/tex/refman.tex
 	@make -C docs/tex pdf
 	@mv docs/tex/refman.pdf docs/tex/manual.pdf
 
