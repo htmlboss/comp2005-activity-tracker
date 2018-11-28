@@ -4,6 +4,7 @@ import javax.naming.AuthenticationException;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Date;
+import java.util.Vector;
 
 public class Iteration3Test {
 
@@ -81,6 +82,19 @@ public class Iteration3Test {
         }
 
         // Iteration 2 ends here
+        // Iteration 3 begins here
+
+        Vector<Run> runs = Run.getRuns(dbManager, john, new Date(2018, 01, 01), new Date());
+
+        if (runs == null) {
+            System.out.println("Runs is null");
+        }
+
+        for (Run run : runs) {
+            System.out.println(run.toString());
+        }
+
+        // Iteration 3 ends here
 
     }
 

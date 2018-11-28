@@ -4,8 +4,8 @@
 We have been contracted to design an Activity Tracker application that lets users measure and track runs. Users of the application will be able to import their activities from smart watches/devices (emulated by importing from a file for the project). The Activity Tracker will provide the user with diverse statistics (e.g. calories used, average speed, cumulative distance). 
 
 ### Point distribution
-* [12pts] Mitchell Billard - Project management (design goals, iteration plans), assist with code development
-* [13pts] Jacob House - Backend architecture, data storage and logic, GUI design 
+* [11pts] Mitchell Billard - Project management (design goals, iteration plans), assist with code development
+* [14pts] Jacob House - Backend architecture, data storage and logic, GUI design 
 * [15pts] Nabil Miri - GUI implementation, GUI-backend linkage
 
 ### Github link

@@ -4,7 +4,11 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.Vector;
 
 /**
@@ -93,9 +97,7 @@ class Run {
             altitude_descended = 0f;
             rID = dbManager.newRun(
                     userID,
-                    date.getYear(),
-                    date.getMonth(),
-                    date.getDay(),
+                    date,
                     duration,
                     distance,
                     altitude_ascended,
@@ -136,47 +138,66 @@ class Run {
      * @return A vector containing instances of Run corresponding to all entered workouts between the start and end
      *         dates specified.
      */
-    public static Vector<Run> getRuns(final DBManager dbManager, final User user, final Date startDate, final Date endDate) {
-        Vector<Run> runs = null;
+    public static Vector<Run> getRuns(final DBManager dbManager, final User user,
+                                      final Date startDate, final Date endDate) {
+        Vector<Run> runs = new Vector<>();
+        int rID;
+        Vector<Integer> rIDs = dbManager.getRuns(user.getID(), startDate, endDate);
 
-        return runs;
+        if (rIDs != null) {
+            System.err.println("Adding " + rIDs.size() + " runs to vector.");
+
+            Iterator<Integer> runIDIter = rIDs.iterator();
+            while (runIDIter.hasNext()) {
+                rID = runIDIter.next();
+                System.out.println("Adding run " + rID);
+                runs.add(new Run(dbManager, rID));
+            }
+            return runs;
+        }
+        else {
+            System.err.println("DBManager.getRuns() returned null.");
+            return null;
+        }
     }
-
-
-    // Opens and iterates through a file
 
     /**
      * Opens and iterates through a file. The Run#newRunDataPoint() method is called for each line.
      *
      * @param dbManager Database connection with with the method interacts.
-     * @param user A User object corresponding to the use whose run(s) is/are being retrieved from the database.
+     * @param user A User object corresponding to the use whose run(s) is/are being retrieved from
+     *             the database.
      * @param filePath The file to be iterated through
      *
      * @throws FileNotFoundException Thrown if the file path given does not exist.
      * @throws IOException Thrown if there is an error reading or opening the file.
      */
-    public static void bulkImport(final DBManager dbManager, final User user, final String filePath) throws FileNotFoundException, IOException {
+    public static void bulkImport(final DBManager dbManager, final User user, final String filePath)
+            throws FileNotFoundException, IOException {
         BufferedReader br = new BufferedReader(new FileReader(filePath));
-        String line = null;  
+        String line = null;
+        Date date = null;
         while ((line = br.readLine()) != null)  
         {
             String[] attributes = line.split(",");
             String buffTime = attributes[0];
             String buffDistance = attributes[1];
             String buffAltitude = attributes[2];
-            String[] buffDate = attributes[3].split("-");
-            String buffMonth = buffDate[1];
-            String buffDay = buffDate[0];
-            String buffYear = buffDate[2];
-            Date runDate = new Date(Integer.parseInt(buffDay), Integer.parseInt(buffMonth), Integer.parseInt(buffYear));
+            String buffDate = attributes[3];
+            DateFormat sourceFormat = new SimpleDateFormat("dd-MM-yyyy");
+            try {
+                date = sourceFormat.parse(buffDate);
+            }
+            catch (final ParseException e) {
+                System.err.println(e.getMessage());
+            }
 
             // Convert strings to floats
-            // ToDo: String date to Date date
             float fDur = Float.parseFloat(buffTime);
             float fDist = Float.parseFloat(buffDistance);
             float fAlt = Float.parseFloat(buffAltitude);
 
-            newRunDataPoint(dbManager, user, fDur, runDate, fDist, fAlt);
+            newRunDataPoint(dbManager, user, fDur, date, fDist, fAlt);
         } 
     }
 

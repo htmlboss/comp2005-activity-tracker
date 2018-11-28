@@ -1,7 +1,11 @@
 package com.activitytracker;
 
 import java.sql.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Calendar;
+import java.util.Vector;
 
 /**
  * Singleton class for the database. All classes and methods that interact with the database will use a
@@ -445,9 +449,7 @@ class DBManager {
      * (\em duration, \em distance, \em altitude).
      *
      * @param userID Unique ID used to associate information in the database to this user.
-     * @param year Year that the run was completed.
-     * @param month Month that the run was completed (1-12).
-     * @param day Day that the run was completed (1-31).
+     * @param date Date that the run was completed.
      * @param duration Duration of the run in seconds.
      * @param distance Distance ran in metres.
      * @param altitude_ascended Cumulative altitude climbed in metres.
@@ -456,10 +458,11 @@ class DBManager {
      * @return Returns a unique integer corresponding to the new row in the SQLite Workouts table by which the new
      *         entry can be identified.
      */
-    public int newRun(final int userID, final int year, final int month, final int day,
-                          final float duration, final float distance, final float altitude_ascended,
-                          final float altitude_descended) {
-        java.sql.Date RDate = new java.sql.Date(year, month, day);
+    public int newRun(final int userID, final java.util.Date date, final float duration, final float distance,
+                      final float altitude_ascended, final float altitude_descended) {
+
+        java.sql.Date date1 = new java.sql.Date(date.getYear(), date.getMonth(), date.getDay());
+
         int rID = 0;
         ResultSet res;
         String sqlInsertQuery = "INSERT INTO Runs (" +
@@ -481,7 +484,7 @@ class DBManager {
         try {
             PreparedStatement stmt = m_conn.prepareStatement(sqlInsertQuery);
             stmt.setInt(1, userID);
-            stmt.setDate(2, RDate);
+            stmt.setDate(2, date1);
             stmt.setFloat(3, duration);
             stmt.setFloat(4, distance);
             stmt.setFloat(5, altitude_ascended);
@@ -497,7 +500,7 @@ class DBManager {
             // Look at a better way of doing this with OUTPUT clause of INPUT statement
             stmt = m_conn.prepareStatement(sqlSelectQuery);
             stmt.setInt(1, userID);
-            stmt.setDate(2, RDate);
+            stmt.setDate(2, date1);
             stmt.setFloat(3, duration);
             stmt.setFloat(4, distance);
             stmt.setFloat(5, altitude_ascended);
@@ -664,6 +667,45 @@ class DBManager {
     }
 
     /**
+     *
+     * @param userID
+     * @param startDate
+     * @param endDate
+     * @return
+     */
+    public Vector<Integer> getRuns(final int userID, final java.util.Date startDate, final java.util.Date endDate) {
+        java.sql.Date start, end;
+        start = new java.sql.Date(startDate.getYear(), startDate.getMonth(), startDate.getDay());
+        end = new java.sql.Date(endDate.getYear(), endDate.getMonth(), endDate.getDay());
+
+        ResultSet res;
+        Vector<Integer> runs = new Vector<>();
+
+        try {
+            PreparedStatement stmt = m_conn.prepareStatement(
+                    "SELECT id FROM Runs WHERE user_id=? AND date BETWEEN ? AND ?");
+            stmt.setInt(1, userID);
+            stmt.setDate(2, start);
+            stmt.setDate(3, end);
+            res = stmt.executeQuery();
+
+            if (res.isClosed())
+                System.err.println("Result set closed; cannot get any data?");
+
+            while (res.next()) {
+                System.err.println("Adding ID");
+                runs.add(res.getInt("id"));
+            }
+            stmt.close();
+        }
+        catch (final SQLException e) {
+            System.err.println(e.getMessage());
+        }
+
+        return runs;
+    }
+
+    /**
      * A wrapper method for processing \em safe SQL queries.
      *
      * By safe we mean that the SQL query string is entirely hard-coded in the program source code. In other words, no
@@ -777,14 +819,14 @@ class DBManager {
                     "    id            INTEGER PRIMARY KEY ASC AUTOINCREMENT NOT NULL," +
                     "    email_address STRING  NOT NULL UNIQUE ON CONFLICT FAIL," +
                     "    name          STRING  NOT NULL," +
-                    "    date_of_birth DATE    NOT NULL," +
+                    "    date_of_birth DATETIME    NOT NULL," +
                     "    sex           BIT(1)  NOT NULL," +
                     "    height        REAL    NOT NULL," +
                     "    weight        REAL    NOT NULL," +
                     "    password_hash STRING  NOT NULL," +
                     "    password_salt BLOB    NOT NULL," +
-                    "    last_run  INTEGER NOT NULL DEFAULT 0," +
-                    "    created_at    DATE    NOT NULL" +
+                    "    last_run      INTEGER NOT NULL DEFAULT 0," +
+                    "    created_at    DATETIME    NOT NULL" +
                     ")";
 
             if (!executeUpdate(sqlQuery)) {
@@ -795,7 +837,7 @@ class DBManager {
             sqlQuery = "CREATE TABLE RUNS (" +
                     "    id                  INTEGER PRIMARY KEY ASC AUTOINCREMENT NOT NULL," +
                     "    user_id             INTEGER NOT NULL REFERENCES USERS (id)," +
-                    "    date                DATE    NOT NULL," +
+                    "    date                DATETIME    NOT NULL," +
                     "    duration            REAL    NOT NULL," + // seconds
                     "    distance            REAL    NOT NULL," + // metres
                     "    altitude_ascended   REAL    NOT NULL," + // metres
