@@ -1,2 +1,3 @@
 <map id="com.activitytracker.LoginWindow" name="com.activitytracker.LoginWindow">
+<area shape="rect" id="node3" href="$classcom_1_1activitytracker_1_1_d_b_manager.html" title="{com.activitytracker.DBManager\n|&#45; m_conn\l|+ createUser()\l+ userExists()\l+ getUserIDByEmail()\l+ getUserStringAttribute()\l+ getUserFloatAttribute()\l+ getDateOfBirth()\l+ getUserSex()\l+ getUserPassSalt()\l+ getUserLastRID()\l+ setUserLastRID()\land 6 more...\l~ DBManager()\l~ init()\l&#45; executeQuery()\l&#45; executeUpdate()\l&#45; isEmpty()\l}" alt="" coords="96,5,302,279"/>
 </map>

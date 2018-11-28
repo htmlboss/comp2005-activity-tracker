@@ -20,6 +20,8 @@ Collaboration diagram for com.\+activitytracker.\+Run\+Attribute\+:
 \mbox{\hyperlink{enumcom_1_1activitytracker_1_1_run_attribute_abcfe85bf48187d67842a0525c1bcc0af}{A\+L\+T\+I\+T\+U\+D\+E\+\_\+\+A\+S\+C\+E\+N\+D\+ED}}
 \item 
 \mbox{\hyperlink{enumcom_1_1activitytracker_1_1_run_attribute_a337a68867cfdb8ec7a17c318ad8b216b}{A\+L\+T\+I\+T\+U\+D\+E\+\_\+\+D\+E\+S\+C\+E\+N\+D\+ED}}
+\item 
+\mbox{\hyperlink{enumcom_1_1activitytracker_1_1_run_attribute_a43fc543df9ec6dfaac73a5030abfafc4}{S\+P\+E\+ED}}
 \end{DoxyCompactItemize}
 
 
@@ -39,9 +41,9 @@ Definition at line 6 of file Run\+Attribute.\+java.
 
 The cumulative altitude (in metres) that the user has climbed throughout their run.
 
-Used in \mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager_a666452f1e5862f90c06b0beb9a9fcfdd}{D\+B\+Manager\+::get\+Run\+Float\+Attribute}} to specify that ascended altitude should be returned. 
+Used in \mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager_a666452f1e5862f90c06b0beb9a9fcfdd}{D\+B\+Manager\+::get\+Run\+Float\+Attribute}} to specify that ascended altitude should be returned and Run\+Stats\+::compute\+Mean(). 
 
-Definition at line 24 of file Run\+Attribute.\+java.
+Definition at line 27 of file Run\+Attribute.\+java.
 
 \mbox{\Hypertarget{enumcom_1_1activitytracker_1_1_run_attribute_a337a68867cfdb8ec7a17c318ad8b216b}\label{enumcom_1_1activitytracker_1_1_run_attribute_a337a68867cfdb8ec7a17c318ad8b216b}} 
 \index{com\+::activitytracker\+::\+Run\+Attribute@{com\+::activitytracker\+::\+Run\+Attribute}!A\+L\+T\+I\+T\+U\+D\+E\+\_\+\+D\+E\+S\+C\+E\+N\+D\+ED@{A\+L\+T\+I\+T\+U\+D\+E\+\_\+\+D\+E\+S\+C\+E\+N\+D\+ED}}
@@ -51,9 +53,9 @@ Definition at line 24 of file Run\+Attribute.\+java.
 
 The cumulative altitude (in metres) that the user has descended throughout their run.
 
-Used in \mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager_a666452f1e5862f90c06b0beb9a9fcfdd}{D\+B\+Manager\+::get\+Run\+Float\+Attribute}} to specify that descended altitude should be returned. 
+Used in \mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager_a666452f1e5862f90c06b0beb9a9fcfdd}{D\+B\+Manager\+::get\+Run\+Float\+Attribute}} to specify that descended altitude should be returned and Run\+Stats\+::compute\+Mean(). 
 
-Definition at line 30 of file Run\+Attribute.\+java.
+Definition at line 34 of file Run\+Attribute.\+java.
 
 \mbox{\Hypertarget{enumcom_1_1activitytracker_1_1_run_attribute_a90ee541e68e458a0bb3f5ea45fd46ec0}\label{enumcom_1_1activitytracker_1_1_run_attribute_a90ee541e68e458a0bb3f5ea45fd46ec0}} 
 \index{com\+::activitytracker\+::\+Run\+Attribute@{com\+::activitytracker\+::\+Run\+Attribute}!D\+I\+S\+T\+A\+N\+CE@{D\+I\+S\+T\+A\+N\+CE}}
@@ -63,9 +65,9 @@ Definition at line 30 of file Run\+Attribute.\+java.
 
 The cumulative distance the user has run (in metres).
 
-Used in \mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager_a666452f1e5862f90c06b0beb9a9fcfdd}{D\+B\+Manager\+::get\+Run\+Float\+Attribute}} to specify that distance should be returned. 
+Used in \mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager_a666452f1e5862f90c06b0beb9a9fcfdd}{D\+B\+Manager\+::get\+Run\+Float\+Attribute}} to specify that distance should be returned and Run\+Stats\+::compute\+Mean(). 
 
-Definition at line 12 of file Run\+Attribute.\+java.
+Definition at line 13 of file Run\+Attribute.\+java.
 
 \mbox{\Hypertarget{enumcom_1_1activitytracker_1_1_run_attribute_a7adf133b2a62f1f99ffc2adfb7097ec9}\label{enumcom_1_1activitytracker_1_1_run_attribute_a7adf133b2a62f1f99ffc2adfb7097ec9}} 
 \index{com\+::activitytracker\+::\+Run\+Attribute@{com\+::activitytracker\+::\+Run\+Attribute}!D\+U\+R\+A\+T\+I\+ON@{D\+U\+R\+A\+T\+I\+ON}}
@@ -75,9 +77,21 @@ Definition at line 12 of file Run\+Attribute.\+java.
 
 The duration of the user\textquotesingle{}s run (in seconds).
 
-Used in \mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager_a666452f1e5862f90c06b0beb9a9fcfdd}{D\+B\+Manager\+::get\+Run\+Float\+Attribute}} to specify that duration should be returned. 
+Used in \mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager_a666452f1e5862f90c06b0beb9a9fcfdd}{D\+B\+Manager\+::get\+Run\+Float\+Attribute}} to specify that duration should be returned and Run\+Stats\+::compute\+Mean(). 
 
-Definition at line 18 of file Run\+Attribute.\+java.
+Definition at line 20 of file Run\+Attribute.\+java.
+
+\mbox{\Hypertarget{enumcom_1_1activitytracker_1_1_run_attribute_a43fc543df9ec6dfaac73a5030abfafc4}\label{enumcom_1_1activitytracker_1_1_run_attribute_a43fc543df9ec6dfaac73a5030abfafc4}} 
+\index{com\+::activitytracker\+::\+Run\+Attribute@{com\+::activitytracker\+::\+Run\+Attribute}!S\+P\+E\+ED@{S\+P\+E\+ED}}
+\index{S\+P\+E\+ED@{S\+P\+E\+ED}!com\+::activitytracker\+::\+Run\+Attribute@{com\+::activitytracker\+::\+Run\+Attribute}}
+\subsubsection{\texorpdfstring{S\+P\+E\+ED}{SPEED}}
+{\footnotesize\ttfamily com.\+activitytracker.\+Run\+Attribute.\+S\+P\+E\+ED}
+
+The average speed the user ran.
+
+Used in Run\+Stats\+::compute\+Mean(). 
+
+Definition at line 40 of file Run\+Attribute.\+java.
 
 
 

@@ -8,6 +8,7 @@ var namespacecom_1_1activitytracker =
     [ "MainWindow", "classcom_1_1activitytracker_1_1_main_window.html", "classcom_1_1activitytracker_1_1_main_window" ],
     [ "Run", "classcom_1_1activitytracker_1_1_run.html", "classcom_1_1activitytracker_1_1_run" ],
     [ "RunAttribute", "enumcom_1_1activitytracker_1_1_run_attribute.html", "enumcom_1_1activitytracker_1_1_run_attribute" ],
+    [ "RunStats", "classcom_1_1activitytracker_1_1_run_stats.html", "classcom_1_1activitytracker_1_1_run_stats" ],
     [ "SecureString", "classcom_1_1activitytracker_1_1_secure_string.html", "classcom_1_1activitytracker_1_1_secure_string" ],
     [ "User", "classcom_1_1activitytracker_1_1_user.html", "classcom_1_1activitytracker_1_1_user" ],
     [ "UserAttribute", "enumcom_1_1activitytracker_1_1_user_attribute.html", "enumcom_1_1activitytracker_1_1_user_attribute" ]

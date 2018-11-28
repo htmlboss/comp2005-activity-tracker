@@ -1,0 +1,26 @@
+var classcom_1_1activitytracker_1_1_run_stats =
+[
+    [ "RunStats", "classcom_1_1activitytracker_1_1_run_stats.html#a9c29c9a218ea2b01cfa42787b3c85f7c", null ],
+    [ "RunStats", "classcom_1_1activitytracker_1_1_run_stats.html#a851891349994df7dcfd7bb599c413e35", null ],
+    [ "addRun", "classcom_1_1activitytracker_1_1_run_stats.html#a1b00f177e7c4abc155bb03c6a8b5d7dd", null ],
+    [ "compute", "classcom_1_1activitytracker_1_1_run_stats.html#ac73cb94cc8ff604fe446d9a327e420cc", null ],
+    [ "computeAll", "classcom_1_1activitytracker_1_1_run_stats.html#a85018dbaae7a08213d443a0697e59ee4", null ],
+    [ "getMeanAltitudeAscended", "classcom_1_1activitytracker_1_1_run_stats.html#af54051bc8ab944056f90af25d55ac646", null ],
+    [ "getMeanAltitudeDescended", "classcom_1_1activitytracker_1_1_run_stats.html#a6f7829790dae6f302fe4cd218fc6b21f", null ],
+    [ "getMeanDistance", "classcom_1_1activitytracker_1_1_run_stats.html#a28d7e9769b52fd45351a07c9d2e435f2", null ],
+    [ "getMeanDuration", "classcom_1_1activitytracker_1_1_run_stats.html#a7d929e97a9d760b4577529bcab71cdf7", null ],
+    [ "getMeanSpeed", "classcom_1_1activitytracker_1_1_run_stats.html#abb92798a7b1ff95b3b458f9bbd3b2fb8", null ],
+    [ "getTotalAltitudeAscended", "classcom_1_1activitytracker_1_1_run_stats.html#aefa553b9c74ef8f2fd82204b9b2e70d2", null ],
+    [ "getTotalAltitudeDescended", "classcom_1_1activitytracker_1_1_run_stats.html#a1d0f5d2353a797e1e2dea3c96472e6d8", null ],
+    [ "getTotalDistance", "classcom_1_1activitytracker_1_1_run_stats.html#abdaa7bc971293da224da08e6a6b3bd4c", null ],
+    [ "isEmpty", "classcom_1_1activitytracker_1_1_run_stats.html#a91d1d4302548cc114a1f1b63a47fcc1d", null ],
+    [ "meanAltitudeAscended", "classcom_1_1activitytracker_1_1_run_stats.html#aecbe62c15075fe9be1604333c355fab6", null ],
+    [ "meanAltitudeDescended", "classcom_1_1activitytracker_1_1_run_stats.html#a578eae64367a00c625f4685fe879fe7c", null ],
+    [ "meanDistance", "classcom_1_1activitytracker_1_1_run_stats.html#afcc9ab47852b6df6b15e9a592fe6c5ed", null ],
+    [ "meanDuration", "classcom_1_1activitytracker_1_1_run_stats.html#a8bf9f1577cffd26e6235695278bfcdb9", null ],
+    [ "meanSpeed", "classcom_1_1activitytracker_1_1_run_stats.html#a64b9e6daf2be19571b8ad401922762c2", null ],
+    [ "runs", "classcom_1_1activitytracker_1_1_run_stats.html#a0fd429e9f463ddf4897c507c0e3c0a12", null ],
+    [ "totalAltitudeAscended", "classcom_1_1activitytracker_1_1_run_stats.html#a1108dd2b031415da72508a5172335dd4", null ],
+    [ "totalAltitudeDescended", "classcom_1_1activitytracker_1_1_run_stats.html#ae511b3772f61773885d0178b215786d7", null ],
+    [ "totalDistance", "classcom_1_1activitytracker_1_1_run_stats.html#a2e9486ea214a828e9f58489fd2b1a718", null ]
+];

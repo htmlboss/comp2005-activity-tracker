@@ -2,7 +2,7 @@ var classcom_1_1activitytracker_1_1_user =
 [
     [ "Sex", "enumcom_1_1activitytracker_1_1_user_1_1_sex.html", "enumcom_1_1activitytracker_1_1_user_1_1_sex" ],
     [ "User", "classcom_1_1activitytracker_1_1_user.html#ae9f2a2555aa41e80ade28223907e01ab", null ],
-    [ "createUser", "classcom_1_1activitytracker_1_1_user.html#ab9d405e0fc6916bbf4836ce6ab762bea", null ],
+    [ "createUser", "classcom_1_1activitytracker_1_1_user.html#a615393e15084d20a59ad712419cfec92", null ],
     [ "getDateOfBirth", "classcom_1_1activitytracker_1_1_user.html#a40da04454cea10bb5c6e6125a7a9cf64", null ],
     [ "getEmailAddress", "classcom_1_1activitytracker_1_1_user.html#a79d69ca90216e0552ac4cae9778ea40d", null ],
     [ "getHeight", "classcom_1_1activitytracker_1_1_user.html#a2a80ab659d02a07176b1793354131c00", null ],

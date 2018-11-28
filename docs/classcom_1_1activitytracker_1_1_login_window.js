@@ -1,6 +1,6 @@
 var classcom_1_1activitytracker_1_1_login_window =
 [
-    [ "LoginWindow", "classcom_1_1activitytracker_1_1_login_window.html#a137cce127ffa1660c70d3fddbc0e2a74", null ],
+    [ "LoginWindow", "classcom_1_1activitytracker_1_1_login_window.html#ab7e021ebcbca9993d58c7f5c4f4bd8bf", null ],
     [ "rootPanel", "classcom_1_1activitytracker_1_1_login_window.html#ab1ea45e86bbb79bccd06531279f1e443", null ],
     [ "setupActionListeners", "classcom_1_1activitytracker_1_1_login_window.html#af1ff236b841c51bfb49e143344a3c3ac", null ],
     [ "setupCreateUserDialog", "classcom_1_1activitytracker_1_1_login_window.html#a567db7b15448fe9d9c76addbcee4092b", null ],
@@ -12,6 +12,7 @@ var classcom_1_1activitytracker_1_1_login_window =
     [ "labelTitle", "classcom_1_1activitytracker_1_1_login_window.html#a3c4c84a656351094b34320a5c352e685", null ],
     [ "labelUsername", "classcom_1_1activitytracker_1_1_login_window.html#a4999e1461716e42ee4e3de8e3eb47eb9", null ],
     [ "m_createUserDialog", "classcom_1_1activitytracker_1_1_login_window.html#a49ff7093e29ce7bd22c42ac8099d5d34", null ],
+    [ "m_dbmanager", "classcom_1_1activitytracker_1_1_login_window.html#a1d278c8158f803151737943e9ea2a9bf", null ],
     [ "m_loginHandler", "classcom_1_1activitytracker_1_1_login_window.html#aab28a8e6372499a8690d524dedeaf9e1", null ],
     [ "m_rootPanel", "classcom_1_1activitytracker_1_1_login_window.html#aa62049382baddb801cb25201814efc57", null ],
     [ "passwordField", "classcom_1_1activitytracker_1_1_login_window.html#ae53353ceea197fe7b93f1b7156112d08", null ],

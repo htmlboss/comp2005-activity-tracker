@@ -1,0 +1,504 @@
+\hypertarget{classcom_1_1activitytracker_1_1_run_stats}{}\section{com.\+activitytracker.\+Run\+Stats Class Reference}
+\label{classcom_1_1activitytracker_1_1_run_stats}\index{com.\+activitytracker.\+Run\+Stats@{com.\+activitytracker.\+Run\+Stats}}
+
+
+Collaboration diagram for com.\+activitytracker.\+Run\+Stats\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{classcom_1_1activitytracker_1_1_run_stats__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a1b00f177e7c4abc155bb03c6a8b5d7dd}{add\+Run}} (\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run}{Run}} run)
+\item 
+boolean \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a91d1d4302548cc114a1f1b63a47fcc1d}{is\+Empty}} ()
+\item 
+float \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_abb92798a7b1ff95b3b458f9bbd3b2fb8}{get\+Mean\+Speed}} ()
+\item 
+float \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_abdaa7bc971293da224da08e6a6b3bd4c}{get\+Total\+Distance}} ()
+\item 
+float \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a28d7e9769b52fd45351a07c9d2e435f2}{get\+Mean\+Distance}} ()
+\item 
+float \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_aefa553b9c74ef8f2fd82204b9b2e70d2}{get\+Total\+Altitude\+Ascended}} ()
+\item 
+float \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_af54051bc8ab944056f90af25d55ac646}{get\+Mean\+Altitude\+Ascended}} ()
+\item 
+float \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a1d0f5d2353a797e1e2dea3c96472e6d8}{get\+Total\+Altitude\+Descended}} ()
+\item 
+float \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a6f7829790dae6f302fe4cd218fc6b21f}{get\+Mean\+Altitude\+Descended}} ()
+\item 
+float \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a7d929e97a9d760b4577529bcab71cdf7}{get\+Mean\+Duration}} ()
+\end{DoxyCompactItemize}
+\subsection*{Package Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a9c29c9a218ea2b01cfa42787b3c85f7c}{Run\+Stats}} (final Vector$<$ \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run}{Run}} $>$ \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a0fd429e9f463ddf4897c507c0e3c0a12}{runs}})
+\item 
+\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a851891349994df7dcfd7bb599c413e35}{Run\+Stats}} ()
+\end{DoxyCompactItemize}
+\subsection*{Package Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Vector$<$ \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run}{Run}} $>$ \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a0fd429e9f463ddf4897c507c0e3c0a12}{runs}}
+\item 
+float \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a64b9e6daf2be19571b8ad401922762c2}{mean\+Speed}}
+\item 
+float \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a2e9486ea214a828e9f58489fd2b1a718}{total\+Distance}}
+\item 
+float \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_afcc9ab47852b6df6b15e9a592fe6c5ed}{mean\+Distance}}
+\item 
+float \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a1108dd2b031415da72508a5172335dd4}{total\+Altitude\+Ascended}}
+\item 
+float \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_aecbe62c15075fe9be1604333c355fab6}{mean\+Altitude\+Ascended}}
+\item 
+float \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_ae511b3772f61773885d0178b215786d7}{total\+Altitude\+Descended}}
+\item 
+float \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a578eae64367a00c625f4685fe879fe7c}{mean\+Altitude\+Descended}}
+\item 
+float \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a8bf9f1577cffd26e6235695278bfcdb9}{mean\+Duration}}
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a85018dbaae7a08213d443a0697e59ee4}{compute\+All}} ()
+\item 
+void \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_ac73cb94cc8ff604fe446d9a327e420cc}{compute}} (final \mbox{\hyperlink{enumcom_1_1activitytracker_1_1_run_attribute}{Run\+Attribute}} attribute)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats}{Run\+Stats}} class is used to compute statistics for a selection of past runs.
+
+It is intended to be integrated with the \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_a1aa1fb01eabff586e16d88f19f7df743}{Run\+::get\+Runs}} method, as that returns a vector of \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run}{Run}} objects that match search parameters, and the constructor of this class accepts a vector of \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run}{Run}} objects, or nothing. 
+
+Definition at line 12 of file Run\+Stats.\+java.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcom_1_1activitytracker_1_1_run_stats_a9c29c9a218ea2b01cfa42787b3c85f7c}\label{classcom_1_1activitytracker_1_1_run_stats_a9c29c9a218ea2b01cfa42787b3c85f7c}} 
+\index{com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}!Run\+Stats@{Run\+Stats}}
+\index{Run\+Stats@{Run\+Stats}!com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}}
+\subsubsection{\texorpdfstring{Run\+Stats()}{RunStats()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily com.\+activitytracker.\+Run\+Stats.\+Run\+Stats (\begin{DoxyParamCaption}\item[{final Vector$<$ \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run}{Run}} $>$}]{runs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [package]}}
+
+Stores the {\itshape runs} parameter in \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a0fd429e9f463ddf4897c507c0e3c0a12}{Run\+Stats\+::runs}} and computes all statistics based on the contents of this vector.
+
+
+\begin{DoxyParams}{Parameters}
+{\em runs} & A vector of \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run}{Run}} objects with which we compute statistics. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 56 of file Run\+Stats.\+java.
+
+
+\begin{DoxyCode}
+56                                      \{
+57         this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a0fd429e9f463ddf4897c507c0e3c0a12}{runs}} = \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a0fd429e9f463ddf4897c507c0e3c0a12}{runs}};
+58         this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a85018dbaae7a08213d443a0697e59ee4}{computeAll}}();
+59     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1activitytracker_1_1_run_stats_a851891349994df7dcfd7bb599c413e35}\label{classcom_1_1activitytracker_1_1_run_stats_a851891349994df7dcfd7bb599c413e35}} 
+\index{com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}!Run\+Stats@{Run\+Stats}}
+\index{Run\+Stats@{Run\+Stats}!com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}}
+\subsubsection{\texorpdfstring{Run\+Stats()}{RunStats()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily com.\+activitytracker.\+Run\+Stats.\+Run\+Stats (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [package]}}
+
+An overloaded constructor which takes no argument. Here we assign to \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a0fd429e9f463ddf4897c507c0e3c0a12}{Run\+Stats\+::runs}} an empty vector. Computations are attempted but since the vector has size of zero, \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_ac73cb94cc8ff604fe446d9a327e420cc}{Run\+Stats\+::compute()}} assigns all stats the value {\itshape 0.\+0f}.
+
+You may want to use \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a1b00f177e7c4abc155bb03c6a8b5d7dd}{Run\+Stats\+::add\+Run()}} to add Runs to a (possibly empty) \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats}{Run\+Stats}} object. 
+
+Definition at line 68 of file Run\+Stats.\+java.
+
+
+\begin{DoxyCode}
+68                \{
+69         \textcolor{keyword}{this}(\textcolor{keyword}{new} Vector<>());
+70     \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classcom_1_1activitytracker_1_1_run_stats_a1b00f177e7c4abc155bb03c6a8b5d7dd}\label{classcom_1_1activitytracker_1_1_run_stats_a1b00f177e7c4abc155bb03c6a8b5d7dd}} 
+\index{com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}!add\+Run@{add\+Run}}
+\index{add\+Run@{add\+Run}!com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}}
+\subsubsection{\texorpdfstring{add\+Run()}{addRun()}}
+{\footnotesize\ttfamily void com.\+activitytracker.\+Run\+Stats.\+add\+Run (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run}{Run}}}]{run }\end{DoxyParamCaption})}
+
+Adds a \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run}{Run}} object to the \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a0fd429e9f463ddf4897c507c0e3c0a12}{Run\+Stats\+::runs}} vector and re-\/computes statistics by invoking \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a85018dbaae7a08213d443a0697e59ee4}{Run\+Stats\+::compute\+All()}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em run} & A \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run}{Run}} object to be appended to the set of runs that the \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats}{Run\+Stats}} statistics are based on. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 161 of file Run\+Stats.\+java.
+
+
+\begin{DoxyCode}
+161                                 \{
+162         this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a0fd429e9f463ddf4897c507c0e3c0a12}{runs}}.addElement(run);
+163         this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a85018dbaae7a08213d443a0697e59ee4}{computeAll}}();
+164     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1activitytracker_1_1_run_stats_ac73cb94cc8ff604fe446d9a327e420cc}\label{classcom_1_1activitytracker_1_1_run_stats_ac73cb94cc8ff604fe446d9a327e420cc}} 
+\index{com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}!compute@{compute}}
+\index{compute@{compute}!com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}}
+\subsubsection{\texorpdfstring{compute()}{compute()}}
+{\footnotesize\ttfamily void com.\+activitytracker.\+Run\+Stats.\+compute (\begin{DoxyParamCaption}\item[{final \mbox{\hyperlink{enumcom_1_1activitytracker_1_1_run_attribute}{Run\+Attribute}}}]{attribute }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Computes and stores averages for the \mbox{\hyperlink{enumcom_1_1activitytracker_1_1_run_attribute}{Run\+Attribute}} passed as {\itshape attribute}, and stores a total sum where applicable.
+
+
+\begin{DoxyParams}{Parameters}
+{\em attribute} & The \mbox{\hyperlink{enumcom_1_1activitytracker_1_1_run_attribute}{Run\+Attribute}} for which we are computing statistics. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 91 of file Run\+Stats.\+java.
+
+
+\begin{DoxyCode}
+91                                                        \{
+92         \textcolor{keywordtype}{float} sum = 0.0f;
+93         \textcolor{keywordtype}{int} numRuns = \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a0fd429e9f463ddf4897c507c0e3c0a12}{runs}}.size();
+94 
+95         \textcolor{comment}{// If there are no runs, set everything to 0}
+96         \textcolor{keywordflow}{if} (numRuns == 0) \{
+97             this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a64b9e6daf2be19571b8ad401922762c2}{meanSpeed}} = 0.0f;
+98             this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a2e9486ea214a828e9f58489fd2b1a718}{totalDistance}} = 0.0f;
+99             this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_afcc9ab47852b6df6b15e9a592fe6c5ed}{meanDistance}} = 0.0f;
+100             this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a1108dd2b031415da72508a5172335dd4}{totalAltitudeAscended}} = 0.0f;
+101             this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_aecbe62c15075fe9be1604333c355fab6}{meanAltitudeAscended}} = 0.0f;
+102             this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_ae511b3772f61773885d0178b215786d7}{totalAltitudeDescended}} = 0.0f;
+103             this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a578eae64367a00c625f4685fe879fe7c}{meanAltitudeDescended}} = 0.0f;
+104             this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a8bf9f1577cffd26e6235695278bfcdb9}{meanDuration}} = 0.0f;
+105             \textcolor{keywordflow}{return};
+106         \}
+107 
+108         \textcolor{keywordflow}{switch} (attribute) \{
+109             \textcolor{keywordflow}{case} DISTANCE:
+110                 \textcolor{keywordflow}{for} (Run run : this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a0fd429e9f463ddf4897c507c0e3c0a12}{runs}})
+111                     sum += run.getDistance();
+112                 this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a2e9486ea214a828e9f58489fd2b1a718}{totalDistance}} = sum;
+113                 \textcolor{keywordflow}{break};
+114             \textcolor{keywordflow}{case} DURATION:
+115                 \textcolor{keywordflow}{for} (Run run : this.runs)
+116                     sum += run.getDuration();
+117                 \textcolor{keywordflow}{break};
+118             \textcolor{keywordflow}{case} ALTITUDE\_ASCENDED:
+119                 \textcolor{keywordflow}{for} (Run run : this.runs)
+120                     sum += run.getAltitudeAscended();
+121                 this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a1108dd2b031415da72508a5172335dd4}{totalAltitudeAscended}} = sum;
+122                 \textcolor{keywordflow}{break};
+123             \textcolor{keywordflow}{case} ALTITUDE\_DESCENDED:
+124                 \textcolor{keywordflow}{for} (Run run : this.runs)
+125                     sum += run.getAltitudeDescended();
+126                 this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_ae511b3772f61773885d0178b215786d7}{totalAltitudeDescended}} = sum;
+127                 \textcolor{keywordflow}{break};
+128             \textcolor{keywordflow}{case} SPEED:
+129                 \textcolor{keywordflow}{for} (Run run : this.runs)
+130                     sum += run.getSpeed();
+131                 \textcolor{keywordflow}{break};
+132         \}
+133 
+134         \textcolor{keywordtype}{float} mean = sum / numRuns;
+135 
+136         \textcolor{keywordflow}{switch} (attribute) \{
+137             \textcolor{keywordflow}{case} DISTANCE:
+138                 this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_afcc9ab47852b6df6b15e9a592fe6c5ed}{meanDistance}} = mean;
+139                 \textcolor{keywordflow}{break};
+140             \textcolor{keywordflow}{case} DURATION:
+141                 this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a8bf9f1577cffd26e6235695278bfcdb9}{meanDuration}} = mean;
+142                 \textcolor{keywordflow}{break};
+143             \textcolor{keywordflow}{case} ALTITUDE\_ASCENDED:
+144                 this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_aecbe62c15075fe9be1604333c355fab6}{meanAltitudeAscended}} = mean;
+145                 \textcolor{keywordflow}{break};
+146             \textcolor{keywordflow}{case} ALTITUDE\_DESCENDED:
+147                 this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a578eae64367a00c625f4685fe879fe7c}{meanAltitudeDescended}} = mean;
+148                 \textcolor{keywordflow}{break};
+149             \textcolor{keywordflow}{case} SPEED:
+150                 this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a64b9e6daf2be19571b8ad401922762c2}{meanSpeed}} = mean;
+151         \}
+152     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1activitytracker_1_1_run_stats_a85018dbaae7a08213d443a0697e59ee4}\label{classcom_1_1activitytracker_1_1_run_stats_a85018dbaae7a08213d443a0697e59ee4}} 
+\index{com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}!compute\+All@{compute\+All}}
+\index{compute\+All@{compute\+All}!com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}}
+\subsubsection{\texorpdfstring{compute\+All()}{computeAll()}}
+{\footnotesize\ttfamily void com.\+activitytracker.\+Run\+Stats.\+compute\+All (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+A wrapper for the \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_ac73cb94cc8ff604fe446d9a327e420cc}{compute()}} method in this class that invokes all calculations.
+
+Basically, it\textquotesingle{}s the lazy man\textquotesingle{}s way of calling the full computation. 
+
+Definition at line 77 of file Run\+Stats.\+java.
+
+
+\begin{DoxyCode}
+77                               \{
+78         this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_ac73cb94cc8ff604fe446d9a327e420cc}{compute}}(RunAttribute.SPEED);
+79         this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_ac73cb94cc8ff604fe446d9a327e420cc}{compute}}(RunAttribute.DISTANCE);
+80         this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_ac73cb94cc8ff604fe446d9a327e420cc}{compute}}(RunAttribute.ALTITUDE\_ASCENDED);
+81         this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_ac73cb94cc8ff604fe446d9a327e420cc}{compute}}(RunAttribute.ALTITUDE\_DESCENDED);
+82         this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_ac73cb94cc8ff604fe446d9a327e420cc}{compute}}(RunAttribute.DURATION);
+83     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1activitytracker_1_1_run_stats_af54051bc8ab944056f90af25d55ac646}\label{classcom_1_1activitytracker_1_1_run_stats_af54051bc8ab944056f90af25d55ac646}} 
+\index{com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}!get\+Mean\+Altitude\+Ascended@{get\+Mean\+Altitude\+Ascended}}
+\index{get\+Mean\+Altitude\+Ascended@{get\+Mean\+Altitude\+Ascended}!com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}}
+\subsubsection{\texorpdfstring{get\+Mean\+Altitude\+Ascended()}{getMeanAltitudeAscended()}}
+{\footnotesize\ttfamily float com.\+activitytracker.\+Run\+Stats.\+get\+Mean\+Altitude\+Ascended (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 194 of file Run\+Stats.\+java.
+
+
+\begin{DoxyCode}
+194                                            \{
+195         \textcolor{keywordflow}{return} \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_aecbe62c15075fe9be1604333c355fab6}{meanAltitudeAscended}};
+196     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1activitytracker_1_1_run_stats_a6f7829790dae6f302fe4cd218fc6b21f}\label{classcom_1_1activitytracker_1_1_run_stats_a6f7829790dae6f302fe4cd218fc6b21f}} 
+\index{com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}!get\+Mean\+Altitude\+Descended@{get\+Mean\+Altitude\+Descended}}
+\index{get\+Mean\+Altitude\+Descended@{get\+Mean\+Altitude\+Descended}!com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}}
+\subsubsection{\texorpdfstring{get\+Mean\+Altitude\+Descended()}{getMeanAltitudeDescended()}}
+{\footnotesize\ttfamily float com.\+activitytracker.\+Run\+Stats.\+get\+Mean\+Altitude\+Descended (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 202 of file Run\+Stats.\+java.
+
+
+\begin{DoxyCode}
+202                                             \{
+203         \textcolor{keywordflow}{return} \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a578eae64367a00c625f4685fe879fe7c}{meanAltitudeDescended}};
+204     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1activitytracker_1_1_run_stats_a28d7e9769b52fd45351a07c9d2e435f2}\label{classcom_1_1activitytracker_1_1_run_stats_a28d7e9769b52fd45351a07c9d2e435f2}} 
+\index{com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}!get\+Mean\+Distance@{get\+Mean\+Distance}}
+\index{get\+Mean\+Distance@{get\+Mean\+Distance}!com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}}
+\subsubsection{\texorpdfstring{get\+Mean\+Distance()}{getMeanDistance()}}
+{\footnotesize\ttfamily float com.\+activitytracker.\+Run\+Stats.\+get\+Mean\+Distance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 186 of file Run\+Stats.\+java.
+
+
+\begin{DoxyCode}
+186                                    \{
+187         \textcolor{keywordflow}{return} \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_afcc9ab47852b6df6b15e9a592fe6c5ed}{meanDistance}};
+188     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1activitytracker_1_1_run_stats_a7d929e97a9d760b4577529bcab71cdf7}\label{classcom_1_1activitytracker_1_1_run_stats_a7d929e97a9d760b4577529bcab71cdf7}} 
+\index{com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}!get\+Mean\+Duration@{get\+Mean\+Duration}}
+\index{get\+Mean\+Duration@{get\+Mean\+Duration}!com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}}
+\subsubsection{\texorpdfstring{get\+Mean\+Duration()}{getMeanDuration()}}
+{\footnotesize\ttfamily float com.\+activitytracker.\+Run\+Stats.\+get\+Mean\+Duration (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 206 of file Run\+Stats.\+java.
+
+
+\begin{DoxyCode}
+206                                    \{
+207         \textcolor{keywordflow}{return} \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a8bf9f1577cffd26e6235695278bfcdb9}{meanDuration}};
+208     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1activitytracker_1_1_run_stats_abb92798a7b1ff95b3b458f9bbd3b2fb8}\label{classcom_1_1activitytracker_1_1_run_stats_abb92798a7b1ff95b3b458f9bbd3b2fb8}} 
+\index{com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}!get\+Mean\+Speed@{get\+Mean\+Speed}}
+\index{get\+Mean\+Speed@{get\+Mean\+Speed}!com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}}
+\subsubsection{\texorpdfstring{get\+Mean\+Speed()}{getMeanSpeed()}}
+{\footnotesize\ttfamily float com.\+activitytracker.\+Run\+Stats.\+get\+Mean\+Speed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 178 of file Run\+Stats.\+java.
+
+
+\begin{DoxyCode}
+178                                 \{
+179         \textcolor{keywordflow}{return} \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a64b9e6daf2be19571b8ad401922762c2}{meanSpeed}};
+180     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1activitytracker_1_1_run_stats_aefa553b9c74ef8f2fd82204b9b2e70d2}\label{classcom_1_1activitytracker_1_1_run_stats_aefa553b9c74ef8f2fd82204b9b2e70d2}} 
+\index{com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}!get\+Total\+Altitude\+Ascended@{get\+Total\+Altitude\+Ascended}}
+\index{get\+Total\+Altitude\+Ascended@{get\+Total\+Altitude\+Ascended}!com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}}
+\subsubsection{\texorpdfstring{get\+Total\+Altitude\+Ascended()}{getTotalAltitudeAscended()}}
+{\footnotesize\ttfamily float com.\+activitytracker.\+Run\+Stats.\+get\+Total\+Altitude\+Ascended (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 190 of file Run\+Stats.\+java.
+
+
+\begin{DoxyCode}
+190                                             \{
+191         \textcolor{keywordflow}{return} \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a1108dd2b031415da72508a5172335dd4}{totalAltitudeAscended}};
+192     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1activitytracker_1_1_run_stats_a1d0f5d2353a797e1e2dea3c96472e6d8}\label{classcom_1_1activitytracker_1_1_run_stats_a1d0f5d2353a797e1e2dea3c96472e6d8}} 
+\index{com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}!get\+Total\+Altitude\+Descended@{get\+Total\+Altitude\+Descended}}
+\index{get\+Total\+Altitude\+Descended@{get\+Total\+Altitude\+Descended}!com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}}
+\subsubsection{\texorpdfstring{get\+Total\+Altitude\+Descended()}{getTotalAltitudeDescended()}}
+{\footnotesize\ttfamily float com.\+activitytracker.\+Run\+Stats.\+get\+Total\+Altitude\+Descended (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 198 of file Run\+Stats.\+java.
+
+
+\begin{DoxyCode}
+198                                              \{
+199         \textcolor{keywordflow}{return} \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_ae511b3772f61773885d0178b215786d7}{totalAltitudeDescended}};
+200     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1activitytracker_1_1_run_stats_abdaa7bc971293da224da08e6a6b3bd4c}\label{classcom_1_1activitytracker_1_1_run_stats_abdaa7bc971293da224da08e6a6b3bd4c}} 
+\index{com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}!get\+Total\+Distance@{get\+Total\+Distance}}
+\index{get\+Total\+Distance@{get\+Total\+Distance}!com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}}
+\subsubsection{\texorpdfstring{get\+Total\+Distance()}{getTotalDistance()}}
+{\footnotesize\ttfamily float com.\+activitytracker.\+Run\+Stats.\+get\+Total\+Distance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 182 of file Run\+Stats.\+java.
+
+
+\begin{DoxyCode}
+182                                     \{
+183         \textcolor{keywordflow}{return} \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a2e9486ea214a828e9f58489fd2b1a718}{totalDistance}};
+184     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1activitytracker_1_1_run_stats_a91d1d4302548cc114a1f1b63a47fcc1d}\label{classcom_1_1activitytracker_1_1_run_stats_a91d1d4302548cc114a1f1b63a47fcc1d}} 
+\index{com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}!is\+Empty@{is\+Empty}}
+\index{is\+Empty@{is\+Empty}!com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}}
+\subsubsection{\texorpdfstring{is\+Empty()}{isEmpty()}}
+{\footnotesize\ttfamily boolean com.\+activitytracker.\+Run\+Stats.\+is\+Empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Checks if an instance of \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats}{Run\+Stats}} has any runs with with statistics have been computed.
+
+If this method returns {\itshape False} then all statistics are set to {\itshape 0.\+0f} ({\itshape i.\+e}., they are useless).
+
+\begin{DoxyReturn}{Returns}
+True if the \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a0fd429e9f463ddf4897c507c0e3c0a12}{Run\+Stats\+::runs}} vector has a size of zero, false otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 174 of file Run\+Stats.\+java.
+
+
+\begin{DoxyCode}
+174                              \{
+175         \textcolor{keywordflow}{return} this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a0fd429e9f463ddf4897c507c0e3c0a12}{runs}}.size() == 0;
+176     \}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classcom_1_1activitytracker_1_1_run_stats_aecbe62c15075fe9be1604333c355fab6}\label{classcom_1_1activitytracker_1_1_run_stats_aecbe62c15075fe9be1604333c355fab6}} 
+\index{com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}!mean\+Altitude\+Ascended@{mean\+Altitude\+Ascended}}
+\index{mean\+Altitude\+Ascended@{mean\+Altitude\+Ascended}!com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}}
+\subsubsection{\texorpdfstring{mean\+Altitude\+Ascended}{meanAltitudeAscended}}
+{\footnotesize\ttfamily float com.\+activitytracker.\+Run\+Stats.\+mean\+Altitude\+Ascended\hspace{0.3cm}{\ttfamily [package]}}
+
+Mean altitude climbed per run, computed using the runs in \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a0fd429e9f463ddf4897c507c0e3c0a12}{Run\+Stats\+::runs}}. 
+
+Definition at line 36 of file Run\+Stats.\+java.
+
+\mbox{\Hypertarget{classcom_1_1activitytracker_1_1_run_stats_a578eae64367a00c625f4685fe879fe7c}\label{classcom_1_1activitytracker_1_1_run_stats_a578eae64367a00c625f4685fe879fe7c}} 
+\index{com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}!mean\+Altitude\+Descended@{mean\+Altitude\+Descended}}
+\index{mean\+Altitude\+Descended@{mean\+Altitude\+Descended}!com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}}
+\subsubsection{\texorpdfstring{mean\+Altitude\+Descended}{meanAltitudeDescended}}
+{\footnotesize\ttfamily float com.\+activitytracker.\+Run\+Stats.\+mean\+Altitude\+Descended\hspace{0.3cm}{\ttfamily [package]}}
+
+Mean altitude descended per run, computed using the runs in \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a0fd429e9f463ddf4897c507c0e3c0a12}{Run\+Stats\+::runs}}. 
+
+Definition at line 44 of file Run\+Stats.\+java.
+
+\mbox{\Hypertarget{classcom_1_1activitytracker_1_1_run_stats_afcc9ab47852b6df6b15e9a592fe6c5ed}\label{classcom_1_1activitytracker_1_1_run_stats_afcc9ab47852b6df6b15e9a592fe6c5ed}} 
+\index{com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}!mean\+Distance@{mean\+Distance}}
+\index{mean\+Distance@{mean\+Distance}!com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}}
+\subsubsection{\texorpdfstring{mean\+Distance}{meanDistance}}
+{\footnotesize\ttfamily float com.\+activitytracker.\+Run\+Stats.\+mean\+Distance\hspace{0.3cm}{\ttfamily [package]}}
+
+Mean distance per run, computed using the runs in \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a0fd429e9f463ddf4897c507c0e3c0a12}{Run\+Stats\+::runs}}. 
+
+Definition at line 28 of file Run\+Stats.\+java.
+
+\mbox{\Hypertarget{classcom_1_1activitytracker_1_1_run_stats_a8bf9f1577cffd26e6235695278bfcdb9}\label{classcom_1_1activitytracker_1_1_run_stats_a8bf9f1577cffd26e6235695278bfcdb9}} 
+\index{com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}!mean\+Duration@{mean\+Duration}}
+\index{mean\+Duration@{mean\+Duration}!com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}}
+\subsubsection{\texorpdfstring{mean\+Duration}{meanDuration}}
+{\footnotesize\ttfamily float com.\+activitytracker.\+Run\+Stats.\+mean\+Duration\hspace{0.3cm}{\ttfamily [package]}}
+
+Mean duration per run, computed using the runs in \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a0fd429e9f463ddf4897c507c0e3c0a12}{Run\+Stats\+::runs}}. 
+
+Definition at line 48 of file Run\+Stats.\+java.
+
+\mbox{\Hypertarget{classcom_1_1activitytracker_1_1_run_stats_a64b9e6daf2be19571b8ad401922762c2}\label{classcom_1_1activitytracker_1_1_run_stats_a64b9e6daf2be19571b8ad401922762c2}} 
+\index{com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}!mean\+Speed@{mean\+Speed}}
+\index{mean\+Speed@{mean\+Speed}!com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}}
+\subsubsection{\texorpdfstring{mean\+Speed}{meanSpeed}}
+{\footnotesize\ttfamily float com.\+activitytracker.\+Run\+Stats.\+mean\+Speed\hspace{0.3cm}{\ttfamily [package]}}
+
+The average speed for all runs in \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a0fd429e9f463ddf4897c507c0e3c0a12}{Run\+Stats\+::runs}}. 
+
+Definition at line 20 of file Run\+Stats.\+java.
+
+\mbox{\Hypertarget{classcom_1_1activitytracker_1_1_run_stats_a0fd429e9f463ddf4897c507c0e3c0a12}\label{classcom_1_1activitytracker_1_1_run_stats_a0fd429e9f463ddf4897c507c0e3c0a12}} 
+\index{com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}!runs@{runs}}
+\index{runs@{runs}!com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}}
+\subsubsection{\texorpdfstring{runs}{runs}}
+{\footnotesize\ttfamily Vector$<$\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run}{Run}}$>$ com.\+activitytracker.\+Run\+Stats.\+runs\hspace{0.3cm}{\ttfamily [package]}}
+
+The runs for which the statistics in the \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats}{Run\+Stats}} object pertain. 
+
+Definition at line 16 of file Run\+Stats.\+java.
+
+\mbox{\Hypertarget{classcom_1_1activitytracker_1_1_run_stats_a1108dd2b031415da72508a5172335dd4}\label{classcom_1_1activitytracker_1_1_run_stats_a1108dd2b031415da72508a5172335dd4}} 
+\index{com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}!total\+Altitude\+Ascended@{total\+Altitude\+Ascended}}
+\index{total\+Altitude\+Ascended@{total\+Altitude\+Ascended}!com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}}
+\subsubsection{\texorpdfstring{total\+Altitude\+Ascended}{totalAltitudeAscended}}
+{\footnotesize\ttfamily float com.\+activitytracker.\+Run\+Stats.\+total\+Altitude\+Ascended\hspace{0.3cm}{\ttfamily [package]}}
+
+Cumulative altitude climbed for all runs in \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a0fd429e9f463ddf4897c507c0e3c0a12}{Run\+Stats\+::runs}}. 
+
+Definition at line 32 of file Run\+Stats.\+java.
+
+\mbox{\Hypertarget{classcom_1_1activitytracker_1_1_run_stats_ae511b3772f61773885d0178b215786d7}\label{classcom_1_1activitytracker_1_1_run_stats_ae511b3772f61773885d0178b215786d7}} 
+\index{com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}!total\+Altitude\+Descended@{total\+Altitude\+Descended}}
+\index{total\+Altitude\+Descended@{total\+Altitude\+Descended}!com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}}
+\subsubsection{\texorpdfstring{total\+Altitude\+Descended}{totalAltitudeDescended}}
+{\footnotesize\ttfamily float com.\+activitytracker.\+Run\+Stats.\+total\+Altitude\+Descended\hspace{0.3cm}{\ttfamily [package]}}
+
+Cumulative altitude descended for all runs in \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a0fd429e9f463ddf4897c507c0e3c0a12}{Run\+Stats\+::runs}}. 
+
+Definition at line 40 of file Run\+Stats.\+java.
+
+\mbox{\Hypertarget{classcom_1_1activitytracker_1_1_run_stats_a2e9486ea214a828e9f58489fd2b1a718}\label{classcom_1_1activitytracker_1_1_run_stats_a2e9486ea214a828e9f58489fd2b1a718}} 
+\index{com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}!total\+Distance@{total\+Distance}}
+\index{total\+Distance@{total\+Distance}!com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}}
+\subsubsection{\texorpdfstring{total\+Distance}{totalDistance}}
+{\footnotesize\ttfamily float com.\+activitytracker.\+Run\+Stats.\+total\+Distance\hspace{0.3cm}{\ttfamily [package]}}
+
+Cumulative distance ran for all runs in \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a0fd429e9f463ddf4897c507c0e3c0a12}{Run\+Stats\+::runs}}. 
+
+Definition at line 24 of file Run\+Stats.\+java.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+app/src/com/activitytracker/\mbox{\hyperlink{_run_stats_8java}{Run\+Stats.\+java}}\end{DoxyCompactItemize}

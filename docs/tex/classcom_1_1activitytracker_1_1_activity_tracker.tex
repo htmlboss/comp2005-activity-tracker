@@ -63,10 +63,10 @@ Definition at line 33 of file Activity\+Tracker.\+java.
 55         ImageIcon imgIcon = \textcolor{keyword}{new} ImageIcon(ActivityTracker.class.getResource(logoPath));
 56         frame.setIconImage(imgIcon.getImage());
 57         frame.setContentPane(\textcolor{keyword}{new} LoginWindow((Void) -> \{
-58             frame.setContentPane(\textcolor{keyword}{new} MainWindow().rootPanel());
+58             frame.setContentPane(\textcolor{keyword}{new} MainWindow(dbManager).rootPanel());
 59             frame.validate();
 60             frame.repaint();
-61         \}).rootPanel());
+61         \}, dbManager).rootPanel());
 62         frame.setDefaultCloseOperation(JFrame.EXIT\_ON\_CLOSE);
 63         frame.pack();
 64 

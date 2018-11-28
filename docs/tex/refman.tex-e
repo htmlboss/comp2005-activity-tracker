@@ -160,6 +160,7 @@
 \input{classcom_1_1activitytracker_1_1_main_window}
 \input{classcom_1_1activitytracker_1_1_run}
 \input{enumcom_1_1activitytracker_1_1_run_attribute}
+\input{classcom_1_1activitytracker_1_1_run_stats}
 \input{classcom_1_1activitytracker_1_1_secure_string}
 \input{enumcom_1_1activitytracker_1_1_user_1_1_sex}
 \input{classcom_1_1activitytracker_1_1_user}
@@ -173,6 +174,7 @@
 \input{_main_window_8java}
 \input{_run_8java}
 \input{_run_attribute_8java}
+\input{_run_stats_8java}
 \input{_secure_string_8java}
 \input{_user_8java}
 \input{_user_attribute_8java}

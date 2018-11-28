@@ -24,6 +24,9 @@ var dir_89dce2c1f63da84696e0a2967c89d455 =
     [ "RunAttribute.java", "_run_attribute_8java.html", [
       [ "RunAttribute", "enumcom_1_1activitytracker_1_1_run_attribute.html", "enumcom_1_1activitytracker_1_1_run_attribute" ]
     ] ],
+    [ "RunStats.java", "_run_stats_8java.html", [
+      [ "RunStats", "classcom_1_1activitytracker_1_1_run_stats.html", "classcom_1_1activitytracker_1_1_run_stats" ]
+    ] ],
     [ "SecureString.java", "_secure_string_8java.html", [
       [ "SecureString", "classcom_1_1activitytracker_1_1_secure_string.html", "classcom_1_1activitytracker_1_1_secure_string" ]
     ] ],

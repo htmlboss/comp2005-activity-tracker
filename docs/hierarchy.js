@@ -12,6 +12,7 @@ var hierarchy =
     [ "com.activitytracker.MainWindow", "classcom_1_1activitytracker_1_1_main_window.html", null ],
     [ "com.activitytracker.Run", "classcom_1_1activitytracker_1_1_run.html", null ],
     [ "com.activitytracker.RunAttribute", "enumcom_1_1activitytracker_1_1_run_attribute.html", null ],
+    [ "com.activitytracker.RunStats", "classcom_1_1activitytracker_1_1_run_stats.html", null ],
     [ "com.activitytracker.SecureString", "classcom_1_1activitytracker_1_1_secure_string.html", null ],
     [ "com.activitytracker.User.Sex", "enumcom_1_1activitytracker_1_1_user_1_1_sex.html", null ],
     [ "com.activitytracker.User", "classcom_1_1activitytracker_1_1_user.html", null ],

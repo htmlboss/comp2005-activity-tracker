@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['bulkimport',['bulkImport',['../classcom_1_1activitytracker_1_1_run.html#a8e2b13e0096b87614d5333ec15213300',1,'com::activitytracker::Run']]]
+  ['addrun',['addRun',['../classcom_1_1activitytracker_1_1_run_stats.html#a1b00f177e7c4abc155bb03c6a8b5d7dd',1,'com::activitytracker::RunStats']]]
 ];

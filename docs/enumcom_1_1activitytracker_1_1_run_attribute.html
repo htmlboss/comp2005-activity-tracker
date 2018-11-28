@@ -113,6 +113,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:abcfe85bf48187d67842a0525c1bcc0af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a337a68867cfdb8ec7a17c318ad8b216b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="enumcom_1_1activitytracker_1_1_run_attribute.html#a337a68867cfdb8ec7a17c318ad8b216b">ALTITUDE_DESCENDED</a></td></tr>
 <tr class="separator:a337a68867cfdb8ec7a17c318ad8b216b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43fc543df9ec6dfaac73a5030abfafc4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="enumcom_1_1activitytracker_1_1_run_attribute.html#a43fc543df9ec6dfaac73a5030abfafc4">SPEED</a></td></tr>
+<tr class="separator:a43fc543df9ec6dfaac73a5030abfafc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This enumeration type is used to specify the behaviour of generalized methods, particularly in the <a class="el" href="classcom_1_1activitytracker_1_1_d_b_manager.html">DBManager</a> class. </p>
@@ -131,9 +133,9 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>The cumulative altitude (in metres) that the user has climbed throughout their run.</p>
-<p>Used in <a class="el" href="classcom_1_1activitytracker_1_1_d_b_manager.html#a666452f1e5862f90c06b0beb9a9fcfdd">DBManager::getRunFloatAttribute</a> to specify that ascended altitude should be returned. </p>
+<p>Used in <a class="el" href="classcom_1_1activitytracker_1_1_d_b_manager.html#a666452f1e5862f90c06b0beb9a9fcfdd">DBManager::getRunFloatAttribute</a> to specify that ascended altitude should be returned and RunStats::computeMean(). </p>
 
-<p class="definition">Definition at line <a class="el" href="_run_attribute_8java_source.html#l00024">24</a> of file <a class="el" href="_run_attribute_8java_source.html">RunAttribute.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_run_attribute_8java_source.html#l00027">27</a> of file <a class="el" href="_run_attribute_8java_source.html">RunAttribute.java</a>.</p>
 
 </div>
 </div>
@@ -149,9 +151,9 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>The cumulative altitude (in metres) that the user has descended throughout their run.</p>
-<p>Used in <a class="el" href="classcom_1_1activitytracker_1_1_d_b_manager.html#a666452f1e5862f90c06b0beb9a9fcfdd">DBManager::getRunFloatAttribute</a> to specify that descended altitude should be returned. </p>
+<p>Used in <a class="el" href="classcom_1_1activitytracker_1_1_d_b_manager.html#a666452f1e5862f90c06b0beb9a9fcfdd">DBManager::getRunFloatAttribute</a> to specify that descended altitude should be returned and RunStats::computeMean(). </p>
 
-<p class="definition">Definition at line <a class="el" href="_run_attribute_8java_source.html#l00030">30</a> of file <a class="el" href="_run_attribute_8java_source.html">RunAttribute.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_run_attribute_8java_source.html#l00034">34</a> of file <a class="el" href="_run_attribute_8java_source.html">RunAttribute.java</a>.</p>
 
 </div>
 </div>
@@ -167,9 +169,9 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>The cumulative distance the user has run (in metres).</p>
-<p>Used in <a class="el" href="classcom_1_1activitytracker_1_1_d_b_manager.html#a666452f1e5862f90c06b0beb9a9fcfdd">DBManager::getRunFloatAttribute</a> to specify that distance should be returned. </p>
+<p>Used in <a class="el" href="classcom_1_1activitytracker_1_1_d_b_manager.html#a666452f1e5862f90c06b0beb9a9fcfdd">DBManager::getRunFloatAttribute</a> to specify that distance should be returned and RunStats::computeMean(). </p>
 
-<p class="definition">Definition at line <a class="el" href="_run_attribute_8java_source.html#l00012">12</a> of file <a class="el" href="_run_attribute_8java_source.html">RunAttribute.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_run_attribute_8java_source.html#l00013">13</a> of file <a class="el" href="_run_attribute_8java_source.html">RunAttribute.java</a>.</p>
 
 </div>
 </div>
@@ -185,9 +187,27 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>The duration of the user's run (in seconds).</p>
-<p>Used in <a class="el" href="classcom_1_1activitytracker_1_1_d_b_manager.html#a666452f1e5862f90c06b0beb9a9fcfdd">DBManager::getRunFloatAttribute</a> to specify that duration should be returned. </p>
+<p>Used in <a class="el" href="classcom_1_1activitytracker_1_1_d_b_manager.html#a666452f1e5862f90c06b0beb9a9fcfdd">DBManager::getRunFloatAttribute</a> to specify that duration should be returned and RunStats::computeMean(). </p>
 
-<p class="definition">Definition at line <a class="el" href="_run_attribute_8java_source.html#l00018">18</a> of file <a class="el" href="_run_attribute_8java_source.html">RunAttribute.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_run_attribute_8java_source.html#l00020">20</a> of file <a class="el" href="_run_attribute_8java_source.html">RunAttribute.java</a>.</p>
+
+</div>
+</div>
+<a id="a43fc543df9ec6dfaac73a5030abfafc4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43fc543df9ec6dfaac73a5030abfafc4">&#9670;&nbsp;</a></span>SPEED</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">com.activitytracker.RunAttribute.SPEED</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The average speed the user ran.</p>
+<p>Used in RunStats::computeMean(). </p>
+
+<p class="definition">Definition at line <a class="el" href="_run_attribute_8java_source.html#l00040">40</a> of file <a class="el" href="_run_attribute_8java_source.html">RunAttribute.java</a>.</p>
 
 </div>
 </div>

@@ -90,6 +90,7 @@ $(document).ready(function(){initNavTree('classcom_1_1activitytracker_1_1_create
 <div class="header">
   <div class="summary">
 <a href="#pac-methods">Package Functions</a> &#124;
+<a href="#pac-attribs">Package Attributes</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classcom_1_1activitytracker_1_1_create_user_window-members.html">List of all members</a>  </div>
@@ -109,15 +110,21 @@ Collaboration diagram for com.activitytracker.CreateUserWindow:</div>
 <div class="dyncontent">
 <div class="center"><img src="classcom_1_1activitytracker_1_1_create_user_window__coll__graph.png" border="0" usemap="#com_8activitytracker_8_create_user_window_coll__map" alt="Collaboration graph"/></div>
 <map name="com_8activitytracker_8_create_user_window_coll__map" id="com_8activitytracker_8_create_user_window_coll__map">
+<area shape="rect" id="node3" href="classcom_1_1activitytracker_1_1_d_b_manager.html" title="{com.activitytracker.DBManager\n|&#45; m_conn\l|+ createUser()\l+ userExists()\l+ getUserIDByEmail()\l+ getUserStringAttribute()\l+ getUserFloatAttribute()\l+ getDateOfBirth()\l+ getUserSex()\l+ getUserPassSalt()\l+ getUserLastRID()\l+ setUserLastRID()\land 6 more...\l~ DBManager()\l~ init()\l&#45; executeQuery()\l&#45; executeUpdate()\l&#45; isEmpty()\l}" alt="" coords="95,5,301,279"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pac-methods"></a>
 Package Functions</h2></td></tr>
-<tr class="memitem:a46b8b719c490fe8f658fa7a1f27d0be7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1activitytracker_1_1_create_user_window.html#a46b8b719c490fe8f658fa7a1f27d0be7">CreateUserWindow</a> ()</td></tr>
-<tr class="separator:a46b8b719c490fe8f658fa7a1f27d0be7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98ea46c069948eaf857173a0d93f64bb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1activitytracker_1_1_create_user_window.html#a98ea46c069948eaf857173a0d93f64bb">CreateUserWindow</a> (<a class="el" href="classcom_1_1activitytracker_1_1_d_b_manager.html">DBManager</a> dbmanager)</td></tr>
+<tr class="separator:a98ea46c069948eaf857173a0d93f64bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a862f018ae96eb5df7529ff1beb312ff1"><td class="memItemLeft" align="right" valign="top">JPanel&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1activitytracker_1_1_create_user_window.html#a862f018ae96eb5df7529ff1beb312ff1">rootPanel</a> ()</td></tr>
 <tr class="separator:a862f018ae96eb5df7529ff1beb312ff1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pac-attribs"></a>
+Package Attributes</h2></td></tr>
+<tr class="memitem:adab0a80c7975dfad1c2882a56f00a235"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcom_1_1activitytracker_1_1_d_b_manager.html">DBManager</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1activitytracker_1_1_create_user_window.html#adab0a80c7975dfad1c2882a56f00a235">m_dbmanager</a> = null</td></tr>
+<tr class="separator:adab0a80c7975dfad1c2882a56f00a235"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -149,8 +156,8 @@ Private Attributes</h2></td></tr>
 <div class="textblock">
 <p class="definition">Definition at line <a class="el" href="_create_user_window_8java_source.html#l00010">10</a> of file <a class="el" href="_create_user_window_8java_source.html">CreateUserWindow.java</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a46b8b719c490fe8f658fa7a1f27d0be7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a46b8b719c490fe8f658fa7a1f27d0be7">&#9670;&nbsp;</a></span>CreateUserWindow()</h2>
+<a id="a98ea46c069948eaf857173a0d93f64bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98ea46c069948eaf857173a0d93f64bb">&#9670;&nbsp;</a></span>CreateUserWindow()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -161,7 +168,8 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">com.activitytracker.CreateUserWindow.CreateUserWindow </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="classcom_1_1activitytracker_1_1_d_b_manager.html">DBManager</a>&#160;</td>
+          <td class="paramname"><em>dbmanager</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -172,9 +180,10 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_create_user_window_8java_source.html#l00020">20</a> of file <a class="el" href="_create_user_window_8java_source.html">CreateUserWindow.java</a>.</p>
-<div class="fragment"><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                       {</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <a class="code" href="classcom_1_1activitytracker_1_1_create_user_window.html#a41715d85194c6bb84cf6969f771940dc">setupUI</a>();</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <a class="code" href="classcom_1_1activitytracker_1_1_create_user_window.html#a174a05a389ca6f3b7979ac9c5028a3ae">setupActionListeners</a>();</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    }</div><div class="ttc" id="classcom_1_1activitytracker_1_1_create_user_window_html_a174a05a389ca6f3b7979ac9c5028a3ae"><div class="ttname"><a href="classcom_1_1activitytracker_1_1_create_user_window.html#a174a05a389ca6f3b7979ac9c5028a3ae">com.activitytracker.CreateUserWindow.setupActionListeners</a></div><div class="ttdeci">void setupActionListeners()</div><div class="ttdef"><b>Definition:</b> <a href="_create_user_window_8java_source.html#l00031">CreateUserWindow.java:31</a></div></div>
-<div class="ttc" id="classcom_1_1activitytracker_1_1_create_user_window_html_a41715d85194c6bb84cf6969f771940dc"><div class="ttname"><a href="classcom_1_1activitytracker_1_1_create_user_window.html#a41715d85194c6bb84cf6969f771940dc">com.activitytracker.CreateUserWindow.setupUI</a></div><div class="ttdeci">void setupUI()</div><div class="ttdef"><b>Definition:</b> <a href="_create_user_window_8java_source.html#l00026">CreateUserWindow.java:26</a></div></div>
+<p class="definition">Definition at line <a class="el" href="_create_user_window_8java_source.html#l00022">22</a> of file <a class="el" href="_create_user_window_8java_source.html">CreateUserWindow.java</a>.</p>
+<div class="fragment"><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                                          {</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <a class="code" href="classcom_1_1activitytracker_1_1_create_user_window.html#adab0a80c7975dfad1c2882a56f00a235">m_dbmanager</a> = dbmanager;</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <a class="code" href="classcom_1_1activitytracker_1_1_create_user_window.html#a41715d85194c6bb84cf6969f771940dc">setupUI</a>();</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <a class="code" href="classcom_1_1activitytracker_1_1_create_user_window.html#a174a05a389ca6f3b7979ac9c5028a3ae">setupActionListeners</a>();</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    }</div><div class="ttc" id="classcom_1_1activitytracker_1_1_create_user_window_html_a174a05a389ca6f3b7979ac9c5028a3ae"><div class="ttname"><a href="classcom_1_1activitytracker_1_1_create_user_window.html#a174a05a389ca6f3b7979ac9c5028a3ae">com.activitytracker.CreateUserWindow.setupActionListeners</a></div><div class="ttdeci">void setupActionListeners()</div><div class="ttdef"><b>Definition:</b> <a href="_create_user_window_8java_source.html#l00034">CreateUserWindow.java:34</a></div></div>
+<div class="ttc" id="classcom_1_1activitytracker_1_1_create_user_window_html_adab0a80c7975dfad1c2882a56f00a235"><div class="ttname"><a href="classcom_1_1activitytracker_1_1_create_user_window.html#adab0a80c7975dfad1c2882a56f00a235">com.activitytracker.CreateUserWindow.m_dbmanager</a></div><div class="ttdeci">DBManager m_dbmanager</div><div class="ttdef"><b>Definition:</b> <a href="_create_user_window_8java_source.html#l00020">CreateUserWindow.java:20</a></div></div>
+<div class="ttc" id="classcom_1_1activitytracker_1_1_create_user_window_html_a41715d85194c6bb84cf6969f771940dc"><div class="ttname"><a href="classcom_1_1activitytracker_1_1_create_user_window.html#a41715d85194c6bb84cf6969f771940dc">com.activitytracker.CreateUserWindow.setupUI</a></div><div class="ttdeci">void setupUI()</div><div class="ttdef"><b>Definition:</b> <a href="_create_user_window_8java_source.html#l00029">CreateUserWindow.java:29</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -202,8 +211,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_create_user_window_8java_source.html#l00053">53</a> of file <a class="el" href="_create_user_window_8java_source.html">CreateUserWindow.java</a>.</p>
-<div class="fragment"><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                       {</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classcom_1_1activitytracker_1_1_create_user_window.html#a5a678326afe519b6a2c9e7a2d9eff87c">m_rootPanel</a>;</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    }</div><div class="ttc" id="classcom_1_1activitytracker_1_1_create_user_window_html_a5a678326afe519b6a2c9e7a2d9eff87c"><div class="ttname"><a href="classcom_1_1activitytracker_1_1_create_user_window.html#a5a678326afe519b6a2c9e7a2d9eff87c">com.activitytracker.CreateUserWindow.m_rootPanel</a></div><div class="ttdeci">JPanel m_rootPanel</div><div class="ttdef"><b>Definition:</b> <a href="_create_user_window_8java_source.html#l00011">CreateUserWindow.java:11</a></div></div>
+<p class="definition">Definition at line <a class="el" href="_create_user_window_8java_source.html#l00056">56</a> of file <a class="el" href="_create_user_window_8java_source.html">CreateUserWindow.java</a>.</p>
+<div class="fragment"><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                       {</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classcom_1_1activitytracker_1_1_create_user_window.html#a5a678326afe519b6a2c9e7a2d9eff87c">m_rootPanel</a>;</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    }</div><div class="ttc" id="classcom_1_1activitytracker_1_1_create_user_window_html_a5a678326afe519b6a2c9e7a2d9eff87c"><div class="ttname"><a href="classcom_1_1activitytracker_1_1_create_user_window.html#a5a678326afe519b6a2c9e7a2d9eff87c">com.activitytracker.CreateUserWindow.m_rootPanel</a></div><div class="ttdeci">JPanel m_rootPanel</div><div class="ttdef"><b>Definition:</b> <a href="_create_user_window_8java_source.html#l00011">CreateUserWindow.java:11</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -230,8 +239,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_create_user_window_8java_source.html#l00031">31</a> of file <a class="el" href="_create_user_window_8java_source.html">CreateUserWindow.java</a>.</p>
-<div class="fragment"><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                                        {</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <a class="code" href="classcom_1_1activitytracker_1_1_create_user_window.html#aa22864c8baa65b46fe9a7621748d7841">buttonOk</a>.addActionListener(<span class="keyword">new</span> ActionListener() {</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            @Override</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            <span class="keyword">public</span> <span class="keywordtype">void</span> actionPerformed(ActionEvent e) {</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="classcom_1_1activitytracker_1_1_create_user_window.html#aa2b8cf1781a8a1534dbf5c5b98332c05">textFieldName</a>.getText().isEmpty() ||</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                    <a class="code" href="classcom_1_1activitytracker_1_1_create_user_window.html#a4f6010631cb7be5a2ae3691bdca31483">textFieldEmail</a>.getText().isEmpty() ||</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                    <a class="code" href="classcom_1_1activitytracker_1_1_create_user_window.html#a29be9c267c003ae90731199d8257dc0a">passwordField</a>.getPassword().length == 0) {</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                    <span class="keywordflow">return</span>;</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                }</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            }</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        });</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <a class="code" href="classcom_1_1activitytracker_1_1_create_user_window.html#a975a5cc35d145a3efa4d9e340776ca63">buttonCancel</a>.addActionListener(<span class="keyword">new</span> ActionListener() {</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            @Override</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="keyword">public</span> <span class="keywordtype">void</span> actionPerformed(ActionEvent e) {</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            }</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        });</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    }</div><div class="ttc" id="classcom_1_1activitytracker_1_1_create_user_window_html_aa2b8cf1781a8a1534dbf5c5b98332c05"><div class="ttname"><a href="classcom_1_1activitytracker_1_1_create_user_window.html#aa2b8cf1781a8a1534dbf5c5b98332c05">com.activitytracker.CreateUserWindow.textFieldName</a></div><div class="ttdeci">JTextField textFieldName</div><div class="ttdef"><b>Definition:</b> <a href="_create_user_window_8java_source.html#l00012">CreateUserWindow.java:12</a></div></div>
+<p class="definition">Definition at line <a class="el" href="_create_user_window_8java_source.html#l00034">34</a> of file <a class="el" href="_create_user_window_8java_source.html">CreateUserWindow.java</a>.</p>
+<div class="fragment"><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                                        {</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <a class="code" href="classcom_1_1activitytracker_1_1_create_user_window.html#aa22864c8baa65b46fe9a7621748d7841">buttonOk</a>.addActionListener(<span class="keyword">new</span> ActionListener() {</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            @Override</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            <span class="keyword">public</span> <span class="keywordtype">void</span> actionPerformed(ActionEvent e) {</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="classcom_1_1activitytracker_1_1_create_user_window.html#aa2b8cf1781a8a1534dbf5c5b98332c05">textFieldName</a>.getText().isEmpty() ||</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                    <a class="code" href="classcom_1_1activitytracker_1_1_create_user_window.html#a4f6010631cb7be5a2ae3691bdca31483">textFieldEmail</a>.getText().isEmpty() ||</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                    <a class="code" href="classcom_1_1activitytracker_1_1_create_user_window.html#a29be9c267c003ae90731199d8257dc0a">passwordField</a>.getPassword().length == 0) {</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                    <span class="keywordflow">return</span>;</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                }</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            }</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        });</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <a class="code" href="classcom_1_1activitytracker_1_1_create_user_window.html#a975a5cc35d145a3efa4d9e340776ca63">buttonCancel</a>.addActionListener(<span class="keyword">new</span> ActionListener() {</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            @Override</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <span class="keyword">public</span> <span class="keywordtype">void</span> actionPerformed(ActionEvent e) {</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            }</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        });</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    }</div><div class="ttc" id="classcom_1_1activitytracker_1_1_create_user_window_html_aa2b8cf1781a8a1534dbf5c5b98332c05"><div class="ttname"><a href="classcom_1_1activitytracker_1_1_create_user_window.html#aa2b8cf1781a8a1534dbf5c5b98332c05">com.activitytracker.CreateUserWindow.textFieldName</a></div><div class="ttdeci">JTextField textFieldName</div><div class="ttdef"><b>Definition:</b> <a href="_create_user_window_8java_source.html#l00012">CreateUserWindow.java:12</a></div></div>
 <div class="ttc" id="classcom_1_1activitytracker_1_1_create_user_window_html_a4f6010631cb7be5a2ae3691bdca31483"><div class="ttname"><a href="classcom_1_1activitytracker_1_1_create_user_window.html#a4f6010631cb7be5a2ae3691bdca31483">com.activitytracker.CreateUserWindow.textFieldEmail</a></div><div class="ttdeci">JTextField textFieldEmail</div><div class="ttdef"><b>Definition:</b> <a href="_create_user_window_8java_source.html#l00013">CreateUserWindow.java:13</a></div></div>
 <div class="ttc" id="classcom_1_1activitytracker_1_1_create_user_window_html_a29be9c267c003ae90731199d8257dc0a"><div class="ttname"><a href="classcom_1_1activitytracker_1_1_create_user_window.html#a29be9c267c003ae90731199d8257dc0a">com.activitytracker.CreateUserWindow.passwordField</a></div><div class="ttdeci">JPasswordField passwordField</div><div class="ttdef"><b>Definition:</b> <a href="_create_user_window_8java_source.html#l00014">CreateUserWindow.java:14</a></div></div>
 <div class="ttc" id="classcom_1_1activitytracker_1_1_create_user_window_html_a975a5cc35d145a3efa4d9e340776ca63"><div class="ttname"><a href="classcom_1_1activitytracker_1_1_create_user_window.html#a975a5cc35d145a3efa4d9e340776ca63">com.activitytracker.CreateUserWindow.buttonCancel</a></div><div class="ttdeci">JButton buttonCancel</div><div class="ttdef"><b>Definition:</b> <a href="_create_user_window_8java_source.html#l00017">CreateUserWindow.java:17</a></div></div>
@@ -262,8 +271,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_create_user_window_8java_source.html#l00026">26</a> of file <a class="el" href="_create_user_window_8java_source.html">CreateUserWindow.java</a>.</p>
-<div class="fragment"><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                           {</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        MaterialUIMovement.add(<a class="code" href="classcom_1_1activitytracker_1_1_create_user_window.html#a975a5cc35d145a3efa4d9e340776ca63">buttonCancel</a>, MaterialColors.GRAY_100);</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        MaterialUIMovement.add(<a class="code" href="classcom_1_1activitytracker_1_1_create_user_window.html#aa22864c8baa65b46fe9a7621748d7841">buttonOk</a>, MaterialColors.GRAY_100);</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    }</div><div class="ttc" id="classcom_1_1activitytracker_1_1_create_user_window_html_a975a5cc35d145a3efa4d9e340776ca63"><div class="ttname"><a href="classcom_1_1activitytracker_1_1_create_user_window.html#a975a5cc35d145a3efa4d9e340776ca63">com.activitytracker.CreateUserWindow.buttonCancel</a></div><div class="ttdeci">JButton buttonCancel</div><div class="ttdef"><b>Definition:</b> <a href="_create_user_window_8java_source.html#l00017">CreateUserWindow.java:17</a></div></div>
+<p class="definition">Definition at line <a class="el" href="_create_user_window_8java_source.html#l00029">29</a> of file <a class="el" href="_create_user_window_8java_source.html">CreateUserWindow.java</a>.</p>
+<div class="fragment"><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                           {</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        MaterialUIMovement.add(<a class="code" href="classcom_1_1activitytracker_1_1_create_user_window.html#a975a5cc35d145a3efa4d9e340776ca63">buttonCancel</a>, MaterialColors.GRAY_100);</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        MaterialUIMovement.add(<a class="code" href="classcom_1_1activitytracker_1_1_create_user_window.html#aa22864c8baa65b46fe9a7621748d7841">buttonOk</a>, MaterialColors.GRAY_100);</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    }</div><div class="ttc" id="classcom_1_1activitytracker_1_1_create_user_window_html_a975a5cc35d145a3efa4d9e340776ca63"><div class="ttname"><a href="classcom_1_1activitytracker_1_1_create_user_window.html#a975a5cc35d145a3efa4d9e340776ca63">com.activitytracker.CreateUserWindow.buttonCancel</a></div><div class="ttdeci">JButton buttonCancel</div><div class="ttdef"><b>Definition:</b> <a href="_create_user_window_8java_source.html#l00017">CreateUserWindow.java:17</a></div></div>
 <div class="ttc" id="classcom_1_1activitytracker_1_1_create_user_window_html_aa22864c8baa65b46fe9a7621748d7841"><div class="ttname"><a href="classcom_1_1activitytracker_1_1_create_user_window.html#aa22864c8baa65b46fe9a7621748d7841">com.activitytracker.CreateUserWindow.buttonOk</a></div><div class="ttdeci">JButton buttonOk</div><div class="ttdef"><b>Definition:</b> <a href="_create_user_window_8java_source.html#l00015">CreateUserWindow.java:15</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -314,6 +323,30 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="_create_user_window_8java_source.html#l00015">15</a> of file <a class="el" href="_create_user_window_8java_source.html">CreateUserWindow.java</a>.</p>
+
+</div>
+</div>
+<a id="adab0a80c7975dfad1c2882a56f00a235"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adab0a80c7975dfad1c2882a56f00a235">&#9670;&nbsp;</a></span>m_dbmanager</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classcom_1_1activitytracker_1_1_d_b_manager.html">DBManager</a> com.activitytracker.CreateUserWindow.m_dbmanager = null</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">package</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_create_user_window_8java_source.html#l00020">20</a> of file <a class="el" href="_create_user_window_8java_source.html">CreateUserWindow.java</a>.</p>
 
 </div>
 </div>

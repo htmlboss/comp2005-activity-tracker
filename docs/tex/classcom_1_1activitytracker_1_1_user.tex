@@ -39,7 +39,7 @@ float \mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_ad15d7b4f96adb6d1a14
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-static void \mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_ab9d405e0fc6916bbf4836ce6ab762bea}{create\+User}} (final \mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager}{D\+B\+Manager}} \mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a8c8b36433447a235f2b4940b92e839c1}{db\+Manager}}, final String \mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a49bfb4c8ebf8b7a377df01b5f0b2d7bc}{name}}, final String \mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_ac2fdb9a858d0295e52c5f8bc179e3137}{email\+Address}}, final int D\+O\+B\+Year, final int D\+O\+B\+Month, final int D\+O\+B\+Day, final User.\+Sex \mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_adcbddd2e965af4e227f7cf0582a3e13d}{sex}}, final float \mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a83cdfe6f520a4e18e8710e8e11f8c3d6}{height}}, final float \mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a8a30c6c08983e513b462bcc035434c9e}{weight}}, final String plaintext\+Password)
+static void \mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a615393e15084d20a59ad712419cfec92}{create\+User}} (final \mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager}{D\+B\+Manager}} \mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a8c8b36433447a235f2b4940b92e839c1}{db\+Manager}}, final String \mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a49bfb4c8ebf8b7a377df01b5f0b2d7bc}{name}}, final String \mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_ac2fdb9a858d0295e52c5f8bc179e3137}{email\+Address}}, final Date \mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a40b0d4ce16246066c0e948edef864d94}{date\+Of\+Birth}}, final User.\+Sex \mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_adcbddd2e965af4e227f7cf0582a3e13d}{sex}}, final float \mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a83cdfe6f520a4e18e8710e8e11f8c3d6}{height}}, final float \mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a8a30c6c08983e513b462bcc035434c9e}{weight}}, final String plaintext\+Password)
 \end{DoxyCompactItemize}
 \subsection*{Package Functions}
 \begin{DoxyCompactItemize}
@@ -83,90 +83,109 @@ Definition at line 8 of file User.\+java.
 
 
 
-Definition at line 38 of file User.\+java.
+Definition at line 64 of file User.\+java.
 
 
 \begin{DoxyCode}
-38                                                                                                            
+64                                                                                                            
                         \{
-39 
-40         this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a8c8b36433447a235f2b4940b92e839c1}{dbManager}} = \mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a8c8b36433447a235f2b4940b92e839c1}{dbManager}};
-41         \textcolor{keywordflow}{if} (this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a8c8b36433447a235f2b4940b92e839c1}{dbManager}}.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager_af05d79f33ecf2920a67d1b9cf82c079f}{userExists}}(\mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_ac2fdb9a858d0295e52c5f8bc179e3137}{emailAddress}})) \{
-42 
-43             this.\textcolor{keywordtype}{id} = \mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a8c8b36433447a235f2b4940b92e839c1}{dbManager}}.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager_a195dcdeabdd00facb19d720976dd3f53}{getUserIDByEmail}}(
-      \mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_ac2fdb9a858d0295e52c5f8bc179e3137}{emailAddress}});
-44 
-45             String passHash = this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a8c8b36433447a235f2b4940b92e839c1}{dbManager}}.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager_a20f726c054d6c8a6fc3ce629d87f1114}{getUserStringAttribute}}(
-      UserAttribute.PASSWORD, \textcolor{keyword}{this}.id);
-46             byte[] passSalt = this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a8c8b36433447a235f2b4940b92e839c1}{dbManager}}.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager_aeab864b072cc08c0521e80ae1f459ca7}{getUserPassSalt}}(this.\textcolor{keywordtype}{id});
-47 
-48             SecureString candidatePassword = \textcolor{keyword}{new} SecureString(plaintextPassword, passSalt);
-49 
-50             \textcolor{keywordflow}{if} (candidatePassword.equalString(passHash)) \{
-51 
-52 
-53                 this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a49bfb4c8ebf8b7a377df01b5f0b2d7bc}{name}} = this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a8c8b36433447a235f2b4940b92e839c1}{dbManager}}.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager_a20f726c054d6c8a6fc3ce629d87f1114}{getUserStringAttribute}}(
-      UserAttribute.NAME, \textcolor{keyword}{this}.id);
-54 \textcolor{comment}{//                this.emailAddress = this.dbManager.getEmailAddress(this.id);}
-55                 this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_ac2fdb9a858d0295e52c5f8bc179e3137}{emailAddress}} = \mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_ac2fdb9a858d0295e52c5f8bc179e3137}{emailAddress}};
-56                 this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a40b0d4ce16246066c0e948edef864d94}{dateOfBirth}} = this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a8c8b36433447a235f2b4940b92e839c1}{dbManager}}.
-      \mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager_a0576baf67b45c7d2d0ba369052e4404e}{getDateOfBirth}}(this.\textcolor{keywordtype}{id});
-57                 this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_adcbddd2e965af4e227f7cf0582a3e13d}{sex}} = this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a8c8b36433447a235f2b4940b92e839c1}{dbManager}}.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager_a4e695c111b877cfd1d918602551f65a1}{getUserSex}}(this.\textcolor{keywordtype}{id});
-58                 this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a83cdfe6f520a4e18e8710e8e11f8c3d6}{height}} = this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a8c8b36433447a235f2b4940b92e839c1}{dbManager}}.
-      \mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager_a98df66254bec4d74b29cfe468a9fc794}{getUserFloatAttribute}}(UserAttribute.HEIGHT, \textcolor{keyword}{this}.id);
-59                 this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a8a30c6c08983e513b462bcc035434c9e}{weight}} = this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a8c8b36433447a235f2b4940b92e839c1}{dbManager}}.
-      \mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager_a98df66254bec4d74b29cfe468a9fc794}{getUserFloatAttribute}}(UserAttribute.WEIGHT, \textcolor{keyword}{this}.id);
-60 
-61                 System.out.println(\textcolor{stringliteral}{"Authentication succeeded for "} + this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a49bfb4c8ebf8b7a377df01b5f0b2d7bc}{name}});
-62 
-63             \}
-64             \textcolor{keywordflow}{else} \{
 65 
-66                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} AuthenticationException(\textcolor{stringliteral}{"Incorrect password."});
-67 
-68             \}
-69         \}
-70         \textcolor{keywordflow}{else} \{
-71 
-72             \textcolor{keywordflow}{throw} \textcolor{keyword}{new} NoSuchElementException(\textcolor{stringliteral}{"No such user exists."});
+66         this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a8c8b36433447a235f2b4940b92e839c1}{dbManager}} = \mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a8c8b36433447a235f2b4940b92e839c1}{dbManager}};
+67         \textcolor{keywordflow}{if} (this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a8c8b36433447a235f2b4940b92e839c1}{dbManager}}.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager_af05d79f33ecf2920a67d1b9cf82c079f}{userExists}}(\mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_ac2fdb9a858d0295e52c5f8bc179e3137}{emailAddress}})) \{
+68 
+69             this.\textcolor{keywordtype}{id} = \mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a8c8b36433447a235f2b4940b92e839c1}{dbManager}}.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager_a195dcdeabdd00facb19d720976dd3f53}{getUserIDByEmail}}(
+      \mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_ac2fdb9a858d0295e52c5f8bc179e3137}{emailAddress}});
+70 
+71             String passHash = this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a8c8b36433447a235f2b4940b92e839c1}{dbManager}}.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager_a20f726c054d6c8a6fc3ce629d87f1114}{getUserStringAttribute}}(
+      UserAttribute.PASSWORD, \textcolor{keyword}{this}.id);
+72             byte[] passSalt = this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a8c8b36433447a235f2b4940b92e839c1}{dbManager}}.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager_aeab864b072cc08c0521e80ae1f459ca7}{getUserPassSalt}}(this.\textcolor{keywordtype}{id});
 73 
-74         \}
+74             SecureString candidatePassword = \textcolor{keyword}{new} SecureString(plaintextPassword, passSalt);
 75 
-76     \}
+76             \textcolor{keywordflow}{if} (candidatePassword.equalString(passHash)) \{
+77 
+78 
+79                 this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a49bfb4c8ebf8b7a377df01b5f0b2d7bc}{name}} = this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a8c8b36433447a235f2b4940b92e839c1}{dbManager}}.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager_a20f726c054d6c8a6fc3ce629d87f1114}{getUserStringAttribute}}(
+      UserAttribute.NAME, \textcolor{keyword}{this}.id);
+80 \textcolor{comment}{//                this.emailAddress = this.dbManager.getEmailAddress(this.id);}
+81                 this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_ac2fdb9a858d0295e52c5f8bc179e3137}{emailAddress}} = \mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_ac2fdb9a858d0295e52c5f8bc179e3137}{emailAddress}};
+82                 this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a40b0d4ce16246066c0e948edef864d94}{dateOfBirth}} = this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a8c8b36433447a235f2b4940b92e839c1}{dbManager}}.
+      \mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager_a0576baf67b45c7d2d0ba369052e4404e}{getDateOfBirth}}(this.\textcolor{keywordtype}{id});
+83                 this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_adcbddd2e965af4e227f7cf0582a3e13d}{sex}} = this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a8c8b36433447a235f2b4940b92e839c1}{dbManager}}.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager_a4e695c111b877cfd1d918602551f65a1}{getUserSex}}(this.\textcolor{keywordtype}{id});
+84                 this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a83cdfe6f520a4e18e8710e8e11f8c3d6}{height}} = this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a8c8b36433447a235f2b4940b92e839c1}{dbManager}}.
+      \mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager_a98df66254bec4d74b29cfe468a9fc794}{getUserFloatAttribute}}(UserAttribute.HEIGHT, \textcolor{keyword}{this}.id);
+85                 this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a8a30c6c08983e513b462bcc035434c9e}{weight}} = this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a8c8b36433447a235f2b4940b92e839c1}{dbManager}}.
+      \mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager_a98df66254bec4d74b29cfe468a9fc794}{getUserFloatAttribute}}(UserAttribute.WEIGHT, \textcolor{keyword}{this}.id);
+86 
+87                 System.out.println(\textcolor{stringliteral}{"Authentication succeeded for "} + this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a49bfb4c8ebf8b7a377df01b5f0b2d7bc}{name}});
+88 
+89             \}
+90             \textcolor{keywordflow}{else} \{
+91 
+92                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} AuthenticationException(\textcolor{stringliteral}{"Incorrect password."});
+93 
+94             \}
+95         \}
+96         \textcolor{keywordflow}{else} \{
+97 
+98             \textcolor{keywordflow}{throw} \textcolor{keyword}{new} NoSuchElementException(\textcolor{stringliteral}{"No such user exists."});
+99 
+100         \}
+101 
+102     \}
 \end{DoxyCode}
 
 
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{classcom_1_1activitytracker_1_1_user_ab9d405e0fc6916bbf4836ce6ab762bea}\label{classcom_1_1activitytracker_1_1_user_ab9d405e0fc6916bbf4836ce6ab762bea}} 
+\mbox{\Hypertarget{classcom_1_1activitytracker_1_1_user_a615393e15084d20a59ad712419cfec92}\label{classcom_1_1activitytracker_1_1_user_a615393e15084d20a59ad712419cfec92}} 
 \index{com\+::activitytracker\+::\+User@{com\+::activitytracker\+::\+User}!create\+User@{create\+User}}
 \index{create\+User@{create\+User}!com\+::activitytracker\+::\+User@{com\+::activitytracker\+::\+User}}
 \subsubsection{\texorpdfstring{create\+User()}{createUser()}}
-{\footnotesize\ttfamily static void com.\+activitytracker.\+User.\+create\+User (\begin{DoxyParamCaption}\item[{final \mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager}{D\+B\+Manager}}}]{db\+Manager,  }\item[{final String}]{name,  }\item[{final String}]{email\+Address,  }\item[{final int}]{D\+O\+B\+Year,  }\item[{final int}]{D\+O\+B\+Month,  }\item[{final int}]{D\+O\+B\+Day,  }\item[{final User.\+Sex}]{sex,  }\item[{final float}]{height,  }\item[{final float}]{weight,  }\item[{final String}]{plaintext\+Password }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily static void com.\+activitytracker.\+User.\+create\+User (\begin{DoxyParamCaption}\item[{final \mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager}{D\+B\+Manager}}}]{db\+Manager,  }\item[{final String}]{name,  }\item[{final String}]{email\+Address,  }\item[{final Date}]{date\+Of\+Birth,  }\item[{final User.\+Sex}]{sex,  }\item[{final float}]{height,  }\item[{final float}]{weight,  }\item[{final String}]{plaintext\+Password }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Generates a \mbox{\hyperlink{classcom_1_1activitytracker_1_1_secure_string}{Secure\+String}} for the plain text password provided by the user and passes this, along with the rest of the user\textquotesingle{}s information, to \mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager}{D\+B\+Manager}} for entry in the database.
 
 
+\begin{DoxyParams}{Parameters}
+{\em db\+Manager} & An instance of \mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager}{D\+B\+Manager}} with which we access the database to store the new user. \\
+\hline
+{\em name} & The new user\textquotesingle{}s full name ({\itshape e.\+g}., Johnathan Doe). \\
+\hline
+{\em email\+Address} & The new user\textquotesingle{}s email address ({\itshape e.\+g}., \href{mailto:jondoe@mac.com}{\tt jondoe@mac.\+com}) used to register. \\
+\hline
+{\em date\+Of\+Birth} & \\
+\hline
+{\em sex} & \\
+\hline
+{\em height} & \\
+\hline
+{\em weight} & \\
+\hline
+{\em plaintext\+Password} & \\
+\hline
+\end{DoxyParams}
 
-Definition at line 78 of file User.\+java.
+
+Definition at line 117 of file User.\+java.
 
 
 \begin{DoxyCode}
-80                                                                                       \{
-81 
-82         SecureString securePassword = \textcolor{keyword}{new} SecureString(plaintextPassword);
-83 
-84 
-85         \mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a8c8b36433447a235f2b4940b92e839c1}{dbManager}}.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager_a39ef296348c7bfacf965b3417655f4e5}{createUser}}(
-86                 \mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a49bfb4c8ebf8b7a377df01b5f0b2d7bc}{name}},
-87                 \mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_ac2fdb9a858d0295e52c5f8bc179e3137}{emailAddress}},
-88                 DOBYear,
-89                 DOBMonth,
-90                 DOBDay,
-91                 \mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_adcbddd2e965af4e227f7cf0582a3e13d}{sex}},
-92                 \mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a83cdfe6f520a4e18e8710e8e11f8c3d6}{height}},
-93                 \mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a8a30c6c08983e513b462bcc035434c9e}{weight}},
-94                 securePassword
-95         );
-96 
-97     \}
+119                                                                                       \{
+120 
+121         SecureString securePassword = \textcolor{keyword}{new} SecureString(plaintextPassword);
+122 
+123 
+124         \mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a8c8b36433447a235f2b4940b92e839c1}{dbManager}}.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager_ac390a33d3547306b250c8a9ed370997c}{createUser}}(
+125                 \mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a49bfb4c8ebf8b7a377df01b5f0b2d7bc}{name}},
+126                 \mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_ac2fdb9a858d0295e52c5f8bc179e3137}{emailAddress}},
+127                 \mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a40b0d4ce16246066c0e948edef864d94}{dateOfBirth}},
+128                 \mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_adcbddd2e965af4e227f7cf0582a3e13d}{sex}},
+129                 \mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a83cdfe6f520a4e18e8710e8e11f8c3d6}{height}},
+130                 \mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a8a30c6c08983e513b462bcc035434c9e}{weight}},
+131                 securePassword
+132         );
+133 
+134     \}
 \end{DoxyCode}
 \mbox{\Hypertarget{classcom_1_1activitytracker_1_1_user_a40da04454cea10bb5c6e6125a7a9cf64}\label{classcom_1_1activitytracker_1_1_user_a40da04454cea10bb5c6e6125a7a9cf64}} 
 \index{com\+::activitytracker\+::\+User@{com\+::activitytracker\+::\+User}!get\+Date\+Of\+Birth@{get\+Date\+Of\+Birth}}
@@ -176,13 +195,13 @@ Definition at line 78 of file User.\+java.
 
 
 
-Definition at line 111 of file User.\+java.
+Definition at line 148 of file User.\+java.
 
 
 \begin{DoxyCode}
-111                                  \{
-112         \textcolor{keywordflow}{return} this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a40b0d4ce16246066c0e948edef864d94}{dateOfBirth}};
-113     \}
+148                                  \{
+149         \textcolor{keywordflow}{return} this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a40b0d4ce16246066c0e948edef864d94}{dateOfBirth}};
+150     \}
 \end{DoxyCode}
 \mbox{\Hypertarget{classcom_1_1activitytracker_1_1_user_a79d69ca90216e0552ac4cae9778ea40d}\label{classcom_1_1activitytracker_1_1_user_a79d69ca90216e0552ac4cae9778ea40d}} 
 \index{com\+::activitytracker\+::\+User@{com\+::activitytracker\+::\+User}!get\+Email\+Address@{get\+Email\+Address}}
@@ -192,13 +211,13 @@ Definition at line 111 of file User.\+java.
 
 
 
-Definition at line 107 of file User.\+java.
+Definition at line 144 of file User.\+java.
 
 
 \begin{DoxyCode}
-107                                     \{
-108         \textcolor{keywordflow}{return} this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_ac2fdb9a858d0295e52c5f8bc179e3137}{emailAddress}};
-109     \}
+144                                     \{
+145         \textcolor{keywordflow}{return} this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_ac2fdb9a858d0295e52c5f8bc179e3137}{emailAddress}};
+146     \}
 \end{DoxyCode}
 \mbox{\Hypertarget{classcom_1_1activitytracker_1_1_user_a2a80ab659d02a07176b1793354131c00}\label{classcom_1_1activitytracker_1_1_user_a2a80ab659d02a07176b1793354131c00}} 
 \index{com\+::activitytracker\+::\+User@{com\+::activitytracker\+::\+User}!get\+Height@{get\+Height}}
@@ -208,13 +227,13 @@ Definition at line 107 of file User.\+java.
 
 
 
-Definition at line 123 of file User.\+java.
+Definition at line 160 of file User.\+java.
 
 
 \begin{DoxyCode}
-123                              \{
-124         \textcolor{keywordflow}{return} this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a83cdfe6f520a4e18e8710e8e11f8c3d6}{height}};
-125     \}
+160                              \{
+161         \textcolor{keywordflow}{return} this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a83cdfe6f520a4e18e8710e8e11f8c3d6}{height}};
+162     \}
 \end{DoxyCode}
 \mbox{\Hypertarget{classcom_1_1activitytracker_1_1_user_a967ae64a7818e9e532ad6d361650d8e6}\label{classcom_1_1activitytracker_1_1_user_a967ae64a7818e9e532ad6d361650d8e6}} 
 \index{com\+::activitytracker\+::\+User@{com\+::activitytracker\+::\+User}!get\+ID@{get\+ID}}
@@ -224,13 +243,13 @@ Definition at line 123 of file User.\+java.
 
 
 
-Definition at line 99 of file User.\+java.
+Definition at line 136 of file User.\+java.
 
 
 \begin{DoxyCode}
-99                        \{
-100         \textcolor{keywordflow}{return} this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_adc05319380c2cbb37477ab5aab86317c}{id}};
-101     \}
+136                        \{
+137         \textcolor{keywordflow}{return} this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_adc05319380c2cbb37477ab5aab86317c}{id}};
+138     \}
 \end{DoxyCode}
 \mbox{\Hypertarget{classcom_1_1activitytracker_1_1_user_a7040d0d696d79f9592eec6ac507de3c7}\label{classcom_1_1activitytracker_1_1_user_a7040d0d696d79f9592eec6ac507de3c7}} 
 \index{com\+::activitytracker\+::\+User@{com\+::activitytracker\+::\+User}!get\+Last\+R\+ID@{get\+Last\+R\+ID}}
@@ -240,11 +259,11 @@ Definition at line 99 of file User.\+java.
 
 
 
-Definition at line 115 of file User.\+java.
+Definition at line 152 of file User.\+java.
 
 
 \begin{DoxyCode}
-115 \{ \textcolor{keywordflow}{return} this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a8c8b36433447a235f2b4940b92e839c1}{dbManager}}.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager_aab14c61b3f3a17bdea10cab1b5fd9337}{getUserLastRID}}(this.\textcolor{keywordtype}{id}); \}
+152 \{ \textcolor{keywordflow}{return} this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a8c8b36433447a235f2b4940b92e839c1}{dbManager}}.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager_aab14c61b3f3a17bdea10cab1b5fd9337}{getUserLastRID}}(this.\textcolor{keywordtype}{id}); \}
 \end{DoxyCode}
 \mbox{\Hypertarget{classcom_1_1activitytracker_1_1_user_a6b39e49a1e49279035fd61a667d14f64}\label{classcom_1_1activitytracker_1_1_user_a6b39e49a1e49279035fd61a667d14f64}} 
 \index{com\+::activitytracker\+::\+User@{com\+::activitytracker\+::\+User}!get\+Name@{get\+Name}}
@@ -254,13 +273,13 @@ Definition at line 115 of file User.\+java.
 
 
 
-Definition at line 103 of file User.\+java.
+Definition at line 140 of file User.\+java.
 
 
 \begin{DoxyCode}
-103                             \{
-104         \textcolor{keywordflow}{return} this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a49bfb4c8ebf8b7a377df01b5f0b2d7bc}{name}};
-105     \}
+140                             \{
+141         \textcolor{keywordflow}{return} this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a49bfb4c8ebf8b7a377df01b5f0b2d7bc}{name}};
+142     \}
 \end{DoxyCode}
 \mbox{\Hypertarget{classcom_1_1activitytracker_1_1_user_ac184fdb794730df3fedf3b147283a5fd}\label{classcom_1_1activitytracker_1_1_user_ac184fdb794730df3fedf3b147283a5fd}} 
 \index{com\+::activitytracker\+::\+User@{com\+::activitytracker\+::\+User}!get\+Sex@{get\+Sex}}
@@ -270,13 +289,13 @@ Definition at line 103 of file User.\+java.
 
 
 
-Definition at line 119 of file User.\+java.
+Definition at line 156 of file User.\+java.
 
 
 \begin{DoxyCode}
-119                         \{
-120         \textcolor{keywordflow}{return} this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_adcbddd2e965af4e227f7cf0582a3e13d}{sex}};
-121     \}
+156                         \{
+157         \textcolor{keywordflow}{return} this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_adcbddd2e965af4e227f7cf0582a3e13d}{sex}};
+158     \}
 \end{DoxyCode}
 \mbox{\Hypertarget{classcom_1_1activitytracker_1_1_user_ad15d7b4f96adb6d1a14054bf3eb7e4e0}\label{classcom_1_1activitytracker_1_1_user_ad15d7b4f96adb6d1a14054bf3eb7e4e0}} 
 \index{com\+::activitytracker\+::\+User@{com\+::activitytracker\+::\+User}!get\+Weight@{get\+Weight}}
@@ -286,13 +305,13 @@ Definition at line 119 of file User.\+java.
 
 
 
-Definition at line 127 of file User.\+java.
+Definition at line 164 of file User.\+java.
 
 
 \begin{DoxyCode}
-127                              \{
-128         \textcolor{keywordflow}{return} this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a8a30c6c08983e513b462bcc035434c9e}{weight}};
-129     \}
+164                              \{
+165         \textcolor{keywordflow}{return} this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a8a30c6c08983e513b462bcc035434c9e}{weight}};
+166     \}
 \end{DoxyCode}
 \mbox{\Hypertarget{classcom_1_1activitytracker_1_1_user_a9e91c79596a9a4dfda7b3453b61ff8d2}\label{classcom_1_1activitytracker_1_1_user_a9e91c79596a9a4dfda7b3453b61ff8d2}} 
 \index{com\+::activitytracker\+::\+User@{com\+::activitytracker\+::\+User}!set\+Last\+R\+ID@{set\+Last\+R\+ID}}
@@ -302,11 +321,11 @@ Definition at line 127 of file User.\+java.
 
 
 
-Definition at line 117 of file User.\+java.
+Definition at line 154 of file User.\+java.
 
 
 \begin{DoxyCode}
-117 \{ this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a8c8b36433447a235f2b4940b92e839c1}{dbManager}}.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager_a93b7fc4c2d0083e125852d84f087a8d3}{setUserLastRID}}(this.\textcolor{keywordtype}{id}, rID); \}
+154 \{ this.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a8c8b36433447a235f2b4940b92e839c1}{dbManager}}.\mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager_a93b7fc4c2d0083e125852d84f087a8d3}{setUserLastRID}}(this.\textcolor{keywordtype}{id}, rID); \}
 \end{DoxyCode}
 
 
@@ -317,9 +336,9 @@ Definition at line 117 of file User.\+java.
 \subsubsection{\texorpdfstring{date\+Of\+Birth}{dateOfBirth}}
 {\footnotesize\ttfamily Date com.\+activitytracker.\+User.\+date\+Of\+Birth\hspace{0.3cm}{\ttfamily [private]}}
 
+The user\textquotesingle{}s date of birth ({\itshape e.\+g}., 12-\/12-\/1998). 
 
-
-Definition at line 32 of file User.\+java.
+Definition at line 45 of file User.\+java.
 
 \mbox{\Hypertarget{classcom_1_1activitytracker_1_1_user_a8c8b36433447a235f2b4940b92e839c1}\label{classcom_1_1activitytracker_1_1_user_a8c8b36433447a235f2b4940b92e839c1}} 
 \index{com\+::activitytracker\+::\+User@{com\+::activitytracker\+::\+User}!db\+Manager@{db\+Manager}}
@@ -327,9 +346,9 @@ Definition at line 32 of file User.\+java.
 \subsubsection{\texorpdfstring{db\+Manager}{dbManager}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager}{D\+B\+Manager}} com.\+activitytracker.\+User.\+db\+Manager = null\hspace{0.3cm}{\ttfamily [private]}}
 
+An instance of \mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager}{D\+B\+Manager}} with which we perform any DB accesses required to retrieve or set user attributes in the database. 
 
-
-Definition at line 36 of file User.\+java.
+Definition at line 62 of file User.\+java.
 
 \mbox{\Hypertarget{classcom_1_1activitytracker_1_1_user_ac2fdb9a858d0295e52c5f8bc179e3137}\label{classcom_1_1activitytracker_1_1_user_ac2fdb9a858d0295e52c5f8bc179e3137}} 
 \index{com\+::activitytracker\+::\+User@{com\+::activitytracker\+::\+User}!email\+Address@{email\+Address}}
@@ -337,9 +356,9 @@ Definition at line 36 of file User.\+java.
 \subsubsection{\texorpdfstring{email\+Address}{emailAddress}}
 {\footnotesize\ttfamily String com.\+activitytracker.\+User.\+email\+Address\hspace{0.3cm}{\ttfamily [private]}}
 
+The email address ({\itshape e.\+g}., \href{mailto:jondoe@mac.com}{\tt jondoe@mac.\+com}) that the user entered when registering for the app. This is used to authenticate the user at login. 
 
-
-Definition at line 31 of file User.\+java.
+Definition at line 41 of file User.\+java.
 
 \mbox{\Hypertarget{classcom_1_1activitytracker_1_1_user_a83cdfe6f520a4e18e8710e8e11f8c3d6}\label{classcom_1_1activitytracker_1_1_user_a83cdfe6f520a4e18e8710e8e11f8c3d6}} 
 \index{com\+::activitytracker\+::\+User@{com\+::activitytracker\+::\+User}!height@{height}}
@@ -347,9 +366,9 @@ Definition at line 31 of file User.\+java.
 \subsubsection{\texorpdfstring{height}{height}}
 {\footnotesize\ttfamily float com.\+activitytracker.\+User.\+height\hspace{0.3cm}{\ttfamily [private]}}
 
+The user\textquotesingle{}s height in metres. 
 
-
-Definition at line 34 of file User.\+java.
+Definition at line 53 of file User.\+java.
 
 \mbox{\Hypertarget{classcom_1_1activitytracker_1_1_user_adc05319380c2cbb37477ab5aab86317c}\label{classcom_1_1activitytracker_1_1_user_adc05319380c2cbb37477ab5aab86317c}} 
 \index{com\+::activitytracker\+::\+User@{com\+::activitytracker\+::\+User}!id@{id}}
@@ -357,9 +376,9 @@ Definition at line 34 of file User.\+java.
 \subsubsection{\texorpdfstring{id}{id}}
 {\footnotesize\ttfamily int com.\+activitytracker.\+User.\+id\hspace{0.3cm}{\ttfamily [private]}}
 
+The user\textquotesingle{}s ID, used by the database to associate workouts with a user. 
 
-
-Definition at line 29 of file User.\+java.
+Definition at line 32 of file User.\+java.
 
 \mbox{\Hypertarget{classcom_1_1activitytracker_1_1_user_a49bfb4c8ebf8b7a377df01b5f0b2d7bc}\label{classcom_1_1activitytracker_1_1_user_a49bfb4c8ebf8b7a377df01b5f0b2d7bc}} 
 \index{com\+::activitytracker\+::\+User@{com\+::activitytracker\+::\+User}!name@{name}}
@@ -367,9 +386,9 @@ Definition at line 29 of file User.\+java.
 \subsubsection{\texorpdfstring{name}{name}}
 {\footnotesize\ttfamily String com.\+activitytracker.\+User.\+name\hspace{0.3cm}{\ttfamily [private]}}
 
+The user\textquotesingle{}s full name ({\itshape e.\+g}., Johnathan Doe). 
 
-
-Definition at line 30 of file User.\+java.
+Definition at line 36 of file User.\+java.
 
 \mbox{\Hypertarget{classcom_1_1activitytracker_1_1_user_adcbddd2e965af4e227f7cf0582a3e13d}\label{classcom_1_1activitytracker_1_1_user_adcbddd2e965af4e227f7cf0582a3e13d}} 
 \index{com\+::activitytracker\+::\+User@{com\+::activitytracker\+::\+User}!sex@{sex}}
@@ -377,9 +396,9 @@ Definition at line 30 of file User.\+java.
 \subsubsection{\texorpdfstring{sex}{sex}}
 {\footnotesize\ttfamily \mbox{\hyperlink{enumcom_1_1activitytracker_1_1_user_1_1_sex}{Sex}} com.\+activitytracker.\+User.\+sex\hspace{0.3cm}{\ttfamily [private]}}
 
+The user\textquotesingle{}s sex. Can be one of \mbox{\hyperlink{enumcom_1_1activitytracker_1_1_user_1_1_sex_ad3b626a38bd4615eb621d75b939f412d}{User.\+Sex.\+M\+A\+LE}} or \mbox{\hyperlink{enumcom_1_1activitytracker_1_1_user_1_1_sex_a5c22ece8a4df71ed5202cd492990a752}{User.\+Sex.\+F\+E\+M\+A\+LE}}. 
 
-
-Definition at line 33 of file User.\+java.
+Definition at line 49 of file User.\+java.
 
 \mbox{\Hypertarget{classcom_1_1activitytracker_1_1_user_a8a30c6c08983e513b462bcc035434c9e}\label{classcom_1_1activitytracker_1_1_user_a8a30c6c08983e513b462bcc035434c9e}} 
 \index{com\+::activitytracker\+::\+User@{com\+::activitytracker\+::\+User}!weight@{weight}}
@@ -387,9 +406,9 @@ Definition at line 33 of file User.\+java.
 \subsubsection{\texorpdfstring{weight}{weight}}
 {\footnotesize\ttfamily float com.\+activitytracker.\+User.\+weight\hspace{0.3cm}{\ttfamily [private]}}
 
+The user\textquotesingle{}s weight in kilograms. 
 
-
-Definition at line 35 of file User.\+java.
+Definition at line 57 of file User.\+java.
 
 
 
