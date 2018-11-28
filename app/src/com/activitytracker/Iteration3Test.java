@@ -3,6 +3,9 @@ package com.activitytracker;
 import javax.naming.AuthenticationException;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Vector;
 
@@ -84,15 +87,27 @@ public class Iteration3Test {
         // Iteration 2 ends here
         // Iteration 3 begins here
 
-        Vector<Run> runs = Run.getRuns(dbManager, john, new Date(2018, 01, 01), new Date());
+        Date date = null;
+        DateFormat sourceFormat = new SimpleDateFormat("dd-MM-yyyy");
+
+        try {
+            date = sourceFormat.parse("01-01-2018");
+        }
+        catch (final ParseException e) {
+            System.err.println(e.getMessage());
+        }
+
+        Vector<Run> runs = Run.getRuns(dbManager, john, date, new Date());
 
         if (runs == null) {
-            System.out.println("Runs is null");
-        }
+            System.out.println("Runs is null.");
+        } else if (runs.size() == 0)
+            System.err.println("No runs in vector.");
+        else
+            for (Run run : runs) {
+                System.out.println("Retrieved run with ID " + Integer.toString(run.getID()));
+            }
 
-        for (Run run : runs) {
-            System.out.println(run.toString());
-        }
 
         // Iteration 3 ends here
 

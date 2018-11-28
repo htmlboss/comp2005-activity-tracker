@@ -667,33 +667,30 @@ class DBManager {
     }
 
     /**
+     * Queries the database for all runs by a user with user ID \em userID between \em startDate and \em endDate.
      *
-     * @param userID
-     * @param startDate
-     * @param endDate
-     * @return
+     * @param userID The ID of the user whose runs we wish to retrieve.
+     * @param startDate The lower bound of the interval we wish to retrieve runs for.
+     * @param endDate The uppper bound of the interval we wish to retrieve runs for.
+     *
+     * @return Returns a vector containing run IDs for each run that meets the search criteria.
      */
     public Vector<Integer> getRuns(final int userID, final java.util.Date startDate, final java.util.Date endDate) {
-        java.sql.Date start, end;
-        start = new java.sql.Date(startDate.getYear(), startDate.getMonth(), startDate.getDay());
-        end = new java.sql.Date(endDate.getYear(), endDate.getMonth(), endDate.getDay());
-
         ResultSet res;
         Vector<Integer> runs = new Vector<>();
-
         try {
             PreparedStatement stmt = m_conn.prepareStatement(
-                    "SELECT id FROM Runs WHERE user_id=? AND date BETWEEN ? AND ?");
+                    "SELECT id FROM Runs WHERE user_id=? AND date BETWEEN ? AND ?;");
             stmt.setInt(1, userID);
-            stmt.setDate(2, start);
-            stmt.setDate(3, end);
+            stmt.setLong(2, startDate.getTime());
+            stmt.setLong(3, endDate.getTime());
+
             res = stmt.executeQuery();
 
             if (res.isClosed())
                 System.err.println("Result set closed; cannot get any data?");
 
             while (res.next()) {
-                System.err.println("Adding ID");
                 runs.add(res.getInt("id"));
             }
             stmt.close();

@@ -16,6 +16,10 @@ import java.util.Vector;
  */
 class Run {
     /**
+     * The run's unique ID.
+     */
+    int id;
+    /**
      * The date the run occurred.
      */
     Date date;
@@ -54,6 +58,7 @@ class Run {
      * @param rID The run ID used to retrieve information from the database.
      */
     Run (final DBManager dbManager, final int rID) {
+        this.id = rID;
         this.dbManager = dbManager;
         this.duration = this.dbManager.getRunFloatAttribute(RunAttribute.DURATION, rID);
         this.distance = this.dbManager.getRunFloatAttribute(RunAttribute.DISTANCE, rID);
@@ -145,12 +150,9 @@ class Run {
         Vector<Integer> rIDs = dbManager.getRuns(user.getID(), startDate, endDate);
 
         if (rIDs != null) {
-            System.err.println("Adding " + rIDs.size() + " runs to vector.");
-
             Iterator<Integer> runIDIter = rIDs.iterator();
             while (runIDIter.hasNext()) {
                 rID = runIDIter.next();
-                System.out.println("Adding run " + rID);
                 runs.add(new Run(dbManager, rID));
             }
             return runs;
@@ -199,6 +201,11 @@ class Run {
 
             newRunDataPoint(dbManager, user, fDur, date, fDist, fAlt);
         } 
+    }
+
+
+    public int getID() {
+        return this.id;
     }
 
 
