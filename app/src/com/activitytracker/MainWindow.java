@@ -19,9 +19,11 @@ class MainWindow {
     private JTable tableMyActivity;
 
     private DBManager m_dbManager = null;
+    private User m_user;
 
-    MainWindow(DBManager dbmanager) {
+    MainWindow(DBManager dbmanager, final User user) {
         m_dbManager = dbmanager;
+        m_user = user;
 
         setupUI();
         setupActionListeners();

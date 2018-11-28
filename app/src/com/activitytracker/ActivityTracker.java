@@ -54,8 +54,8 @@ class ActivityTracker {
         final String logoPath = "./assets/logo.png";
         ImageIcon imgIcon = new ImageIcon(ActivityTracker.class.getResource(logoPath));
         frame.setIconImage(imgIcon.getImage());
-        frame.setContentPane(new LoginWindow((Void) -> {
-            frame.setContentPane(new MainWindow(dbManager).rootPanel());
+        frame.setContentPane(new LoginWindow((final User user) -> {
+            frame.setContentPane(new MainWindow(dbManager, user).rootPanel());
             frame.validate();
             frame.repaint();
         }, dbManager).rootPanel());

@@ -3,10 +3,12 @@ package com.activitytracker;
 import mdlaf.animation.*;
 import mdlaf.utils.MaterialColors;
 
+import javax.naming.AuthenticationException;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.NoSuchElementException;
 
 public class LoginWindow extends JFrame {
     private JLabel labelTitle;
@@ -23,10 +25,11 @@ public class LoginWindow extends JFrame {
 
     private DBManager m_dbmanager = null;
 
-    private java.util.function.Consumer<Void> m_loginHandler;
+    private java.util.function.Consumer<User> m_loginHandler;
 
-    LoginWindow(java.util.function.Consumer<Void> loginHandler, DBManager dbmanager) {
+    LoginWindow(java.util.function.Consumer<User> loginHandler, DBManager dbmanager) {
         m_loginHandler = loginHandler;
+        m_dbmanager = dbmanager;
 
         setupUI();
         setupCreateUserDialog();
@@ -46,7 +49,7 @@ public class LoginWindow extends JFrame {
         final GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
 
         m_createUserDialog = new JDialog(this, "Activity Logger | Create User", true);
-        m_createUserDialog.setContentPane(new CreateUserWindow(m_dbmanager).rootPanel());
+        m_createUserDialog.setContentPane(new CreateUserWindow(m_dbmanager, (Void) -> m_createUserDialog.hide() ).rootPanel());
         m_createUserDialog.pack();
         // Set window size to be 1/2 of screen dimensions
         m_createUserDialog.setSize(gd.getDisplayMode().getWidth() / 2, gd.getDisplayMode().getHeight() / 2);
@@ -65,13 +68,22 @@ public class LoginWindow extends JFrame {
                     return;
                 }
 
-                // Change to verifyLogin()
-                if (true) {
-                    m_loginHandler.accept(null);
+                User user = null;
+                try {
+                    user = new User(m_dbmanager, textFieldUsername.getText(), String.valueOf(passwordField.getPassword()));
+                } catch (final AuthenticationException ex) {
+                    labelLoginMsg.setVisible(true);
+                    labelLoginMsg.setText("Incorrect login.");
+                    return;
+                }
+                catch (final NoSuchElementException ex) {
+                    labelLoginMsg.setVisible(true);
+                    labelLoginMsg.setText("User doesn't exist.");
                     return;
                 }
 
-                // Display error message
+                m_loginHandler.accept(user);
+
             }
         });
 
