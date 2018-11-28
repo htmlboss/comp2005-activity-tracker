@@ -13,18 +13,16 @@ class MainWindow {
     private JPanel m_rootPanel;
     private JPanel topPanel;
     private JButton buttonMyActivity;
-    private JButton buttonAddDevice;
-    private JButton buttonMyFriends;
     private JPanel contentPanel;
     private JLabel labelProfileIcon;
     private JPanel panelMyActivity;
-    private JPanel panelAddDevice;
-    private JPanel panelMyFriends;
-    private JScrollPane scrollPaneMyFriends;
-    private JTable tableAvailableDevices;
     private JTable tableMyActivity;
 
-    MainWindow() {
+    private DBManager m_dbManager = null;
+
+    MainWindow(DBManager dbmanager) {
+        m_dbManager = dbmanager;
+
         setupUI();
         setupActionListeners();
     }
@@ -35,8 +33,6 @@ class MainWindow {
         Color coolGrey10 = new Color(99, 102, 106);
         Color coolGrey11 = new Color(83, 86, 90);
         MaterialUIMovement.add(buttonMyActivity, coolGrey11);
-        MaterialUIMovement.add(buttonAddDevice, coolGrey11);
-        MaterialUIMovement.add(buttonMyFriends, coolGrey11);
 
         // Load and scale logo into UI
         String logoPath = "./assets/logo.png";
@@ -47,8 +43,6 @@ class MainWindow {
         labelProfileIcon.setIcon(imageIcon);
 
         panelMyActivity.setVisible(true);
-        panelAddDevice.setVisible(false);
-        panelMyFriends.setVisible(false);
     }
 
     private void setupActionListeners() {
@@ -57,26 +51,6 @@ class MainWindow {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 panelMyActivity.setVisible(true);
-                panelAddDevice.setVisible(false);
-                panelMyFriends.setVisible(false);
-            }
-        });
-        // Add Device button
-        buttonAddDevice.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-                panelMyActivity.setVisible(false);
-                panelAddDevice.setVisible(true);
-                panelMyFriends.setVisible(false);
-            }
-        });
-        // My Friends button
-        buttonMyFriends.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-                panelMyActivity.setVisible(false);
-                panelAddDevice.setVisible(false);
-                panelMyFriends.setVisible(true);
             }
         });
     }

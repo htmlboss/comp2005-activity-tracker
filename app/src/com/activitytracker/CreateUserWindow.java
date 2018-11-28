@@ -17,7 +17,10 @@ public class CreateUserWindow extends JDialog {
     private JButton buttonCancel;
     private JTextField textFieldWeight;
 
-    CreateUserWindow() {
+    DBManager m_dbmanager = null;
+
+    CreateUserWindow(DBManager dbmanager) {
+        m_dbmanager = dbmanager;
 
         setupUI();
         setupActionListeners();
