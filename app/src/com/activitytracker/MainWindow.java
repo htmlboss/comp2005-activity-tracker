@@ -9,6 +9,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Date;
 import java.util.Vector;
 
@@ -25,7 +26,6 @@ class MainWindow {
 
     private DBManager m_dbManager = null;
     private User m_user;
-
 
     MainWindow(DBManager dbmanager, final User user) {
         m_dbManager = dbmanager;
@@ -51,13 +51,15 @@ class MainWindow {
 
         panelMyActivity.setVisible(true);
 
-        // Populate table with all data
-        populateTable();
+         populateTable();
 
         tableMyActivity.setModel(m_tableModel);
     }
 
     private void populateTable() {
+
+        // Clear table model
+        m_tableModel.setRowCount(0);
 
         final Vector<String> columnNames = new Vector<>();
         columnNames.add("Date");
@@ -66,19 +68,25 @@ class MainWindow {
         columnNames.add("Altitude +");
         columnNames.add("Altitude -");
 
-        final Vector<Integer> runIDs = m_dbManager.getRuns(m_user.getID(), new Date(Long.MIN_VALUE), new Date(Long.MAX_VALUE));
+        final Vector<Run> runs = Run.getRuns(m_dbManager, m_user, new Date(Long.MIN_VALUE), new Date(Long.MAX_VALUE));
         final Vector<Vector<Object>> dataVector = new Vector<>();
 
-        if (!runIDs.isEmpty()) {
-            final Vector<Object> row = new Vector<>();
+        if (runs == null) {
+            return;
+        }
 
-            row.add(1.0);
-            row.add(2.0);
-            row.add(3.0);
-            row.add(4.0);
-            row.add(5.0);
+        if (!runs.isEmpty()) {
+            for (final Run run : runs) {
+                final Vector<Object> row = new Vector<>();
 
-            dataVector.add(row);
+                row.add(run.getRunDate());
+                row.add(run.getDuration());
+                row.add(run.getDistance());
+                row.add(run.getAltitudeAscended());
+                row.add(run.getAltitudeDescended());
+
+                dataVector.add(row);
+            }
         }
 
         m_tableModel.setDataVector(dataVector, columnNames);
@@ -101,7 +109,17 @@ class MainWindow {
                     new SwingWorker<Void, Void>() {
                         @Override
                         protected Void doInBackground() {
+                            buttonImportData.setEnabled(false);
+                            try {
+                                Run.bulkImport(m_dbManager, m_user, file.getAbsolutePath());
+                            } catch(final Exception e) {
+                                buttonImportData.setEnabled(true);
+                                return null;
+                            }
 
+                            populateTable();
+
+                            buttonImportData.setEnabled(true);
                             return null;
                         }
                     }.execute();
