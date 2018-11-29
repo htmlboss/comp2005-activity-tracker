@@ -23,6 +23,7 @@ class MainWindow {
     private JLabel labelProfileIcon;
     private JPanel panelMyActivity;
     private JTable tableMyActivity;
+    private JLabel labelHeyThere;
 
     private DBManager m_dbManager = null;
     private User m_user;
@@ -49,9 +50,12 @@ class MainWindow {
         imageIcon = new ImageIcon(newimg);  // transform it back
         labelProfileIcon.setIcon(imageIcon);
 
+        // Show first name in greeting
+        labelHeyThere.setText(String.format("Hey %s!", m_user.getName().split(" ", 2)[0]));
+
         panelMyActivity.setVisible(true);
 
-         populateTable();
+        populateTable();
 
         tableMyActivity.setModel(m_tableModel);
     }
@@ -63,10 +67,10 @@ class MainWindow {
 
         final Vector<String> columnNames = new Vector<>();
         columnNames.add("Date");
-        columnNames.add("Duration");
-        columnNames.add("Distance");
-        columnNames.add("Altitude +");
-        columnNames.add("Altitude -");
+        columnNames.add("Duration (sec)");
+        columnNames.add("Distance (m)");
+        columnNames.add("Altitude + (m)");
+        columnNames.add("Altitude - (m)");
 
         final Vector<Run> runs = Run.getRuns(m_dbManager, m_user, new Date(Long.MIN_VALUE), new Date(Long.MAX_VALUE));
         final Vector<Vector<Object>> dataVector = new Vector<>();
@@ -106,6 +110,7 @@ class MainWindow {
                 if (res == JFileChooser.APPROVE_OPTION) {
                     final File file = fc.getSelectedFile();
 
+                    // Run in separate thread
                     new SwingWorker<Void, Void>() {
                         @Override
                         protected Void doInBackground() {
