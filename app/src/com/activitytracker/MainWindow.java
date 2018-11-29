@@ -72,6 +72,12 @@ class MainWindow {
     }
 
     private void populateTable() {
+        Date start = new Date(Long.MIN_VALUE);
+        Date end = new Date(Long.MAX_VALUE);
+        populateTable(start, end);
+    }
+
+    private void populateTable(final Date start, final Date end) {
 
         // Clear table model
         m_tableModel.setRowCount(0);
@@ -83,7 +89,7 @@ class MainWindow {
         columnNames.add("Altitude + (m)");
         columnNames.add("Altitude - (m)");
 
-        final Vector<Run> runs = Run.getRuns(m_dbManager, m_user, new Date(Long.MIN_VALUE), new Date(Long.MAX_VALUE));
+        final Vector<Run> runs = Run.getRuns(m_dbManager, m_user, start, end);
         final Vector<Vector<Object>> dataVector = new Vector<>();
 
         if (runs == null) {
@@ -165,6 +171,7 @@ class MainWindow {
                             "Average Altitude Ascended: " + stats.getMeanAltitudeAscended() + "\n" +
                             "Total Altiitude Ascended: " + stats.getTotalAltitudeAscended() + "\n" +
                             "Average Altitude Descended: " + stats.getMeanAltitudeDescended();
+                    populateTable(startDate, endDate);
                     textAreaStats.setText(statStr);
                 }
                 catch (final ParseException ex) {

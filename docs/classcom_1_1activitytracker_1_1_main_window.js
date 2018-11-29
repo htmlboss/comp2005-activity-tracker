@@ -2,6 +2,7 @@ var classcom_1_1activitytracker_1_1_main_window =
 [
     [ "MainWindow", "classcom_1_1activitytracker_1_1_main_window.html#ad89306d2683db39f9d17c7b06d814bed", null ],
     [ "populateTable", "classcom_1_1activitytracker_1_1_main_window.html#ae3955dd50087d95257d029b9c67ac185", null ],
+    [ "populateTable", "classcom_1_1activitytracker_1_1_main_window.html#a351c3d78c28ae23cd645e86fe30688c7", null ],
     [ "rootPanel", "classcom_1_1activitytracker_1_1_main_window.html#a62e9c6f477ccc5b93aff33abb567fde4", null ],
     [ "setupActionListeners", "classcom_1_1activitytracker_1_1_main_window.html#a76b3e8567b228ccd26f09c15ebaddb72", null ],
     [ "setupUI", "classcom_1_1activitytracker_1_1_main_window.html#a53a019623a37b950473359fc625b6423", null ],

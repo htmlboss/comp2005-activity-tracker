@@ -24,6 +24,8 @@ void \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_a53a019623a37b
 \item 
 void \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_ae3955dd50087d95257d029b9c67ac185}{populate\+Table}} ()
 \item 
+void \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_a351c3d78c28ae23cd645e86fe30688c7}{populate\+Table}} (final Date start, final Date end)
+\item 
 void \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_a76b3e8567b228ccd26f09c15ebaddb72}{setup\+Action\+Listeners}} ()
 \end{DoxyCompactItemize}
 \subsection*{Private Attributes}
@@ -95,7 +97,7 @@ Definition at line 38 of file Main\+Window.\+java.
 \mbox{\Hypertarget{classcom_1_1activitytracker_1_1_main_window_ae3955dd50087d95257d029b9c67ac185}\label{classcom_1_1activitytracker_1_1_main_window_ae3955dd50087d95257d029b9c67ac185}} 
 \index{com\+::activitytracker\+::\+Main\+Window@{com\+::activitytracker\+::\+Main\+Window}!populate\+Table@{populate\+Table}}
 \index{populate\+Table@{populate\+Table}!com\+::activitytracker\+::\+Main\+Window@{com\+::activitytracker\+::\+Main\+Window}}
-\subsubsection{\texorpdfstring{populate\+Table()}{populateTable()}}
+\subsubsection{\texorpdfstring{populate\+Table()}{populateTable()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily void com.\+activitytracker.\+Main\+Window.\+populate\+Table (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
 
@@ -105,42 +107,59 @@ Definition at line 74 of file Main\+Window.\+java.
 
 \begin{DoxyCode}
 74                                  \{
-75 
-76         \textcolor{comment}{// Clear table model}
-77         \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_a5e90682f487d5bb840e3afada9e7ff9a}{m\_tableModel}}.setRowCount(0);
-78 
-79         \textcolor{keyword}{final} Vector<String> columnNames = \textcolor{keyword}{new} Vector<>();
-80         columnNames.add(\textcolor{stringliteral}{"Date"});
-81         columnNames.add(\textcolor{stringliteral}{"Duration (sec)"});
-82         columnNames.add(\textcolor{stringliteral}{"Distance (m)"});
-83         columnNames.add(\textcolor{stringliteral}{"Altitude + (m)"});
-84         columnNames.add(\textcolor{stringliteral}{"Altitude - (m)"});
-85 
-86         \textcolor{keyword}{final} Vector<Run> runs = Run.getRuns(\mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_ab2af51cb35794567e55564a4d3abbb79}{m\_dbManager}}, \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_a96e28fa47e1740a7ddc16aa48406db85}{m\_user}}, \textcolor{keyword}{new} Date(Long.MIN\_VALUE)
-      , \textcolor{keyword}{new} Date(Long.MAX\_VALUE));
-87         \textcolor{keyword}{final} Vector<Vector<Object>> dataVector = \textcolor{keyword}{new} Vector<>();
-88 
-89         \textcolor{keywordflow}{if} (runs == null) \{
-90             \textcolor{keywordflow}{return};
-91         \}
-92 
-93         \textcolor{keywordflow}{if} (!runs.isEmpty()) \{
-94             \textcolor{keywordflow}{for} (\textcolor{keyword}{final} Run run : runs) \{
-95                 \textcolor{keyword}{final} Vector<Object> row = \textcolor{keyword}{new} Vector<>();
-96 
-97                 row.add(run.getRunDate());
-98                 row.add(run.getDuration());
-99                 row.add(run.getDistance());
-100                 row.add(run.getAltitudeAscended());
-101                 row.add(run.getAltitudeDescended());
+75         Date start = \textcolor{keyword}{new} Date(Long.MIN\_VALUE);
+76         Date end = \textcolor{keyword}{new} Date(Long.MAX\_VALUE);
+77         \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_ae3955dd50087d95257d029b9c67ac185}{populateTable}}(start, end);
+78     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1activitytracker_1_1_main_window_a351c3d78c28ae23cd645e86fe30688c7}\label{classcom_1_1activitytracker_1_1_main_window_a351c3d78c28ae23cd645e86fe30688c7}} 
+\index{com\+::activitytracker\+::\+Main\+Window@{com\+::activitytracker\+::\+Main\+Window}!populate\+Table@{populate\+Table}}
+\index{populate\+Table@{populate\+Table}!com\+::activitytracker\+::\+Main\+Window@{com\+::activitytracker\+::\+Main\+Window}}
+\subsubsection{\texorpdfstring{populate\+Table()}{populateTable()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void com.\+activitytracker.\+Main\+Window.\+populate\+Table (\begin{DoxyParamCaption}\item[{final Date}]{start,  }\item[{final Date}]{end }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 80 of file Main\+Window.\+java.
+
+
+\begin{DoxyCode}
+80                                                                  \{
+81 
+82         \textcolor{comment}{// Clear table model}
+83         \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_a5e90682f487d5bb840e3afada9e7ff9a}{m\_tableModel}}.setRowCount(0);
+84 
+85         \textcolor{keyword}{final} Vector<String> columnNames = \textcolor{keyword}{new} Vector<>();
+86         columnNames.add(\textcolor{stringliteral}{"Date"});
+87         columnNames.add(\textcolor{stringliteral}{"Duration (sec)"});
+88         columnNames.add(\textcolor{stringliteral}{"Distance (m)"});
+89         columnNames.add(\textcolor{stringliteral}{"Altitude + (m)"});
+90         columnNames.add(\textcolor{stringliteral}{"Altitude - (m)"});
+91 
+92         \textcolor{keyword}{final} Vector<Run> runs = Run.getRuns(\mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_ab2af51cb35794567e55564a4d3abbb79}{m\_dbManager}}, \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_a96e28fa47e1740a7ddc16aa48406db85}{m\_user}}, start, end);
+93         \textcolor{keyword}{final} Vector<Vector<Object>> dataVector = \textcolor{keyword}{new} Vector<>();
+94 
+95         \textcolor{keywordflow}{if} (runs == null) \{
+96             \textcolor{keywordflow}{return};
+97         \}
+98 
+99         \textcolor{keywordflow}{if} (!runs.isEmpty()) \{
+100             \textcolor{keywordflow}{for} (\textcolor{keyword}{final} Run run : runs) \{
+101                 \textcolor{keyword}{final} Vector<Object> row = \textcolor{keyword}{new} Vector<>();
 102 
-103                 dataVector.add(row);
-104             \}
-105         \}
-106 
-107         \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_a5e90682f487d5bb840e3afada9e7ff9a}{m\_tableModel}}.setDataVector(dataVector, columnNames);
-108         \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_a5e90682f487d5bb840e3afada9e7ff9a}{m\_tableModel}}.setColumnCount(5);
-109     \}
+103                 row.add(run.getRunDate());
+104                 row.add(run.getDuration());
+105                 row.add(run.getDistance());
+106                 row.add(run.getAltitudeAscended());
+107                 row.add(run.getAltitudeDescended());
+108 
+109                 dataVector.add(row);
+110             \}
+111         \}
+112 
+113         \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_a5e90682f487d5bb840e3afada9e7ff9a}{m\_tableModel}}.setDataVector(dataVector, columnNames);
+114         \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_a5e90682f487d5bb840e3afada9e7ff9a}{m\_tableModel}}.setColumnCount(5);
+115     \}
 \end{DoxyCode}
 \mbox{\Hypertarget{classcom_1_1activitytracker_1_1_main_window_a62e9c6f477ccc5b93aff33abb567fde4}\label{classcom_1_1activitytracker_1_1_main_window_a62e9c6f477ccc5b93aff33abb567fde4}} 
 \index{com\+::activitytracker\+::\+Main\+Window@{com\+::activitytracker\+::\+Main\+Window}!root\+Panel@{root\+Panel}}
@@ -150,13 +169,13 @@ Definition at line 74 of file Main\+Window.\+java.
 
 
 
-Definition at line 177 of file Main\+Window.\+java.
+Definition at line 184 of file Main\+Window.\+java.
 
 
 \begin{DoxyCode}
-177                        \{
-178         \textcolor{keywordflow}{return} \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_ac3d61c032aef87f12b1ae6f7dbf482c3}{m\_rootPanel}};
-179     \}
+184                        \{
+185         \textcolor{keywordflow}{return} \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_ac3d61c032aef87f12b1ae6f7dbf482c3}{m\_rootPanel}};
+186     \}
 \end{DoxyCode}
 \mbox{\Hypertarget{classcom_1_1activitytracker_1_1_main_window_a76b3e8567b228ccd26f09c15ebaddb72}\label{classcom_1_1activitytracker_1_1_main_window_a76b3e8567b228ccd26f09c15ebaddb72}} 
 \index{com\+::activitytracker\+::\+Main\+Window@{com\+::activitytracker\+::\+Main\+Window}!setup\+Action\+Listeners@{setup\+Action\+Listeners}}
@@ -166,77 +185,78 @@ Definition at line 177 of file Main\+Window.\+java.
 
 
 
-Definition at line 111 of file Main\+Window.\+java.
+Definition at line 117 of file Main\+Window.\+java.
 
 
 \begin{DoxyCode}
-111                                         \{
-112         \textcolor{comment}{// My Activity button}
-113         \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_a2e469a48de58cf91979d95148972379b}{buttonImportData}}.addActionListener(\textcolor{keyword}{new} ActionListener() \{
-114             @Override
-115             \textcolor{keyword}{public} \textcolor{keywordtype}{void} actionPerformed(ActionEvent actionEvent) \{
-116                 \textcolor{keyword}{final} JFileChooser fc = \textcolor{keyword}{new} JFileChooser();
-117                 FileNameExtensionFilter filter = \textcolor{keyword}{new} FileNameExtensionFilter(\textcolor{stringliteral}{"CSV Files"}, \textcolor{stringliteral}{"csv"});
-118                 fc.setFileFilter(filter);
-119                 \textcolor{keyword}{final} \textcolor{keywordtype}{int} res = fc.showOpenDialog(null);
-120 
-121                 \textcolor{keywordflow}{if} (res == JFileChooser.APPROVE\_OPTION) \{
-122                     \textcolor{keyword}{final} File file = fc.getSelectedFile();
-123 
-124                     \textcolor{comment}{// Run in separate thread}
-125                     \textcolor{keyword}{new} SwingWorker<Void, Void>() \{
-126                         @Override
-127                         \textcolor{keyword}{protected} Void doInBackground() \{
-128                             \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_a2e469a48de58cf91979d95148972379b}{buttonImportData}}.setEnabled(\textcolor{keyword}{false});
-129                             \textcolor{keywordflow}{try} \{
-130                                 Run.bulkImport(\mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_ab2af51cb35794567e55564a4d3abbb79}{m\_dbManager}}, \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_a96e28fa47e1740a7ddc16aa48406db85}{m\_user}}, file.getAbsolutePath()
+117                                         \{
+118         \textcolor{comment}{// My Activity button}
+119         \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_a2e469a48de58cf91979d95148972379b}{buttonImportData}}.addActionListener(\textcolor{keyword}{new} ActionListener() \{
+120             @Override
+121             \textcolor{keyword}{public} \textcolor{keywordtype}{void} actionPerformed(ActionEvent actionEvent) \{
+122                 \textcolor{keyword}{final} JFileChooser fc = \textcolor{keyword}{new} JFileChooser();
+123                 FileNameExtensionFilter filter = \textcolor{keyword}{new} FileNameExtensionFilter(\textcolor{stringliteral}{"CSV Files"}, \textcolor{stringliteral}{"csv"});
+124                 fc.setFileFilter(filter);
+125                 \textcolor{keyword}{final} \textcolor{keywordtype}{int} res = fc.showOpenDialog(null);
+126 
+127                 \textcolor{keywordflow}{if} (res == JFileChooser.APPROVE\_OPTION) \{
+128                     \textcolor{keyword}{final} File file = fc.getSelectedFile();
+129 
+130                     \textcolor{comment}{// Run in separate thread}
+131                     \textcolor{keyword}{new} SwingWorker<Void, Void>() \{
+132                         @Override
+133                         \textcolor{keyword}{protected} Void doInBackground() \{
+134                             \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_a2e469a48de58cf91979d95148972379b}{buttonImportData}}.setEnabled(\textcolor{keyword}{false});
+135                             \textcolor{keywordflow}{try} \{
+136                                 Run.bulkImport(\mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_ab2af51cb35794567e55564a4d3abbb79}{m\_dbManager}}, \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_a96e28fa47e1740a7ddc16aa48406db85}{m\_user}}, file.getAbsolutePath()
       );
-131                             \} \textcolor{keywordflow}{catch}(\textcolor{keyword}{final} Exception e) \{
-132                                 \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_a2e469a48de58cf91979d95148972379b}{buttonImportData}}.setEnabled(\textcolor{keyword}{true});
-133                                 \textcolor{keywordflow}{return} null;
-134                             \}
-135 
-136                             \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_ae3955dd50087d95257d029b9c67ac185}{populateTable}}();
-137 
-138                             \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_a2e469a48de58cf91979d95148972379b}{buttonImportData}}.setEnabled(\textcolor{keyword}{true});
-139                             \textcolor{keywordflow}{return} null;
-140                         \}
-141                     \}.execute();
-142                 \}
-143             \}
-144         \});
-145 
-146         \textcolor{comment}{// Go button}
-147         \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_ad25fa99a0108ee160ede6865ecf3b6f0}{buttonGo}}.addActionListener(\textcolor{keyword}{new} ActionListener() \{
-148             @Override
-149             \textcolor{keyword}{public} \textcolor{keywordtype}{void} actionPerformed(ActionEvent e) \{
-150                 \textcolor{keyword}{final} String start = \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_a57257f1403dc59df568de3ac51cdb90a}{textFieldStartDate}}.getText();
-151                 \textcolor{keyword}{final} String end = \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_ab3ce75740bdeca26fec4325f1d5260e1}{textFieldEndDate}}.getText();
-152                 Date startDate, endDate;
-153 
-154                 DateFormat sourceFormat = \textcolor{keyword}{new} SimpleDateFormat(\textcolor{stringliteral}{"dd-MM-yyyy"});
-155                 \textcolor{keywordflow}{try} \{
-156                     startDate = sourceFormat.parse(start);
-157                     endDate = sourceFormat.parse(end);
-158                     Vector<Run> runs = Run.getRuns(\mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_ab2af51cb35794567e55564a4d3abbb79}{m\_dbManager}}, 
+137                             \} \textcolor{keywordflow}{catch}(\textcolor{keyword}{final} Exception e) \{
+138                                 \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_a2e469a48de58cf91979d95148972379b}{buttonImportData}}.setEnabled(\textcolor{keyword}{true});
+139                                 \textcolor{keywordflow}{return} null;
+140                             \}
+141 
+142                             \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_ae3955dd50087d95257d029b9c67ac185}{populateTable}}();
+143 
+144                             \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_a2e469a48de58cf91979d95148972379b}{buttonImportData}}.setEnabled(\textcolor{keyword}{true});
+145                             \textcolor{keywordflow}{return} null;
+146                         \}
+147                     \}.execute();
+148                 \}
+149             \}
+150         \});
+151 
+152         \textcolor{comment}{// Go button}
+153         \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_ad25fa99a0108ee160ede6865ecf3b6f0}{buttonGo}}.addActionListener(\textcolor{keyword}{new} ActionListener() \{
+154             @Override
+155             \textcolor{keyword}{public} \textcolor{keywordtype}{void} actionPerformed(ActionEvent e) \{
+156                 \textcolor{keyword}{final} String start = \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_a57257f1403dc59df568de3ac51cdb90a}{textFieldStartDate}}.getText();
+157                 \textcolor{keyword}{final} String end = \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_ab3ce75740bdeca26fec4325f1d5260e1}{textFieldEndDate}}.getText();
+158                 Date startDate, endDate;
+159 
+160                 DateFormat sourceFormat = \textcolor{keyword}{new} SimpleDateFormat(\textcolor{stringliteral}{"dd-MM-yyyy"});
+161                 \textcolor{keywordflow}{try} \{
+162                     startDate = sourceFormat.parse(start);
+163                     endDate = sourceFormat.parse(end);
+164                     Vector<Run> runs = Run.getRuns(\mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_ab2af51cb35794567e55564a4d3abbb79}{m\_dbManager}}, 
       \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_a96e28fa47e1740a7ddc16aa48406db85}{m\_user}}, startDate, endDate);
-159                     RunStats stats = \textcolor{keyword}{new} RunStats(runs);
-160                     String statStr = \textcolor{stringliteral}{"Run Stats beginning at "} + start + \textcolor{stringliteral}{" and ending at "} + end + \textcolor{stringliteral}{":\(\backslash\)n"} +
-161                             \textcolor{stringliteral}{"Average Run Duration: "} + stats.getMeanDuration() + \textcolor{stringliteral}{"\(\backslash\)n"} +
-162                             \textcolor{stringliteral}{"Average Speed: "} + stats.getMeanSpeed() + \textcolor{stringliteral}{"\(\backslash\)n"} +
-163                             \textcolor{stringliteral}{"Average Distance: "} + stats.getMeanDistance() + \textcolor{stringliteral}{"\(\backslash\)n"} +
-164                             \textcolor{stringliteral}{"Total Distance: "} + stats.getTotalDistance() + \textcolor{stringliteral}{"\(\backslash\)n"} +
-165                             \textcolor{stringliteral}{"Average Altitude Ascended: "} + stats.getMeanAltitudeAscended() + \textcolor{stringliteral}{"\(\backslash\)n"} +
-166                             \textcolor{stringliteral}{"Total Altiitude Ascended: "} + stats.getTotalAltitudeAscended() + \textcolor{stringliteral}{"\(\backslash\)n"} +
-167                             \textcolor{stringliteral}{"Average Altitude Descended: "} + stats.getMeanAltitudeDescended();
-168                     \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_ac8e2aa82f079b11dbdc5bcf2e81d2324}{textAreaStats}}.setText(statStr);
-169                 \}
-170                 \textcolor{keywordflow}{catch} (\textcolor{keyword}{final} ParseException ex) \{
-171                     System.err.println(ex.getMessage());
-172                 \}
-173             \}
-174         \});
-175     \}
+165                     RunStats stats = \textcolor{keyword}{new} RunStats(runs);
+166                     String statStr = \textcolor{stringliteral}{"Run Stats beginning at "} + start + \textcolor{stringliteral}{" and ending at "} + end + \textcolor{stringliteral}{":\(\backslash\)n"} +
+167                             \textcolor{stringliteral}{"Average Run Duration: "} + stats.getMeanDuration() + \textcolor{stringliteral}{"\(\backslash\)n"} +
+168                             \textcolor{stringliteral}{"Average Speed: "} + stats.getMeanSpeed() + \textcolor{stringliteral}{"\(\backslash\)n"} +
+169                             \textcolor{stringliteral}{"Average Distance: "} + stats.getMeanDistance() + \textcolor{stringliteral}{"\(\backslash\)n"} +
+170                             \textcolor{stringliteral}{"Total Distance: "} + stats.getTotalDistance() + \textcolor{stringliteral}{"\(\backslash\)n"} +
+171                             \textcolor{stringliteral}{"Average Altitude Ascended: "} + stats.getMeanAltitudeAscended() + \textcolor{stringliteral}{"\(\backslash\)n"} +
+172                             \textcolor{stringliteral}{"Total Altiitude Ascended: "} + stats.getTotalAltitudeAscended() + \textcolor{stringliteral}{"\(\backslash\)n"} +
+173                             \textcolor{stringliteral}{"Average Altitude Descended: "} + stats.getMeanAltitudeDescended();
+174                     \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_ae3955dd50087d95257d029b9c67ac185}{populateTable}}(startDate, endDate);
+175                     \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_ac8e2aa82f079b11dbdc5bcf2e81d2324}{textAreaStats}}.setText(statStr);
+176                 \}
+177                 \textcolor{keywordflow}{catch} (\textcolor{keyword}{final} ParseException ex) \{
+178                     System.err.println(ex.getMessage());
+179                 \}
+180             \}
+181         \});
+182     \}
 \end{DoxyCode}
 \mbox{\Hypertarget{classcom_1_1activitytracker_1_1_main_window_a53a019623a37b950473359fc625b6423}\label{classcom_1_1activitytracker_1_1_main_window_a53a019623a37b950473359fc625b6423}} 
 \index{com\+::activitytracker\+::\+Main\+Window@{com\+::activitytracker\+::\+Main\+Window}!setup\+UI@{setup\+UI}}
