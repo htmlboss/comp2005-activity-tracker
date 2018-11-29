@@ -14,7 +14,6 @@ var classcom_1_1activitytracker_1_1_run =
     [ "altitudeAscended", "classcom_1_1activitytracker_1_1_run.html#ad28bf8d709b4cfcdb93a51033a90728c", null ],
     [ "altitudeDescended", "classcom_1_1activitytracker_1_1_run.html#a4997349f78c9147a30811306c2ab5223", null ],
     [ "caloriesBurned", "classcom_1_1activitytracker_1_1_run.html#aa4c73467653a47d3b14ff6653bbab853", null ],
-    [ "date", "classcom_1_1activitytracker_1_1_run.html#a66934b1f4fe6bc74a4e98574a2892764", null ],
     [ "dbManager", "classcom_1_1activitytracker_1_1_run.html#ab90e32eda9f4c671ae3575f971edca6b", null ],
     [ "distance", "classcom_1_1activitytracker_1_1_run.html#a7b4ca8c4ecea4da1653f03b8c8fc16a8", null ],
     [ "duration", "classcom_1_1activitytracker_1_1_run.html#a5e38d293d29d4b65c9290ff4bee82e03", null ],

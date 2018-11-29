@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['loginwindow',['LoginWindow',['../classcom_1_1activitytracker_1_1_login_window.html#ab7e021ebcbca9993d58c7f5c4f4bd8bf',1,'com::activitytracker::LoginWindow']]]
+  ['loginwindow',['LoginWindow',['../classcom_1_1activitytracker_1_1_login_window.html#a78c4da2fb8767f2645d1e3681e77cae7',1,'com::activitytracker::LoginWindow']]]
 ];

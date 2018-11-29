@@ -40,7 +40,14 @@ float \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a7d929e97a9d760
 \item 
 \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a851891349994df7dcfd7bb599c413e35}{Run\+Stats}} ()
 \end{DoxyCompactItemize}
-\subsection*{Package Attributes}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a85018dbaae7a08213d443a0697e59ee4}{compute\+All}} ()
+\item 
+void \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_ac73cb94cc8ff604fe446d9a327e420cc}{compute}} (final \mbox{\hyperlink{enumcom_1_1activitytracker_1_1_run_attribute}{Run\+Attribute}} attribute)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
 Vector$<$ \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run}{Run}} $>$ \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a0fd429e9f463ddf4897c507c0e3c0a12}{runs}}
@@ -60,13 +67,6 @@ float \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_ae511b3772f6177
 float \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a578eae64367a00c625f4685fe879fe7c}{mean\+Altitude\+Descended}}
 \item 
 float \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a8bf9f1577cffd26e6235695278bfcdb9}{mean\+Duration}}
-\end{DoxyCompactItemize}
-\subsection*{Private Member Functions}
-\begin{DoxyCompactItemize}
-\item 
-void \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a85018dbaae7a08213d443a0697e59ee4}{compute\+All}} ()
-\item 
-void \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_ac73cb94cc8ff604fe446d9a327e420cc}{compute}} (final \mbox{\hyperlink{enumcom_1_1activitytracker_1_1_run_attribute}{Run\+Attribute}} attribute)
 \end{DoxyCompactItemize}
 
 
@@ -411,7 +411,7 @@ Definition at line 174 of file Run\+Stats.\+java.
 \index{com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}!mean\+Altitude\+Ascended@{mean\+Altitude\+Ascended}}
 \index{mean\+Altitude\+Ascended@{mean\+Altitude\+Ascended}!com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}}
 \subsubsection{\texorpdfstring{mean\+Altitude\+Ascended}{meanAltitudeAscended}}
-{\footnotesize\ttfamily float com.\+activitytracker.\+Run\+Stats.\+mean\+Altitude\+Ascended\hspace{0.3cm}{\ttfamily [package]}}
+{\footnotesize\ttfamily float com.\+activitytracker.\+Run\+Stats.\+mean\+Altitude\+Ascended\hspace{0.3cm}{\ttfamily [private]}}
 
 Mean altitude climbed per run, computed using the runs in \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a0fd429e9f463ddf4897c507c0e3c0a12}{Run\+Stats\+::runs}}. 
 
@@ -421,7 +421,7 @@ Definition at line 36 of file Run\+Stats.\+java.
 \index{com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}!mean\+Altitude\+Descended@{mean\+Altitude\+Descended}}
 \index{mean\+Altitude\+Descended@{mean\+Altitude\+Descended}!com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}}
 \subsubsection{\texorpdfstring{mean\+Altitude\+Descended}{meanAltitudeDescended}}
-{\footnotesize\ttfamily float com.\+activitytracker.\+Run\+Stats.\+mean\+Altitude\+Descended\hspace{0.3cm}{\ttfamily [package]}}
+{\footnotesize\ttfamily float com.\+activitytracker.\+Run\+Stats.\+mean\+Altitude\+Descended\hspace{0.3cm}{\ttfamily [private]}}
 
 Mean altitude descended per run, computed using the runs in \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a0fd429e9f463ddf4897c507c0e3c0a12}{Run\+Stats\+::runs}}. 
 
@@ -431,7 +431,7 @@ Definition at line 44 of file Run\+Stats.\+java.
 \index{com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}!mean\+Distance@{mean\+Distance}}
 \index{mean\+Distance@{mean\+Distance}!com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}}
 \subsubsection{\texorpdfstring{mean\+Distance}{meanDistance}}
-{\footnotesize\ttfamily float com.\+activitytracker.\+Run\+Stats.\+mean\+Distance\hspace{0.3cm}{\ttfamily [package]}}
+{\footnotesize\ttfamily float com.\+activitytracker.\+Run\+Stats.\+mean\+Distance\hspace{0.3cm}{\ttfamily [private]}}
 
 Mean distance per run, computed using the runs in \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a0fd429e9f463ddf4897c507c0e3c0a12}{Run\+Stats\+::runs}}. 
 
@@ -441,7 +441,7 @@ Definition at line 28 of file Run\+Stats.\+java.
 \index{com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}!mean\+Duration@{mean\+Duration}}
 \index{mean\+Duration@{mean\+Duration}!com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}}
 \subsubsection{\texorpdfstring{mean\+Duration}{meanDuration}}
-{\footnotesize\ttfamily float com.\+activitytracker.\+Run\+Stats.\+mean\+Duration\hspace{0.3cm}{\ttfamily [package]}}
+{\footnotesize\ttfamily float com.\+activitytracker.\+Run\+Stats.\+mean\+Duration\hspace{0.3cm}{\ttfamily [private]}}
 
 Mean duration per run, computed using the runs in \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a0fd429e9f463ddf4897c507c0e3c0a12}{Run\+Stats\+::runs}}. 
 
@@ -451,7 +451,7 @@ Definition at line 48 of file Run\+Stats.\+java.
 \index{com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}!mean\+Speed@{mean\+Speed}}
 \index{mean\+Speed@{mean\+Speed}!com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}}
 \subsubsection{\texorpdfstring{mean\+Speed}{meanSpeed}}
-{\footnotesize\ttfamily float com.\+activitytracker.\+Run\+Stats.\+mean\+Speed\hspace{0.3cm}{\ttfamily [package]}}
+{\footnotesize\ttfamily float com.\+activitytracker.\+Run\+Stats.\+mean\+Speed\hspace{0.3cm}{\ttfamily [private]}}
 
 The average speed for all runs in \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a0fd429e9f463ddf4897c507c0e3c0a12}{Run\+Stats\+::runs}}. 
 
@@ -461,7 +461,7 @@ Definition at line 20 of file Run\+Stats.\+java.
 \index{com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}!runs@{runs}}
 \index{runs@{runs}!com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}}
 \subsubsection{\texorpdfstring{runs}{runs}}
-{\footnotesize\ttfamily Vector$<$\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run}{Run}}$>$ com.\+activitytracker.\+Run\+Stats.\+runs\hspace{0.3cm}{\ttfamily [package]}}
+{\footnotesize\ttfamily Vector$<$\mbox{\hyperlink{classcom_1_1activitytracker_1_1_run}{Run}}$>$ com.\+activitytracker.\+Run\+Stats.\+runs\hspace{0.3cm}{\ttfamily [private]}}
 
 The runs for which the statistics in the \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats}{Run\+Stats}} object pertain. 
 
@@ -471,7 +471,7 @@ Definition at line 16 of file Run\+Stats.\+java.
 \index{com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}!total\+Altitude\+Ascended@{total\+Altitude\+Ascended}}
 \index{total\+Altitude\+Ascended@{total\+Altitude\+Ascended}!com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}}
 \subsubsection{\texorpdfstring{total\+Altitude\+Ascended}{totalAltitudeAscended}}
-{\footnotesize\ttfamily float com.\+activitytracker.\+Run\+Stats.\+total\+Altitude\+Ascended\hspace{0.3cm}{\ttfamily [package]}}
+{\footnotesize\ttfamily float com.\+activitytracker.\+Run\+Stats.\+total\+Altitude\+Ascended\hspace{0.3cm}{\ttfamily [private]}}
 
 Cumulative altitude climbed for all runs in \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a0fd429e9f463ddf4897c507c0e3c0a12}{Run\+Stats\+::runs}}. 
 
@@ -481,7 +481,7 @@ Definition at line 32 of file Run\+Stats.\+java.
 \index{com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}!total\+Altitude\+Descended@{total\+Altitude\+Descended}}
 \index{total\+Altitude\+Descended@{total\+Altitude\+Descended}!com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}}
 \subsubsection{\texorpdfstring{total\+Altitude\+Descended}{totalAltitudeDescended}}
-{\footnotesize\ttfamily float com.\+activitytracker.\+Run\+Stats.\+total\+Altitude\+Descended\hspace{0.3cm}{\ttfamily [package]}}
+{\footnotesize\ttfamily float com.\+activitytracker.\+Run\+Stats.\+total\+Altitude\+Descended\hspace{0.3cm}{\ttfamily [private]}}
 
 Cumulative altitude descended for all runs in \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a0fd429e9f463ddf4897c507c0e3c0a12}{Run\+Stats\+::runs}}. 
 
@@ -491,7 +491,7 @@ Definition at line 40 of file Run\+Stats.\+java.
 \index{com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}!total\+Distance@{total\+Distance}}
 \index{total\+Distance@{total\+Distance}!com\+::activitytracker\+::\+Run\+Stats@{com\+::activitytracker\+::\+Run\+Stats}}
 \subsubsection{\texorpdfstring{total\+Distance}{totalDistance}}
-{\footnotesize\ttfamily float com.\+activitytracker.\+Run\+Stats.\+total\+Distance\hspace{0.3cm}{\ttfamily [package]}}
+{\footnotesize\ttfamily float com.\+activitytracker.\+Run\+Stats.\+total\+Distance\hspace{0.3cm}{\ttfamily [private]}}
 
 Cumulative distance ran for all runs in \mbox{\hyperlink{classcom_1_1activitytracker_1_1_run_stats_a0fd429e9f463ddf4897c507c0e3c0a12}{Run\+Stats\+::runs}}. 
 

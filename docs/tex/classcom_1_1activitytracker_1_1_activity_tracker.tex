@@ -62,8 +62,8 @@ Definition at line 33 of file Activity\+Tracker.\+java.
 54         \textcolor{keyword}{final} String logoPath = \textcolor{stringliteral}{"./assets/logo.png"};
 55         ImageIcon imgIcon = \textcolor{keyword}{new} ImageIcon(ActivityTracker.class.getResource(logoPath));
 56         frame.setIconImage(imgIcon.getImage());
-57         frame.setContentPane(\textcolor{keyword}{new} LoginWindow((Void) -> \{
-58             frame.setContentPane(\textcolor{keyword}{new} MainWindow(dbManager).rootPanel());
+57         frame.setContentPane(\textcolor{keyword}{new} LoginWindow((\textcolor{keyword}{final} User user) -> \{
+58             frame.setContentPane(\textcolor{keyword}{new} MainWindow(dbManager, user).rootPanel());
 59             frame.validate();
 60             frame.repaint();
 61         \}, dbManager).rootPanel());
@@ -71,7 +71,7 @@ Definition at line 33 of file Activity\+Tracker.\+java.
 63         frame.pack();
 64 
 65         \textcolor{comment}{// Set window size to be 1/2 of screen dimensions}
-66         frame.setSize(gd.getDisplayMode().getWidth() / 2, gd.getDisplayMode().getHeight() / 2);
+66         frame.setSize(gd.getDisplayMode().getWidth() * 2/3 , gd.getDisplayMode().getHeight() * 2/3);
 67         frame.setLocationRelativeTo(null); \textcolor{comment}{// Center window}
 68         frame.setVisible(\textcolor{keyword}{true});
 69     \}

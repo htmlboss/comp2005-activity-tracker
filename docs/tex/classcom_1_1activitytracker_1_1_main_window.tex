@@ -7,31 +7,35 @@ Collaboration diagram for com.\+activitytracker.\+Main\+Window\+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=234pt]{classcom_1_1activitytracker_1_1_main_window__coll__graph}
+\includegraphics[width=350pt]{classcom_1_1activitytracker_1_1_main_window__coll__graph}
 \end{center}
 \end{figure}
 \subsection*{Package Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_ae6bdfbe608d54293b9102ca3fe6cdcdc}{Main\+Window}} (\mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager}{D\+B\+Manager}} dbmanager)
+\mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_ad89306d2683db39f9d17c7b06d814bed}{Main\+Window}} (\mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager}{D\+B\+Manager}} dbmanager, final \mbox{\hyperlink{classcom_1_1activitytracker_1_1_user}{User}} user)
 \item 
 J\+Panel \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_a62e9c6f477ccc5b93aff33abb567fde4}{root\+Panel}} ()
 \end{DoxyCompactItemize}
 \subsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_a53a019623a37b950473359fc625b6423}{setup\+UI}} ()
+void \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_a53a019623a37b950473359fc625b6423}{setup\+UI}} ()  throws Headless\+Exception 
+\item 
+void \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_ae3955dd50087d95257d029b9c67ac185}{populate\+Table}} ()
 \item 
 void \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_a76b3e8567b228ccd26f09c15ebaddb72}{setup\+Action\+Listeners}} ()
 \end{DoxyCompactItemize}
 \subsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
+final Default\+Table\+Model \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_a5e90682f487d5bb840e3afada9e7ff9a}{m\+\_\+table\+Model}} = new Default\+Table\+Model()
+\item 
 J\+Panel \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_ac3d61c032aef87f12b1ae6f7dbf482c3}{m\+\_\+root\+Panel}}
 \item 
 J\+Panel \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_a6baf76b2b8ede1ba82fc6d096ddb580b}{top\+Panel}}
 \item 
-J\+Button \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_adec15801f8e16f769bd954e351a663fa}{button\+My\+Activity}}
+J\+Button \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_a2e469a48de58cf91979d95148972379b}{button\+Import\+Data}}
 \item 
 J\+Panel \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_aaa5ce3b10bff65231c65a3d4b33724b0}{content\+Panel}}
 \item 
@@ -41,40 +45,103 @@ J\+Panel \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_a89833c824
 \item 
 J\+Table \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_a0ad6d3ca1298275eba15a9ea189d4d9b}{table\+My\+Activity}}
 \item 
+J\+Label \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_ac43562736a60a2df2520fbe07e83bc54}{label\+Hey\+There}}
+\item 
+J\+Text\+Field \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_ab3ce75740bdeca26fec4325f1d5260e1}{text\+Field\+End\+Date}}
+\item 
+J\+Text\+Field \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_a57257f1403dc59df568de3ac51cdb90a}{text\+Field\+Start\+Date}}
+\item 
+J\+Button \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_ad25fa99a0108ee160ede6865ecf3b6f0}{button\+Go}}
+\item 
+J\+Text\+Area \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_ac8e2aa82f079b11dbdc5bcf2e81d2324}{text\+Area\+Stats}}
+\item 
 \mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager}{D\+B\+Manager}} \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_ab2af51cb35794567e55564a4d3abbb79}{m\+\_\+db\+Manager}} = null
+\item 
+\mbox{\hyperlink{classcom_1_1activitytracker_1_1_user}{User}} \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_a96e28fa47e1740a7ddc16aa48406db85}{m\+\_\+user}}
 \end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 
 
-Definition at line 12 of file Main\+Window.\+java.
+Definition at line 19 of file Main\+Window.\+java.
 
 
 
 \subsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classcom_1_1activitytracker_1_1_main_window_ae6bdfbe608d54293b9102ca3fe6cdcdc}\label{classcom_1_1activitytracker_1_1_main_window_ae6bdfbe608d54293b9102ca3fe6cdcdc}} 
+\mbox{\Hypertarget{classcom_1_1activitytracker_1_1_main_window_ad89306d2683db39f9d17c7b06d814bed}\label{classcom_1_1activitytracker_1_1_main_window_ad89306d2683db39f9d17c7b06d814bed}} 
 \index{com\+::activitytracker\+::\+Main\+Window@{com\+::activitytracker\+::\+Main\+Window}!Main\+Window@{Main\+Window}}
 \index{Main\+Window@{Main\+Window}!com\+::activitytracker\+::\+Main\+Window@{com\+::activitytracker\+::\+Main\+Window}}
 \subsubsection{\texorpdfstring{Main\+Window()}{MainWindow()}}
-{\footnotesize\ttfamily com.\+activitytracker.\+Main\+Window.\+Main\+Window (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager}{D\+B\+Manager}}}]{dbmanager }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [package]}}
+{\footnotesize\ttfamily com.\+activitytracker.\+Main\+Window.\+Main\+Window (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1activitytracker_1_1_d_b_manager}{D\+B\+Manager}}}]{dbmanager,  }\item[{final \mbox{\hyperlink{classcom_1_1activitytracker_1_1_user}{User}}}]{user }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [package]}}
 
 
 
-Definition at line 23 of file Main\+Window.\+java.
+Definition at line 38 of file Main\+Window.\+java.
 
 
 \begin{DoxyCode}
-23                                     \{
-24         \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_ab2af51cb35794567e55564a4d3abbb79}{m\_dbManager}} = dbmanager;
-25 
-26         \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_a53a019623a37b950473359fc625b6423}{setupUI}}();
-27         \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_a76b3e8567b228ccd26f09c15ebaddb72}{setupActionListeners}}();
-28     \}
+38                                                      \{
+39         \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_ab2af51cb35794567e55564a4d3abbb79}{m\_dbManager}} = dbmanager;
+40         \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_a96e28fa47e1740a7ddc16aa48406db85}{m\_user}} = user;
+41 
+42         \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_a53a019623a37b950473359fc625b6423}{setupUI}}();
+43         \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_a76b3e8567b228ccd26f09c15ebaddb72}{setupActionListeners}}();
+44     \}
 \end{DoxyCode}
 
 
 \subsection{Member Function Documentation}
+\mbox{\Hypertarget{classcom_1_1activitytracker_1_1_main_window_ae3955dd50087d95257d029b9c67ac185}\label{classcom_1_1activitytracker_1_1_main_window_ae3955dd50087d95257d029b9c67ac185}} 
+\index{com\+::activitytracker\+::\+Main\+Window@{com\+::activitytracker\+::\+Main\+Window}!populate\+Table@{populate\+Table}}
+\index{populate\+Table@{populate\+Table}!com\+::activitytracker\+::\+Main\+Window@{com\+::activitytracker\+::\+Main\+Window}}
+\subsubsection{\texorpdfstring{populate\+Table()}{populateTable()}}
+{\footnotesize\ttfamily void com.\+activitytracker.\+Main\+Window.\+populate\+Table (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 74 of file Main\+Window.\+java.
+
+
+\begin{DoxyCode}
+74                                  \{
+75 
+76         \textcolor{comment}{// Clear table model}
+77         \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_a5e90682f487d5bb840e3afada9e7ff9a}{m\_tableModel}}.setRowCount(0);
+78 
+79         \textcolor{keyword}{final} Vector<String> columnNames = \textcolor{keyword}{new} Vector<>();
+80         columnNames.add(\textcolor{stringliteral}{"Date"});
+81         columnNames.add(\textcolor{stringliteral}{"Duration (sec)"});
+82         columnNames.add(\textcolor{stringliteral}{"Distance (m)"});
+83         columnNames.add(\textcolor{stringliteral}{"Altitude + (m)"});
+84         columnNames.add(\textcolor{stringliteral}{"Altitude - (m)"});
+85 
+86         \textcolor{keyword}{final} Vector<Run> runs = Run.getRuns(\mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_ab2af51cb35794567e55564a4d3abbb79}{m\_dbManager}}, \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_a96e28fa47e1740a7ddc16aa48406db85}{m\_user}}, \textcolor{keyword}{new} Date(Long.MIN\_VALUE)
+      , \textcolor{keyword}{new} Date(Long.MAX\_VALUE));
+87         \textcolor{keyword}{final} Vector<Vector<Object>> dataVector = \textcolor{keyword}{new} Vector<>();
+88 
+89         \textcolor{keywordflow}{if} (runs == null) \{
+90             \textcolor{keywordflow}{return};
+91         \}
+92 
+93         \textcolor{keywordflow}{if} (!runs.isEmpty()) \{
+94             \textcolor{keywordflow}{for} (\textcolor{keyword}{final} Run run : runs) \{
+95                 \textcolor{keyword}{final} Vector<Object> row = \textcolor{keyword}{new} Vector<>();
+96 
+97                 row.add(run.getRunDate());
+98                 row.add(run.getDuration());
+99                 row.add(run.getDistance());
+100                 row.add(run.getAltitudeAscended());
+101                 row.add(run.getAltitudeDescended());
+102 
+103                 dataVector.add(row);
+104             \}
+105         \}
+106 
+107         \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_a5e90682f487d5bb840e3afada9e7ff9a}{m\_tableModel}}.setDataVector(dataVector, columnNames);
+108         \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_a5e90682f487d5bb840e3afada9e7ff9a}{m\_tableModel}}.setColumnCount(5);
+109     \}
+\end{DoxyCode}
 \mbox{\Hypertarget{classcom_1_1activitytracker_1_1_main_window_a62e9c6f477ccc5b93aff33abb567fde4}\label{classcom_1_1activitytracker_1_1_main_window_a62e9c6f477ccc5b93aff33abb567fde4}} 
 \index{com\+::activitytracker\+::\+Main\+Window@{com\+::activitytracker\+::\+Main\+Window}!root\+Panel@{root\+Panel}}
 \index{root\+Panel@{root\+Panel}!com\+::activitytracker\+::\+Main\+Window@{com\+::activitytracker\+::\+Main\+Window}}
@@ -83,13 +150,13 @@ Definition at line 23 of file Main\+Window.\+java.
 
 
 
-Definition at line 58 of file Main\+Window.\+java.
+Definition at line 177 of file Main\+Window.\+java.
 
 
 \begin{DoxyCode}
-58                        \{
-59         \textcolor{keywordflow}{return} \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_ac3d61c032aef87f12b1ae6f7dbf482c3}{m\_rootPanel}};
-60     \}
+177                        \{
+178         \textcolor{keywordflow}{return} \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_ac3d61c032aef87f12b1ae6f7dbf482c3}{m\_rootPanel}};
+179     \}
 \end{DoxyCode}
 \mbox{\Hypertarget{classcom_1_1activitytracker_1_1_main_window_a76b3e8567b228ccd26f09c15ebaddb72}\label{classcom_1_1activitytracker_1_1_main_window_a76b3e8567b228ccd26f09c15ebaddb72}} 
 \index{com\+::activitytracker\+::\+Main\+Window@{com\+::activitytracker\+::\+Main\+Window}!setup\+Action\+Listeners@{setup\+Action\+Listeners}}
@@ -99,62 +166,141 @@ Definition at line 58 of file Main\+Window.\+java.
 
 
 
-Definition at line 48 of file Main\+Window.\+java.
+Definition at line 111 of file Main\+Window.\+java.
 
 
 \begin{DoxyCode}
-48                                         \{
-49         \textcolor{comment}{// My Activity button}
-50         \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_adec15801f8e16f769bd954e351a663fa}{buttonMyActivity}}.addActionListener(\textcolor{keyword}{new} ActionListener() \{
-51             @Override
-52             \textcolor{keyword}{public} \textcolor{keywordtype}{void} actionPerformed(ActionEvent actionEvent) \{
-53                 \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_a89833c824727a496f4a889177d4d3f3c}{panelMyActivity}}.setVisible(\textcolor{keyword}{true});
-54             \}
-55         \});
-56     \}
+111                                         \{
+112         \textcolor{comment}{// My Activity button}
+113         \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_a2e469a48de58cf91979d95148972379b}{buttonImportData}}.addActionListener(\textcolor{keyword}{new} ActionListener() \{
+114             @Override
+115             \textcolor{keyword}{public} \textcolor{keywordtype}{void} actionPerformed(ActionEvent actionEvent) \{
+116                 \textcolor{keyword}{final} JFileChooser fc = \textcolor{keyword}{new} JFileChooser();
+117                 FileNameExtensionFilter filter = \textcolor{keyword}{new} FileNameExtensionFilter(\textcolor{stringliteral}{"CSV Files"}, \textcolor{stringliteral}{"csv"});
+118                 fc.setFileFilter(filter);
+119                 \textcolor{keyword}{final} \textcolor{keywordtype}{int} res = fc.showOpenDialog(null);
+120 
+121                 \textcolor{keywordflow}{if} (res == JFileChooser.APPROVE\_OPTION) \{
+122                     \textcolor{keyword}{final} File file = fc.getSelectedFile();
+123 
+124                     \textcolor{comment}{// Run in separate thread}
+125                     \textcolor{keyword}{new} SwingWorker<Void, Void>() \{
+126                         @Override
+127                         \textcolor{keyword}{protected} Void doInBackground() \{
+128                             \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_a2e469a48de58cf91979d95148972379b}{buttonImportData}}.setEnabled(\textcolor{keyword}{false});
+129                             \textcolor{keywordflow}{try} \{
+130                                 Run.bulkImport(\mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_ab2af51cb35794567e55564a4d3abbb79}{m\_dbManager}}, \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_a96e28fa47e1740a7ddc16aa48406db85}{m\_user}}, file.getAbsolutePath()
+      );
+131                             \} \textcolor{keywordflow}{catch}(\textcolor{keyword}{final} Exception e) \{
+132                                 \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_a2e469a48de58cf91979d95148972379b}{buttonImportData}}.setEnabled(\textcolor{keyword}{true});
+133                                 \textcolor{keywordflow}{return} null;
+134                             \}
+135 
+136                             \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_ae3955dd50087d95257d029b9c67ac185}{populateTable}}();
+137 
+138                             \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_a2e469a48de58cf91979d95148972379b}{buttonImportData}}.setEnabled(\textcolor{keyword}{true});
+139                             \textcolor{keywordflow}{return} null;
+140                         \}
+141                     \}.execute();
+142                 \}
+143             \}
+144         \});
+145 
+146         \textcolor{comment}{// Go button}
+147         \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_ad25fa99a0108ee160ede6865ecf3b6f0}{buttonGo}}.addActionListener(\textcolor{keyword}{new} ActionListener() \{
+148             @Override
+149             \textcolor{keyword}{public} \textcolor{keywordtype}{void} actionPerformed(ActionEvent e) \{
+150                 \textcolor{keyword}{final} String start = \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_a57257f1403dc59df568de3ac51cdb90a}{textFieldStartDate}}.getText();
+151                 \textcolor{keyword}{final} String end = \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_ab3ce75740bdeca26fec4325f1d5260e1}{textFieldEndDate}}.getText();
+152                 Date startDate, endDate;
+153 
+154                 DateFormat sourceFormat = \textcolor{keyword}{new} SimpleDateFormat(\textcolor{stringliteral}{"dd-MM-yyyy"});
+155                 \textcolor{keywordflow}{try} \{
+156                     startDate = sourceFormat.parse(start);
+157                     endDate = sourceFormat.parse(end);
+158                     Vector<Run> runs = Run.getRuns(\mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_ab2af51cb35794567e55564a4d3abbb79}{m\_dbManager}}, 
+      \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_a96e28fa47e1740a7ddc16aa48406db85}{m\_user}}, startDate, endDate);
+159                     RunStats stats = \textcolor{keyword}{new} RunStats(runs);
+160                     String statStr = \textcolor{stringliteral}{"Run Stats beginning at "} + start + \textcolor{stringliteral}{" and ending at "} + end + \textcolor{stringliteral}{":\(\backslash\)n"} +
+161                             \textcolor{stringliteral}{"Average Run Duration: "} + stats.getMeanDuration() + \textcolor{stringliteral}{"\(\backslash\)n"} +
+162                             \textcolor{stringliteral}{"Average Speed: "} + stats.getMeanSpeed() + \textcolor{stringliteral}{"\(\backslash\)n"} +
+163                             \textcolor{stringliteral}{"Average Distance: "} + stats.getMeanDistance() + \textcolor{stringliteral}{"\(\backslash\)n"} +
+164                             \textcolor{stringliteral}{"Total Distance: "} + stats.getTotalDistance() + \textcolor{stringliteral}{"\(\backslash\)n"} +
+165                             \textcolor{stringliteral}{"Average Altitude Ascended: "} + stats.getMeanAltitudeAscended() + \textcolor{stringliteral}{"\(\backslash\)n"} +
+166                             \textcolor{stringliteral}{"Total Altiitude Ascended: "} + stats.getTotalAltitudeAscended() + \textcolor{stringliteral}{"\(\backslash\)n"} +
+167                             \textcolor{stringliteral}{"Average Altitude Descended: "} + stats.getMeanAltitudeDescended();
+168                     \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_ac8e2aa82f079b11dbdc5bcf2e81d2324}{textAreaStats}}.setText(statStr);
+169                 \}
+170                 \textcolor{keywordflow}{catch} (\textcolor{keyword}{final} ParseException ex) \{
+171                     System.err.println(ex.getMessage());
+172                 \}
+173             \}
+174         \});
+175     \}
 \end{DoxyCode}
 \mbox{\Hypertarget{classcom_1_1activitytracker_1_1_main_window_a53a019623a37b950473359fc625b6423}\label{classcom_1_1activitytracker_1_1_main_window_a53a019623a37b950473359fc625b6423}} 
 \index{com\+::activitytracker\+::\+Main\+Window@{com\+::activitytracker\+::\+Main\+Window}!setup\+UI@{setup\+UI}}
 \index{setup\+UI@{setup\+UI}!com\+::activitytracker\+::\+Main\+Window@{com\+::activitytracker\+::\+Main\+Window}}
 \subsubsection{\texorpdfstring{setup\+U\+I()}{setupUI()}}
-{\footnotesize\ttfamily void com.\+activitytracker.\+Main\+Window.\+setup\+UI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily void com.\+activitytracker.\+Main\+Window.\+setup\+UI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws Headless\+Exception\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
-Definition at line 30 of file Main\+Window.\+java.
+Definition at line 46 of file Main\+Window.\+java.
 
 
 \begin{DoxyCode}
-30                            \{
-31 
-32         \textcolor{comment}{// Apply Material-defined hover effect to buttons}
-33         Color coolGrey10 = \textcolor{keyword}{new} Color(99, 102, 106);
-34         Color coolGrey11 = \textcolor{keyword}{new} Color(83, 86, 90);
-35         MaterialUIMovement.add(\mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_adec15801f8e16f769bd954e351a663fa}{buttonMyActivity}}, coolGrey11);
-36 
-37         \textcolor{comment}{// Load and scale logo into UI}
-38         String logoPath = \textcolor{stringliteral}{"./assets/logo.png"};
-39         ImageIcon imageIcon = \textcolor{keyword}{new} ImageIcon(getClass().getResource(logoPath));
-40         \textcolor{keyword}{final} Image image = imageIcon.getImage(); \textcolor{comment}{// transform it}
-41         \textcolor{keyword}{final} Image newimg = image.getScaledInstance(50, 50, java.awt.Image.SCALE\_SMOOTH);
-42         imageIcon = \textcolor{keyword}{new} ImageIcon(newimg);  \textcolor{comment}{// transform it back}
-43         \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_a05a555ba49d30b00573d07e5acd39e0a}{labelProfileIcon}}.setIcon(imageIcon);
-44 
-45         \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_a89833c824727a496f4a889177d4d3f3c}{panelMyActivity}}.setVisible(\textcolor{keyword}{true});
-46     \}
+46                                                     \{
+47 
+48         \textcolor{comment}{// Apply Material-defined hover effect to buttons}
+49         Color coolGrey11 = \textcolor{keyword}{new} Color(83, 86, 90);
+50         MaterialUIMovement.add(\mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_a2e469a48de58cf91979d95148972379b}{buttonImportData}}, coolGrey11);
+51         MaterialUIMovement.add(\mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_a2e469a48de58cf91979d95148972379b}{buttonImportData}}, coolGrey11);
+52 
+53         \textcolor{comment}{// Load and scale logo into UI}
+54         String logoPath = \textcolor{stringliteral}{"./assets/logo.png"};
+55         ImageIcon imageIcon = \textcolor{keyword}{new} ImageIcon(getClass().getResource(logoPath));
+56         \textcolor{keyword}{final} Image image = imageIcon.getImage(); \textcolor{comment}{// transform it}
+57         \textcolor{keyword}{final} Image newimg = image.getScaledInstance(50, 50, java.awt.Image.SCALE\_SMOOTH);
+58         imageIcon = \textcolor{keyword}{new} ImageIcon(newimg);  \textcolor{comment}{// transform it back}
+59         \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_a05a555ba49d30b00573d07e5acd39e0a}{labelProfileIcon}}.setIcon(imageIcon);
+60 
+61         \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_a57257f1403dc59df568de3ac51cdb90a}{textFieldStartDate}}.setText(\textcolor{stringliteral}{"DD-MM-YYYY"});
+62         \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_ab3ce75740bdeca26fec4325f1d5260e1}{textFieldEndDate}}.setText(\textcolor{stringliteral}{"DD-MM-YYYY"});
+63 
+64         \textcolor{comment}{// Show first name in greeting}
+65         \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_ac43562736a60a2df2520fbe07e83bc54}{labelHeyThere}}.setText(String.format(\textcolor{stringliteral}{"Hey %s!"}, \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_a96e28fa47e1740a7ddc16aa48406db85}{m\_user}}.
+      \mbox{\hyperlink{classcom_1_1activitytracker_1_1_user_a6b39e49a1e49279035fd61a667d14f64}{getName}}().split(\textcolor{stringliteral}{" "}, 2)[0]));
+66 
+67         \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_a89833c824727a496f4a889177d4d3f3c}{panelMyActivity}}.setVisible(\textcolor{keyword}{true});
+68 
+69         \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_ae3955dd50087d95257d029b9c67ac185}{populateTable}}();
+70 
+71         \mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_a0ad6d3ca1298275eba15a9ea189d4d9b}{tableMyActivity}}.setModel(\mbox{\hyperlink{classcom_1_1activitytracker_1_1_main_window_a5e90682f487d5bb840e3afada9e7ff9a}{m\_tableModel}});
+72     \}
 \end{DoxyCode}
 
 
 \subsection{Member Data Documentation}
-\mbox{\Hypertarget{classcom_1_1activitytracker_1_1_main_window_adec15801f8e16f769bd954e351a663fa}\label{classcom_1_1activitytracker_1_1_main_window_adec15801f8e16f769bd954e351a663fa}} 
-\index{com\+::activitytracker\+::\+Main\+Window@{com\+::activitytracker\+::\+Main\+Window}!button\+My\+Activity@{button\+My\+Activity}}
-\index{button\+My\+Activity@{button\+My\+Activity}!com\+::activitytracker\+::\+Main\+Window@{com\+::activitytracker\+::\+Main\+Window}}
-\subsubsection{\texorpdfstring{button\+My\+Activity}{buttonMyActivity}}
-{\footnotesize\ttfamily J\+Button com.\+activitytracker.\+Main\+Window.\+button\+My\+Activity\hspace{0.3cm}{\ttfamily [private]}}
+\mbox{\Hypertarget{classcom_1_1activitytracker_1_1_main_window_ad25fa99a0108ee160ede6865ecf3b6f0}\label{classcom_1_1activitytracker_1_1_main_window_ad25fa99a0108ee160ede6865ecf3b6f0}} 
+\index{com\+::activitytracker\+::\+Main\+Window@{com\+::activitytracker\+::\+Main\+Window}!button\+Go@{button\+Go}}
+\index{button\+Go@{button\+Go}!com\+::activitytracker\+::\+Main\+Window@{com\+::activitytracker\+::\+Main\+Window}}
+\subsubsection{\texorpdfstring{button\+Go}{buttonGo}}
+{\footnotesize\ttfamily J\+Button com.\+activitytracker.\+Main\+Window.\+button\+Go\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
-Definition at line 15 of file Main\+Window.\+java.
+Definition at line 32 of file Main\+Window.\+java.
+
+\mbox{\Hypertarget{classcom_1_1activitytracker_1_1_main_window_a2e469a48de58cf91979d95148972379b}\label{classcom_1_1activitytracker_1_1_main_window_a2e469a48de58cf91979d95148972379b}} 
+\index{com\+::activitytracker\+::\+Main\+Window@{com\+::activitytracker\+::\+Main\+Window}!button\+Import\+Data@{button\+Import\+Data}}
+\index{button\+Import\+Data@{button\+Import\+Data}!com\+::activitytracker\+::\+Main\+Window@{com\+::activitytracker\+::\+Main\+Window}}
+\subsubsection{\texorpdfstring{button\+Import\+Data}{buttonImportData}}
+{\footnotesize\ttfamily J\+Button com.\+activitytracker.\+Main\+Window.\+button\+Import\+Data\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 24 of file Main\+Window.\+java.
 
 \mbox{\Hypertarget{classcom_1_1activitytracker_1_1_main_window_aaa5ce3b10bff65231c65a3d4b33724b0}\label{classcom_1_1activitytracker_1_1_main_window_aaa5ce3b10bff65231c65a3d4b33724b0}} 
 \index{com\+::activitytracker\+::\+Main\+Window@{com\+::activitytracker\+::\+Main\+Window}!content\+Panel@{content\+Panel}}
@@ -164,7 +310,17 @@ Definition at line 15 of file Main\+Window.\+java.
 
 
 
-Definition at line 16 of file Main\+Window.\+java.
+Definition at line 25 of file Main\+Window.\+java.
+
+\mbox{\Hypertarget{classcom_1_1activitytracker_1_1_main_window_ac43562736a60a2df2520fbe07e83bc54}\label{classcom_1_1activitytracker_1_1_main_window_ac43562736a60a2df2520fbe07e83bc54}} 
+\index{com\+::activitytracker\+::\+Main\+Window@{com\+::activitytracker\+::\+Main\+Window}!label\+Hey\+There@{label\+Hey\+There}}
+\index{label\+Hey\+There@{label\+Hey\+There}!com\+::activitytracker\+::\+Main\+Window@{com\+::activitytracker\+::\+Main\+Window}}
+\subsubsection{\texorpdfstring{label\+Hey\+There}{labelHeyThere}}
+{\footnotesize\ttfamily J\+Label com.\+activitytracker.\+Main\+Window.\+label\+Hey\+There\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 29 of file Main\+Window.\+java.
 
 \mbox{\Hypertarget{classcom_1_1activitytracker_1_1_main_window_a05a555ba49d30b00573d07e5acd39e0a}\label{classcom_1_1activitytracker_1_1_main_window_a05a555ba49d30b00573d07e5acd39e0a}} 
 \index{com\+::activitytracker\+::\+Main\+Window@{com\+::activitytracker\+::\+Main\+Window}!label\+Profile\+Icon@{label\+Profile\+Icon}}
@@ -174,7 +330,7 @@ Definition at line 16 of file Main\+Window.\+java.
 
 
 
-Definition at line 17 of file Main\+Window.\+java.
+Definition at line 26 of file Main\+Window.\+java.
 
 \mbox{\Hypertarget{classcom_1_1activitytracker_1_1_main_window_ab2af51cb35794567e55564a4d3abbb79}\label{classcom_1_1activitytracker_1_1_main_window_ab2af51cb35794567e55564a4d3abbb79}} 
 \index{com\+::activitytracker\+::\+Main\+Window@{com\+::activitytracker\+::\+Main\+Window}!m\+\_\+db\+Manager@{m\+\_\+db\+Manager}}
@@ -184,7 +340,7 @@ Definition at line 17 of file Main\+Window.\+java.
 
 
 
-Definition at line 21 of file Main\+Window.\+java.
+Definition at line 35 of file Main\+Window.\+java.
 
 \mbox{\Hypertarget{classcom_1_1activitytracker_1_1_main_window_ac3d61c032aef87f12b1ae6f7dbf482c3}\label{classcom_1_1activitytracker_1_1_main_window_ac3d61c032aef87f12b1ae6f7dbf482c3}} 
 \index{com\+::activitytracker\+::\+Main\+Window@{com\+::activitytracker\+::\+Main\+Window}!m\+\_\+root\+Panel@{m\+\_\+root\+Panel}}
@@ -194,7 +350,27 @@ Definition at line 21 of file Main\+Window.\+java.
 
 
 
-Definition at line 13 of file Main\+Window.\+java.
+Definition at line 22 of file Main\+Window.\+java.
+
+\mbox{\Hypertarget{classcom_1_1activitytracker_1_1_main_window_a5e90682f487d5bb840e3afada9e7ff9a}\label{classcom_1_1activitytracker_1_1_main_window_a5e90682f487d5bb840e3afada9e7ff9a}} 
+\index{com\+::activitytracker\+::\+Main\+Window@{com\+::activitytracker\+::\+Main\+Window}!m\+\_\+table\+Model@{m\+\_\+table\+Model}}
+\index{m\+\_\+table\+Model@{m\+\_\+table\+Model}!com\+::activitytracker\+::\+Main\+Window@{com\+::activitytracker\+::\+Main\+Window}}
+\subsubsection{\texorpdfstring{m\+\_\+table\+Model}{m\_tableModel}}
+{\footnotesize\ttfamily final Default\+Table\+Model com.\+activitytracker.\+Main\+Window.\+m\+\_\+table\+Model = new Default\+Table\+Model()\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 20 of file Main\+Window.\+java.
+
+\mbox{\Hypertarget{classcom_1_1activitytracker_1_1_main_window_a96e28fa47e1740a7ddc16aa48406db85}\label{classcom_1_1activitytracker_1_1_main_window_a96e28fa47e1740a7ddc16aa48406db85}} 
+\index{com\+::activitytracker\+::\+Main\+Window@{com\+::activitytracker\+::\+Main\+Window}!m\+\_\+user@{m\+\_\+user}}
+\index{m\+\_\+user@{m\+\_\+user}!com\+::activitytracker\+::\+Main\+Window@{com\+::activitytracker\+::\+Main\+Window}}
+\subsubsection{\texorpdfstring{m\+\_\+user}{m\_user}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcom_1_1activitytracker_1_1_user}{User}} com.\+activitytracker.\+Main\+Window.\+m\+\_\+user\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 36 of file Main\+Window.\+java.
 
 \mbox{\Hypertarget{classcom_1_1activitytracker_1_1_main_window_a89833c824727a496f4a889177d4d3f3c}\label{classcom_1_1activitytracker_1_1_main_window_a89833c824727a496f4a889177d4d3f3c}} 
 \index{com\+::activitytracker\+::\+Main\+Window@{com\+::activitytracker\+::\+Main\+Window}!panel\+My\+Activity@{panel\+My\+Activity}}
@@ -204,7 +380,7 @@ Definition at line 13 of file Main\+Window.\+java.
 
 
 
-Definition at line 18 of file Main\+Window.\+java.
+Definition at line 27 of file Main\+Window.\+java.
 
 \mbox{\Hypertarget{classcom_1_1activitytracker_1_1_main_window_a0ad6d3ca1298275eba15a9ea189d4d9b}\label{classcom_1_1activitytracker_1_1_main_window_a0ad6d3ca1298275eba15a9ea189d4d9b}} 
 \index{com\+::activitytracker\+::\+Main\+Window@{com\+::activitytracker\+::\+Main\+Window}!table\+My\+Activity@{table\+My\+Activity}}
@@ -214,7 +390,37 @@ Definition at line 18 of file Main\+Window.\+java.
 
 
 
-Definition at line 19 of file Main\+Window.\+java.
+Definition at line 28 of file Main\+Window.\+java.
+
+\mbox{\Hypertarget{classcom_1_1activitytracker_1_1_main_window_ac8e2aa82f079b11dbdc5bcf2e81d2324}\label{classcom_1_1activitytracker_1_1_main_window_ac8e2aa82f079b11dbdc5bcf2e81d2324}} 
+\index{com\+::activitytracker\+::\+Main\+Window@{com\+::activitytracker\+::\+Main\+Window}!text\+Area\+Stats@{text\+Area\+Stats}}
+\index{text\+Area\+Stats@{text\+Area\+Stats}!com\+::activitytracker\+::\+Main\+Window@{com\+::activitytracker\+::\+Main\+Window}}
+\subsubsection{\texorpdfstring{text\+Area\+Stats}{textAreaStats}}
+{\footnotesize\ttfamily J\+Text\+Area com.\+activitytracker.\+Main\+Window.\+text\+Area\+Stats\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 33 of file Main\+Window.\+java.
+
+\mbox{\Hypertarget{classcom_1_1activitytracker_1_1_main_window_ab3ce75740bdeca26fec4325f1d5260e1}\label{classcom_1_1activitytracker_1_1_main_window_ab3ce75740bdeca26fec4325f1d5260e1}} 
+\index{com\+::activitytracker\+::\+Main\+Window@{com\+::activitytracker\+::\+Main\+Window}!text\+Field\+End\+Date@{text\+Field\+End\+Date}}
+\index{text\+Field\+End\+Date@{text\+Field\+End\+Date}!com\+::activitytracker\+::\+Main\+Window@{com\+::activitytracker\+::\+Main\+Window}}
+\subsubsection{\texorpdfstring{text\+Field\+End\+Date}{textFieldEndDate}}
+{\footnotesize\ttfamily J\+Text\+Field com.\+activitytracker.\+Main\+Window.\+text\+Field\+End\+Date\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 30 of file Main\+Window.\+java.
+
+\mbox{\Hypertarget{classcom_1_1activitytracker_1_1_main_window_a57257f1403dc59df568de3ac51cdb90a}\label{classcom_1_1activitytracker_1_1_main_window_a57257f1403dc59df568de3ac51cdb90a}} 
+\index{com\+::activitytracker\+::\+Main\+Window@{com\+::activitytracker\+::\+Main\+Window}!text\+Field\+Start\+Date@{text\+Field\+Start\+Date}}
+\index{text\+Field\+Start\+Date@{text\+Field\+Start\+Date}!com\+::activitytracker\+::\+Main\+Window@{com\+::activitytracker\+::\+Main\+Window}}
+\subsubsection{\texorpdfstring{text\+Field\+Start\+Date}{textFieldStartDate}}
+{\footnotesize\ttfamily J\+Text\+Field com.\+activitytracker.\+Main\+Window.\+text\+Field\+Start\+Date\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 31 of file Main\+Window.\+java.
 
 \mbox{\Hypertarget{classcom_1_1activitytracker_1_1_main_window_a6baf76b2b8ede1ba82fc6d096ddb580b}\label{classcom_1_1activitytracker_1_1_main_window_a6baf76b2b8ede1ba82fc6d096ddb580b}} 
 \index{com\+::activitytracker\+::\+Main\+Window@{com\+::activitytracker\+::\+Main\+Window}!top\+Panel@{top\+Panel}}
@@ -224,7 +430,7 @@ Definition at line 19 of file Main\+Window.\+java.
 
 
 
-Definition at line 14 of file Main\+Window.\+java.
+Definition at line 23 of file Main\+Window.\+java.
 
 
 
