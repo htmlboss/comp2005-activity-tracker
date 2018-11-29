@@ -63,7 +63,7 @@ class ActivityTracker {
         frame.pack();
 
         // Set window size to be 1/2 of screen dimensions
-        frame.setSize(gd.getDisplayMode().getWidth() / 2, gd.getDisplayMode().getHeight() / 2);
+        frame.setSize(gd.getDisplayMode().getWidth() * 2/3 , gd.getDisplayMode().getHeight() * 2/3);
         frame.setLocationRelativeTo(null); // Center window
         frame.setVisible(true);
     }

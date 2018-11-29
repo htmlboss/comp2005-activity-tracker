@@ -10,6 +10,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Vector;
 
@@ -24,6 +27,10 @@ class MainWindow {
     private JPanel panelMyActivity;
     private JTable tableMyActivity;
     private JLabel labelHeyThere;
+    private JTextField textFieldEndDate;
+    private JTextField textFieldStartDate;
+    private JButton buttonGo;
+    private JTextArea textAreaStats;
 
     private DBManager m_dbManager = null;
     private User m_user;
@@ -41,6 +48,7 @@ class MainWindow {
         // Apply Material-defined hover effect to buttons
         Color coolGrey11 = new Color(83, 86, 90);
         MaterialUIMovement.add(buttonImportData, coolGrey11);
+        MaterialUIMovement.add(buttonImportData, coolGrey11);
 
         // Load and scale logo into UI
         String logoPath = "./assets/logo.png";
@@ -49,6 +57,9 @@ class MainWindow {
         final Image newimg = image.getScaledInstance(50, 50, java.awt.Image.SCALE_SMOOTH);
         imageIcon = new ImageIcon(newimg);  // transform it back
         labelProfileIcon.setIcon(imageIcon);
+
+        textFieldStartDate.setText("DD-MM-YYYY");
+        textFieldEndDate.setText("DD-MM-YYYY");
 
         // Show first name in greeting
         labelHeyThere.setText(String.format("Hey %s!", m_user.getName().split(" ", 2)[0]));
@@ -128,6 +139,36 @@ class MainWindow {
                             return null;
                         }
                     }.execute();
+                }
+            }
+        });
+
+        // Go button
+        buttonGo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                final String start = textFieldStartDate.getText();
+                final String end = textFieldEndDate.getText();
+                Date startDate, endDate;
+
+                DateFormat sourceFormat = new SimpleDateFormat("dd-MM-yyyy");
+                try {
+                    startDate = sourceFormat.parse(start);
+                    endDate = sourceFormat.parse(end);
+                    Vector<Run> runs = Run.getRuns(m_dbManager, m_user, startDate, endDate);
+                    RunStats stats = new RunStats(runs);
+                    String statStr = "Run Stats beginning at " + start + " and ending at " + end + ":\n" +
+                            "Average Run Duration: " + stats.getMeanDuration() + "\n" +
+                            "Average Speed: " + stats.getMeanSpeed() + "\n" +
+                            "Average Distance: " + stats.getMeanDistance() + "\n" +
+                            "Total Distance: " + stats.getTotalDistance() + "\n" +
+                            "Average Altitude Ascended: " + stats.getMeanAltitudeAscended() + "\n" +
+                            "Total Altiitude Ascended: " + stats.getTotalAltitudeAscended() + "\n" +
+                            "Average Altitude Descended: " + stats.getMeanAltitudeDescended();
+                    textAreaStats.setText(statStr);
+                }
+                catch (final ParseException ex) {
+                    System.err.println(ex.getMessage());
                 }
             }
         });

@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -123,10 +125,15 @@ class Run {
                 altitude_ascended = dbManager.getRunFloatAttribute(RunAttribute.ALTITUDE_ASCENDED, rID);
                 altitude_descended = dbManager.getRunFloatAttribute(RunAttribute.ALTITUDE_DESCENDED, rID);
 
-                if (altitude < 0)
-                    altitude_descended += -1*altitude;
-                else
-                    altitude_ascended += altitude;
+                System.err.println("Altitude: " + Float.toString(altitude) + ", +: " + Float.toString(altitude_ascended) + ", -: " + Float.toString(altitude_descended));
+                if (altitude < altitude_ascended-altitude_descended) {
+                    altitude_descended += altitude_ascended - altitude_descended - altitude;
+                    System.err.println("Went down " + Float.toString(altitude_ascended - altitude_descended - altitude));
+                }
+                else {
+                    altitude_ascended += altitude - (altitude_ascended - altitude_descended);
+                    System.err.println("Went up " + Float.toString(altitude - altitude_ascended - altitude_descended));
+                }
 
                 dbManager.setRun(rID, duration, distance, altitude_ascended, altitude_descended);
                 System.err.println("Run " + Integer.toString(rID) + " exists in the database; updating...");
@@ -134,6 +141,11 @@ class Run {
                 System.err.println("Run table and User table are inconsistent. No changes made.");
             }
         }
+
+        altitude_ascended = dbManager.getRunFloatAttribute(RunAttribute.ALTITUDE_ASCENDED, rID);
+        altitude_descended = dbManager.getRunFloatAttribute(RunAttribute.ALTITUDE_DESCENDED, rID);
+
+        System.err.println("+: " + Float.toString(altitude_ascended) + ", -: " + Float.toString(altitude_descended));
     }
 
     /**
@@ -249,7 +261,8 @@ class Run {
      * @return The Run's altitude ascended as defined in the database.
      */
     public float getAltitudeAscended() {
-        return altitudeAscended;
+        BigDecimal a = new BigDecimal(altitudeAscended);
+        return a.setScale(3, RoundingMode.UP).floatValue();
     }
 
     /**
@@ -258,7 +271,8 @@ class Run {
      * @return The Run's altitude descended as defined in the database.
      */
     public float getAltitudeDescended() {
-        return altitudeDescended;
+        BigDecimal a = new BigDecimal(altitudeDescended);
+        return a.setScale(3, RoundingMode.UP).floatValue();
     }
 
     /**
